@@ -98,4 +98,12 @@ DATASETS = {
         "folder": Path(r"C:\benchmark\YeniseiGovReports-TD\test_images"),
         "annotations": Path(r"C:\benchmark\YeniseiGovReports-TD\test.json"),
     },
+    "school_notebooks_RU": {
+        "folder": Path(
+            r"C:\benchmark\school_notebooks_RU\benchmark_validation\images"
+        ),
+        "annotations": Path(
+            r"C:\benchmark\school_notebooks_RU\benchmark_validation\annotations.json"
+        ),
+    },
 }

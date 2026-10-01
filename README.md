@@ -58,3 +58,14 @@ python -m scripts.benchmark_craft_easyocr
 Веса CRAFT автоматически скачиваются в `models/easyocr` при первом запуске.
 
 Результаты каждой модели сохраняются в отдельном каталоге `benchmark_results/`.
+
+## Подготовка school_notebooks_RU
+
+Validation-подвыборка `school_notebooks_RU` преобразуется в единый текстовый
+класс и извлекается из `images.zip` командой:
+
+```powershell
+python -m scripts.prepare_school_notebooks
+```
+
+После подготовки она автоматически участвует в общем запуске бенчмарков.

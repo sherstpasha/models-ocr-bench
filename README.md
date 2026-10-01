@@ -1,81 +1,57 @@
 # models-ocr-bench
 
-Бенчмарки моделей детекции текста на GPU:
+GPU-бенчмарк моделей детекции текста.
 
-- `east_50_g1`;
-- `yolo26s_obb_text_g1` и `yolo26x_obb_text_g1` из `manuscript-ocr`;
-- `RoyRud1902/yolo11n-text`;
-- `Daniil-Domino/yolo11x-dialectic`.
-- `craft_easyocr` — детектор CRAFT из EasyOCR.
-
-## Установка
+## 1. Установка
 
 ```powershell
 python -m venv .venv
 .\.venv\Scripts\Activate.ps1
 python -m pip install -r requirements.txt
-```
-
-Для запуска EAST на NVIDIA GPU установите зависимости ONNX Runtime:
-
-```powershell
-python -m pip uninstall -y onnxruntime
+python -m pip uninstall -y onnxruntime onnxruntime-gpu
 python -m pip install -r requirements-gpu.txt
 ```
 
-## Запуск
+Веса моделей автоматически скачиваются при первом запуске в `models/`.
 
-Пути к датасетам и параметры модели задаются в
-`configs/benchmark_config.py`.
+## 2. Датасеты
 
-Все модели с `run=True`:
+Датасеты скачиваются и распаковываются вручную в `C:\benchmark`:
+
+```text
+C:\benchmark\
+├── YeniseiGovReports-TD\
+├── school_notebooks_RU\
+├── handwritten_essay_v1\  # ссылка будет добавлена позже
+├── ICDAR2015\
+└── TotalText\
+```
+
+Ссылки:
+
+- [YeniseiGovReports-TD](https://huggingface.co/datasets/anna4uonline/YeniseiGovReports-TD)
+- [school_notebooks_RU](https://huggingface.co/datasets/ai-forever/school_notebooks_RU)
+
+Подготовка нестандартных форматов:
+
+```powershell
+python -m scripts.prepare_school_notebooks
+python -m scripts.prepare_handwritten_essay
+```
+
+## 3. Запуск
 
 ```powershell
 python -m scripts.benchmark
 ```
 
-Модели `manuscript-ocr`:
+Уже рассчитанные пары модель/датасет автоматически пропускаются.
 
-```powershell
-python -m scripts.benchmark_east_50_g1
-```
+## 4. Результаты
 
-Модели Ultralytics с Hugging Face:
+- отдельные JSON: `benchmark_results/<model>/<dataset>_<model>.json`;
+- общая CSV-таблица: `benchmark_results/summary.csv`;
+- общая Markdown-таблица: `benchmark_results/summary.md`.
 
-```powershell
-python -m scripts.benchmark_yolo
-```
-
-Весовые файлы с Hugging Face автоматически скачиваются в `models/` при первом
-запуске и повторно используются в последующих запусках.
-
-CRAFT из EasyOCR:
-
-```powershell
-python -m scripts.benchmark_craft_easyocr
-```
-
-Веса CRAFT автоматически скачиваются в `models/easyocr` при первом запуске.
-
-Результаты каждой модели сохраняются в отдельном каталоге `benchmark_results/`.
-
-## Подготовка school_notebooks_RU
-
-Validation-подвыборка `school_notebooks_RU` преобразуется в единый текстовый
-класс и извлекается из `images.zip` командой:
-
-```powershell
-python -m scripts.prepare_school_notebooks
-```
-
-После подготовки она автоматически участвует в общем запуске бенчмарков.
-
-Для преобразования test-подвыборки `handwritten_essay_v1`:
-
-```powershell
-python -m scripts.prepare_handwritten_essay
-```
-
-После общего запуска создаются сводные таблицы
-`benchmark_results/summary.csv` и `benchmark_results/summary.md`. Строки — модели,
-столбцы — датасеты; каждая ячейка содержит `F1@0.5 / F1@0.5:0.95`.
+В сводной таблице строки — модели, столбцы — датасеты, значение —
+`F1@0.5 / F1@0.5:0.95`.

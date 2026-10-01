@@ -10,7 +10,7 @@ import torch
 from PIL import Image
 
 from configs.benchmark_config import BENCHMARKS, DATASETS
-from utils.metrics import evaluate_dataset, has_standard_f1_metrics
+from utils.metrics import evaluate_dataset
 
 
 MODEL_NAME = "craft_easyocr"
@@ -150,8 +150,7 @@ def load_existing_gpu(output_file: Path):
     if not output_file.is_file():
         return None
     with output_file.open("r", encoding="utf-8") as f:
-        gpu_stats = json.load(f).get("gpu")
-    return gpu_stats if has_standard_f1_metrics(gpu_stats) else None
+        return json.load(f).get("gpu")
 
 
 def save_results(output_file: Path, dataset_name: str, gpu_stats):

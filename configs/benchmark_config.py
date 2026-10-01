@@ -107,7 +107,7 @@ DATASETS = {
         ),
     },
     "handwritten_essay_v1": {
-        "folder": Path(r"C:\benchmark\handwritten_essay_v1\images_test"),
+        "folder": Path(r"C:\benchmark\handwritten_essay_v1\images_train"),
         "annotations": Path(
             r"C:\benchmark\handwritten_essay_v1\benchmark_test\annotations.json"
         ),

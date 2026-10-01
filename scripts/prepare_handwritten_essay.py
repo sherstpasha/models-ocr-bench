@@ -26,8 +26,9 @@ def polygon_bbox(polygon):
 
 def main():
     args = parse_args()
-    source_file = args.root / "images_test_page.json"
-    image_dir = args.root / "images_test"
+    # Mendeley test/ contains train_*.png; the corrected split annotation is test_page.json.
+    source_file = args.root / "test_page.json"
+    image_dir = args.root / "images_train"
     output_dir = args.root / "benchmark_test"
     output_file = output_dir / "annotations.json"
 

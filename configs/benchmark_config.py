@@ -76,6 +76,21 @@ BENCHMARKS = {
         "cpu_only": False,
         "gpu_only": True,
     },
+    "craft_easyocr": {
+        "run": True,
+        "backend": "easyocr",
+        "script": PROJECT_ROOT / "scripts" / "benchmark_craft_easyocr.py",
+        "output_dir": PROJECT_ROOT / "benchmark_results" / "craft_easyocr",
+        "model_dir": PROJECT_ROOT / "models" / "easyocr",
+        "canvas_size": 2560,
+        "mag_ratio": 1.0,
+        "text_threshold": 0.7,
+        "low_text": 0.4,
+        "link_threshold": 0.4,
+        "warmup": 3,
+        "cpu_only": False,
+        "gpu_only": True,
+    },
 }
 
 DATASETS = {

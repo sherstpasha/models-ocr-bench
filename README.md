@@ -6,6 +6,7 @@
 - `yolo26s_obb_text_g1` и `yolo26x_obb_text_g1` из `manuscript-ocr`;
 - `RoyRud1902/yolo11n-text`;
 - `Daniil-Domino/yolo11x-dialectic`.
+- `craft_easyocr` — детектор CRAFT из EasyOCR.
 
 ## Установка
 
@@ -41,5 +42,13 @@ python -m scripts.benchmark_yolo
 
 Весовые файлы с Hugging Face автоматически скачиваются в `models/` при первом
 запуске и повторно используются в последующих запусках.
+
+CRAFT из EasyOCR:
+
+```powershell
+python -m scripts.benchmark_craft_easyocr
+```
+
+Веса CRAFT автоматически скачиваются в `models/easyocr` при первом запуске.
 
 Результаты каждой модели сохраняются в отдельном каталоге `benchmark_results/`.

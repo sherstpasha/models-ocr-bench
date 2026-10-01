@@ -1,0 +1,4 @@
+manuscript-ocr @ git+https://github.com/konstantinkozhin/manuscript-ocr.git@1bc3b501d3f3124cc166613b279c463dadc3ef6d
+numpy
+psutil
+ultralytics

@@ -8,7 +8,7 @@ import cv2
 import numpy as np
 import onnxruntime as ort
 
-from utils.metrics import evaluate_dataset
+from utils.metrics import evaluate_dataset, has_standard_f1_metrics
 from configs.benchmark_config import BENCHMARKS, DATASETS
 
 
@@ -234,6 +234,10 @@ def benchmark_model(model_name, config) -> None:
         cpu_stats, gpu_stats = load_existing_results(output_file)
         run_cpu = not config["gpu_only"]
         run_gpu = not config["cpu_only"]
+        if run_cpu and not has_standard_f1_metrics(cpu_stats):
+            cpu_stats = None
+        if run_gpu and not has_standard_f1_metrics(gpu_stats):
+            gpu_stats = None
 
         if (not run_cpu or cpu_stats) and (not run_gpu or gpu_stats):
             print(f"Skip: already completed ({output_file})")

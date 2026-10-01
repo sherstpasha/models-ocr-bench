@@ -3,6 +3,7 @@ from typing import Dict, List, Sequence, Tuple
 
 
 Box = Tuple[float, float, float, float]
+STANDARD_IOU_THRESHOLDS = tuple(round(0.5 + index * 0.05, 2) for index in range(10))
 
 
 def box_iou(first: Box, second: Box) -> float:
@@ -23,17 +24,13 @@ def evaluate_dataset(
     ground_truths: Dict[str, List[Box]],
     iou_threshold: float = 0.5,
 ) -> Dict[str, object]:
-    """Evaluate detections using greedy one-to-one IoU matching."""
-    true_positives = 0
-    false_positives = 0
-    false_negatives = 0
-    matched_ious: List[float] = []
-
+    """Evaluate detections and report F1 at IoU 0.5 and IoU 0.5:0.95."""
     image_names = set(predictions) | set(ground_truths)
+    candidates_by_image = {}
     for image_name in image_names:
         predicted = predictions.get(image_name, [])
         expected = ground_truths.get(image_name, [])
-        candidates = sorted(
+        candidates_by_image[image_name] = sorted(
             (
                 (box_iou(pred_box, gt_box), pred_index, gt_index)
                 for pred_index, pred_box in enumerate(predicted)
@@ -41,9 +38,51 @@ def evaluate_dataset(
             ),
             reverse=True,
         )
+
+    thresholds = list(STANDARD_IOU_THRESHOLDS)
+    if iou_threshold not in thresholds:
+        thresholds.append(iou_threshold)
+    metrics_by_threshold = {
+        threshold: _evaluate_at_threshold(
+            predictions,
+            ground_truths,
+            candidates_by_image,
+            image_names,
+            threshold,
+        )
+        for threshold in thresholds
+    }
+    result = metrics_by_threshold[iou_threshold].copy()
+    result["f1@0.5"] = metrics_by_threshold[0.5]["f1"]
+    result["f1@0.5:0.95"] = sum(
+        metrics_by_threshold[threshold]["f1"]
+        for threshold in STANDARD_IOU_THRESHOLDS
+    ) / len(STANDARD_IOU_THRESHOLDS)
+    result["f1_by_iou"] = {
+        f"{threshold:.2f}": metrics_by_threshold[threshold]["f1"]
+        for threshold in STANDARD_IOU_THRESHOLDS
+    }
+    return result
+
+
+def _evaluate_at_threshold(
+    predictions,
+    ground_truths,
+    candidates_by_image,
+    image_names,
+    iou_threshold,
+):
+    true_positives = 0
+    false_positives = 0
+    false_negatives = 0
+    matched_ious: List[float] = []
+
+    for image_name in image_names:
+        predicted = predictions.get(image_name, [])
+        expected = ground_truths.get(image_name, [])
         used_predictions = set()
         used_ground_truths = set()
-        for iou, pred_index, gt_index in candidates:
+        for iou, pred_index, gt_index in candidates_by_image[image_name]:
             if iou < iou_threshold:
                 break
             if pred_index in used_predictions or gt_index in used_ground_truths:
@@ -72,6 +111,14 @@ def evaluate_dataset(
         "false_negatives": false_negatives,
         "evaluated_images": len(image_names),
     }
+
+
+def has_standard_f1_metrics(stats) -> bool:
+    """Return whether saved benchmark stats contain the current F1 metrics."""
+    if not stats:
+        return False
+    metrics = stats.get("accuracy_metrics", {})
+    return "f1@0.5" in metrics and "f1@0.5:0.95" in metrics
 
 
 def normalize_text(text: str, lowercase: bool = True, normalize_unicode: str = "NFC") -> str:

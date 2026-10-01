@@ -23,9 +23,10 @@ YOLO_BENCHMARKS = {
 def get_image_files(folder: str):
     exts = {".jpg", ".jpeg", ".png", ".bmp", ".tif", ".tiff"}
     files = []
+    base = Path(folder)
     for ext in exts:
-        files += Path(folder).glob(f"*{ext}")
-        files += Path(folder).glob(f"*{ext.upper()}")
+        files += base.rglob(f"*{ext}")
+        files += base.rglob(f"*{ext.upper()}")
     return sorted(list(dict.fromkeys(map(str, files))))
 
 

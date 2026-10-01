@@ -95,7 +95,7 @@ BENCHMARKS = {
 
 DATASETS = {
     "YeniseiGovReports-TD": {
-        "folder": Path(r"C:\benchmark\test_images\test_images"),
-        "annotations": Path(r"C:\benchmark\test.json"),
+        "folder": Path(r"C:\benchmark\YeniseiGovReports-TD\test_images"),
+        "annotations": Path(r"C:\benchmark\YeniseiGovReports-TD\test.json"),
     },
 }

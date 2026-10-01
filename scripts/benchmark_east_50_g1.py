@@ -37,8 +37,8 @@ def get_image_files(folder: str) -> List[str]:
     files = []
     base = Path(folder)
     for ext in exts:
-        files.extend(base.glob(f"*{ext}"))
-        files.extend(base.glob(f"*{ext.upper()}"))
+        files.extend(base.rglob(f"*{ext}"))
+        files.extend(base.rglob(f"*{ext.upper()}"))
     return sorted(list(dict.fromkeys(map(str, files))))
 
 

@@ -12,17 +12,20 @@ from utils.metrics import evaluate_dataset
 from configs.benchmark_config import BENCHMARKS, DATASETS
 
 
-CONFIG = BENCHMARKS["east_50_g1"]
-OUTPUT_DIR = CONFIG["output_dir"]
+MANUSCRIPT_BENCHMARKS = {
+    name: config
+    for name, config in BENCHMARKS.items()
+    if config.get("backend") == "manuscript" and config.get("run", False)
+}
 
-if not CONFIG["cpu_only"]:
+if any(not config["cpu_only"] for config in MANUSCRIPT_BENCHMARKS.values()):
     # Load CUDA/cuDNN DLLs installed by the onnxruntime-gpu extras in .venv.
     ort.preload_dlls(directory="")
 
 CUDA_ORT_AVAILABLE = "CUDAExecutionProvider" in ort.get_available_providers()
 
 
-from manuscript.detectors import EAST
+from manuscript.detectors import EAST, YOLO
 
 
 # =============================================================================
@@ -109,23 +112,24 @@ def extract_boxes(result: Any) -> List[tuple]:
 # BENCHMARK
 # =============================================================================
 
-def benchmark_device(image_files: List[str], device: str, collect_predictions: bool = False) -> Dict[str, Any]:
+def benchmark_device(config, image_files: List[str], device: str, collect_predictions: bool = False) -> Dict[str, Any]:
     gc.collect()
 
     detector_options = dict(
         device=device,
-        target_size=CONFIG["target_size"],
-        score_thresh=CONFIG["score_thresh"],
+        target_size=config["target_size"],
+        score_thresh=config["score_thresh"],
     )
-    if CONFIG["weights"] is not None and CONFIG["preset"] is not None:
-        raise ValueError("Set either EAST weights or preset, not both")
-    model_source = CONFIG["weights"] or CONFIG["preset"]
+    if config["weights"] is not None and config["preset"] is not None:
+        raise ValueError("Set either weights or preset, not both")
+    model_source = config["weights"] or config["preset"]
     if model_source is not None:
         detector_options["weights"] = str(model_source)
-    detector = EAST(**detector_options)
+    detector_class = EAST if config["detector"] == "east" else YOLO
+    detector = detector_class(**detector_options)
     mem_after_load = get_memory_usage()
 
-    for img_path in image_files[: min(CONFIG["warmup_runs"], len(image_files))]:
+    for img_path in image_files[: min(config["warmup_runs"], len(image_files))]:
         _ = detector.predict(img_path)
 
     if device == "cuda":
@@ -164,7 +168,7 @@ def benchmark_device(image_files: List[str], device: str, collect_predictions: b
     stats = {
         "device": device,
         "num_images": len(image_files),
-        "target_size": CONFIG["target_size"],
+        "target_size": detector.target_size,
         "mean_time_ms": float(np.mean(times) * 1000),
         "median_time_ms": float(np.median(times) * 1000),
         "std_time_ms": float(np.std(times) * 1000),
@@ -212,10 +216,11 @@ def load_existing_results(output_file: Path):
     return result.get("cpu"), result.get("gpu")
 
 
-def main(output_dir=OUTPUT_DIR) -> None:
+def benchmark_model(model_name, config) -> None:
+    output_dir = config["output_dir"]
     Path(output_dir).mkdir(parents=True, exist_ok=True)
 
-    if not CONFIG["cpu_only"] and not CUDA_ORT_AVAILABLE:
+    if not config["cpu_only"] and not CUDA_ORT_AVAILABLE:
         providers = ", ".join(ort.get_available_providers())
         raise RuntimeError(
             "GPU benchmark requested, but CUDAExecutionProvider is unavailable. "
@@ -225,10 +230,10 @@ def main(output_dir=OUTPUT_DIR) -> None:
 
     for dataset_name, ds in DATASETS.items():
         print(f"\n### DATASET: {dataset_name}")
-        output_file = Path(output_dir) / f"{dataset_name}_east_50_g1.json"
+        output_file = Path(output_dir) / f"{dataset_name}_{model_name}.json"
         cpu_stats, gpu_stats = load_existing_results(output_file)
-        run_cpu = not CONFIG["gpu_only"]
-        run_gpu = not CONFIG["cpu_only"]
+        run_cpu = not config["gpu_only"]
+        run_gpu = not config["cpu_only"]
 
         if (not run_cpu or cpu_stats) and (not run_gpu or gpu_stats):
             print(f"Skip: already completed ({output_file})")
@@ -249,16 +254,22 @@ def main(output_dir=OUTPUT_DIR) -> None:
         ground_truths = load_ground_truth(annotations)
         if run_cpu and not cpu_stats:
             print("Run missing device: cpu")
-            cpu_stats = benchmark_device(image_files, "cpu", collect_predictions=True)
+            cpu_stats = benchmark_device(config, image_files, "cpu", collect_predictions=True)
             cpu_stats["accuracy_metrics"] = evaluate_dataset(cpu_stats["predictions"], ground_truths)
 
         if run_gpu and not gpu_stats:
             print("Run missing device: cuda")
-            gpu_stats = benchmark_device(image_files, "cuda", collect_predictions=True)
+            gpu_stats = benchmark_device(config, image_files, "cuda", collect_predictions=True)
             gpu_stats["accuracy_metrics"] = evaluate_dataset(gpu_stats["predictions"], ground_truths)
 
         save_results(cpu_stats, gpu_stats, output_file, dataset_name)
         print(f"Saved: {output_file}")
+
+
+def main() -> None:
+    for model_name, config in MANUSCRIPT_BENCHMARKS.items():
+        print(f"\n## MODEL: {model_name}")
+        benchmark_model(model_name, config)
 
 
 if __name__ == "__main__":

@@ -6,14 +6,18 @@ from typing import Dict
 
 import numpy as np
 import torch
+from huggingface_hub import hf_hub_download
 from ultralytics import YOLO
 
 from utils.metrics import evaluate_dataset
 from configs.benchmark_config import BENCHMARKS, DATASETS
 
 
-CONFIG = BENCHMARKS["yolov9_regions_1"]
-OUTPUT_DIR = CONFIG["output_dir"]
+YOLO_BENCHMARKS = {
+    name: config
+    for name, config in BENCHMARKS.items()
+    if config.get("backend") == "ultralytics" and config.get("run", False)
+}
 
 
 def get_image_files(folder: str):
@@ -58,23 +62,29 @@ def memory_usage():
     return ram, vram
 
 
-def benchmark_device(images, device: str, collect_predictions: bool = False):
+def benchmark_device(config, images, device: str, collect_predictions: bool = False):
     gc.collect()
     if device == "cuda":
         torch.cuda.empty_cache()
         torch.cuda.reset_peak_memory_stats()
 
-    if CONFIG["weights"] is not None and CONFIG["preset"] is not None:
-        raise ValueError("Set either YOLO weights or preset, not both")
-    model_source = CONFIG["weights"] or CONFIG["preset"]
-    if model_source is None:
-        raise ValueError("YOLO requires weights or preset in benchmark_config.py")
+    model_source = hf_hub_download(
+        repo_id=config["repository"],
+        filename=config["filename"],
+        local_dir=config["model_dir"],
+    )
     model = YOLO(str(model_source))
     model.to(device)
     ram0, vram0 = memory_usage()
 
-    for img in images[: CONFIG["warmup"]]:
-        model.predict(img, imgsz=CONFIG["imgsz"], conf=CONFIG["conf"], device=device, verbose=False)
+    for img in images[: config["warmup"]]:
+        model.predict(
+            img,
+            imgsz=config["imgsz"],
+            conf=config["conf"],
+            device=device,
+            verbose=False,
+        )
     if device == "cuda":
         torch.cuda.synchronize()
 
@@ -83,7 +93,13 @@ def benchmark_device(images, device: str, collect_predictions: bool = False):
 
     for img in images:
         t0 = time.time()
-        results = model.predict(img, imgsz=CONFIG["imgsz"], conf=CONFIG["conf"], device=device, verbose=False)
+        results = model.predict(
+            img,
+            imgsz=config["imgsz"],
+            conf=config["conf"],
+            device=device,
+            verbose=False,
+        )
         if device == "cuda":
             torch.cuda.synchronize()
         times.append(time.time() - t0)
@@ -134,15 +150,16 @@ def load_existing_results(output_file: Path):
     return result.get("cpu"), result.get("gpu")
 
 
-def main(output_dir=OUTPUT_DIR):
+def benchmark_model(model_name, config):
+    output_dir = config["output_dir"]
     Path(output_dir).mkdir(parents=True, exist_ok=True)
 
     for dataset_name, ds in DATASETS.items():
         print(f"\n### DATASET: {dataset_name}")
-        output_file = Path(output_dir) / f"{dataset_name}_yolov9_regions_1.json"
+        output_file = Path(output_dir) / f"{dataset_name}_{model_name}.json"
         cpu_stats, gpu_stats = load_existing_results(output_file)
-        run_cpu = not CONFIG["gpu_only"]
-        run_gpu = torch.cuda.is_available() and not CONFIG["cpu_only"]
+        run_cpu = not config["gpu_only"]
+        run_gpu = not config["cpu_only"]
 
         if (not run_cpu or cpu_stats) and (not run_gpu or gpu_stats):
             print(f"Skip: already completed ({output_file})")
@@ -160,16 +177,24 @@ def main(output_dir=OUTPUT_DIR):
         ground_truths = load_ground_truth(ds["annotations"])
         if run_cpu and not cpu_stats:
             print("Run missing device: cpu")
-            cpu_stats = benchmark_device(images, "cpu", collect_predictions=True)
+            cpu_stats = benchmark_device(config, images, "cpu", collect_predictions=True)
             cpu_stats["accuracy_metrics"] = evaluate_dataset(cpu_stats["predictions"], ground_truths)
 
         if run_gpu and not gpu_stats:
             print("Run missing device: cuda")
-            gpu_stats = benchmark_device(images, "cuda", collect_predictions=True)
+            gpu_stats = benchmark_device(config, images, "cuda", collect_predictions=True)
             gpu_stats["accuracy_metrics"] = evaluate_dataset(gpu_stats["predictions"], ground_truths)
 
         save_results(output_file, dataset_name, cpu_stats, gpu_stats)
         print(f"Saved: {output_file}")
+
+
+def main():
+    if not torch.cuda.is_available():
+        raise RuntimeError("GPU-only benchmarks requested, but CUDA is unavailable in PyTorch")
+    for model_name, config in YOLO_BENCHMARKS.items():
+        print(f"\n## MODEL: {model_name}")
+        benchmark_model(model_name, config)
 
 
 if __name__ == "__main__":

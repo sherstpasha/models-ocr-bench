@@ -1,8 +1,11 @@
 # models-ocr-bench
 
-Бенчмарки моделей детекции текста. Сейчас в конфигурации активна модель
-`east_50_g1`; скрипт `benchmark_yolo.py` сохранён для последующего подключения
-YOLO-моделей.
+Бенчмарки моделей детекции текста на GPU:
+
+- `east_50_g1`;
+- `yolo26s_obb_text_g1` и `yolo26x_obb_text_g1` из `manuscript-ocr`;
+- `RoyRud1902/yolo11n-text`;
+- `Daniil-Domino/yolo11x-dialectic`.
 
 ## Установка
 
@@ -24,8 +27,19 @@ python -m pip install -r requirements-gpu.txt
 Пути к датасетам и параметры модели задаются в
 `configs/benchmark_config.py`.
 
+Модели `manuscript-ocr`:
+
 ```powershell
-python scripts/benchmark_east_50_g1.py
+python -m scripts.benchmark_east_50_g1
 ```
 
-Результаты сохраняются в `benchmark_results/east_50_g1`.
+Модели Ultralytics с Hugging Face:
+
+```powershell
+python -m scripts.benchmark_yolo
+```
+
+Весовые файлы с Hugging Face автоматически скачиваются в `models/` при первом
+запуске и повторно используются в последующих запусках.
+
+Результаты каждой модели сохраняются в отдельном каталоге `benchmark_results/`.

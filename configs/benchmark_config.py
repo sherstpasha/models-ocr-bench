@@ -1,4 +1,4 @@
-"""Everything that normally needs editing before an EAST benchmark run."""
+"""Everything that normally needs editing before a benchmark run."""
 
 from pathlib import Path
 
@@ -8,6 +8,8 @@ PROJECT_ROOT = Path(__file__).resolve().parent.parent
 BENCHMARKS = {
     "east_50_g1": {
         "run": True,
+        "backend": "manuscript",
+        "detector": "east",
         "script": PROJECT_ROOT / "scripts" / "benchmark_east_50_g1.py",
         "output_dir": PROJECT_ROOT / "benchmark_results" / "east_50_g1",
         "weights": "east_50_g1",
@@ -16,7 +18,63 @@ BENCHMARKS = {
         "score_thresh": 0.6,
         "warmup_runs": 3,
         "cpu_only": False,
-        "gpu_only": False,
+        "gpu_only": True,
+    },
+    "yolo26s_obb_text_g1": {
+        "run": True,
+        "backend": "manuscript",
+        "detector": "yolo",
+        "script": PROJECT_ROOT / "scripts" / "benchmark_east_50_g1.py",
+        "output_dir": PROJECT_ROOT / "benchmark_results" / "yolo26s_obb_text_g1",
+        "weights": "yolo26s_obb_text_g1",
+        "preset": None,
+        "target_size": None,
+        "score_thresh": 0.1,
+        "warmup_runs": 3,
+        "cpu_only": False,
+        "gpu_only": True,
+    },
+    "yolo26x_obb_text_g1": {
+        "run": True,
+        "backend": "manuscript",
+        "detector": "yolo",
+        "script": PROJECT_ROOT / "scripts" / "benchmark_east_50_g1.py",
+        "output_dir": PROJECT_ROOT / "benchmark_results" / "yolo26x_obb_text_g1",
+        "weights": "yolo26x_obb_text_g1",
+        "preset": None,
+        "target_size": None,
+        "score_thresh": 0.1,
+        "warmup_runs": 3,
+        "cpu_only": False,
+        "gpu_only": True,
+    },
+    "yolo11n_text": {
+        "run": True,
+        "backend": "ultralytics",
+        "script": PROJECT_ROOT / "scripts" / "benchmark_yolo.py",
+        "output_dir": PROJECT_ROOT / "benchmark_results" / "yolo11n_text",
+        "repository": "RoyRud1902/yolo11n-text",
+        "filename": "best.pt",
+        "model_dir": PROJECT_ROOT / "models" / "yolo11n-text",
+        "imgsz": 640,
+        "conf": 0.25,
+        "warmup": 3,
+        "cpu_only": False,
+        "gpu_only": True,
+    },
+    "yolo11x_dialectic": {
+        "run": True,
+        "backend": "ultralytics",
+        "script": PROJECT_ROOT / "scripts" / "benchmark_yolo.py",
+        "output_dir": PROJECT_ROOT / "benchmark_results" / "yolo11x_dialectic",
+        "repository": "Daniil-Domino/yolo11x-dialectic",
+        "filename": "model.pt",
+        "model_dir": PROJECT_ROOT / "models" / "yolo11x-dialectic",
+        "imgsz": 640,
+        "conf": 0.3,
+        "warmup": 3,
+        "cpu_only": False,
+        "gpu_only": True,
     },
 }
 

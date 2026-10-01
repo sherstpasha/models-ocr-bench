@@ -11,7 +11,7 @@ from ultralytics import YOLO
 
 from utils.metrics import evaluate_dataset
 from utils.datasets import prediction_key, result_is_compatible
-from configs.benchmark_config import BENCHMARKS, DATASETS
+from configs.detection.benchmark_config import BENCHMARKS, DATASETS
 
 
 YOLO_BENCHMARKS = {

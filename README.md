@@ -1,6 +1,7 @@
 # models-ocr-bench
 
-GPU-бенчмарк моделей детекции текста.
+GPU-бенчмарки OCR. Сейчас реализована задача детекции текста; пространство для
+распознавания подготовлено отдельно и будет реализовано позже.
 
 ## 1. Установка
 
@@ -40,22 +41,22 @@ Hugging Face автоматически скачиваются при перво
 Подготовка нестандартных форматов:
 
 ```powershell
-python -m scripts.prepare_school_notebooks
+python -m scripts.detection.prepare_school_notebooks
 ```
 
 ## 3. Запуск
 
 ```powershell
-python -m scripts.benchmark
+python -m scripts.detection.benchmark
 ```
 
 Уже рассчитанные пары модель/датасет автоматически пропускаются.
 
 ## 4. Результаты
 
-- отдельные JSON: `benchmark_results/<model>/<dataset>_<model>.json`;
-- общая CSV-таблица: `benchmark_results/summary.csv`;
-- общая Markdown-таблица: `benchmark_results/summary.md`.
+- отдельные JSON: `benchmark_results/detection/<model>/<dataset>_<model>.json`;
+- общая CSV-таблица: `benchmark_results/detection/summary.csv`;
+- общая Markdown-таблица: `benchmark_results/detection/summary.md`.
 
 В сводной таблице строки — модели, столбцы — датасеты, значение —
 `F1@0.5 / F1@0.5:0.95`.

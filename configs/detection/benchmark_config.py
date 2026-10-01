@@ -3,15 +3,16 @@
 from pathlib import Path
 
 
-PROJECT_ROOT = Path(__file__).resolve().parent.parent
+PROJECT_ROOT = Path(__file__).resolve().parent.parent.parent
+RESULTS_ROOT = PROJECT_ROOT / "benchmark_results" / "detection"
 
 BENCHMARKS = {
     "east_50_g1": {
         "run": True,
         "backend": "manuscript",
         "detector": "east",
-        "script": PROJECT_ROOT / "scripts" / "benchmark_east_50_g1.py",
-        "output_dir": PROJECT_ROOT / "benchmark_results" / "east_50_g1",
+        "script": PROJECT_ROOT / "scripts" / "detection" / "benchmark_east_50_g1.py",
+        "output_dir": RESULTS_ROOT / "east_50_g1",
         "weights": "east_50_g1",
         "preset": None,
         "target_size": 1408,
@@ -24,8 +25,8 @@ BENCHMARKS = {
         "run": True,
         "backend": "manuscript",
         "detector": "yolo",
-        "script": PROJECT_ROOT / "scripts" / "benchmark_east_50_g1.py",
-        "output_dir": PROJECT_ROOT / "benchmark_results" / "yolo26s_obb_text_g1",
+        "script": PROJECT_ROOT / "scripts" / "detection" / "benchmark_east_50_g1.py",
+        "output_dir": RESULTS_ROOT / "yolo26s_obb_text_g1",
         "weights": "yolo26s_obb_text_g1",
         "preset": None,
         "target_size": None,
@@ -38,8 +39,8 @@ BENCHMARKS = {
         "run": True,
         "backend": "manuscript",
         "detector": "yolo",
-        "script": PROJECT_ROOT / "scripts" / "benchmark_east_50_g1.py",
-        "output_dir": PROJECT_ROOT / "benchmark_results" / "yolo26x_obb_text_g1",
+        "script": PROJECT_ROOT / "scripts" / "detection" / "benchmark_east_50_g1.py",
+        "output_dir": RESULTS_ROOT / "yolo26x_obb_text_g1",
         "weights": "yolo26x_obb_text_g1",
         "preset": None,
         "target_size": None,
@@ -51,8 +52,8 @@ BENCHMARKS = {
     "yolo11n_text": {
         "run": True,
         "backend": "ultralytics",
-        "script": PROJECT_ROOT / "scripts" / "benchmark_yolo.py",
-        "output_dir": PROJECT_ROOT / "benchmark_results" / "yolo11n_text",
+        "script": PROJECT_ROOT / "scripts" / "detection" / "benchmark_yolo.py",
+        "output_dir": RESULTS_ROOT / "yolo11n_text",
         "repository": "RoyRud1902/yolo11n-text",
         "filename": "best.pt",
         "model_dir": PROJECT_ROOT / "models" / "yolo11n-text",
@@ -65,8 +66,8 @@ BENCHMARKS = {
     "yolo11x_dialectic": {
         "run": True,
         "backend": "ultralytics",
-        "script": PROJECT_ROOT / "scripts" / "benchmark_yolo.py",
-        "output_dir": PROJECT_ROOT / "benchmark_results" / "yolo11x_dialectic",
+        "script": PROJECT_ROOT / "scripts" / "detection" / "benchmark_yolo.py",
+        "output_dir": RESULTS_ROOT / "yolo11x_dialectic",
         "repository": "Daniil-Domino/yolo11x-dialectic",
         "filename": "model.pt",
         "model_dir": PROJECT_ROOT / "models" / "yolo11x-dialectic",
@@ -79,8 +80,8 @@ BENCHMARKS = {
     "craft_easyocr": {
         "run": True,
         "backend": "easyocr",
-        "script": PROJECT_ROOT / "scripts" / "benchmark_craft_easyocr.py",
-        "output_dir": PROJECT_ROOT / "benchmark_results" / "craft_easyocr",
+        "script": PROJECT_ROOT / "scripts" / "detection" / "benchmark_craft_easyocr.py",
+        "output_dir": RESULTS_ROOT / "craft_easyocr",
         "model_dir": PROJECT_ROOT / "models" / "easyocr",
         "canvas_size": 2560,
         "mag_ratio": 1.0,

@@ -2,12 +2,12 @@ import csv
 import json
 from pathlib import Path
 
-from configs.benchmark_config import BENCHMARKS, DATASETS, PROJECT_ROOT
+from configs.detection.benchmark_config import BENCHMARKS, DATASETS, RESULTS_ROOT
 from utils.datasets import result_is_compatible
 
 
-SUMMARY_CSV = PROJECT_ROOT / "benchmark_results" / "summary.csv"
-SUMMARY_MARKDOWN = PROJECT_ROOT / "benchmark_results" / "summary.md"
+SUMMARY_CSV = RESULTS_ROOT / "summary.csv"
+SUMMARY_MARKDOWN = RESULTS_ROOT / "summary.md"
 
 
 def read_f1(model_name, config, dataset_name):

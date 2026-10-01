@@ -9,8 +9,8 @@ from pathlib import Path
 
 from huggingface_hub import hf_hub_download
 
-from configs.benchmark_config import BENCHMARKS, DATASETS
-from scripts.summarize_results import write_summary
+from configs.detection.benchmark_config import BENCHMARKS, DATASETS
+from scripts.detection.summarize_results import write_summary
 
 
 def enabled_modules():
@@ -18,7 +18,7 @@ def enabled_modules():
     for config in BENCHMARKS.values():
         if not config.get("run", False):
             continue
-        module = f"scripts.{config['script'].stem}"
+        module = f"scripts.detection.{config['script'].stem}"
         if module not in modules:
             modules.append(module)
     return modules
@@ -107,7 +107,7 @@ def main():
 
     modules = enabled_modules()
     if not modules:
-        print("No benchmarks enabled in configs/benchmark_config.py")
+        print("No benchmarks enabled in configs/detection/benchmark_config.py")
         return
 
     for index, module in enumerate(modules, start=1):

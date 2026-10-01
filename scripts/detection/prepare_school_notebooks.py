@@ -1,3 +1,5 @@
+"""Prepare the school_notebooks_RU detection validation split."""
+
 import argparse
 import json
 import shutil

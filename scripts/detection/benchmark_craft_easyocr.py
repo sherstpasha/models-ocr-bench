@@ -9,7 +9,7 @@ import numpy as np
 import torch
 from PIL import Image
 
-from configs.benchmark_config import BENCHMARKS, DATASETS
+from configs.detection.benchmark_config import BENCHMARKS, DATASETS
 from utils.metrics import evaluate_dataset
 from utils.datasets import prediction_key, result_is_compatible
 

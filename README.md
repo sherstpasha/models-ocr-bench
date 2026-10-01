@@ -28,6 +28,12 @@ python -m pip install -r requirements-gpu.txt
 Пути к датасетам и параметры модели задаются в
 `configs/benchmark_config.py`.
 
+Все модели с `run=True`:
+
+```powershell
+python -m scripts.benchmark
+```
+
 Модели `manuscript-ocr`:
 
 ```powershell

@@ -106,4 +106,18 @@ DATASETS = {
             r"C:\benchmark\school_notebooks_RU\benchmark_validation\annotations.json"
         ),
     },
+    "handwritten_essay_v1": {
+        "folder": Path(r"C:\benchmark\handwritten_essay_v1\images_test"),
+        "annotations": Path(
+            r"C:\benchmark\handwritten_essay_v1\benchmark_test\annotations.json"
+        ),
+    },
+    "ICDAR2015": {
+        "folder": Path(r"C:\benchmark\ICDAR2015\test_images"),
+        "annotations": Path(r"C:\benchmark\ICDAR2015\test.json"),
+    },
+    "TotalText": {
+        "folder": Path(r"C:\benchmark\TotalText\test_images"),
+        "annotations": Path(r"C:\benchmark\TotalText\test.json"),
+    },
 }

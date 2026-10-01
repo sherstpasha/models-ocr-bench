@@ -2,6 +2,7 @@ import subprocess
 import sys
 
 from configs.benchmark_config import BENCHMARKS
+from scripts.summarize_results import write_summary
 
 
 def enabled_modules():
@@ -25,6 +26,7 @@ def main():
         print(f"\n[{index}/{len(modules)}] Running {module}", flush=True)
         subprocess.run([sys.executable, "-m", module], check=True)
 
+    write_summary()
     print("\nAll enabled benchmarks completed.")
 
 

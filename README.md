@@ -69,3 +69,13 @@ python -m scripts.prepare_school_notebooks
 ```
 
 После подготовки она автоматически участвует в общем запуске бенчмарков.
+
+Для преобразования test-подвыборки `handwritten_essay_v1`:
+
+```powershell
+python -m scripts.prepare_handwritten_essay
+```
+
+После общего запуска создаются сводные таблицы
+`benchmark_results/summary.csv` и `benchmark_results/summary.md`. Строки — модели,
+столбцы — датасеты; каждая ячейка содержит `F1@0.5 / F1@0.5:0.95`.

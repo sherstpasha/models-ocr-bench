@@ -3,6 +3,7 @@ import json
 from pathlib import Path
 
 from configs.benchmark_config import BENCHMARKS, DATASETS, PROJECT_ROOT
+from utils.datasets import result_is_compatible
 
 
 SUMMARY_CSV = PROJECT_ROOT / "benchmark_results" / "summary.csv"
@@ -15,7 +16,10 @@ def read_f1(model_name, config, dataset_name):
         return None
     with result_file.open("r", encoding="utf-8") as file:
         result = json.load(file)
-    metrics = (result.get("gpu") or {}).get("accuracy_metrics", {})
+    gpu = result.get("gpu")
+    if not result_is_compatible(gpu, DATASETS[dataset_name]):
+        return None
+    metrics = gpu.get("accuracy_metrics", {})
     f1_50 = metrics.get("f1@0.5")
     f1_range = metrics.get("f1@0.5:0.95")
     if f1_50 is None or f1_range is None:

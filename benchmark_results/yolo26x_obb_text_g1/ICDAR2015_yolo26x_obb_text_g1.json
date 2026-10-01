@@ -1,0 +1,49 @@
+{
+  "dataset_name": "ICDAR2015",
+  "cpu": null,
+  "gpu": {
+    "device": "cuda",
+    "num_images": 200,
+    "target_size": 1408,
+    "mean_time_ms": 63.2290005683899,
+    "median_time_ms": 62.86263465881348,
+    "std_time_ms": 5.024974356480991,
+    "min_time_ms": 46.9973087310791,
+    "max_time_ms": 78.43255996704102,
+    "total_time_s": 12.645800113677979,
+    "throughput_fps": 15.81552754290933,
+    "mean_detections": 14.425,
+    "total_detections": 2885,
+    "ram_after_load_mb": 1368.125,
+    "ram_peak_mb": 1893.4765625,
+    "ram_delta_mb": 525.3515625,
+    "gpu_after_load_mb": null,
+    "gpu_peak_mb": null,
+    "gpu_delta_mb": null,
+    "accuracy_metrics": {
+      "iou_threshold": 0.5,
+      "precision": 0.6076256499133449,
+      "recall": 0.6915187376725839,
+      "f1": 0.6468634686346864,
+      "mean_matched_iou": 0.8047884391421175,
+      "true_positives": 1753,
+      "false_positives": 1132,
+      "false_negatives": 782,
+      "evaluated_images": 200,
+      "f1@0.5": 0.6468634686346864,
+      "f1@0.5:0.95": 0.4269003690036901,
+      "f1_by_iou": {
+        "0.50": 0.6468634686346864,
+        "0.55": 0.6287822878228781,
+        "0.60": 0.611439114391144,
+        "0.65": 0.5885608856088561,
+        "0.70": 0.5461254612546125,
+        "0.75": 0.4789667896678967,
+        "0.80": 0.3907749077490775,
+        "0.85": 0.25055350553505534,
+        "0.90": 0.11180811808118081,
+        "0.95": 0.015129151291512917
+      }
+    }
+  }
+}

@@ -22,7 +22,7 @@ python -m pip install -r requirements-gpu.txt
 C:\benchmark\
 ├── YeniseiGovReports-TD\
 ├── school_notebooks_RU\
-├── handwritten_essay_v1\  # ссылка будет добавлена позже
+├── handwritten_essay\
 ├── ICDAR2015\
 └── TotalText\
 ```
@@ -31,12 +31,16 @@ C:\benchmark\
 
 - [YeniseiGovReports-TD](https://huggingface.co/datasets/anna4uonline/YeniseiGovReports-TD)
 - [school_notebooks_RU](https://huggingface.co/datasets/ai-forever/school_notebooks_RU)
+- [handwritten_essay](https://huggingface.co/datasets/sherstpasha/handwritten_essay)
+
+Для `handwritten_essay` изображения с
+[Mendeley Data](https://data.mendeley.com/datasets/vs44v8r3nf/1) и разметка с
+Hugging Face автоматически скачиваются при первом запуске.
 
 Подготовка нестандартных форматов:
 
 ```powershell
 python -m scripts.prepare_school_notebooks
-python -m scripts.prepare_handwritten_essay
 ```
 
 ## 3. Запуск

@@ -106,10 +106,29 @@ DATASETS = {
             r"C:\benchmark\school_notebooks_RU\benchmark_validation\annotations.json"
         ),
     },
-    "handwritten_essay_v1": {
-        "folder": Path(r"C:\benchmark\handwritten_essay_v1\images_train"),
-        "annotations": Path(
-            r"C:\benchmark\handwritten_essay_v1\benchmark_test\annotations.json"
+    "handwritten_essay": {
+        # Mendeley's train/ is the 28-page validation split, but its image names
+        # start with test_. COCO flattens paths: train/0/0.png -> test_0_0.png.
+        "folder": Path(r"C:\benchmark\handwritten_essay\train"),
+        "annotations": Path(r"C:\benchmark\handwritten_essay\train_coco.json"),
+        "filename_prefix": "test_",
+        "repository": "sherstpasha/handwritten_essay",
+        "download_dir": Path(r"C:\benchmark\handwritten_essay"),
+        "download_files": [
+            "README.md",
+            "example_word_annotations.jpg",
+            "train_page.json",
+            "test_page.json",
+            "train_coco.json",
+            "test_coco.json",
+        ],
+        "archive_url": (
+            "https://data.mendeley.com/public-files/datasets/vs44v8r3nf/files/"
+            "3a105c2e-02e9-4fc5-91e2-4d828ceb2d90/file_downloaded"
+        ),
+        "archive_name": "handwritten_essay.zip",
+        "archive_sha256": (
+            "274bd7e4be4c63f68d8f39d88ca89414bf30858d27b49731d58cc161481391ff"
         ),
     },
     "ICDAR2015": {

@@ -11,6 +11,7 @@ from PIL import Image
 
 from configs.benchmark_config import BENCHMARKS, DATASETS
 from utils.metrics import evaluate_dataset
+from utils.datasets import prediction_key, result_is_compatible
 
 
 MODEL_NAME = "craft_easyocr"
@@ -94,7 +95,7 @@ def detect(reader, image):
     return boxes
 
 
-def benchmark_gpu(images, collect_predictions=False):
+def benchmark_gpu(images, collect_predictions=False, dataset_config=None):
     gc.collect()
     torch.cuda.empty_cache()
     torch.cuda.reset_peak_memory_stats()
@@ -123,7 +124,7 @@ def benchmark_gpu(images, collect_predictions=False):
         torch.cuda.synchronize()
         times.append(time.perf_counter() - start)
         if collect_predictions:
-            predictions[Path(image_path).name] = boxes
+            predictions[prediction_key(image_path, dataset_config)] = boxes
 
     ram1, gpu1 = memory_usage()
     values = np.asarray(times)
@@ -169,7 +170,8 @@ def main():
     for dataset_name, dataset in DATASETS.items():
         print(f"\n### DATASET: {dataset_name}")
         output_file = output_dir / f"{dataset_name}_{MODEL_NAME}.json"
-        if load_existing_gpu(output_file):
+        existing_gpu = load_existing_gpu(output_file)
+        if result_is_compatible(existing_gpu, dataset):
             print(f"Skip: already completed ({output_file})")
             continue
         if not dataset["folder"].exists() or not dataset["annotations"].exists():
@@ -181,7 +183,9 @@ def main():
             continue
 
         ground_truths = load_ground_truth(dataset["annotations"])
-        gpu_stats = benchmark_gpu(images, collect_predictions=True)
+        gpu_stats = benchmark_gpu(
+            images, collect_predictions=True, dataset_config=dataset
+        )
         gpu_stats["accuracy_metrics"] = evaluate_dataset(
             gpu_stats["predictions"], ground_truths
         )

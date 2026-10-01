@@ -1,0 +1,49 @@
+{
+  "dataset_name": "handwritten_essay",
+  "cpu": null,
+  "gpu": {
+    "device": "cuda",
+    "num_images": 28,
+    "target_size": 1408,
+    "mean_time_ms": 205.2811128752572,
+    "median_time_ms": 184.6175193786621,
+    "std_time_ms": 88.14669278603846,
+    "min_time_ms": 92.99898147583008,
+    "max_time_ms": 469.9995517730713,
+    "total_time_s": 5.747871160507202,
+    "throughput_fps": 4.8713687586430225,
+    "mean_detections": 176.39285714285714,
+    "total_detections": 4939,
+    "ram_after_load_mb": 920.171875,
+    "ram_peak_mb": 1526.51171875,
+    "ram_delta_mb": 606.33984375,
+    "gpu_after_load_mb": null,
+    "gpu_peak_mb": null,
+    "gpu_delta_mb": null,
+    "accuracy_metrics": {
+      "iou_threshold": 0.5,
+      "precision": 0.9323749746912331,
+      "recall": 0.8948698017877963,
+      "f1": 0.9132374814080317,
+      "mean_matched_iou": 0.8248443869841563,
+      "true_positives": 4605,
+      "false_positives": 334,
+      "false_negatives": 541,
+      "evaluated_images": 28,
+      "f1@0.5": 0.9132374814080317,
+      "f1@0.5:0.95": 0.6392860684184434,
+      "f1_by_iou": {
+        "0.50": 0.9132374814080317,
+        "0.55": 0.8993554784333169,
+        "0.60": 0.8823004462072385,
+        "0.65": 0.8497768963807634,
+        "0.70": 0.7881011403073873,
+        "0.75": 0.6964799206742687,
+        "0.80": 0.5770946950917205,
+        "0.85": 0.4380763510163609,
+        "0.90": 0.25780862667327714,
+        "0.95": 0.09062964799206742
+      }
+    }
+  }
+}

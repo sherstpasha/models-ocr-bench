@@ -10,6 +10,7 @@ from huggingface_hub import hf_hub_download
 from ultralytics import YOLO
 
 from utils.metrics import evaluate_dataset
+from utils.datasets import prediction_key, result_is_compatible
 from configs.benchmark_config import BENCHMARKS, DATASETS
 
 
@@ -63,7 +64,9 @@ def memory_usage():
     return ram, vram
 
 
-def benchmark_device(config, images, device: str, collect_predictions: bool = False):
+def benchmark_device(
+    config, images, device: str, collect_predictions: bool = False, dataset_config=None
+):
     gc.collect()
     if device == "cuda":
         torch.cuda.empty_cache()
@@ -111,7 +114,7 @@ def benchmark_device(config, images, device: str, collect_predictions: bool = Fa
                 for box in result.boxes:
                     xyxy = box.xyxy[0].tolist()
                     boxes.append(tuple(xyxy[:4]))
-            preds[Path(img).name] = boxes
+            preds[prediction_key(img, dataset_config)] = boxes
 
     ram1, vram1 = memory_usage()
     stats = {
@@ -159,6 +162,10 @@ def benchmark_model(model_name, config):
         print(f"\n### DATASET: {dataset_name}")
         output_file = Path(output_dir) / f"{dataset_name}_{model_name}.json"
         cpu_stats, gpu_stats = load_existing_results(output_file)
+        if not result_is_compatible(cpu_stats, ds):
+            cpu_stats = None
+        if not result_is_compatible(gpu_stats, ds):
+            gpu_stats = None
         run_cpu = not config["gpu_only"]
         run_gpu = not config["cpu_only"]
 
@@ -178,12 +185,16 @@ def benchmark_model(model_name, config):
         ground_truths = load_ground_truth(ds["annotations"])
         if run_cpu and not cpu_stats:
             print("Run missing device: cpu")
-            cpu_stats = benchmark_device(config, images, "cpu", collect_predictions=True)
+            cpu_stats = benchmark_device(
+                config, images, "cpu", collect_predictions=True, dataset_config=ds
+            )
             cpu_stats["accuracy_metrics"] = evaluate_dataset(cpu_stats["predictions"], ground_truths)
 
         if run_gpu and not gpu_stats:
             print("Run missing device: cuda")
-            gpu_stats = benchmark_device(config, images, "cuda", collect_predictions=True)
+            gpu_stats = benchmark_device(
+                config, images, "cuda", collect_predictions=True, dataset_config=ds
+            )
             gpu_stats["accuracy_metrics"] = evaluate_dataset(gpu_stats["predictions"], ground_truths)
 
         save_results(output_file, dataset_name, cpu_stats, gpu_stats)

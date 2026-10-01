@@ -9,6 +9,7 @@ import numpy as np
 import onnxruntime as ort
 
 from utils.metrics import evaluate_dataset
+from utils.datasets import prediction_key, result_is_compatible
 from configs.benchmark_config import BENCHMARKS, DATASETS
 
 
@@ -112,7 +113,13 @@ def extract_boxes(result: Any) -> List[tuple]:
 # BENCHMARK
 # =============================================================================
 
-def benchmark_device(config, image_files: List[str], device: str, collect_predictions: bool = False) -> Dict[str, Any]:
+def benchmark_device(
+    config,
+    image_files: List[str],
+    device: str,
+    collect_predictions: bool = False,
+    dataset_config=None,
+) -> Dict[str, Any]:
     gc.collect()
 
     detector_options = dict(
@@ -155,7 +162,7 @@ def benchmark_device(config, image_files: List[str], device: str, collect_predic
 
         detection_counts.append(num_detections)
         if collect_predictions:
-            predictions[Path(img_path).name] = boxes
+            predictions[prediction_key(img_path, dataset_config)] = boxes
 
         current_mem = get_memory_usage()
         peak_memory["ram_mb"] = max(peak_memory["ram_mb"], current_mem["ram_mb"])
@@ -232,6 +239,10 @@ def benchmark_model(model_name, config) -> None:
         print(f"\n### DATASET: {dataset_name}")
         output_file = Path(output_dir) / f"{dataset_name}_{model_name}.json"
         cpu_stats, gpu_stats = load_existing_results(output_file)
+        if not result_is_compatible(cpu_stats, ds):
+            cpu_stats = None
+        if not result_is_compatible(gpu_stats, ds):
+            gpu_stats = None
         run_cpu = not config["gpu_only"]
         run_gpu = not config["cpu_only"]
 
@@ -254,12 +265,16 @@ def benchmark_model(model_name, config) -> None:
         ground_truths = load_ground_truth(annotations)
         if run_cpu and not cpu_stats:
             print("Run missing device: cpu")
-            cpu_stats = benchmark_device(config, image_files, "cpu", collect_predictions=True)
+            cpu_stats = benchmark_device(
+                config, image_files, "cpu", collect_predictions=True, dataset_config=ds
+            )
             cpu_stats["accuracy_metrics"] = evaluate_dataset(cpu_stats["predictions"], ground_truths)
 
         if run_gpu and not gpu_stats:
             print("Run missing device: cuda")
-            gpu_stats = benchmark_device(config, image_files, "cuda", collect_predictions=True)
+            gpu_stats = benchmark_device(
+                config, image_files, "cuda", collect_predictions=True, dataset_config=ds
+            )
             gpu_stats["accuracy_metrics"] = evaluate_dataset(gpu_stats["predictions"], ground_truths)
 
         save_results(cpu_stats, gpu_stats, output_file, dataset_name)

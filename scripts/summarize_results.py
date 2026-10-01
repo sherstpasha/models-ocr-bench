@@ -23,33 +23,62 @@ def read_f1(model_name, config, dataset_name):
     return f1_50, f1_range
 
 
-def format_cell(metrics):
+def format_cell(metrics, best=None):
     if metrics is None:
-        return "—"
-    return f"{metrics[0]:.6f} / {metrics[1]:.6f}"
+        return "-"
+    values = [f"{value:.6f}" for value in metrics]
+    if best is not None:
+        values = [
+            f"**{value}**" if metric == maximum else value
+            for value, metric, maximum in zip(values, metrics, best)
+        ]
+    return " / ".join(values)
 
 
-def summary_rows():
+def summary_data():
     dataset_names = list(DATASETS)
-    rows = []
-    for model_name, config in BENCHMARKS.items():
-        row = {"model": model_name}
-        for dataset_name in dataset_names:
-            row[dataset_name] = format_cell(
-                read_f1(model_name, config, dataset_name)
-            )
-        rows.append(row)
-    return dataset_names, rows
+    raw_metrics = {
+        (model_name, dataset_name): read_f1(model_name, config, dataset_name)
+        for model_name, config in BENCHMARKS.items()
+        for dataset_name in dataset_names
+    }
+    return dataset_names, raw_metrics
+
+
+def best_metrics(dataset_names, raw_metrics):
+    best = {}
+    for dataset_name in dataset_names:
+        available = [
+            raw_metrics[model_name, dataset_name]
+            for model_name in BENCHMARKS
+            if raw_metrics[model_name, dataset_name] is not None
+        ]
+        best[dataset_name] = (
+            tuple(max(values[index] for values in available) for index in range(2))
+            if available
+            else None
+        )
+    return best
 
 
 def write_summary():
-    dataset_names, rows = summary_rows()
+    dataset_names, raw_metrics = summary_data()
     SUMMARY_CSV.parent.mkdir(parents=True, exist_ok=True)
     with SUMMARY_CSV.open("w", encoding="utf-8-sig", newline="") as file:
-        writer = csv.DictWriter(file, fieldnames=["model", *dataset_names])
-        writer.writeheader()
-        writer.writerows(rows)
+        writer = csv.writer(file)
+        writer.writerow(["model", *dataset_names])
+        for model_name in BENCHMARKS:
+            writer.writerow(
+                [
+                    model_name,
+                    *(
+                        format_cell(raw_metrics[model_name, dataset_name])
+                        for dataset_name in dataset_names
+                    ),
+                ]
+            )
 
+    best = best_metrics(dataset_names, raw_metrics)
     headers = ["Model", *dataset_names]
     lines = [
         "# Benchmark summary",
@@ -59,12 +88,15 @@ def write_summary():
         "| " + " | ".join(headers) + " |",
         "| " + " | ".join(["---"] * len(headers)) + " |",
     ]
-    for row in rows:
-        lines.append(
-            "| "
-            + " | ".join([row["model"], *(row[name] for name in dataset_names)])
-            + " |"
-        )
+    for model_name in BENCHMARKS:
+        cells = [
+            format_cell(
+                raw_metrics[model_name, dataset_name],
+                best=best[dataset_name],
+            )
+            for dataset_name in dataset_names
+        ]
+        lines.append("| " + " | ".join([model_name, *cells]) + " |")
     SUMMARY_MARKDOWN.write_text("\n".join(lines) + "\n", encoding="utf-8")
     print(f"Summary CSV: {SUMMARY_CSV}")
     print(f"Summary Markdown: {SUMMARY_MARKDOWN}")

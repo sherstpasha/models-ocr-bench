@@ -48,19 +48,97 @@ MODEL_LICENSES = {
 }
 
 DATASETS = [
-    ("russian_old_orthography", "https://huggingface.co/datasets/nevmenandr/russian-old-orthography-ocr", "MIT"),
-    ("YeniseiGovReports-TD", "https://huggingface.co/datasets/anna4uonline/YeniseiGovReports-TD", "MIT"),
-    ("school_notebooks_RU", "https://huggingface.co/datasets/ai-forever/school_notebooks_RU", "MIT"),
-    ("handwritten_essay", "https://huggingface.co/datasets/sherstpasha/handwritten_essay", "CC-BY-NC-3.0"),
-    ("ICDAR2015", "https://rrc.cvc.uab.es/?ch=4", "Условия ICDAR/RRC"),
-    ("TotalText", "https://github.com/cs-chan/Total-Text-Dataset", "BSD-3-Clause"),
-    ("gota_hovratt_seg", "https://huggingface.co/datasets/Riksarkivet/gota_hovratt_seg", "Не указана"),
-    ("svea_hovratt_seg", "https://huggingface.co/datasets/Riksarkivet/svea_hovratt_seg", "Не указана"),
-    ("bergskollegium_relationer_och_skrivelser_seg", "https://huggingface.co/datasets/Riksarkivet/bergskollegium_relationer_och_skrivelser_seg", "Не указана"),
-    ("YeniseiGovReports-HWR", "https://huggingface.co/datasets/sherstpasha/YeniseiGovReports-HWR", "MIT"),
-    ("YeniseiGovReports-PRT", "https://huggingface.co/datasets/sherstpasha/YeniseiGovReports-PRT", "MIT"),
-    ("cyrillic_handwriting", "https://www.kaggle.com/datasets/constantinwerner/cyrillic-handwriting-dataset", "CC0-1.0"),
-    ("DonkeySmallOCR-Numbers-Printed-15random", "https://huggingface.co/datasets/sherstpasha/DonkeySmallOCR-Numbers-Printed-15random", "Не указана"),
+    (
+        "russian_old_orthography",
+        "https://huggingface.co/datasets/nevmenandr/russian-old-orthography-ocr",
+        "MIT",
+        "А. В. Зражевская — «Женщина — поэт и автор»; все 39 страниц книги",
+        "детекция слов/строк — 39 страниц; распознавание — 8 489 слов и 1 406 строк",
+    ),
+    (
+        "YeniseiGovReports-TD",
+        "https://huggingface.co/datasets/anna4uonline/YeniseiGovReports-TD",
+        "MIT",
+        "test",
+        "270 изображений (детекция слов)",
+    ),
+    (
+        "school_notebooks_RU",
+        "https://huggingface.co/datasets/ai-forever/school_notebooks_RU",
+        "MIT",
+        "validation",
+        "150 страниц; 27 893 слова; 6 453 строки",
+    ),
+    (
+        "handwritten_essay",
+        "https://huggingface.co/datasets/sherstpasha/handwritten_essay",
+        "CC-BY-NC-3.0",
+        "валидационная часть из каталога `train/`",
+        "28 страниц; 5 146 слов; 676 строк",
+    ),
+    (
+        "ICDAR2015",
+        "https://rrc.cvc.uab.es/?ch=4",
+        "Условия ICDAR/RRC",
+        "test",
+        "200 изображений (детекция слов)",
+    ),
+    (
+        "TotalText",
+        "https://github.com/cs-chan/Total-Text-Dataset",
+        "BSD-3-Clause",
+        "test",
+        "300 изображений (детекция слов)",
+    ),
+    (
+        "gota_hovratt_seg",
+        "https://huggingface.co/datasets/Riksarkivet/gota_hovratt_seg",
+        "Не указана",
+        "все доступные пары изображение + PAGE XML",
+        "51 изображение (детекция строк)",
+    ),
+    (
+        "svea_hovratt_seg",
+        "https://huggingface.co/datasets/Riksarkivet/svea_hovratt_seg",
+        "Не указана",
+        "первые 100 PAGE XML в лексикографическом порядке",
+        "100 изображений (детекция строк)",
+    ),
+    (
+        "bergskollegium_relationer_och_skrivelser_seg",
+        "https://huggingface.co/datasets/Riksarkivet/bergskollegium_relationer_och_skrivelser_seg",
+        "Не указана",
+        "первые 100 PAGE XML в лексикографическом порядке",
+        "100 изображений (детекция строк)",
+    ),
+    (
+        "YeniseiGovReports-HWR",
+        "https://huggingface.co/datasets/sherstpasha/YeniseiGovReports-HWR",
+        "MIT",
+        "val",
+        "22 400 слов",
+    ),
+    (
+        "YeniseiGovReports-PRT",
+        "https://huggingface.co/datasets/sherstpasha/YeniseiGovReports-PRT",
+        "MIT",
+        "val",
+        "15 394 слова",
+    ),
+    (
+        "cyrillic_handwriting",
+        "https://www.kaggle.com/datasets/constantinwerner/cyrillic-handwriting-dataset",
+        "CC0-1.0",
+        "test",
+        "1 544 слова",
+    ),
+    (
+        "DonkeySmallOCR-Numbers-Printed-15random",
+        "https://huggingface.co/datasets/sherstpasha/DonkeySmallOCR-Numbers-Printed-15random",
+        "Не указана",
+        "val",
+        "1 500 слов",
+    ),
 ]
 
 RESULTS = [
@@ -127,9 +205,14 @@ def model_inventory():
 
 
 def dataset_inventory():
-    lines = ["| Датасет | Источник | Лицензия |", "| --- | --- | --- |"]
-    for name, source, license_name in DATASETS:
-        lines.append(f"| `{name}` | [source]({source}) | {license_name} |")
+    lines = [
+        "| Датасет | Источник | Лицензия | Использованное подмножество | Объём в бенчмарке |",
+        "| --- | --- | --- | --- | --- |",
+    ]
+    for name, source, license_name, subset, volume in DATASETS:
+        lines.append(
+            f"| `{name}` | [source]({source}) | {license_name} | {subset} | {volume} |"
+        )
     return lines
 
 

@@ -86,6 +86,13 @@ RESULTS = [
     ),
 ]
 
+PREDICTION_COMPARISONS = {
+    "benchmark_results/detection/summary.md": "benchmark_results/prediction_collages/word_detection_predictions.md",
+    "benchmark_results/line_detection/summary.md": "benchmark_results/prediction_collages/line_detection_predictions.md",
+    "benchmark_results/recognition/summary.md": "benchmark_results/prediction_collages/word_recognition_predictions.md",
+    "benchmark_results/line_recognition/summary.md": "benchmark_results/prediction_collages/line_recognition_predictions.md",
+}
+
 
 def markdown_table(path):
     lines = path.read_text(encoding="utf-8").splitlines()
@@ -93,6 +100,16 @@ def markdown_table(path):
     if not table:
         raise RuntimeError(f"No Markdown table found in {path}")
     return table
+
+
+def prediction_comparison(path):
+    lines = path.read_text(encoding="utf-8").splitlines()
+    # Asset paths in the standalone comparison are relative to its own folder.
+    # README lives in the repository root, so expand them while embedding.
+    return [
+        line.replace('src="assets/', 'src="benchmark_results/prediction_collages/assets/')
+        for line in lines
+    ]
 
 
 def model_inventory():
@@ -144,6 +161,9 @@ def build():
             "", "`Mean Metric Rank`: 1 — лучший средний ранг; меньше — лучше.",
             "", *markdown_table(PROJECT_ROOT / relative),
         ])
+        comparison = PREDICTION_COMPARISONS.get(relative)
+        if comparison:
+            lines.extend(["", *prediction_comparison(PROJECT_ROOT / comparison)])
     lines.append("")
     return "\n".join(lines)
 

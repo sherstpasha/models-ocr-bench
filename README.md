@@ -84,6 +84,22 @@
 | openocr_repvit_db | [source](https://github.com/Topdu/OpenOCR) | 0.2825 | 0.1368 | 0.5776 | 0.2359 | 8.2500 | 0.0796 / 0.0309 / 0.6892 / 0.0820 | 0.2775 / 0.1158 / 0.6642 / 0.2817 | 0.3981 / 0.1741 / 0.6944 / 0.3436 | 0.1806 / 0.0846 / 0.2994 / 0.1818 | 0.2634 / 0.1425 / 0.5832 / 0.1924 | 0.4956 / 0.2729 / 0.5349 / 0.3337 | 24.1304 |
 | paddleocr_v6_medium_word | [source](https://www.paddleocr.ai/latest/en/version3.x/algorithm/PP-OCRv6/PP-OCRv6.html) | 0.1913 | 0.0617 | 0.6181 | 0.1738 | 8.5000 | 0.0200 / 0.0064 / 0.7167 / 0.0204 | 0.1832 / 0.0552 / 0.6508 / 0.1891 | 0.1436 / 0.0412 / 0.6209 / 0.0894 | 0.2404 / 0.0713 / 0.7803 / 0.2443 | 0.2328 / 0.0747 / 0.5064 / 0.2188 | 0.3278 / 0.1212 / 0.4337 / 0.2808 | 9.5884 |
 
+### Примеры предсказаний
+
+Зелёным показана эталонная разметка, красным — предсказания модели.
+
+| Модель | [**Russian Old Orthography OCR**](https://huggingface.co/datasets/nevmenandr/russian-old-orthography-ocr)<br>`page_007.jpg` | [**Handwritten Essay**](https://huggingface.co/datasets/sherstpasha/handwritten_essay)<br>`test_10_0.png` | [**Total-Text**](https://github.com/cs-chan/Total-Text-Dataset)<br>`img632.jpg` |
+| --- | --- | --- | --- |
+| **yolo26x_obb_text_g1** | <img src="benchmark_results/prediction_collages/assets/word_detection/yolo26x_obb_text_g1_russian_old_orthography_page_007.jpg" width="300"> | <img src="benchmark_results/prediction_collages/assets/word_detection/yolo26x_obb_text_g1_handwritten_essay_test_10_0.jpg" width="300"> | <img src="benchmark_results/prediction_collages/assets/word_detection/yolo26x_obb_text_g1_TotalText_img632.jpg" width="300"> |
+| **yolo26s_obb_text_g1** | <img src="benchmark_results/prediction_collages/assets/word_detection/yolo26s_obb_text_g1_russian_old_orthography_page_007.jpg" width="300"> | <img src="benchmark_results/prediction_collages/assets/word_detection/yolo26s_obb_text_g1_handwritten_essay_test_10_0.jpg" width="300"> | <img src="benchmark_results/prediction_collages/assets/word_detection/yolo26s_obb_text_g1_TotalText_img632.jpg" width="300"> |
+| **east_50_g1** | <img src="benchmark_results/prediction_collages/assets/word_detection/east_50_g1_russian_old_orthography_page_007.jpg" width="300"> | <img src="benchmark_results/prediction_collages/assets/word_detection/east_50_g1_handwritten_essay_test_10_0.jpg" width="300"> | <img src="benchmark_results/prediction_collages/assets/word_detection/east_50_g1_TotalText_img632.jpg" width="300"> |
+| **yolo11n_text** | <img src="benchmark_results/prediction_collages/assets/word_detection/yolo11n_text_russian_old_orthography_page_007.jpg" width="300"> | <img src="benchmark_results/prediction_collages/assets/word_detection/yolo11n_text_handwritten_essay_test_10_0.jpg" width="300"> | <img src="benchmark_results/prediction_collages/assets/word_detection/yolo11n_text_TotalText_img632.jpg" width="300"> |
+| **doctr_db_resnet50** | <img src="benchmark_results/prediction_collages/assets/word_detection/doctr_db_resnet50_russian_old_orthography_page_007.jpg" width="300"> | <img src="benchmark_results/prediction_collages/assets/word_detection/doctr_db_resnet50_handwritten_essay_test_10_0.jpg" width="300"> | <img src="benchmark_results/prediction_collages/assets/word_detection/doctr_db_resnet50_TotalText_img632.jpg" width="300"> |
+| **craft_easyocr** | <img src="benchmark_results/prediction_collages/assets/word_detection/craft_easyocr_russian_old_orthography_page_007.jpg" width="300"> | <img src="benchmark_results/prediction_collages/assets/word_detection/craft_easyocr_handwritten_essay_test_10_0.jpg" width="300"> | <img src="benchmark_results/prediction_collages/assets/word_detection/craft_easyocr_TotalText_img632.jpg" width="300"> |
+| **yolo11x_dialectic** | <img src="benchmark_results/prediction_collages/assets/word_detection/yolo11x_dialectic_russian_old_orthography_page_007.jpg" width="300"> | <img src="benchmark_results/prediction_collages/assets/word_detection/yolo11x_dialectic_handwritten_essay_test_10_0.jpg" width="300"> | <img src="benchmark_results/prediction_collages/assets/word_detection/yolo11x_dialectic_TotalText_img632.jpg" width="300"> |
+| **openocr_repvit_db** | <img src="benchmark_results/prediction_collages/assets/word_detection/openocr_repvit_db_russian_old_orthography_page_007.jpg" width="300"> | <img src="benchmark_results/prediction_collages/assets/word_detection/openocr_repvit_db_handwritten_essay_test_10_0.jpg" width="300"> | <img src="benchmark_results/prediction_collages/assets/word_detection/openocr_repvit_db_TotalText_img632.jpg" width="300"> |
+| **paddleocr_v6_medium_word** | <img src="benchmark_results/prediction_collages/assets/word_detection/paddleocr_v6_medium_word_russian_old_orthography_page_007.jpg" width="300"> | <img src="benchmark_results/prediction_collages/assets/word_detection/paddleocr_v6_medium_word_handwritten_essay_test_10_0.jpg" width="300"> | <img src="benchmark_results/prediction_collages/assets/word_detection/paddleocr_v6_medium_word_TotalText_img632.jpg" width="300"> |
+
 ## Результаты детекции строк
 
 Метрики в ячейке: `F1@0.5 / F1@0.5:0.95 / Dice F1 / Polygon H-mean@0.5`; для всех метрик больше — лучше.
@@ -100,6 +116,21 @@
 | surya_text_line_detection | [source](https://github.com/datalab-to/surya) | 0.7488 | 0.3526 | 0.8823 | 0.7500 | 5.7500 | 0.9119 / 0.5179 / 0.8779 / 0.9166 | 0.9456 / 0.5340 / 0.9165 / 0.9442 | 0.7188 / 0.3804 / 0.8900 / 0.7119 | 0.7622 / 0.3072 / 0.8808 / 0.7512 | 0.3591 / 0.1269 / 0.8545 / 0.3754 | 0.7953 / 0.2493 / 0.8740 / 0.8007 | 2.9921 |
 | pero_layout_general | [source](https://github.com/DCGM/pero-ocr) | 0.7432 | 0.3689 | 0.8515 | 0.7435 | 6.5000 | 0.9675 / 0.6716 / 0.9019 / 0.9696 | 0.7687 / 0.2974 / 0.8302 / 0.7648 | 0.5620 / 0.2655 / 0.8309 / 0.5449 | 0.7946 / 0.3646 / 0.8668 / 0.8159 | 0.5620 / 0.2004 / 0.7978 / 0.5864 | 0.8044 / 0.4141 / 0.8813 / 0.7796 | 5.1923 |
 | doc_ufcn_generic_historical_line | [source](https://huggingface.co/Teklia/doc-ufcn-generic-historical-line) | 0.2709 | 0.0998 | 0.6032 | 0.2151 | 8.0000 | 0.8470 / 0.4168 / 0.7249 / 0.5701 | 0.0955 / 0.0221 / 0.4866 / 0.0064 | 0.3326 / 0.0896 / 0.5829 / 0.1010 | 0.1937 / 0.0441 / 0.6242 / 0.2048 | 0.0805 / 0.0136 / 0.5370 / 0.0511 | 0.0759 / 0.0126 / 0.6633 / 0.3575 | 4.6750 |
+
+### Примеры предсказаний
+
+Зелёным показана эталонная разметка, красным — предсказания модели.
+
+| Модель | [**Russian Old Orthography OCR**](https://huggingface.co/datasets/nevmenandr/russian-old-orthography-ocr)<br>`page_007.jpg` | [**School Notebooks RU**](https://huggingface.co/datasets/ai-forever/school_notebooks_RU)<br>`2647.jpg` | [**Göta Hovrätt Segmentation**](https://huggingface.co/datasets/Riksarkivet/gota_hovratt_seg)<br>`image_00026.jpg` |
+| --- | --- | --- | --- |
+| **mask2former_line_v0_prev** | <img src="benchmark_results/prediction_collages/assets/line_detection/mask2former_line_v0_prev_russian_old_orthography_page_007.jpg" width="300"> | <img src="benchmark_results/prediction_collages/assets/line_detection/mask2former_line_v0_prev_school_notebooks_ru_2647.jpg" width="300"> | <img src="benchmark_results/prediction_collages/assets/line_detection/mask2former_line_v0_prev_gota_hovratt_seg_image_00026.jpg" width="300"> |
+| **rfdetr_textline_textregion_2xl** | <img src="benchmark_results/prediction_collages/assets/line_detection/rfdetr_textline_textregion_2xl_russian_old_orthography_page_007.jpg" width="300"> | <img src="benchmark_results/prediction_collages/assets/line_detection/rfdetr_textline_textregion_2xl_school_notebooks_ru_2647.jpg" width="300"> | <img src="benchmark_results/prediction_collages/assets/line_detection/rfdetr_textline_textregion_2xl_gota_hovratt_seg_image_00026.jpg" width="300"> |
+| **paddleocr_v6_medium_line** | <img src="benchmark_results/prediction_collages/assets/line_detection/paddleocr_v6_medium_line_russian_old_orthography_page_007.jpg" width="300"> | <img src="benchmark_results/prediction_collages/assets/line_detection/paddleocr_v6_medium_line_school_notebooks_ru_2647.jpg" width="300"> | <img src="benchmark_results/prediction_collages/assets/line_detection/paddleocr_v6_medium_line_gota_hovratt_seg_image_00026.jpg" width="300"> |
+| **kraken_blla_default** | <img src="benchmark_results/prediction_collages/assets/line_detection/kraken_blla_default_russian_old_orthography_page_007.jpg" width="300"> | <img src="benchmark_results/prediction_collages/assets/line_detection/kraken_blla_default_school_notebooks_ru_2647.jpg" width="300"> | <img src="benchmark_results/prediction_collages/assets/line_detection/kraken_blla_default_gota_hovratt_seg_image_00026.jpg" width="300"> |
+| **riksarkivet_rtmdet_lines** | <img src="benchmark_results/prediction_collages/assets/line_detection/riksarkivet_rtmdet_lines_russian_old_orthography_page_007.jpg" width="300"> | <img src="benchmark_results/prediction_collages/assets/line_detection/riksarkivet_rtmdet_lines_school_notebooks_ru_2647.jpg" width="300"> | <img src="benchmark_results/prediction_collages/assets/line_detection/riksarkivet_rtmdet_lines_gota_hovratt_seg_image_00026.jpg" width="300"> |
+| **surya_text_line_detection** | <img src="benchmark_results/prediction_collages/assets/line_detection/surya_text_line_detection_russian_old_orthography_page_007.jpg" width="300"> | <img src="benchmark_results/prediction_collages/assets/line_detection/surya_text_line_detection_school_notebooks_ru_2647.jpg" width="300"> | <img src="benchmark_results/prediction_collages/assets/line_detection/surya_text_line_detection_gota_hovratt_seg_image_00026.jpg" width="300"> |
+| **pero_layout_general** | <img src="benchmark_results/prediction_collages/assets/line_detection/pero_layout_general_russian_old_orthography_page_007.jpg" width="300"> | <img src="benchmark_results/prediction_collages/assets/line_detection/pero_layout_general_school_notebooks_ru_2647.jpg" width="300"> | <img src="benchmark_results/prediction_collages/assets/line_detection/pero_layout_general_gota_hovratt_seg_image_00026.jpg" width="300"> |
+| **doc_ufcn_generic_historical_line** | <img src="benchmark_results/prediction_collages/assets/line_detection/doc_ufcn_generic_historical_line_russian_old_orthography_page_007.jpg" width="300"> | <img src="benchmark_results/prediction_collages/assets/line_detection/doc_ufcn_generic_historical_line_school_notebooks_ru_2647.jpg" width="300"> | <img src="benchmark_results/prediction_collages/assets/line_detection/doc_ufcn_generic_historical_line_gota_hovratt_seg_image_00026.jpg" width="300"> |
 
 ## Результаты распознавания слов
 
@@ -126,6 +157,27 @@
 | tesseract_cyrillic_best | [source](https://github.com/tesseract-ocr/tessdata_best/blob/main/script/Cyrillic.traineddata) | 0.3975 | 0.1859 | 3.1894 | 7.1136 | 14.7500 | 0.8313 / 0.5083 / 0.1755 / 0.5353 | 0.1508 / 0.0108 / 3.8474 / 6.7485 | 0.1763 / 0.0082 / 2.2724 / 4.3560 | 0.1113 / 0.0082 / 5.4663 / 9.7240 | 0.6784 / 0.4250 / 3.4440 / 6.9106 | 0.2754 / 0.0136 / 1.8430 / 3.8638 | 0.5590 / 0.3273 / 5.2769 / 17.6573 | 104.4722 |
 | tesseract_rus_best | [source](https://github.com/tesseract-ocr/tessdata_best/blob/main/rus.traineddata) | 0.3756 | 0.1752 | 5.4987 | 11.8931 | 15.7500 | 0.8013 / 0.4633 / 0.7224 / 1.6963 | 0.1360 / 0.0089 / 8.7576 / 15.7970 | 0.1703 / 0.0068 / 4.6738 / 9.1870 | 0.1079 / 0.0069 / 6.8035 / 11.7983 | 0.6767 / 0.4183 / 4.3476 / 8.9314 | 0.1836 / 0.0078 / 7.6413 / 17.2751 | 0.5530 / 0.3147 / 5.5444 / 18.5667 | 84.6194 |
 
+### Примеры предсказаний
+
+| Модель | [**Handwritten Essay**](https://huggingface.co/datasets/sherstpasha/handwritten_essay)<br><img src="benchmark_results/prediction_collages/assets/word/handwritten_essay_000912.jpg" width="280"><br>**GT:** степи | [**School Notebooks RU**](https://huggingface.co/datasets/ai-forever/school_notebooks_RU)<br><img src="benchmark_results/prediction_collages/assets/word/school_notebooks_ru_001263.jpg" width="280"><br>**GT:** них! | [**Russian Old Orthography OCR**](https://huggingface.co/datasets/nevmenandr/russian-old-orthography-ocr)<br><img src="benchmark_results/prediction_collages/assets/word/russian_old_orthography_0006693.jpg" width="280"><br>**GT:** не |
+| --- | --- | --- | --- |
+| **trba_base_g1** | степи | них! | не |
+| **trba_lite_g1** | степи | них! | не |
+| **trocr_ru_1700s** | степи | них! | 11е |
+| **kraken_ppocrv6_medium** | сmeu | них! | ne |
+| **cyrillic_large_handwritten** | степи | ниях. | ПЕ |
+| **trocr_dialectic_stackmix** | степи | них: | 116 |
+| **trocr_dialectic** | степи | них: | ПС |
+| **trocr_base_ru** | степи | них! | ПС |
+| **trocr_base_handwritten_ru** | степи | них! | пе |
+| **paddleocr_cyrillic_v5_mobile** | cmenu | vue! | ne |
+| **turkicocr_svtrv2_b** | стетии | кег і. | ие |
+| **paddleocr_eslav_v5_mobile** | cmenu | nue! | ne |
+| **cyrillic_g2** | €<л2& | Илу < | пе |
+| **cyrillic_g1** | (ели | иуе ! | П1& |
+| **tesseract_cyrillic_best** | СУТТЕ | ГСТУ | це |
+| **tesseract_rus_best** | Сидов | ∅ | не |
+
 ## Результаты распознавания строк
 
 Метрики в ячейке: `Character Similarity / Exact Match / CER / WER`; для первых двух больше — лучше, для CER и WER меньше — лучше.
@@ -150,3 +202,24 @@
 | tesseract_cyrillic_best | [source](https://github.com/tesseract-ocr/tessdata_best/blob/main/script/Cyrillic.traineddata) | 0.3124 | 0.0103 | 1.8913 | 3.2957 | 14.0000 | 0.7340 / 0.0299 / 1.8003 / 3.5768 | 0.0889 / 0.0011 / 1.2672 / 1.7371 | 0.1144 / 0.0000 / 2.6064 / 4.5733 | 32.3277 |
 | cyrillic_g2 | [source](https://github.com/JaidedAI/EasyOCR) | 0.3586 | 0.0009 | 0.6663 | 1.1904 | 14.2500 | 0.7302 / 0.0007 / 0.3019 / 0.7588 | 0.1693 / 0.0019 / 0.8319 / 1.2361 | 0.1762 / 0.0000 / 0.8650 / 1.5763 | 26.4851 |
 | tesseract_rus_best | [source](https://github.com/tesseract-ocr/tessdata_best/blob/main/rus.traineddata) | 0.3241 | 0.0068 | 2.4826 | 4.4226 | 15.0000 | 0.8043 / 0.0199 / 0.9157 / 1.9673 | 0.0789 / 0.0006 / 2.5924 / 4.2709 | 0.0890 / 0.0000 / 3.9398 / 7.0296 | 25.3625 |
+
+### Примеры предсказаний
+
+| Модель | [**Handwritten Essay**](https://huggingface.co/datasets/sherstpasha/handwritten_essay)<br><img src="benchmark_results/prediction_collages/assets/line/handwritten_essay_000654.jpg" width="520"><br>**GT:** Лиза". Главной героиней повести является сентименталь- | [**School Notebooks RU**](https://huggingface.co/datasets/ai-forever/school_notebooks_RU)<br><img src="benchmark_results/prediction_collages/assets/line/school_notebooks_ru_000315.jpg" width="520"><br>**GT:** небольшого роста, тщательно выбритый и аккуратно | [**Russian Old Orthography OCR**](https://huggingface.co/datasets/nevmenandr/russian-old-orthography-ocr)<br><img src="benchmark_results/prediction_collages/assets/line/russian_old_orthography_000836.jpg" width="520"><br>**GT:** роевъ. Адмиралъ Сенирской нездоровъ, не выходитъ изъ |
+| --- | --- | --- | --- |
+| **kraken_ppocrv6_medium** | Лиза». Главной чероиней повести являстся сентименталь- | небольшого роста, тщательно выбритьй и аккуратно | роевъ. Адмиралъ Сенпрской нездоровъ, не выходитъ изъ |
+| **cyrillic_large_handwritten** | Лица "Главной черенней волости является сентименталь- | небольшого роста, тщательно выбритый и аккуратно | роевъ. Адмиралъ Сентрской нездоровъ, не выходитъ изъ |
+| **trocr_ru_1700s** | Лица Главной героиней повести является сентиментом | небольшого хроста, тщательно выбратьше и аккуратно, | роевъ. Адмираль Сенгрской нездоровъ, не выходитъ изъ |
+| **trocr_dialectic_stackmix** | Связа́-Главной черв'иной пов'ести является | небольшого фоста, тщательно выбратьиб'еаркуратно | роевъ. Адмираль-Сенарской нездоровъ, невыходишё-133 |
+| **trba_lite_g1** | Каза Правой страний повести объекта летом | небольшого Чалазацительно Выбитыми о Выби | роевь. Адмираль Сенерской нездоровь, не в |
+| **trocr_base_ru** | Лиза-Главной героиней-повести является | небольшого врата, тщательно,выбритьшегоаккуратно, | роевъ. Адмираль Сентрской-нездоровъ, невыходитъ |
+| **trocr_dialectic** | Свеца́-Главной черв'иной повести является | небольшого фроста, тщательно-выбритый иаркуратно | роевъ. Адмираль-Сенарской нездоровъ,невыходишъ-133 |
+| **trba_base_g1** | Евгерей Павкой гражениямительными | ниопольного распл, вщитальное выдительной | реевы. Адмираль Северской нездоров, не вы |
+| **paddleocr_eslav_v5_mobile** | lуаTавно чероес ровеmu явеrs сеrрен | неsошorоpоmamyаmeоBбрumиsсyкураmu | роевь. Адмиралъ Сенирской нездоровъ, не выходипь изъ |
+| **turkicocr_svtrv2_b** | Ануа — пабкы тэрдией. довети алгзетсо сентиивентать | нефоииою доста тцатешио быйитышл о очкуратик | роевь. Адмираль Сенирской нездоровы, не выходишь изы |
+| **trocr_base_handwritten_ru** | Лез Гравой ирмый лестиявляется итностной | голимео рапо, пракаявабрильна додазажданания | проеп. Ип Сенрей нарды, не пополподить ить |
+| **paddleocr_cyrillic_v5_mobile** | la Tabpor чepoe robemu aвrsere cerren | нeдошoopocmamyаmeко брumuscyкypamu | роевь. Адмираль Сенирской нездоровъ, не выходипь изъ |
+| **cyrillic_g1** | З?ч. 71<8кос "ои{ {@бе77г(- 8=7& <2~{7<<<7т- | юабо %ост( > туатаикСышми* счччратио | роевъ. Адмиралъ Сенпрской нездоповъ, не выходишъ нзъ |
+| **tesseract_cyrillic_best** | ∅ | ∅ | роевъ. Адмиралъ Сенирской нездоровъ, не выходитъ изъ |
+| **cyrillic_g2** | '? " 74Жёжо7 "ео /4бе./2ч ~ 04_з&Я&+ (1 < 4с7+46 - | и0[0 (010 {{ъ_п 0 > [пъ %&ка [ъ0 [ъ $ т [Ч~&ра лил | роевъ: Адмиралъ Сенпрской нездоровъ; не выходипъ пзъ |
+| **tesseract_rus_best** | беря. табиси ВДООНеНы девестаи, пиве сарардесмадрт | ∅ | роевъ. Адмиралъ Сенирской нездоровъ, не выходишЪ изЪ |

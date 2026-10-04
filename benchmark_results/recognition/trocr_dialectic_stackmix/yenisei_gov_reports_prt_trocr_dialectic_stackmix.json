@@ -1,0 +1,25 @@
+{
+  "task": "recognition",
+  "dataset": "yenisei_gov_reports_prt",
+  "model": "trocr_dialectic_stackmix",
+  "repository": "Daniil-Domino/trocr-base-ru-dialectic-stackmix",
+  "cpu": null,
+  "gpu": {
+    "device": "cuda",
+    "num_words": 15394,
+    "batch_size": 8,
+    "total_time_s": 674.0783826999977,
+    "mean_time_ms": 43.78838396128347,
+    "throughput_words_s": 22.837106774348502,
+    "ram_after_load_mb": 2240.17578125,
+    "ram_peak_mb": 2239.1171875,
+    "gpu_peak_mb": 1498.7041015625,
+    "accuracy_metrics": {
+      "cer": 0.31031072953384753,
+      "wer": 0.7033134442046465,
+      "evaluated_words": 15394,
+      "exact_match": 0.3360400155904898,
+      "character_similarity": 0.6644432432452759
+    }
+  }
+}

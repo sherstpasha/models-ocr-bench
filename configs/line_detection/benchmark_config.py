@@ -1,0 +1,184 @@
+"""Line-level text detection benchmark configuration."""
+
+import os
+from pathlib import Path
+
+
+PROJECT_ROOT = Path(__file__).resolve().parent.parent.parent
+RESULTS_ROOT = PROJECT_ROOT / "benchmark_results" / "line_detection"
+DATA_ROOT = Path(os.environ.get(
+    "OCR_BENCH_DATA_ROOT",
+    r"C:\benchmark" if os.name == "nt" else "benchmark_data",
+))
+OLD_ORTHOGRAPHY_ROOT = DATA_ROOT / "russian_old_orthography_ocr"
+
+BENCHMARKS = {
+    "paddleocr_v6_medium_line": {
+        "origin": "https://www.paddleocr.ai/latest/en/version3.x/algorithm/PP-OCRv6/PP-OCRv6.html",
+        # Run separately from .venv-paddleocr; see README.md.
+        "run": False,
+        "backend": "paddleocr",
+        "output_dir": RESULTS_ROOT / "paddleocr_v6_medium_line",
+        "model_dir": PROJECT_ROOT / "models" / "paddleocr",
+        "detection_model": "PP-OCRv6_medium_det",
+        "recognition_model": "cyrillic_PP-OCRv5_mobile_rec",
+        "device": "gpu:0",
+        "return_word_box": False,
+        "text_det_limit_side_len": 2560,
+        "text_det_limit_type": "max",
+        "warmup": 1,
+    },
+    "rfdetr_textline_textregion_2xl": {
+        "origin": "https://huggingface.co/Kansallisarkisto/rfdetr-textline-textregion-detection-2xl",
+        "run": True,
+        "backend": "rfdetr",
+        "output_dir": RESULTS_ROOT / "rfdetr_textline_textregion_2xl",
+        "model_dir": PROJECT_ROOT / "models" / "rfdetr-textline-textregion-detection-2xl",
+        "repository": "Kansallisarkisto/rfdetr-textline-textregion-detection-2xl",
+        "filename": "checkpoint_best_total.pth",
+        "threshold": 0.5,
+        "warmup": 1,
+        "device": "cuda:0",
+    },
+    "mask2former_line_v0_prev": {
+        "origin": "https://github.com/konstantinkozhin/manuscript-ocr",
+        "run": True,
+        "backend": "mask2former",
+        "output_dir": RESULTS_ROOT / "mask2former_line_v0_prev",
+        "weights": "mask2former_line_v0_prev",
+        "device": "cuda",
+        "warmup": 1,
+    },
+    "doc_ufcn_generic_historical_line": {
+        "origin": "https://huggingface.co/Teklia/doc-ufcn-generic-historical-line",
+        "run": True,
+        "backend": "doc_ufcn",
+        "output_dir": RESULTS_ROOT / "doc_ufcn_generic_historical_line",
+        "model_dir": PROJECT_ROOT / "models" / "doc-ufcn-generic-historical-line",
+        "repository": "Teklia/doc-ufcn-generic-historical-line",
+        "weights_filename": "model.pth",
+        "parameters_filename": "parameters.yml",
+        "device": "cuda:0",
+        "warmup": 1,
+    },
+    "surya_text_line_detection": {
+        "origin": "https://github.com/datalab-to/surya",
+        "run": True,
+        "backend": "surya",
+        "output_dir": RESULTS_ROOT / "surya_text_line_detection",
+        "device": "cuda",
+        "warmup": 1,
+    },
+    "kraken_blla_default": {
+        "origin": "https://github.com/mittagessen/kraken",
+        "run": True,
+        "backend": "kraken",
+        "output_dir": RESULTS_ROOT / "kraken_blla_default",
+        "device": "cuda:0",
+        "warmup": 1,
+    },
+    "pero_layout_general": {
+        "origin": "https://github.com/DCGM/pero-ocr",
+        "run": True,
+        "backend": "pero",
+        "output_dir": RESULTS_ROOT / "pero_layout_general",
+        "model_dir": PROJECT_ROOT / "models" / "pero-layout-general",
+        "archive_url": "https://nextcloud.fit.vutbr.cz/s/NtAbHTNkZFpapdJ/download",
+        "archive_name": "pero_eu_cz_print_newspapers_2022-09-26.zip",
+        "device": "cuda:0",
+        "warmup": 1,
+    },
+    "riksarkivet_rtmdet_lines": {
+        "origin": "https://huggingface.co/Riksarkivet/rtmdet_lines",
+        "run": True,
+        "backend": "rtmdet",
+        "output_dir": RESULTS_ROOT / "riksarkivet_rtmdet_lines",
+        "model_dir": PROJECT_ROOT / "models" / "riksarkivet-rtmdet-lines",
+        "repository": "Riksarkivet/rtmdet_lines",
+        "score_threshold": 0.3,
+        "device": "cuda:0",
+        "warmup": 1,
+    },
+}
+
+DATASETS = {
+    "russian_old_orthography": {
+        "folder": OLD_ORTHOGRAPHY_ROOT / "pages",
+        "annotations": OLD_ORTHOGRAPHY_ROOT / "line_detection.json",
+        "repository": "nevmenandr/russian-old-orthography-ocr",
+        "download_dir": OLD_ORTHOGRAPHY_ROOT,
+        "download_files": [
+            "books-pdf-plaintext/pdf/zrazhevskaja_a_v.zhenshchina_poet_i_avtor.pdf",
+            "books-pdf-plaintext/txt/zrazhevskaja_a_v.zhenshchina_poet_i_avtor.txt",
+        ],
+        "pdf_file": "books-pdf-plaintext/pdf/zrazhevskaja_a_v.zhenshchina_poet_i_avtor.pdf",
+        "text_file": "books-pdf-plaintext/txt/zrazhevskaja_a_v.zhenshchina_poet_i_avtor.txt",
+        "prepare": "old_orthography",
+    },
+    "handwritten_essay": {
+        "folder": DATA_ROOT / "handwritten_essay" / "train",
+        "annotations": DATA_ROOT / "handwritten_essay" / "line_detection_train.json",
+        "source_annotations": DATA_ROOT / "handwritten_essay" / "train_page.json",
+        "source_coco": DATA_ROOT / "handwritten_essay" / "train_coco.json",
+        "filename_prefix": "test_",
+        "prepare": "handwritten_essay_lines",
+        "repository": "sherstpasha/handwritten_essay",
+    },
+    "school_notebooks_ru": {
+        "folder": DATA_ROOT / "school_notebooks_RU" / "benchmark_validation" / "images",
+        "annotations": DATA_ROOT / "school_notebooks_RU" / "line_detection_val.json",
+        "source_annotations": DATA_ROOT / "school_notebooks_RU" / "annotations_val.json",
+        "source_images": DATA_ROOT / "school_notebooks_RU" / "images",
+        "prepare": "school_notebooks_lines",
+        "repository": "ai-forever/school_notebooks_RU",
+    },
+    "gota_hovratt_seg": {
+        "folder": DATA_ROOT / "gota_hovratt_seg" / "benchmark_images",
+        "source_images": DATA_ROOT / "gota_hovratt_seg" / "images",
+        "annotations": DATA_ROOT / "gota_hovratt_seg" / "line_detection.json",
+        "source_annotations": DATA_ROOT / "gota_hovratt_seg" / "page_xmls",
+        "repository": "Riksarkivet/gota_hovratt_seg",
+        "download_dir": DATA_ROOT / "gota_hovratt_seg",
+        "download_files": [
+            "data/images/gota_hovratt_seg_images_1.tar.gz",
+            "data/images/gota_hovratt_seg_images_2.tar.gz",
+            "data/page_xmls/gota_hovratt_seg_page_xmls_1.tar.gz",
+            "data/page_xmls/gota_hovratt_seg_page_xmls_2.tar.gz",
+        ],
+        "prepare": "page_xml_lines",
+    },
+    "svea_hovratt_seg": {
+        "folder": DATA_ROOT / "svea_hovratt_seg" / "benchmark_images",
+        "source_images": DATA_ROOT / "svea_hovratt_seg" / "images",
+        "annotations": DATA_ROOT / "svea_hovratt_seg" / "line_detection.json",
+        "source_annotations": DATA_ROOT / "svea_hovratt_seg" / "page_xmls",
+        "repository": "Riksarkivet/svea_hovratt_seg",
+        "download_dir": DATA_ROOT / "svea_hovratt_seg",
+        "download_files": [
+            "data/images/svea_hovratt_seg_images_1.tar.gz",
+            "data/images/svea_hovratt_seg_images_2.tar.gz",
+            "data/page_xmls/svea_hovratt_seg_page_xmls_1.tar.gz",
+            "data/page_xmls/svea_hovratt_seg_page_xmls_2.tar.gz",
+        ],
+        # Stable evaluation subset: first PAGE XML paths in lexicographic order.
+        "max_images": 100,
+        "prepare": "page_xml_lines",
+    },
+    "bergskollegium_relationer_och_skrivelser_seg": {
+        "folder": DATA_ROOT / "bergskollegium_relationer_och_skrivelser_seg" / "benchmark_images",
+        "source_images": DATA_ROOT / "bergskollegium_relationer_och_skrivelser_seg" / "images",
+        "annotations": DATA_ROOT / "bergskollegium_relationer_och_skrivelser_seg" / "line_detection.json",
+        "source_annotations": DATA_ROOT / "bergskollegium_relationer_och_skrivelser_seg" / "page_xmls",
+        "repository": "Riksarkivet/bergskollegium_relationer_och_skrivelser_seg",
+        "download_dir": DATA_ROOT / "bergskollegium_relationer_och_skrivelser_seg",
+        "download_files": [
+            "data/images/bergskollegium_relationer_och_skrivelser_seg_images_1.tar.gz",
+            "data/images/bergskollegium_relationer_och_skrivelser_seg_images_2.tar.gz",
+            "data/page_xmls/bergskollegium_relationer_och_skrivelser_seg_page_xmls_1.tar.gz",
+            "data/page_xmls/bergskollegium_relationer_och_skrivelser_seg_page_xmls_2.tar.gz",
+        ],
+        # Stable evaluation subset: first PAGE XML paths in lexicographic order.
+        "max_images": 100,
+        "prepare": "page_xml_lines",
+    },
+}

@@ -1,0 +1,25 @@
+{
+  "task": "recognition",
+  "dataset": "yenisei_gov_reports_hwr",
+  "model": "trocr_base_handwritten_ru",
+  "repository": "kazars24/trocr-base-handwritten-ru",
+  "cpu": null,
+  "gpu": {
+    "device": "cuda",
+    "num_words": 22400,
+    "batch_size": 8,
+    "total_time_s": 1935.4925236999989,
+    "mean_time_ms": 86.4059162366071,
+    "throughput_words_s": 11.5732815940714,
+    "ram_after_load_mb": 2391.73046875,
+    "ram_peak_mb": 2368.19921875,
+    "gpu_peak_mb": 1619.10791015625,
+    "accuracy_metrics": {
+      "cer": 0.34189492733492605,
+      "wer": 0.7748695402062703,
+      "evaluated_words": 22400,
+      "exact_match": 0.24665178571428573,
+      "character_similarity": 0.6463433593922508
+    }
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "task": "recognition",
+  "dataset": "handwritten_essay",
+  "model": "paddleocr_eslav_v5_mobile",
+  "cpu": null,
+  "gpu": {
+    "device": "gpu:0",
+    "model_name": "eslav_PP-OCRv5_mobile_rec",
+    "num_words": 676,
+    "batch_size": 128,
+    "total_time_s": 2.642849500000011,
+    "mean_time_ms": 3.9095406804733894,
+    "throughput_words_s": 255.78452348497223,
+    "ram_after_load_mb": 1644.484375,
+    "ram_peak_mb": 1478.1640625,
+    "gpu_after_load_mb": 187.572998046875,
+    "gpu_peak_mb": 1512.1953125,
+    "gpu_delta_mb": 1324.622314453125,
+    "mean_confidence": 0.48237793694233755,
+    "accuracy_metrics": {
+      "cer": 0.6339020771513353,
+      "wer": 0.9465200075858146,
+      "exact_match": 0.0,
+      "character_similarity": 0.3362201053435504,
+      "evaluated_words": 676
+    }
+  }
+}

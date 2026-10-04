@@ -4,12 +4,12 @@
   "gpu": {
     "device": "cuda",
     "num_images": 200,
-    "mean_time_ms": 12.239327430725098,
-    "median_time_ms": 15.637874603271484,
-    "throughput_fps": 81.70383590601895,
-    "ram_after_load_mb": 1501.48828125,
-    "ram_peak_mb": 1493.8828125,
-    "ram_delta_mb": -7.60546875,
+    "mean_time_ms": 13.727341890335083,
+    "median_time_ms": 13.001441955566406,
+    "throughput_fps": 72.8473150875672,
+    "ram_after_load_mb": 1580.22265625,
+    "ram_peak_mb": 1582.86328125,
+    "ram_delta_mb": 2.640625,
     "gpu_after_load_mb": 254.72998046875,
     "gpu_peak_mb": 475.87939453125,
     "gpu_delta_mb": 221.1494140625,
@@ -18,7 +18,7 @@
       "precision": 0.2555366269165247,
       "recall": 0.05917159763313609,
       "f1": 0.09609224855861627,
-      "mean_matched_iou": 0.7333154829665892,
+      "mean_matched_iou": 0.733315482966589,
       "true_positives": 150,
       "false_positives": 437,
       "false_negatives": 2385,
@@ -37,6 +37,18 @@
         "0.90": 0.004484304932735426,
         "0.95": 0.0006406149903907751
       }
+    },
+    "polygon_iou_metrics": {
+      "iou_threshold": 0.5,
+      "precision": 0.18228279386712096,
+      "recall": 0.04220907297830375,
+      "hmean": 0.06854580397181294,
+      "dice_f1": 0.28562386774058873,
+      "mean_matched_iou": 0.6515072742226913,
+      "true_positives": 107,
+      "false_positives": 480,
+      "false_negatives": 2428,
+      "evaluated_images": 200
     }
   }
 }

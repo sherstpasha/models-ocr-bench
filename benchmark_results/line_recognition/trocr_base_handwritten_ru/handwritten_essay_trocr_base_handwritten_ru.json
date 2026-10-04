@@ -1,0 +1,25 @@
+{
+  "task": "recognition",
+  "dataset": "handwritten_essay",
+  "model": "trocr_base_handwritten_ru",
+  "repository": "kazars24/trocr-base-handwritten-ru",
+  "cpu": null,
+  "gpu": {
+    "device": "cuda",
+    "num_words": 676,
+    "batch_size": 8,
+    "total_time_s": 275.29396069999984,
+    "mean_time_ms": 407.23958683431925,
+    "throughput_words_s": 2.4555569554853673,
+    "ram_after_load_mb": 2257.09765625,
+    "ram_peak_mb": 2256.9765625,
+    "gpu_peak_mb": 1767.51318359375,
+    "accuracy_metrics": {
+      "cer": 0.6366697101118466,
+      "wer": 0.9761046842404704,
+      "exact_match": 0.0029585798816568047,
+      "character_similarity": 0.3883048056108215,
+      "evaluated_words": 676
+    }
+  }
+}

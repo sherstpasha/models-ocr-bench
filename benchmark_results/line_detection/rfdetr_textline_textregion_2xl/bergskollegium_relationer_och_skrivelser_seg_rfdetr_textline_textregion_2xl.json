@@ -1,0 +1,66 @@
+{
+  "dataset": "bergskollegium_relationer_och_skrivelser_seg",
+  "level": "line",
+  "cpu": null,
+  "gpu": {
+    "device": "cuda:0",
+    "detection_level": "line",
+    "architecture": "RF-DETR Seg 2XLarge",
+    "repository": "Kansallisarkisto/rfdetr-textline-textregion-detection-2xl",
+    "checkpoint": "checkpoint_best_total.pth",
+    "threshold": 0.5,
+    "line_classes": [
+      "text_line_upright",
+      "text_line_upside_down",
+      "text_line_rotated_cw",
+      "text_line_rotated_ccw"
+    ],
+    "num_images": 100,
+    "mean_time_ms": 233.45656700010295,
+    "median_time_ms": 234.8879000019224,
+    "throughput_fps": 4.283452005012817,
+    "ram_after_load_mb": 940.3828125,
+    "ram_peak_mb": 3754.2265625,
+    "gpu_after_load_mb": 74.86328125,
+    "gpu_peak_mb": 2257.404296875,
+    "gpu_delta_mb": 2182.541015625,
+    "ground_truth_version": 4,
+    "accuracy_metrics": {
+      "iou_threshold": 0.5,
+      "precision": 0.993604291314215,
+      "recall": 0.9703808180535967,
+      "f1": 0.981855249745158,
+      "mean_matched_iou": 0.8656017184289356,
+      "true_positives": 4816,
+      "false_positives": 31,
+      "false_negatives": 147,
+      "evaluated_images": 100,
+      "f1@0.5": 0.981855249745158,
+      "f1@0.5:0.95": 0.7668297655453619,
+      "f1_by_iou": {
+        "0.50": 0.981855249745158,
+        "0.55": 0.9802242609582058,
+        "0.60": 0.9769622833843017,
+        "0.65": 0.9710499490316004,
+        "0.70": 0.9590214067278287,
+        "0.75": 0.9312945973496431,
+        "0.80": 0.834862385321101,
+        "0.85": 0.6316004077471967,
+        "0.90": 0.3294597349643222,
+        "0.95": 0.07196738022426097
+      }
+    },
+    "polygon_iou_metrics": {
+      "iou_threshold": 0.5,
+      "precision": 0.7806890860325975,
+      "recall": 0.7624420713278259,
+      "hmean": 0.7714576962283385,
+      "dice_f1": 0.8928845544441272,
+      "mean_matched_iou": 0.5776359225976488,
+      "true_positives": 3784,
+      "false_positives": 1063,
+      "false_negatives": 1179,
+      "evaluated_images": 100
+    }
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "benchmark_version": 2,
+  "task": "recognition",
+  "dataset": "russian_old_orthography",
+  "model": "tesseract_cyrillic_best",
+  "origin": "https://github.com/tesseract-ocr/tessdata_best/blob/main/script/Cyrillic.traineddata",
+  "engine": "tesseract v5.5.3.20260724",
+  "cpu": {
+    "device": "cpu",
+    "num_words": 8489,
+    "batch_size": 512,
+    "total_time_s": 54.18648589999998,
+    "mean_time_ms": 6.383141229826832,
+    "throughput_words_s": 156.66267813835117,
+    "ram_peak_mb": 64.2890625,
+    "mean_confidence": 0.621027860238819,
+    "accuracy_metrics": {
+      "cer": 0.17548619596959592,
+      "wer": 0.5352809518200023,
+      "exact_match": 0.5083048651195665,
+      "character_similarity": 0.8313147487818897,
+      "evaluated_words": 8489
+    }
+  },
+  "gpu": null
+}

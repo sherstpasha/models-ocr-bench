@@ -1,0 +1,25 @@
+{
+  "task": "recognition",
+  "dataset": "handwritten_essay",
+  "model": "trocr_base_ru",
+  "repository": "raxtemur/trocr-base-ru",
+  "cpu": null,
+  "gpu": {
+    "device": "cuda",
+    "num_words": 5146,
+    "batch_size": 8,
+    "total_time_s": 188.41372819999742,
+    "mean_time_ms": 36.61362771084287,
+    "throughput_words_s": 27.312234884167374,
+    "ram_after_load_mb": 1378.33984375,
+    "ram_peak_mb": 1387.22265625,
+    "gpu_peak_mb": 1471.8037109375,
+    "accuracy_metrics": {
+      "cer": 0.15115442474982013,
+      "wer": 0.46216575004741134,
+      "evaluated_words": 5146,
+      "exact_match": 0.6204819277108434,
+      "character_similarity": 0.8348053728998627
+    }
+  }
+}

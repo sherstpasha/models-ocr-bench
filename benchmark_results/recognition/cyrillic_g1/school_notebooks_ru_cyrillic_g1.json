@@ -1,0 +1,24 @@
+{
+  "task": "recognition",
+  "dataset": "school_notebooks_ru",
+  "model": "cyrillic_g1",
+  "cpu": null,
+  "gpu": {
+    "device": "cuda",
+    "num_words": 27893,
+    "total_time_s": 348.87746699999843,
+    "mean_time_ms": 12.507706844010986,
+    "throughput_words_s": 79.95070659005938,
+    "ram_after_load_mb": 1847.19921875,
+    "ram_peak_mb": 1865.7578125,
+    "gpu_peak_mb": 411.0478515625,
+    "mean_confidence": 0.16786799875583938,
+    "accuracy_metrics": {
+      "cer": 0.8516209223619058,
+      "wer": 1.131906297622001,
+      "evaluated_words": 27893,
+      "exact_match": 0.01910873695909368,
+      "character_similarity": 0.18559710587241965
+    }
+  }
+}

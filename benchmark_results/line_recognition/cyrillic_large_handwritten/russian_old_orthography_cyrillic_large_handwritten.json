@@ -1,0 +1,25 @@
+{
+  "task": "recognition",
+  "dataset": "russian_old_orthography",
+  "model": "cyrillic_large_handwritten",
+  "repository": "Kansallisarkisto/cyrillic-large-handwritten",
+  "cpu": null,
+  "gpu": {
+    "device": "cuda",
+    "num_words": 1406,
+    "batch_size": 2,
+    "total_time_s": 333.40612280000096,
+    "mean_time_ms": 237.1309550497873,
+    "throughput_words_s": 4.217079123179186,
+    "ram_after_load_mb": 2233.0234375,
+    "ram_peak_mb": 2228.2421875,
+    "gpu_peak_mb": 2446.93310546875,
+    "accuracy_metrics": {
+      "cer": 0.05160025050265335,
+      "wer": 0.24453406919974527,
+      "exact_match": 0.17923186344238975,
+      "character_similarity": 0.9467199224825474,
+      "evaluated_words": 1406
+    }
+  }
+}

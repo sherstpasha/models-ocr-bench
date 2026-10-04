@@ -1,0 +1,64 @@
+{
+  "dataset": "russian_old_orthography",
+  "level": "line",
+  "cpu": null,
+  "gpu": {
+    "device": "cuda",
+    "providers": [
+      "CUDAExecutionProvider",
+      "CPUExecutionProvider"
+    ],
+    "detection_level": "line",
+    "architecture": "Mask2Former",
+    "weights": "mask2former_line_v0_prev",
+    "image_size": 1024,
+    "score_threshold": 0.15,
+    "mask_logit_threshold": 0.0,
+    "nms_iou_threshold": 0.5,
+    "num_images": 39,
+    "mean_time_ms": 2136.8184000000033,
+    "median_time_ms": 2114.323499999955,
+    "throughput_fps": 0.46798548720845834,
+    "ram_after_load_mb": 483.796875,
+    "ram_peak_mb": 1602.3359375,
+    "ram_delta_mb": 1118.5390625,
+    "ground_truth_version": 4,
+    "accuracy_metrics": {
+      "iou_threshold": 0.5,
+      "precision": 0.9332310053722179,
+      "recall": 0.8648648648648649,
+      "f1": 0.8977482465854559,
+      "mean_matched_iou": 0.84795026636055,
+      "true_positives": 1216,
+      "false_positives": 87,
+      "false_negatives": 190,
+      "evaluated_images": 39,
+      "f1@0.5": 0.8977482465854559,
+      "f1@0.5:0.95": 0.6632705795496494,
+      "f1_by_iou": {
+        "0.50": 0.8977482465854559,
+        "0.55": 0.8977482465854559,
+        "0.60": 0.8933185677371723,
+        "0.65": 0.8859357696566998,
+        "0.70": 0.8630490956072352,
+        "0.75": 0.82687338501292,
+        "0.80": 0.6939830195644149,
+        "0.85": 0.4761904761904762,
+        "0.90": 0.1646363971945367,
+        "0.95": 0.033222591362126255
+      }
+    },
+    "polygon_iou_metrics": {
+      "iou_threshold": 0.5,
+      "precision": 0.9332310053722179,
+      "recall": 0.8648648648648649,
+      "hmean": 0.8977482465854559,
+      "dice_f1": 0.8079231497973449,
+      "mean_matched_iou": 0.7801279877803736,
+      "true_positives": 1216,
+      "false_positives": 87,
+      "false_negatives": 190,
+      "evaluated_images": 39
+    }
+  }
+}

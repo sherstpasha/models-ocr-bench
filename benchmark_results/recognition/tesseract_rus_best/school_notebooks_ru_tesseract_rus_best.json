@@ -1,0 +1,26 @@
+{
+  "benchmark_version": 2,
+  "task": "recognition",
+  "dataset": "school_notebooks_ru",
+  "model": "tesseract_rus_best",
+  "origin": "https://github.com/tesseract-ocr/tessdata_best/blob/main/rus.traineddata",
+  "engine": "tesseract v5.5.3.20260724",
+  "cpu": {
+    "device": "cpu",
+    "num_words": 27893,
+    "batch_size": 512,
+    "total_time_s": 434.23484410000674,
+    "mean_time_ms": 15.567878826229045,
+    "throughput_words_s": 64.23482679703172,
+    "ram_peak_mb": 94.4609375,
+    "mean_confidence": 0.12622679214620028,
+    "accuracy_metrics": {
+      "cer": 8.75757432464383,
+      "wer": 15.797037247049651,
+      "exact_match": 0.00892697092460474,
+      "character_similarity": 0.1360471974677401,
+      "evaluated_words": 27893
+    }
+  },
+  "gpu": null
+}

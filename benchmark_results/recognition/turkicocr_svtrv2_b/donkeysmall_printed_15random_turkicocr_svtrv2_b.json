@@ -1,0 +1,29 @@
+{
+  "task": "recognition",
+  "dataset": "donkeysmall_printed_15random",
+  "model": "turkicocr_svtrv2_b",
+  "repository": "alenisaw/turkicocr-svtrv2-b-onnx",
+  "cpu": null,
+  "gpu": {
+    "device": "cuda",
+    "active_providers": [
+      "CUDAExecutionProvider",
+      "CPUExecutionProvider"
+    ],
+    "num_words": 1500,
+    "batch_size": 128,
+    "total_time_s": 2.690450299999611,
+    "mean_time_ms": 1.7936335333330742,
+    "throughput_words_s": 557.5274889858463,
+    "ram_after_load_mb": 1695.12109375,
+    "ram_peak_mb": 1513.73828125,
+    "mean_confidence": 0.948692645574721,
+    "accuracy_metrics": {
+      "cer": 0.07198220664554829,
+      "wer": 0.644,
+      "evaluated_words": 1500,
+      "exact_match": 0.5906666666666667,
+      "character_similarity": 0.9310580194022885
+    }
+  }
+}

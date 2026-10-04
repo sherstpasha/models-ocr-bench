@@ -1,0 +1,25 @@
+{
+  "task": "recognition",
+  "dataset": "school_notebooks_ru",
+  "model": "trocr_ru_1700s",
+  "repository": "taiga75/ru-trocr-1700s",
+  "cpu": null,
+  "gpu": {
+    "device": "cuda",
+    "num_words": 6453,
+    "batch_size": 8,
+    "total_time_s": 576.8545091999986,
+    "mean_time_ms": 89.39322938168272,
+    "throughput_words_s": 11.186529527088624,
+    "ram_after_load_mb": 2305.50390625,
+    "ram_peak_mb": 2310.7421875,
+    "gpu_peak_mb": 3366.0791015625,
+    "accuracy_metrics": {
+      "cer": 0.1270440024546078,
+      "wer": 0.4389276533235402,
+      "exact_match": 0.25042615837594917,
+      "character_similarity": 0.8501418919547493,
+      "evaluated_words": 6453
+    }
+  }
+}

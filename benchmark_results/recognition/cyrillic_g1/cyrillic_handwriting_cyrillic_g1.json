@@ -1,0 +1,24 @@
+{
+  "task": "recognition",
+  "dataset": "cyrillic_handwriting",
+  "model": "cyrillic_g1",
+  "cpu": null,
+  "gpu": {
+    "device": "cuda",
+    "num_words": 1544,
+    "total_time_s": 34.93701759999385,
+    "mean_time_ms": 22.627602072534877,
+    "throughput_words_s": 44.193812353355305,
+    "ram_after_load_mb": 1884.61328125,
+    "ram_peak_mb": 1883.90234375,
+    "gpu_peak_mb": 420.2978515625,
+    "mean_confidence": 0.1408065378825087,
+    "accuracy_metrics": {
+      "cer": 0.7142083530765586,
+      "wer": 1.1389405204460967,
+      "evaluated_words": 1544,
+      "exact_match": 0.013601036269430052,
+      "character_similarity": 0.31843637597343566
+    }
+  }
+}

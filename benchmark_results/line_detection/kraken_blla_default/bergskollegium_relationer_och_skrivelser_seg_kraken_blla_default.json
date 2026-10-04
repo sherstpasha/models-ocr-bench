@@ -1,0 +1,59 @@
+{
+  "dataset": "bergskollegium_relationer_och_skrivelser_seg",
+  "level": "line",
+  "cpu": null,
+  "gpu": {
+    "device": "cuda:0",
+    "detection_level": "line",
+    "architecture": "Kraken BLLA",
+    "repository": "https://github.com/mittagessen/kraken",
+    "ground_truth_version": 4,
+    "num_images": 100,
+    "mean_time_ms": 10237.873480000417,
+    "median_time_ms": 10300.307199999224,
+    "throughput_fps": 0.09767653428746605,
+    "ram_after_load_mb": 1798.57421875,
+    "ram_peak_mb": 1798.84375,
+    "ram_delta_mb": 0.26953125,
+    "gpu_after_load_mb": 4.81494140625,
+    "gpu_peak_mb": 1076.193359375,
+    "gpu_delta_mb": 1071.37841796875,
+    "accuracy_metrics": {
+      "iou_threshold": 0.5,
+      "precision": 0.9745197168857431,
+      "recall": 0.9709852911545436,
+      "f1": 0.9727492935002019,
+      "mean_matched_iou": 0.7125662686195001,
+      "true_positives": 4819,
+      "false_positives": 126,
+      "false_negatives": 144,
+      "evaluated_images": 100,
+      "f1@0.5": 0.9727492935002019,
+      "f1@0.5:0.95": 0.4621316108195398,
+      "f1_by_iou": {
+        "0.50": 0.9727492935002019,
+        "0.55": 0.9574081550262415,
+        "0.60": 0.8958417440452161,
+        "0.65": 0.750706499798143,
+        "0.70": 0.5341138473960436,
+        "0.75": 0.3029874848607186,
+        "0.80": 0.1366572466693581,
+        "0.85": 0.0522809850625757,
+        "0.90": 0.015341138473960436,
+        "0.95": 0.0032297133629390394
+      }
+    },
+    "polygon_iou_metrics": {
+      "iou_threshold": 0.5,
+      "precision": 0.9775530839231547,
+      "recall": 0.9740076566592787,
+      "hmean": 0.9757771497779573,
+      "dice_f1": 0.8721206807140406,
+      "mean_matched_iou": 0.7209219355168052,
+      "true_positives": 4834,
+      "false_positives": 111,
+      "false_negatives": 129,
+      "evaluated_images": 100
+    }
+  }
+}

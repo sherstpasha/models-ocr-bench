@@ -1,0 +1,66 @@
+{
+  "dataset": "gota_hovratt_seg",
+  "level": "line",
+  "cpu": null,
+  "gpu": {
+    "device": "cuda:0",
+    "detection_level": "line",
+    "architecture": "RF-DETR Seg 2XLarge",
+    "repository": "Kansallisarkisto/rfdetr-textline-textregion-detection-2xl",
+    "checkpoint": "checkpoint_best_total.pth",
+    "threshold": 0.5,
+    "line_classes": [
+      "text_line_upright",
+      "text_line_upside_down",
+      "text_line_rotated_cw",
+      "text_line_rotated_ccw"
+    ],
+    "num_images": 51,
+    "mean_time_ms": 241.95334509782055,
+    "median_time_ms": 239.44529999789665,
+    "throughput_fps": 4.133028206721858,
+    "ram_after_load_mb": 915.390625,
+    "ram_peak_mb": 4997.9296875,
+    "gpu_after_load_mb": 74.86328125,
+    "gpu_peak_mb": 2761.8369140625,
+    "gpu_delta_mb": 2686.9736328125,
+    "ground_truth_version": 4,
+    "accuracy_metrics": {
+      "iou_threshold": 0.5,
+      "precision": 0.9815927873779113,
+      "recall": 0.9713754646840149,
+      "f1": 0.976457399103139,
+      "mean_matched_iou": 0.9080096302415059,
+      "true_positives": 2613,
+      "false_positives": 49,
+      "false_negatives": 77,
+      "evaluated_images": 51,
+      "f1@0.5": 0.976457399103139,
+      "f1@0.5:0.95": 0.8468983557548582,
+      "f1_by_iou": {
+        "0.50": 0.976457399103139,
+        "0.55": 0.9719730941704036,
+        "0.60": 0.9704783258594919,
+        "0.65": 0.9656203288490284,
+        "0.70": 0.9600149476831091,
+        "0.75": 0.9521674140508222,
+        "0.80": 0.9260089686098655,
+        "0.85": 0.8572496263079222,
+        "0.90": 0.6543348281016442,
+        "0.95": 0.23467862481315394
+      }
+    },
+    "polygon_iou_metrics": {
+      "iou_threshold": 0.5,
+      "precision": 0.6476333583771601,
+      "recall": 0.6408921933085502,
+      "hmean": 0.6442451420029895,
+      "dice_f1": 0.9070465898031098,
+      "mean_matched_iou": 0.5764374501087111,
+      "true_positives": 1724,
+      "false_positives": 938,
+      "false_negatives": 966,
+      "evaluated_images": 51
+    }
+  }
+}

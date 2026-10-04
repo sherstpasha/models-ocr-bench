@@ -1,0 +1,26 @@
+{
+  "benchmark_version": 2,
+  "task": "recognition",
+  "dataset": "donkeysmall_printed_15random",
+  "model": "tesseract_rus_best",
+  "origin": "https://github.com/tesseract-ocr/tessdata_best/blob/main/rus.traineddata",
+  "engine": "tesseract v5.5.3.20260724",
+  "cpu": {
+    "device": "cpu",
+    "num_words": 1500,
+    "batch_size": 512,
+    "total_time_s": 16.33655930000532,
+    "mean_time_ms": 10.89103953333688,
+    "throughput_words_s": 91.81859977085331,
+    "ram_peak_mb": 80.390625,
+    "mean_confidence": 0.3516513151528572,
+    "accuracy_metrics": {
+      "cer": 5.544449686594325,
+      "wer": 18.566666666666666,
+      "exact_match": 0.31466666666666665,
+      "character_similarity": 0.5530327473078378,
+      "evaluated_words": 1500
+    }
+  },
+  "gpu": null
+}

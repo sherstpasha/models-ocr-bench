@@ -1,0 +1,28 @@
+{
+  "task": "recognition",
+  "dataset": "school_notebooks_ru",
+  "model": "paddleocr_cyrillic_v5_mobile",
+  "cpu": null,
+  "gpu": {
+    "device": "gpu:0",
+    "model_name": "cyrillic_PP-OCRv5_mobile_rec",
+    "num_words": 27893,
+    "batch_size": 128,
+    "total_time_s": 35.66650570000638,
+    "mean_time_ms": 1.2786901982578562,
+    "throughput_words_s": 782.0502584304189,
+    "ram_after_load_mb": 1479.3828125,
+    "ram_peak_mb": 1554.21875,
+    "gpu_after_load_mb": 49.69580078125,
+    "gpu_peak_mb": 525.988037109375,
+    "gpu_delta_mb": 476.292236328125,
+    "mean_confidence": 0.5512495994183496,
+    "accuracy_metrics": {
+      "cer": 0.9156809630285139,
+      "wer": 0.9837332104759542,
+      "evaluated_words": 27893,
+      "exact_match": 0.018463413759724663,
+      "character_similarity": 0.08840123260786252
+    }
+  }
+}

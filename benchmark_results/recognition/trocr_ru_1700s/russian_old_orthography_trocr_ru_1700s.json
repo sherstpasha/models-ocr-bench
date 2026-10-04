@@ -1,0 +1,25 @@
+{
+  "task": "recognition",
+  "dataset": "russian_old_orthography",
+  "model": "trocr_ru_1700s",
+  "repository": "taiga75/ru-trocr-1700s",
+  "cpu": null,
+  "gpu": {
+    "device": "cuda",
+    "num_words": 8489,
+    "batch_size": 8,
+    "total_time_s": 323.1672462000006,
+    "mean_time_ms": 38.06894171280487,
+    "throughput_words_s": 26.268132367431686,
+    "ram_after_load_mb": 2268.953125,
+    "ram_peak_mb": 2372.84375,
+    "gpu_peak_mb": 3251.2041015625,
+    "accuracy_metrics": {
+      "cer": 0.06095313050141872,
+      "wer": 0.21545529508776062,
+      "exact_match": 0.7865472965013547,
+      "character_similarity": 0.9109455705418122,
+      "evaluated_words": 8489
+    }
+  }
+}

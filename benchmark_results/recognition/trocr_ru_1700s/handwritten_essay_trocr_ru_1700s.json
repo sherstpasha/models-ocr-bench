@@ -1,0 +1,25 @@
+{
+  "task": "recognition",
+  "dataset": "handwritten_essay",
+  "model": "trocr_ru_1700s",
+  "repository": "taiga75/ru-trocr-1700s",
+  "cpu": null,
+  "gpu": {
+    "device": "cuda",
+    "num_words": 5146,
+    "batch_size": 8,
+    "total_time_s": 200.18695099999968,
+    "mean_time_ms": 38.90146735328404,
+    "throughput_words_s": 25.705971214877078,
+    "ram_after_load_mb": 1433.359375,
+    "ram_peak_mb": 1554.671875,
+    "gpu_peak_mb": 3273.328125,
+    "accuracy_metrics": {
+      "cer": 0.11060239387795147,
+      "wer": 0.35539541058221125,
+      "evaluated_words": 5146,
+      "exact_match": 0.6760590750097163,
+      "character_similarity": 0.878509486504417
+    }
+  }
+}

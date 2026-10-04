@@ -1,0 +1,25 @@
+{
+  "task": "recognition",
+  "dataset": "yenisei_gov_reports_prt",
+  "model": "trocr_ru_1700s",
+  "repository": "taiga75/ru-trocr-1700s",
+  "cpu": null,
+  "gpu": {
+    "device": "cuda",
+    "num_words": 15394,
+    "batch_size": 8,
+    "total_time_s": 601.192919699999,
+    "mean_time_ms": 39.05371701312193,
+    "throughput_words_s": 25.605757312780316,
+    "ram_after_load_mb": 2240.1328125,
+    "ram_peak_mb": 2239.13671875,
+    "gpu_peak_mb": 3366.0791015625,
+    "accuracy_metrics": {
+      "cer": 0.08540117963215021,
+      "wer": 0.21588168084296053,
+      "evaluated_words": 15394,
+      "exact_match": 0.8088216188125243,
+      "character_similarity": 0.8880641019291726
+    }
+  }
+}

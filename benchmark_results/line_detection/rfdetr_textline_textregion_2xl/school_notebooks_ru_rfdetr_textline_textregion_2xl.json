@@ -1,0 +1,66 @@
+{
+  "dataset": "school_notebooks_ru",
+  "level": "line",
+  "cpu": null,
+  "gpu": {
+    "device": "cuda:0",
+    "detection_level": "line",
+    "architecture": "RF-DETR Seg 2XLarge",
+    "repository": "Kansallisarkisto/rfdetr-textline-textregion-detection-2xl",
+    "checkpoint": "checkpoint_best_total.pth",
+    "threshold": 0.5,
+    "line_classes": [
+      "text_line_upright",
+      "text_line_upside_down",
+      "text_line_rotated_cw",
+      "text_line_rotated_ccw"
+    ],
+    "num_images": 150,
+    "mean_time_ms": 161.79444866664804,
+    "median_time_ms": 162.29124999881606,
+    "throughput_fps": 6.180681773948514,
+    "ram_after_load_mb": 2361.6875,
+    "ram_peak_mb": 3923.0078125,
+    "gpu_after_load_mb": 82.98828125,
+    "gpu_peak_mb": 1764.85107421875,
+    "gpu_delta_mb": 1681.86279296875,
+    "ground_truth_version": 4,
+    "accuracy_metrics": {
+      "iou_threshold": 0.5,
+      "precision": 0.9772768259693417,
+      "recall": 0.8397644506431118,
+      "f1": 0.9033172195365895,
+      "mean_matched_iou": 0.8192210602282999,
+      "true_positives": 5419,
+      "false_positives": 126,
+      "false_negatives": 1034,
+      "evaluated_images": 150,
+      "f1@0.5": 0.9033172195365895,
+      "f1@0.5:0.95": 0.6218703117186198,
+      "f1_by_iou": {
+        "0.50": 0.9033172195365895,
+        "0.55": 0.8966494415735956,
+        "0.60": 0.8814802467077847,
+        "0.65": 0.8533088848141357,
+        "0.70": 0.7976329388231372,
+        "0.75": 0.7079513252208701,
+        "0.80": 0.5667611268544758,
+        "0.85": 0.38906484414069015,
+        "0.90": 0.18736456076012667,
+        "0.95": 0.035172528754792466
+      }
+    },
+    "polygon_iou_metrics": {
+      "iou_threshold": 0.5,
+      "precision": 0.8934174932371506,
+      "recall": 0.767704943437161,
+      "hmean": 0.8258043007167861,
+      "dice_f1": 0.9077664401830233,
+      "mean_matched_iou": 0.6783289444650258,
+      "true_positives": 4954,
+      "false_positives": 591,
+      "false_negatives": 1499,
+      "evaluated_images": 150
+    }
+  }
+}

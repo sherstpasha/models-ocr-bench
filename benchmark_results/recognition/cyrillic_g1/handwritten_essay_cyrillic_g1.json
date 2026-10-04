@@ -1,0 +1,24 @@
+{
+  "task": "recognition",
+  "dataset": "handwritten_essay",
+  "model": "cyrillic_g1",
+  "cpu": null,
+  "gpu": {
+    "device": "cuda",
+    "num_words": 5146,
+    "total_time_s": 83.88149189999967,
+    "mean_time_ms": 16.300328779634604,
+    "throughput_words_s": 61.3484558206817,
+    "ram_after_load_mb": 1261.7890625,
+    "ram_peak_mb": 1282.7578125,
+    "gpu_peak_mb": 411.0478515625,
+    "mean_confidence": 0.10896190019220726,
+    "accuracy_metrics": {
+      "cer": 1.0158610765910132,
+      "wer": 1.1587331689740186,
+      "evaluated_words": 5146,
+      "exact_match": 0.004469490866692577,
+      "character_similarity": 0.11614437377855726
+    }
+  }
+}

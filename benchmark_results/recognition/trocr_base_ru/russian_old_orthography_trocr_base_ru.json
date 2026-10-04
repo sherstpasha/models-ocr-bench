@@ -1,0 +1,25 @@
+{
+  "task": "recognition",
+  "dataset": "russian_old_orthography",
+  "model": "trocr_base_ru",
+  "repository": "raxtemur/trocr-base-ru",
+  "cpu": null,
+  "gpu": {
+    "device": "cuda",
+    "num_words": 8489,
+    "batch_size": 8,
+    "total_time_s": 341.7595158000004,
+    "mean_time_ms": 40.25910187301218,
+    "throughput_words_s": 24.839103543697117,
+    "ram_after_load_mb": 2230.2109375,
+    "ram_peak_mb": 2229.5,
+    "gpu_peak_mb": 1498.6796875,
+    "accuracy_metrics": {
+      "cer": 0.3336578091667875,
+      "wer": 0.900341618565202,
+      "exact_match": 0.2702320650253269,
+      "character_similarity": 0.6281840767096539,
+      "evaluated_words": 8489
+    }
+  }
+}

@@ -1,0 +1,64 @@
+{
+  "dataset": "handwritten_essay",
+  "level": "line",
+  "cpu": null,
+  "gpu": {
+    "device": "cuda",
+    "providers": [
+      "CUDAExecutionProvider",
+      "CPUExecutionProvider"
+    ],
+    "detection_level": "line",
+    "architecture": "Mask2Former",
+    "weights": "mask2former_line_v0_prev",
+    "image_size": 1024,
+    "score_threshold": 0.15,
+    "mask_logit_threshold": 0.0,
+    "nms_iou_threshold": 0.5,
+    "num_images": 28,
+    "mean_time_ms": 2000.2899142865708,
+    "median_time_ms": 1969.1196499989019,
+    "throughput_fps": 0.4999275319331213,
+    "ram_after_load_mb": 483.6484375,
+    "ram_peak_mb": 1601.859375,
+    "ram_delta_mb": 1118.2109375,
+    "ground_truth_version": 4,
+    "accuracy_metrics": {
+      "iou_threshold": 0.5,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "mean_matched_iou": 0.9244249541751434,
+      "true_positives": 676,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "evaluated_images": 28,
+      "f1@0.5": 1.0,
+      "f1@0.5:0.95": 0.8988165680473372,
+      "f1_by_iou": {
+        "0.50": 1.0,
+        "0.55": 1.0,
+        "0.60": 1.0,
+        "0.65": 1.0,
+        "0.70": 0.9970414201183432,
+        "0.75": 0.9955621301775148,
+        "0.80": 0.9822485207100592,
+        "0.85": 0.9334319526627219,
+        "0.90": 0.7795857988165681,
+        "0.95": 0.30029585798816566
+      }
+    },
+    "polygon_iou_metrics": {
+      "iou_threshold": 0.5,
+      "precision": 1.0,
+      "recall": 1.0,
+      "hmean": 1.0,
+      "dice_f1": 0.9821372896599355,
+      "mean_matched_iou": 0.9179455513635132,
+      "true_positives": 676,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "evaluated_images": 28
+    }
+  }
+}

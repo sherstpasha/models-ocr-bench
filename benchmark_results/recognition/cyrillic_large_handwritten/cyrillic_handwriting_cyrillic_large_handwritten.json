@@ -1,0 +1,25 @@
+{
+  "task": "recognition",
+  "dataset": "cyrillic_handwriting",
+  "model": "cyrillic_large_handwritten",
+  "repository": "Kansallisarkisto/cyrillic-large-handwritten",
+  "cpu": null,
+  "gpu": {
+    "device": "cuda",
+    "num_words": 1544,
+    "batch_size": 2,
+    "total_time_s": 181.8833639000004,
+    "mean_time_ms": 117.80010615285,
+    "throughput_words_s": 8.488956696715222,
+    "ram_after_load_mb": 1508.50390625,
+    "ram_peak_mb": 1503.9140625,
+    "gpu_peak_mb": 2446.64404296875,
+    "accuracy_metrics": {
+      "cer": 0.1753198402491031,
+      "wer": 0.5139405204460966,
+      "evaluated_words": 1544,
+      "exact_match": 0.45595854922279794,
+      "character_similarity": 0.8328003910651918
+    }
+  }
+}

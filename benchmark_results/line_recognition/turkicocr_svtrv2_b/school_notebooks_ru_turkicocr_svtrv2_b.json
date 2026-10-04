@@ -1,0 +1,29 @@
+{
+  "task": "recognition",
+  "dataset": "school_notebooks_ru",
+  "model": "turkicocr_svtrv2_b",
+  "repository": "alenisaw/turkicocr-svtrv2-b-onnx",
+  "cpu": null,
+  "gpu": {
+    "device": "cuda",
+    "active_providers": [
+      "CUDAExecutionProvider",
+      "CPUExecutionProvider"
+    ],
+    "num_words": 6453,
+    "batch_size": 128,
+    "total_time_s": 108.95033570000032,
+    "mean_time_ms": 16.883672044010588,
+    "throughput_words_s": 59.228821632717384,
+    "ram_after_load_mb": 1242.98828125,
+    "ram_peak_mb": 15369.45703125,
+    "mean_confidence": 0.6874501695201667,
+    "accuracy_metrics": {
+      "cer": 0.4719344475327582,
+      "wer": 0.9578038927653324,
+      "exact_match": 0.009762900976290097,
+      "character_similarity": 0.49703004094883907,
+      "evaluated_words": 6453
+    }
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "task": "recognition",
+  "dataset": "russian_old_orthography",
+  "model": "paddleocr_cyrillic_v5_mobile",
+  "cpu": null,
+  "gpu": {
+    "device": "gpu:0",
+    "model_name": "cyrillic_PP-OCRv5_mobile_rec",
+    "num_words": 8489,
+    "batch_size": 128,
+    "total_time_s": 30.181210799999917,
+    "mean_time_ms": 3.555331699846851,
+    "throughput_words_s": 281.26770845124685,
+    "ram_after_load_mb": 1376.50390625,
+    "ram_peak_mb": 1420.85546875,
+    "gpu_after_load_mb": 68.07666015625,
+    "gpu_peak_mb": 577.36083984375,
+    "gpu_delta_mb": 509.2841796875,
+    "mean_confidence": 0.7345397734736115,
+    "accuracy_metrics": {
+      "cer": 0.2137812480583228,
+      "wer": 0.6723995759217811,
+      "exact_match": 0.32877841913063965,
+      "character_similarity": 0.6857686288440079,
+      "evaluated_words": 8489
+    }
+  }
+}

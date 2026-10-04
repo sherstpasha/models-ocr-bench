@@ -1,0 +1,25 @@
+{
+  "task": "recognition",
+  "dataset": "school_notebooks_ru",
+  "model": "trocr_dialectic_stackmix",
+  "repository": "Daniil-Domino/trocr-base-ru-dialectic-stackmix",
+  "cpu": null,
+  "gpu": {
+    "device": "cuda",
+    "num_words": 27893,
+    "batch_size": 8,
+    "total_time_s": 843.1316681000026,
+    "mean_time_ms": 30.22735697486834,
+    "throughput_words_s": 33.08261456108852,
+    "ram_after_load_mb": 2393.2578125,
+    "ram_peak_mb": 2405.06640625,
+    "gpu_peak_mb": 1498.70166015625,
+    "accuracy_metrics": {
+      "cer": 0.08354218316186256,
+      "wer": 0.28645851791473226,
+      "evaluated_words": 27893,
+      "exact_match": 0.7343419495930879,
+      "character_similarity": 0.8887364697052585
+    }
+  }
+}

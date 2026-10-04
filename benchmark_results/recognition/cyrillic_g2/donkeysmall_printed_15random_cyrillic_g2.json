@@ -1,0 +1,24 @@
+{
+  "task": "recognition",
+  "dataset": "donkeysmall_printed_15random",
+  "model": "cyrillic_g2",
+  "cpu": null,
+  "gpu": {
+    "device": "cuda",
+    "num_words": 1500,
+    "total_time_s": 20.859866499995405,
+    "mean_time_ms": 13.906577666663603,
+    "throughput_words_s": 71.90841801410045,
+    "ram_after_load_mb": 1904.65625,
+    "ram_peak_mb": 1890.375,
+    "gpu_peak_mb": 48.623046875,
+    "mean_confidence": 0.7917965117424312,
+    "accuracy_metrics": {
+      "cer": 0.1086473006672508,
+      "wer": 0.51,
+      "evaluated_words": 1500,
+      "exact_match": 0.628,
+      "character_similarity": 0.8970190856374073
+    }
+  }
+}

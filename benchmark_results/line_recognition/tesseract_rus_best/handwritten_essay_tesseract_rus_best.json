@@ -1,0 +1,26 @@
+{
+  "benchmark_version": 2,
+  "task": "recognition",
+  "dataset": "handwritten_essay",
+  "model": "tesseract_rus_best",
+  "origin": "https://github.com/tesseract-ocr/tessdata_best/blob/main/rus.traineddata",
+  "engine": "tesseract v5.5.3.20260724",
+  "cpu": {
+    "device": "cpu",
+    "num_words": 676,
+    "batch_size": 512,
+    "total_time_s": 37.954394400003366,
+    "mean_time_ms": 56.145553846158826,
+    "throughput_words_s": 17.810849328159485,
+    "ram_peak_mb": 61.8359375,
+    "mean_confidence": 0.0521369213703371,
+    "accuracy_metrics": {
+      "cer": 3.939825382332801,
+      "wer": 7.029584676654656,
+      "exact_match": 0.0,
+      "character_similarity": 0.08899533241589841,
+      "evaluated_words": 676
+    }
+  },
+  "gpu": null
+}

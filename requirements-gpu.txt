@@ -1,2 +1,1 @@
 onnxruntime-gpu[cuda,cudnn]==1.23.2
-nvidia-cudnn-cu12==9.10.2.21

@@ -1,0 +1,25 @@
+{
+  "task": "recognition",
+  "dataset": "handwritten_essay",
+  "model": "trocr_dialectic_stackmix",
+  "repository": "Daniil-Domino/trocr-base-ru-dialectic-stackmix",
+  "cpu": null,
+  "gpu": {
+    "device": "cuda",
+    "num_words": 676,
+    "batch_size": 8,
+    "total_time_s": 90.64038379999965,
+    "mean_time_ms": 134.0834079881652,
+    "throughput_words_s": 7.458044324829995,
+    "ram_after_load_mb": 2257.93359375,
+    "ram_peak_mb": 2257.98828125,
+    "gpu_peak_mb": 1498.7041015625,
+    "accuracy_metrics": {
+      "cer": 0.3694932663775394,
+      "wer": 0.8492319362791579,
+      "exact_match": 0.022189349112426034,
+      "character_similarity": 0.6603198988929058,
+      "evaluated_words": 676
+    }
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "task": "recognition",
+  "dataset": "school_notebooks_ru",
+  "model": "cyrillic_large_handwritten",
+  "repository": "Kansallisarkisto/cyrillic-large-handwritten",
+  "cpu": null,
+  "gpu": {
+    "device": "cuda",
+    "num_words": 6453,
+    "batch_size": 2,
+    "total_time_s": 1150.5661634999997,
+    "mean_time_ms": 178.29942096699207,
+    "throughput_words_s": 5.608543171798222,
+    "ram_after_load_mb": 2245.1953125,
+    "ram_peak_mb": 2245.18359375,
+    "gpu_peak_mb": 2446.93310546875,
+    "accuracy_metrics": {
+      "cer": 0.10088558399210674,
+      "wer": 0.3508997429305913,
+      "exact_match": 0.28622346195567955,
+      "character_similarity": 0.8469850618139908,
+      "evaluated_words": 6453
+    }
+  }
+}

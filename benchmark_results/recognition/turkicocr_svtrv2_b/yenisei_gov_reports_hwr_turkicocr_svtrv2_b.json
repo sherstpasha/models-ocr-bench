@@ -1,0 +1,29 @@
+{
+  "task": "recognition",
+  "dataset": "yenisei_gov_reports_hwr",
+  "model": "turkicocr_svtrv2_b",
+  "repository": "alenisaw/turkicocr-svtrv2-b-onnx",
+  "cpu": null,
+  "gpu": {
+    "device": "cuda",
+    "active_providers": [
+      "CUDAExecutionProvider",
+      "CPUExecutionProvider"
+    ],
+    "num_words": 22400,
+    "batch_size": 128,
+    "total_time_s": 96.5875987999998,
+    "mean_time_ms": 4.311946374999991,
+    "throughput_words_s": 231.91383032911725,
+    "ram_after_load_mb": 1775.54296875,
+    "ram_peak_mb": 30676.88671875,
+    "mean_confidence": 0.6041819429447564,
+    "accuracy_metrics": {
+      "cer": 0.689369706879172,
+      "wer": 1.0768788264782019,
+      "evaluated_words": 22400,
+      "exact_match": 0.07584821428571428,
+      "character_similarity": 0.3869957426151411
+    }
+  }
+}

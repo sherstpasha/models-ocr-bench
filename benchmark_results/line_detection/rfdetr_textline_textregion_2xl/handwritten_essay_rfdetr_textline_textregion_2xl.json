@@ -1,0 +1,66 @@
+{
+  "dataset": "handwritten_essay",
+  "level": "line",
+  "cpu": null,
+  "gpu": {
+    "device": "cuda:0",
+    "detection_level": "line",
+    "architecture": "RF-DETR Seg 2XLarge",
+    "repository": "Kansallisarkisto/rfdetr-textline-textregion-detection-2xl",
+    "checkpoint": "checkpoint_best_total.pth",
+    "threshold": 0.5,
+    "line_classes": [
+      "text_line_upright",
+      "text_line_upside_down",
+      "text_line_rotated_cw",
+      "text_line_rotated_ccw"
+    ],
+    "num_images": 28,
+    "mean_time_ms": 89.12475714337883,
+    "median_time_ms": 93.48105000026408,
+    "throughput_fps": 11.220226927421042,
+    "ram_after_load_mb": 940.046875,
+    "ram_peak_mb": 2358.765625,
+    "gpu_after_load_mb": 74.86328125,
+    "gpu_peak_mb": 580.38720703125,
+    "gpu_delta_mb": 505.52392578125,
+    "ground_truth_version": 4,
+    "accuracy_metrics": {
+      "iou_threshold": 0.5,
+      "precision": 1.0,
+      "recall": 0.9659763313609467,
+      "f1": 0.9826937547027841,
+      "mean_matched_iou": 0.8653925388757533,
+      "true_positives": 653,
+      "false_positives": 0,
+      "false_negatives": 23,
+      "evaluated_images": 28,
+      "f1@0.5": 0.9826937547027841,
+      "f1@0.5:0.95": 0.7670428893905192,
+      "f1_by_iou": {
+        "0.50": 0.9826937547027841,
+        "0.55": 0.9796839729119639,
+        "0.60": 0.9721595184349134,
+        "0.65": 0.9616252821670429,
+        "0.70": 0.9405568096313016,
+        "0.75": 0.8984198645598196,
+        "0.80": 0.8051166290443942,
+        "0.85": 0.6380737396538751,
+        "0.90": 0.38374717832957117,
+        "0.95": 0.10835214446952597
+      }
+    },
+    "polygon_iou_metrics": {
+      "iou_threshold": 0.5,
+      "precision": 0.996937212863706,
+      "recall": 0.9630177514792899,
+      "hmean": 0.9796839729119639,
+      "dice_f1": 0.9518120104676578,
+      "mean_matched_iou": 0.8176491082540985,
+      "true_positives": 651,
+      "false_positives": 2,
+      "false_negatives": 25,
+      "evaluated_images": 28
+    }
+  }
+}

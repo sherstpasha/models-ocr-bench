@@ -1,0 +1,61 @@
+{
+  "dataset": "bergskollegium_relationer_och_skrivelser_seg",
+  "level": "line",
+  "cpu": null,
+  "gpu": {
+    "device": "cuda:0",
+    "detection_level": "line",
+    "architecture": "Doc-UFCN",
+    "repository": "Teklia/doc-ufcn-generic-historical-line",
+    "input_size": 768,
+    "min_cc": 50,
+    "num_images": 100,
+    "mean_time_ms": 277.44564399967203,
+    "median_time_ms": 270.5542500007141,
+    "throughput_fps": 3.604309606681668,
+    "ram_after_load_mb": 499.8515625,
+    "ram_peak_mb": 898.68359375,
+    "ram_delta_mb": 398.83203125,
+    "gpu_after_load_mb": 15.62451171875,
+    "gpu_peak_mb": 336.265625,
+    "gpu_delta_mb": 320.64111328125,
+    "ground_truth_version": 4,
+    "accuracy_metrics": {
+      "iou_threshold": 0.5,
+      "precision": 0.07432432432432433,
+      "recall": 0.07757404795486601,
+      "f1": 0.0759144237405107,
+      "mean_matched_iou": 0.5537038751361806,
+      "true_positives": 385,
+      "false_positives": 4795,
+      "false_negatives": 4578,
+      "evaluated_images": 100,
+      "f1@0.5": 0.0759144237405107,
+      "f1@0.5:0.95": 0.012560386473429951,
+      "f1_by_iou": {
+        "0.50": 0.0759144237405107,
+        "0.55": 0.028788326924972886,
+        "0.60": 0.014196983141082519,
+        "0.65": 0.005323868677905945,
+        "0.70": 0.0013802622498274672,
+        "0.75": 0.0,
+        "0.80": 0.0,
+        "0.85": 0.0,
+        "0.90": 0.0,
+        "0.95": 0.0
+      }
+    },
+    "polygon_iou_metrics": {
+      "iou_threshold": 0.5,
+      "precision": 0.35,
+      "recall": 0.36530324400564174,
+      "hmean": 0.357487922705314,
+      "dice_f1": 0.6633144739971008,
+      "mean_matched_iou": 0.536985752464987,
+      "true_positives": 1813,
+      "false_positives": 3367,
+      "false_negatives": 3150,
+      "evaluated_images": 100
+    }
+  }
+}

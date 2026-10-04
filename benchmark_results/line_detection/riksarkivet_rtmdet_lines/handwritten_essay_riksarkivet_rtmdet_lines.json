@@ -1,0 +1,59 @@
+{
+  "dataset": "handwritten_essay",
+  "level": "line",
+  "cpu": null,
+  "gpu": {
+    "device": "cuda:0",
+    "detection_level": "line",
+    "architecture": "Riksarkivet RTMDet Lines",
+    "repository": "https://huggingface.co/Riksarkivet/rtmdet_lines",
+    "ground_truth_version": 4,
+    "num_images": 28,
+    "mean_time_ms": 340.914528571115,
+    "median_time_ms": 335.7220999969286,
+    "throughput_fps": 2.9332865460188193,
+    "ram_after_load_mb": 1170.203125,
+    "ram_peak_mb": 1731.06640625,
+    "ram_delta_mb": 560.86328125,
+    "gpu_after_load_mb": 107.02685546875,
+    "gpu_peak_mb": 1644.20263671875,
+    "gpu_delta_mb": 1537.17578125,
+    "accuracy_metrics": {
+      "iou_threshold": 0.5,
+      "precision": 0.829105473965287,
+      "recall": 0.9186390532544378,
+      "f1": 0.8715789473684211,
+      "mean_matched_iou": 0.76460318671212,
+      "true_positives": 621,
+      "false_positives": 128,
+      "false_negatives": 55,
+      "evaluated_images": 28,
+      "f1@0.5": 0.8715789473684211,
+      "f1@0.5:0.95": 0.504421052631579,
+      "f1_by_iou": {
+        "0.50": 0.8715789473684211,
+        "0.55": 0.8042105263157895,
+        "0.60": 0.735438596491228,
+        "0.65": 0.6708771929824561,
+        "0.70": 0.6217543859649123,
+        "0.75": 0.5473684210526316,
+        "0.80": 0.42666666666666664,
+        "0.85": 0.25684210526315787,
+        "0.90": 0.09403508771929824,
+        "0.95": 0.015438596491228071
+      }
+    },
+    "polygon_iou_metrics": {
+      "iou_threshold": 0.5,
+      "precision": 0.8184245660881175,
+      "recall": 0.9068047337278107,
+      "hmean": 0.8603508771929824,
+      "dice_f1": 0.8616296166880177,
+      "mean_matched_iou": 0.7222279894400412,
+      "true_positives": 613,
+      "false_positives": 136,
+      "false_negatives": 63,
+      "evaluated_images": 28
+    }
+  }
+}

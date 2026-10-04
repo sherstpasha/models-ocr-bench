@@ -1,0 +1,29 @@
+{
+  "task": "recognition",
+  "dataset": "cyrillic_handwriting",
+  "model": "turkicocr_svtrv2_b",
+  "repository": "alenisaw/turkicocr-svtrv2-b-onnx",
+  "cpu": null,
+  "gpu": {
+    "device": "cuda",
+    "active_providers": [
+      "CUDAExecutionProvider",
+      "CPUExecutionProvider"
+    ],
+    "num_words": 1544,
+    "batch_size": 128,
+    "total_time_s": 3.392606899999919,
+    "mean_time_ms": 2.1972842616579786,
+    "throughput_words_s": 455.1072510051303,
+    "ram_after_load_mb": 1523.19921875,
+    "ram_peak_mb": 2637.48046875,
+    "mean_confidence": 0.718583093739167,
+    "accuracy_metrics": {
+      "cer": 0.5360454883909835,
+      "wer": 1.0985130111524164,
+      "evaluated_words": 1544,
+      "exact_match": 0.029145077720207253,
+      "character_similarity": 0.5067333496548654
+    }
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "benchmark_version": 2,
+  "task": "recognition",
+  "dataset": "yenisei_gov_reports_prt",
+  "model": "tesseract_cyrillic_best",
+  "origin": "https://github.com/tesseract-ocr/tessdata_best/blob/main/script/Cyrillic.traineddata",
+  "engine": "tesseract v5.5.3.20260724",
+  "cpu": {
+    "device": "cpu",
+    "num_words": 15394,
+    "batch_size": 512,
+    "total_time_s": 97.81785080001282,
+    "mean_time_ms": 6.354284188645759,
+    "throughput_words_s": 157.3741385043596,
+    "ram_peak_mb": 81.65234375,
+    "mean_confidence": 0.5447729104565195,
+    "accuracy_metrics": {
+      "cer": 3.444037273583918,
+      "wer": 6.910562396851593,
+      "exact_match": 0.4249707678316227,
+      "character_similarity": 0.6784222926456795,
+      "evaluated_words": 15394
+    }
+  },
+  "gpu": null
+}

@@ -1,0 +1,25 @@
+{
+  "task": "recognition",
+  "dataset": "cyrillic_handwriting",
+  "model": "trocr_dialectic",
+  "repository": "Daniil-Domino/trocr-base-ru-dialectic",
+  "cpu": null,
+  "gpu": {
+    "device": "cuda",
+    "num_words": 1544,
+    "batch_size": 8,
+    "total_time_s": 68.27224999999453,
+    "mean_time_ms": 44.21777849740578,
+    "throughput_words_s": 22.61533785689096,
+    "ram_after_load_mb": 2243.0625,
+    "ram_peak_mb": 2244.4140625,
+    "gpu_peak_mb": 1498.703125,
+    "accuracy_metrics": {
+      "cer": 0.07121099302782102,
+      "wer": 0.31133828996282525,
+      "evaluated_words": 1544,
+      "exact_match": 0.6632124352331606,
+      "character_similarity": 0.933989426753069
+    }
+  }
+}

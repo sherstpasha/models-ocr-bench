@@ -1,0 +1,26 @@
+{
+  "benchmark_version": 2,
+  "task": "recognition",
+  "dataset": "yenisei_gov_reports_prt",
+  "model": "tesseract_rus_best",
+  "origin": "https://github.com/tesseract-ocr/tessdata_best/blob/main/rus.traineddata",
+  "engine": "tesseract v5.5.3.20260724",
+  "cpu": {
+    "device": "cpu",
+    "num_words": 15394,
+    "batch_size": 512,
+    "total_time_s": 126.60314969999308,
+    "mean_time_ms": 8.224187975834292,
+    "throughput_words_s": 121.59255150032686,
+    "ram_peak_mb": 83.1015625,
+    "mean_confidence": 0.47288274366113686,
+    "accuracy_metrics": {
+      "cer": 4.347584313451762,
+      "wer": 8.931382506030214,
+      "exact_match": 0.41834480966610366,
+      "character_similarity": 0.6767415332054063,
+      "evaluated_words": 15394
+    }
+  },
+  "gpu": null
+}

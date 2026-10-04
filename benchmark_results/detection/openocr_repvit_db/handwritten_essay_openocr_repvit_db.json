@@ -1,0 +1,54 @@
+{
+  "dataset": "handwritten_essay",
+  "cpu": null,
+  "gpu": {
+    "device": "cuda:0",
+    "provider": "CUDAExecutionProvider",
+    "architecture": "RepViT-DB",
+    "word_level_target": true,
+    "num_images": 28,
+    "mean_time_ms": 85.44089999993177,
+    "median_time_ms": 83.87029999903461,
+    "throughput_fps": 11.703996563715954,
+    "ram_after_load_mb": 1017.69921875,
+    "ram_peak_mb": 1060.19140625,
+    "ram_delta_mb": 42.4921875,
+    "accuracy_metrics": {
+      "iou_threshold": 0.5,
+      "precision": 0.4170182841068917,
+      "recall": 0.11523513408472601,
+      "f1": 0.1805724725943971,
+      "mean_matched_iou": 0.7088480244255407,
+      "true_positives": 593,
+      "false_positives": 829,
+      "false_negatives": 4553,
+      "evaluated_images": 28,
+      "f1@0.5": 0.1805724725943971,
+      "f1@0.5:0.95": 0.08462241169305723,
+      "f1_by_iou": {
+        "0.50": 0.1805724725943971,
+        "0.55": 0.15864799025578563,
+        "0.60": 0.13763702801461633,
+        "0.65": 0.11814859926918392,
+        "0.70": 0.097442143727162,
+        "0.75": 0.07003654080389769,
+        "0.80": 0.047198538367844094,
+        "0.85": 0.024969549330085262,
+        "0.90": 0.0097442143727162,
+        "0.95": 0.0018270401948842874
+      }
+    },
+    "polygon_iou_metrics": {
+      "iou_threshold": 0.5,
+      "precision": 0.41983122362869196,
+      "recall": 0.1160124368441508,
+      "hmean": 0.18179049939098663,
+      "dice_f1": 0.2993592989775607,
+      "mean_matched_iou": 0.7107204322799984,
+      "true_positives": 597,
+      "false_positives": 825,
+      "false_negatives": 4549,
+      "evaluated_images": 28
+    }
+  }
+}

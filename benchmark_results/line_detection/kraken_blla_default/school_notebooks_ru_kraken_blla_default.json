@@ -1,0 +1,59 @@
+{
+  "dataset": "school_notebooks_ru",
+  "level": "line",
+  "cpu": null,
+  "gpu": {
+    "device": "cuda:0",
+    "detection_level": "line",
+    "architecture": "Kraken BLLA",
+    "repository": "https://github.com/mittagessen/kraken",
+    "ground_truth_version": 4,
+    "num_images": 150,
+    "mean_time_ms": 9380.858388000004,
+    "median_time_ms": 9503.203299998859,
+    "throughput_fps": 0.1066000528564849,
+    "ram_after_load_mb": 1556.74609375,
+    "ram_peak_mb": 1642.03515625,
+    "ram_delta_mb": 85.2890625,
+    "gpu_after_load_mb": 4.81494140625,
+    "gpu_peak_mb": 1128.7978515625,
+    "gpu_delta_mb": 1123.98291015625,
+    "accuracy_metrics": {
+      "iou_threshold": 0.5,
+      "precision": 0.7972661649516203,
+      "recall": 0.8044320471098714,
+      "f1": 0.8008330762110458,
+      "mean_matched_iou": 0.7826939058672229,
+      "true_positives": 5191,
+      "false_positives": 1320,
+      "false_negatives": 1262,
+      "evaluated_images": 150,
+      "f1@0.5": 0.8008330762110458,
+      "f1@0.5:0.95": 0.4926257327985189,
+      "f1_by_iou": {
+        "0.50": 0.8008330762110458,
+        "0.55": 0.7837087318728788,
+        "0.60": 0.7599506325208268,
+        "0.65": 0.7195310089478557,
+        "0.70": 0.6456340635606295,
+        "0.75": 0.5288491206417772,
+        "0.80": 0.376889848812095,
+        "0.85": 0.21397716754088245,
+        "0.90": 0.08469608145634064,
+        "0.95": 0.01218759642085776
+      }
+    },
+    "polygon_iou_metrics": {
+      "iou_threshold": 0.5,
+      "precision": 0.7771463676854554,
+      "recall": 0.7841314117464745,
+      "hmean": 0.7806232644245603,
+      "dice_f1": 0.8646302639313992,
+      "mean_matched_iou": 0.6850197752963201,
+      "true_positives": 5060,
+      "false_positives": 1451,
+      "false_negatives": 1393,
+      "evaluated_images": 150
+    }
+  }
+}

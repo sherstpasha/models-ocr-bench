@@ -1,0 +1,25 @@
+{
+  "task": "recognition",
+  "dataset": "yenisei_gov_reports_hwr",
+  "model": "cyrillic_large_handwritten",
+  "repository": "Kansallisarkisto/cyrillic-large-handwritten",
+  "cpu": null,
+  "gpu": {
+    "device": "cuda",
+    "num_words": 22400,
+    "batch_size": 2,
+    "total_time_s": 2779.2061145999996,
+    "mean_time_ms": 124.07170154464283,
+    "throughput_words_s": 8.05985561212107,
+    "ram_after_load_mb": 1481.3359375,
+    "ram_peak_mb": 1490.16796875,
+    "gpu_peak_mb": 2577.81396484375,
+    "accuracy_metrics": {
+      "cer": 0.2440133662462596,
+      "wer": 0.49266548876196736,
+      "evaluated_words": 22400,
+      "exact_match": 0.5472321428571428,
+      "character_similarity": 0.8106467293265028
+    }
+  }
+}

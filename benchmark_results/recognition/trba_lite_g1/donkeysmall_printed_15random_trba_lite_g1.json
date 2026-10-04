@@ -1,0 +1,28 @@
+{
+  "task": "recognition",
+  "dataset": "donkeysmall_printed_15random",
+  "model": "trba_lite_g1",
+  "cpu": null,
+  "gpu": {
+    "device": "cuda",
+    "active_providers": [
+      "CUDAExecutionProvider",
+      "CPUExecutionProvider"
+    ],
+    "num_words": 1500,
+    "batch_size": 128,
+    "total_time_s": 6.931108400000085,
+    "mean_time_ms": 4.6207389333333895,
+    "throughput_words_s": 216.4156024453436,
+    "ram_after_load_mb": 1735.07421875,
+    "ram_peak_mb": 1732.00390625,
+    "mean_confidence": 0.9542028228342533,
+    "accuracy_metrics": {
+      "cer": 0.13136078722113634,
+      "wer": 0.4666666666666667,
+      "evaluated_words": 1500,
+      "exact_match": 0.5553333333333333,
+      "character_similarity": 0.8793634285062542
+    }
+  }
+}

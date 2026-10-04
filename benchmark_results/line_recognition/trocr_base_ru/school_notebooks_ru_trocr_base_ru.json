@@ -1,0 +1,25 @@
+{
+  "task": "recognition",
+  "dataset": "school_notebooks_ru",
+  "model": "trocr_base_ru",
+  "repository": "raxtemur/trocr-base-ru",
+  "cpu": null,
+  "gpu": {
+    "device": "cuda",
+    "num_words": 6453,
+    "batch_size": 8,
+    "total_time_s": 634.2809911999939,
+    "mean_time_ms": 98.29242076553446,
+    "throughput_words_s": 10.173724405316944,
+    "ram_after_load_mb": 2267.796875,
+    "ram_peak_mb": 2267.19140625,
+    "gpu_peak_mb": 1498.6806640625,
+    "accuracy_metrics": {
+      "cer": 0.21723279067249035,
+      "wer": 0.7653323540213001,
+      "exact_match": 0.15837594917092826,
+      "character_similarity": 0.7822544021565058,
+      "evaluated_words": 6453
+    }
+  }
+}

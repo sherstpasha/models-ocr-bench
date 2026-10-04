@@ -1,0 +1,26 @@
+{
+  "benchmark_version": 2,
+  "task": "recognition",
+  "dataset": "donkeysmall_printed_15random",
+  "model": "tesseract_cyrillic_best",
+  "origin": "https://github.com/tesseract-ocr/tessdata_best/blob/main/script/Cyrillic.traineddata",
+  "engine": "tesseract v5.5.3.20260724",
+  "cpu": {
+    "device": "cpu",
+    "num_words": 1500,
+    "batch_size": 512,
+    "total_time_s": 13.364265299998806,
+    "mean_time_ms": 8.909510199999204,
+    "throughput_words_s": 112.23961559638704,
+    "ram_peak_mb": 80.91796875,
+    "mean_confidence": 0.40070500648777774,
+    "accuracy_metrics": {
+      "cer": 5.276942778189661,
+      "wer": 17.657333333333334,
+      "exact_match": 0.3273333333333333,
+      "character_similarity": 0.5590290866904895,
+      "evaluated_words": 1500
+    }
+  },
+  "gpu": null
+}

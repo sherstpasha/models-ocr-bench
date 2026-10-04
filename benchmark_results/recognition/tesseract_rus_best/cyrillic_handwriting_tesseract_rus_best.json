@@ -1,0 +1,26 @@
+{
+  "benchmark_version": 2,
+  "task": "recognition",
+  "dataset": "cyrillic_handwriting",
+  "model": "tesseract_rus_best",
+  "origin": "https://github.com/tesseract-ocr/tessdata_best/blob/main/rus.traineddata",
+  "engine": "tesseract v5.5.3.20260724",
+  "cpu": {
+    "device": "cpu",
+    "num_words": 1544,
+    "batch_size": 512,
+    "total_time_s": 30.471288899992942,
+    "mean_time_ms": 19.735290738337397,
+    "throughput_words_s": 50.67064951100108,
+    "ram_peak_mb": 81.14453125,
+    "mean_confidence": 0.08443304324124104,
+    "accuracy_metrics": {
+      "cer": 7.641305083598457,
+      "wer": 17.275092936802974,
+      "exact_match": 0.007772020725388601,
+      "character_similarity": 0.18356702082536921,
+      "evaluated_words": 1544
+    }
+  },
+  "gpu": null
+}

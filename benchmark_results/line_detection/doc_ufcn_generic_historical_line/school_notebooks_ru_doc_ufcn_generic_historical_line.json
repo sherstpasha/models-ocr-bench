@@ -1,0 +1,61 @@
+{
+  "dataset": "school_notebooks_ru",
+  "level": "line",
+  "cpu": null,
+  "gpu": {
+    "device": "cuda:0",
+    "detection_level": "line",
+    "architecture": "Doc-UFCN",
+    "repository": "Teklia/doc-ufcn-generic-historical-line",
+    "input_size": 768,
+    "min_cc": 50,
+    "num_images": 150,
+    "mean_time_ms": 238.68284733311157,
+    "median_time_ms": 232.34224999941944,
+    "throughput_fps": 4.189660091512047,
+    "ram_after_load_mb": 890.828125,
+    "ram_peak_mb": 926.32421875,
+    "ram_delta_mb": 35.49609375,
+    "gpu_after_load_mb": 15.62451171875,
+    "gpu_peak_mb": 304.68701171875,
+    "gpu_delta_mb": 289.0625,
+    "ground_truth_version": 4,
+    "accuracy_metrics": {
+      "iou_threshold": 0.5,
+      "precision": 0.33250735635744155,
+      "recall": 0.33271346660468,
+      "f1": 0.3326103795507359,
+      "mean_matched_iou": 0.6086447240075874,
+      "true_positives": 2147,
+      "false_positives": 4310,
+      "false_negatives": 4306,
+      "evaluated_images": 150,
+      "f1@0.5": 0.3326103795507359,
+      "f1@0.5:0.95": 0.08963594113090625,
+      "f1_by_iou": {
+        "0.50": 0.3326103795507359,
+        "0.55": 0.23268783888458558,
+        "0.60": 0.15228505034856699,
+        "0.65": 0.09155693261037956,
+        "0.70": 0.05205267234701782,
+        "0.75": 0.02261812548412084,
+        "0.80": 0.009604957397366382,
+        "0.85": 0.0024786986831913244,
+        "0.90": 0.0004647560030983733,
+        "0.95": 0.0
+      }
+    },
+    "polygon_iou_metrics": {
+      "iou_threshold": 0.5,
+      "precision": 0.10097568530277219,
+      "recall": 0.10103827677049435,
+      "hmean": 0.10100697134004646,
+      "dice_f1": 0.5829450280863271,
+      "mean_matched_iou": 0.5640957226415638,
+      "true_positives": 652,
+      "false_positives": 5805,
+      "false_negatives": 5801,
+      "evaluated_images": 150
+    }
+  }
+}

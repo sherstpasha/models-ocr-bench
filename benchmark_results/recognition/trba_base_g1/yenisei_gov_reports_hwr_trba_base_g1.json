@@ -1,0 +1,28 @@
+{
+  "task": "recognition",
+  "dataset": "yenisei_gov_reports_hwr",
+  "model": "trba_base_g1",
+  "cpu": null,
+  "gpu": {
+    "device": "cuda",
+    "active_providers": [
+      "CUDAExecutionProvider",
+      "CPUExecutionProvider"
+    ],
+    "num_words": 22400,
+    "batch_size": 128,
+    "total_time_s": 36.69097469999906,
+    "mean_time_ms": 1.6379899419642439,
+    "throughput_words_s": 610.5043592641482,
+    "ram_after_load_mb": 1767.7734375,
+    "ram_peak_mb": 1836.17578125,
+    "mean_confidence": 0.9855947018288342,
+    "accuracy_metrics": {
+      "cer": 0.02832786989340339,
+      "wer": 0.10066976209064388,
+      "evaluated_words": 22400,
+      "exact_match": 0.9055803571428571,
+      "character_similarity": 0.97175315040536
+    }
+  }
+}

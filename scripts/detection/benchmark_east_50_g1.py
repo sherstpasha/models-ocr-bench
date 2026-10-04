@@ -1,5 +1,6 @@
 import gc
 import json
+import os
 import time
 from pathlib import Path
 from typing import Any, Dict, List
@@ -9,6 +10,7 @@ import numpy as np
 import onnxruntime as ort
 
 from utils.metrics import evaluate_dataset
+from utils.prediction_artifacts import prediction_artifact_path, save_predictions
 from utils.datasets import prediction_key, result_is_compatible
 from configs.detection.benchmark_config import BENCHMARKS, DATASETS
 
@@ -245,6 +247,11 @@ def benchmark_model(model_name, config) -> None:
             gpu_stats = None
         run_cpu = not config["gpu_only"]
         run_gpu = not config["cpu_only"]
+        if not prediction_artifact_path(output_file).is_file():
+            if run_gpu:
+                gpu_stats = None
+            elif run_cpu:
+                cpu_stats = None
 
         if (not run_cpu or cpu_stats) and (not run_gpu or gpu_stats):
             print(f"Skip: already completed ({output_file})")
@@ -277,12 +284,17 @@ def benchmark_model(model_name, config) -> None:
             )
             gpu_stats["accuracy_metrics"] = evaluate_dataset(gpu_stats["predictions"], ground_truths)
 
+        artifact_stats = gpu_stats if run_gpu else cpu_stats
+        save_predictions(output_file, artifact_stats["predictions"])
+
         save_results(cpu_stats, gpu_stats, output_file, dataset_name)
         print(f"Saved: {output_file}")
 
 
 def main() -> None:
     for model_name, config in MANUSCRIPT_BENCHMARKS.items():
+        if os.environ.get("OCR_BENCH_ONLY_MODEL") not in (None, model_name):
+            continue
         print(f"\n## MODEL: {model_name}")
         benchmark_model(model_name, config)
 

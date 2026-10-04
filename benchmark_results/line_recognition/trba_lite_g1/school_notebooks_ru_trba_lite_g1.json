@@ -1,0 +1,28 @@
+{
+  "task": "recognition",
+  "dataset": "school_notebooks_ru",
+  "model": "trba_lite_g1",
+  "cpu": null,
+  "gpu": {
+    "device": "cuda",
+    "active_providers": [
+      "CUDAExecutionProvider",
+      "CPUExecutionProvider"
+    ],
+    "num_words": 6453,
+    "batch_size": 128,
+    "total_time_s": 46.80925859999843,
+    "mean_time_ms": 7.2538754997673065,
+    "throughput_words_s": 137.85734260700758,
+    "ram_after_load_mb": 1723.140625,
+    "ram_peak_mb": 1749.390625,
+    "mean_confidence": 0.9015853975367106,
+    "accuracy_metrics": {
+      "cer": 0.27084310965118097,
+      "wer": 0.611678295997062,
+      "exact_match": 0.2626685262668526,
+      "character_similarity": 0.7921642995603037,
+      "evaluated_words": 6453
+    }
+  }
+}

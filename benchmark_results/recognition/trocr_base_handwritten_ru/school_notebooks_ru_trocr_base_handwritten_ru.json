@@ -1,0 +1,25 @@
+{
+  "task": "recognition",
+  "dataset": "school_notebooks_ru",
+  "model": "trocr_base_handwritten_ru",
+  "repository": "kazars24/trocr-base-handwritten-ru",
+  "cpu": null,
+  "gpu": {
+    "device": "cuda",
+    "num_words": 27893,
+    "batch_size": 8,
+    "total_time_s": 2397.1493650000048,
+    "mean_time_ms": 85.94089431040064,
+    "throughput_words_s": 11.635904048056657,
+    "ram_after_load_mb": 2236.484375,
+    "ram_peak_mb": 2239.12109375,
+    "gpu_peak_mb": 1604.4462890625,
+    "accuracy_metrics": {
+      "cer": 0.11819661832159045,
+      "wer": 0.37785732005528583,
+      "evaluated_words": 27893,
+      "exact_match": 0.6396228444412576,
+      "character_similarity": 0.8570609168523694
+    }
+  }
+}

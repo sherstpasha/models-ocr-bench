@@ -11,6 +11,7 @@ from PIL import Image
 
 from configs.detection.benchmark_config import BENCHMARKS, DATASETS
 from utils.metrics import evaluate_dataset
+from utils.prediction_artifacts import prediction_artifact_path, save_predictions
 from utils.datasets import prediction_key, result_is_compatible
 
 
@@ -171,7 +172,7 @@ def main():
         print(f"\n### DATASET: {dataset_name}")
         output_file = output_dir / f"{dataset_name}_{MODEL_NAME}.json"
         existing_gpu = load_existing_gpu(output_file)
-        if result_is_compatible(existing_gpu, dataset):
+        if result_is_compatible(existing_gpu, dataset) and prediction_artifact_path(output_file).is_file():
             print(f"Skip: already completed ({output_file})")
             continue
         if not dataset["folder"].exists() or not dataset["annotations"].exists():
@@ -189,6 +190,7 @@ def main():
         gpu_stats["accuracy_metrics"] = evaluate_dataset(
             gpu_stats["predictions"], ground_truths
         )
+        save_predictions(output_file, gpu_stats["predictions"])
         save_results(output_file, dataset_name, gpu_stats)
         print(f"Saved: {output_file}")
 

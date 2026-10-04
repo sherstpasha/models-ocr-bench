@@ -1,0 +1,55 @@
+{
+  "dataset": "russian_old_orthography",
+  "cpu": null,
+  "gpu": {
+    "device": "cuda",
+    "num_images": 39,
+    "canvas_size": 2560,
+    "mean_time_ms": 209.82132307692433,
+    "median_time_ms": 212.63569999996434,
+    "throughput_fps": 4.765959843048848,
+    "ram_after_load_mb": 794.86328125,
+    "ram_peak_mb": 1057.640625,
+    "ram_delta_mb": 262.77734375,
+    "gpu_after_load_mb": 81.04150390625,
+    "gpu_peak_mb": 915.83837890625,
+    "gpu_delta_mb": 834.796875,
+    "accuracy_metrics": {
+      "iou_threshold": 0.5,
+      "precision": 0.7418213969938108,
+      "recall": 0.691836494286724,
+      "f1": 0.7159575764964038,
+      "mean_matched_iou": 0.7062502352056504,
+      "true_positives": 5873,
+      "false_positives": 2044,
+      "false_negatives": 2616,
+      "evaluated_images": 39,
+      "f1@0.5": 0.7159575764964038,
+      "f1@0.5:0.95": 0.33300012190661954,
+      "f1_by_iou": {
+        "0.50": 0.7159575764964038,
+        "0.55": 0.6845056686578082,
+        "0.60": 0.6286724369133244,
+        "0.65": 0.5276118493234182,
+        "0.70": 0.37986102645373643,
+        "0.75": 0.23369498963793736,
+        "0.80": 0.11081311715226137,
+        "0.85": 0.0388882116298915,
+        "0.90": 0.007923930269413628,
+        "0.95": 0.0020724125320004875
+      }
+    },
+    "polygon_iou_metrics": {
+      "iou_threshold": 0.5,
+      "precision": 0.7459896425413667,
+      "recall": 0.6957238779597126,
+      "hmean": 0.7199804949408752,
+      "dice_f1": 0.7681339936596981,
+      "mean_matched_iou": 0.7160470376815676,
+      "true_positives": 5906,
+      "false_positives": 2011,
+      "false_negatives": 2583,
+      "evaluated_images": 39
+    }
+  }
+}

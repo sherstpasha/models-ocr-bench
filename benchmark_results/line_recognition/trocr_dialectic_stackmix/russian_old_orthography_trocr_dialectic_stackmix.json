@@ -1,0 +1,25 @@
+{
+  "task": "recognition",
+  "dataset": "russian_old_orthography",
+  "model": "trocr_dialectic_stackmix",
+  "repository": "Daniil-Domino/trocr-base-ru-dialectic-stackmix",
+  "cpu": null,
+  "gpu": {
+    "device": "cuda",
+    "num_words": 1406,
+    "batch_size": 8,
+    "total_time_s": 191.74330970000028,
+    "mean_time_ms": 136.37504246088213,
+    "throughput_words_s": 7.33271999007326,
+    "ram_after_load_mb": 2381.6953125,
+    "ram_peak_mb": 2385.11328125,
+    "gpu_peak_mb": 1498.7041015625,
+    "accuracy_metrics": {
+      "cer": 0.38186822241998747,
+      "wer": 0.9265548715771599,
+      "exact_match": 0.007112375533428165,
+      "character_similarity": 0.630906991090886,
+      "evaluated_words": 1406
+    }
+  }
+}

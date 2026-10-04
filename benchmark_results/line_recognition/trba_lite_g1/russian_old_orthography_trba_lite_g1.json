@@ -1,0 +1,28 @@
+{
+  "task": "recognition",
+  "dataset": "russian_old_orthography",
+  "model": "trba_lite_g1",
+  "cpu": null,
+  "gpu": {
+    "device": "cuda",
+    "active_providers": [
+      "CUDAExecutionProvider",
+      "CPUExecutionProvider"
+    ],
+    "num_words": 1406,
+    "batch_size": 128,
+    "total_time_s": 0.8369142000001375,
+    "mean_time_ms": 0.5952448079659584,
+    "throughput_words_s": 1679.9810542105379,
+    "ram_after_load_mb": 1716.15234375,
+    "ram_peak_mb": 1709.7578125,
+    "mean_confidence": 0.9111874973451769,
+    "accuracy_metrics": {
+      "cer": 0.40742938132436796,
+      "wer": 0.8132031415835279,
+      "exact_match": 0.03556187766714083,
+      "character_similarity": 0.6214727481169317,
+      "evaluated_words": 1406
+    }
+  }
+}

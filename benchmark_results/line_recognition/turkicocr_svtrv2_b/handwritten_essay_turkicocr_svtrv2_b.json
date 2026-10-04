@@ -1,0 +1,29 @@
+{
+  "task": "recognition",
+  "dataset": "handwritten_essay",
+  "model": "turkicocr_svtrv2_b",
+  "repository": "alenisaw/turkicocr-svtrv2-b-onnx",
+  "cpu": null,
+  "gpu": {
+    "device": "cuda",
+    "active_providers": [
+      "CUDAExecutionProvider",
+      "CPUExecutionProvider"
+    ],
+    "num_words": 676,
+    "batch_size": 128,
+    "total_time_s": 30.088163899999927,
+    "mean_time_ms": 44.50911819526616,
+    "throughput_words_s": 22.467306487917718,
+    "ram_after_load_mb": 1267.80859375,
+    "ram_peak_mb": 15359.4296875,
+    "mean_confidence": 0.6568349291690835,
+    "accuracy_metrics": {
+      "cer": 0.5316423191052271,
+      "wer": 0.9825526265882799,
+      "exact_match": 0.0,
+      "character_similarity": 0.4755580999759532,
+      "evaluated_words": 676
+    }
+  }
+}

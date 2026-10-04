@@ -1,0 +1,10 @@
+--extra-index-url https://download.pytorch.org/whl/cu130
+
+rfdetr==1.11.0
+transformers>=5.1,<6
+huggingface-hub>=1.31,<3
+numpy
+Pillow
+psutil
+tqdm
+pypdfium2>=4.30,<6

@@ -151,6 +151,7 @@ activemq-data/
 .env
 .envrc
 .venv
+.venv-*/
 env/
 venv/
 ENV/
@@ -209,6 +210,18 @@ tempCodeRunnerFile.py
 # Downloaded benchmark model repositories and weights
 models/
 datasets/
+tools/
+
+# Per-sample recognition predictions (keep recognition/summary.csv)
+benchmark_results/recognition/*/*.csv
+benchmark_results/line_recognition/*/*.csv
+
+# Per-image detection predictions and rendered comparisons
+benchmark_results/detection/**/*_predictions.json
+benchmark_results/detection/**/visualizations/
+benchmark_results/line_detection/**/*_predictions.json
+benchmark_results/line_detection/**/visualizations/
+benchmark_results/line_detection/ground_truth_examples/
 
 # PyPI configuration file
 .pypirc

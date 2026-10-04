@@ -1,0 +1,64 @@
+{
+  "dataset": "gota_hovratt_seg",
+  "level": "line",
+  "cpu": null,
+  "gpu": {
+    "device": "cuda",
+    "providers": [
+      "CUDAExecutionProvider",
+      "CPUExecutionProvider"
+    ],
+    "detection_level": "line",
+    "architecture": "Mask2Former",
+    "weights": "mask2former_line_v0_prev",
+    "image_size": 1024,
+    "score_threshold": 0.15,
+    "mask_logit_threshold": 0.0,
+    "nms_iou_threshold": 0.5,
+    "num_images": 51,
+    "mean_time_ms": 3014.849082353512,
+    "median_time_ms": 3002.806199998304,
+    "throughput_fps": 0.3316915615621329,
+    "ram_after_load_mb": 1674.73046875,
+    "ram_peak_mb": 1674.83984375,
+    "ram_delta_mb": 0.109375,
+    "ground_truth_version": 4,
+    "accuracy_metrics": {
+      "iou_threshold": 0.5,
+      "precision": 0.9018908312522298,
+      "recall": 0.9397769516728625,
+      "f1": 0.9204442017112688,
+      "mean_matched_iou": 0.8097463382192648,
+      "true_positives": 2528,
+      "false_positives": 275,
+      "false_negatives": 162,
+      "evaluated_images": 51,
+      "f1@0.5": 0.9204442017112688,
+      "f1@0.5:0.95": 0.6169670489714181,
+      "f1_by_iou": {
+        "0.50": 0.9204442017112688,
+        "0.55": 0.9055161114145276,
+        "0.60": 0.8869470234844347,
+        "0.65": 0.8458037502275624,
+        "0.70": 0.7839067904605862,
+        "0.75": 0.6979792463134898,
+        "0.80": 0.5614418350628072,
+        "0.85": 0.373930456945203,
+        "0.90": 0.170398689240852,
+        "0.95": 0.023302384853449844
+      }
+    },
+    "polygon_iou_metrics": {
+      "iou_threshold": 0.5,
+      "precision": 0.8276846236175526,
+      "recall": 0.862453531598513,
+      "hmean": 0.8447114509375568,
+      "dice_f1": 0.9040054642730917,
+      "mean_matched_iou": 0.6522832891322713,
+      "true_positives": 2320,
+      "false_positives": 483,
+      "false_negatives": 370,
+      "evaluated_images": 51
+    }
+  }
+}

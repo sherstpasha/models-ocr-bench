@@ -1,0 +1,59 @@
+{
+  "dataset": "svea_hovratt_seg",
+  "level": "line",
+  "cpu": null,
+  "gpu": {
+    "device": "cuda:0",
+    "detection_level": "line",
+    "architecture": "PERO general layout",
+    "repository": "https://github.com/DCGM/pero-ocr",
+    "ground_truth_version": 4,
+    "num_images": 100,
+    "mean_time_ms": 243.1066400000418,
+    "median_time_ms": 236.9557500060182,
+    "throughput_fps": 4.113421171876786,
+    "ram_after_load_mb": 1318.96875,
+    "ram_peak_mb": 1318.96875,
+    "ram_delta_mb": 0.0,
+    "gpu_after_load_mb": 131.0908203125,
+    "gpu_peak_mb": 483.8876953125,
+    "gpu_delta_mb": 352.796875,
+    "accuracy_metrics": {
+      "iou_threshold": 0.5,
+      "precision": 0.5227188081936686,
+      "recall": 0.6077072959515046,
+      "f1": 0.5620182200420463,
+      "mean_matched_iou": 0.6528928961788829,
+      "true_positives": 2807,
+      "false_positives": 2563,
+      "false_negatives": 1812,
+      "evaluated_images": 100,
+      "f1@0.5": 0.5620182200420463,
+      "f1@0.5:0.95": 0.20038041846030633,
+      "f1_by_iou": {
+        "0.50": 0.5620182200420463,
+        "0.55": 0.4769246170787866,
+        "0.60": 0.3764140554610071,
+        "0.65": 0.27169886875563115,
+        "0.70": 0.17138852738011812,
+        "0.75": 0.0904995495044549,
+        "0.80": 0.03904294724196616,
+        "0.85": 0.011812994293723096,
+        "0.90": 0.003603964360796877,
+        "0.95": 0.0004004404845329862
+      }
+    },
+    "polygon_iou_metrics": {
+      "iou_threshold": 0.5,
+      "precision": 0.545437616387337,
+      "recall": 0.6341199393808183,
+      "hmean": 0.5864450895985583,
+      "dice_f1": 0.7977963551901809,
+      "mean_matched_iou": 0.632728718622216,
+      "true_positives": 2929,
+      "false_positives": 2441,
+      "false_negatives": 1690,
+      "evaluated_images": 100
+    }
+  }
+}

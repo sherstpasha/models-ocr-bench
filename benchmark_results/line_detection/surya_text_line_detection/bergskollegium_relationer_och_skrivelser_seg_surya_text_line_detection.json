@@ -1,0 +1,59 @@
+{
+  "dataset": "bergskollegium_relationer_och_skrivelser_seg",
+  "level": "line",
+  "cpu": null,
+  "gpu": {
+    "device": "cuda",
+    "detection_level": "line",
+    "architecture": "Surya text-line detector",
+    "repository": "https://github.com/datalab-to/surya",
+    "ground_truth_version": 4,
+    "num_images": 100,
+    "mean_time_ms": 603.9956610008812,
+    "median_time_ms": 607.0550000004005,
+    "throughput_fps": 1.6556410328228186,
+    "ram_after_load_mb": 634.70703125,
+    "ram_peak_mb": 1315.0390625,
+    "ram_delta_mb": 680.33203125,
+    "gpu_after_load_mb": 73.86181640625,
+    "gpu_peak_mb": 1253.05712890625,
+    "gpu_delta_mb": 1179.1953125,
+    "accuracy_metrics": {
+      "iou_threshold": 0.5,
+      "precision": 0.8544318444804443,
+      "recall": 0.7439048962321176,
+      "f1": 0.7953468332615252,
+      "mean_matched_iou": 0.6307324663340762,
+      "true_positives": 3692,
+      "false_positives": 629,
+      "false_negatives": 1271,
+      "evaluated_images": 100,
+      "f1@0.5": 0.7953468332615252,
+      "f1@0.5:0.95": 0.2493106419646704,
+      "f1_by_iou": {
+        "0.50": 0.7953468332615252,
+        "0.55": 0.6490736751400259,
+        "0.60": 0.4670400689358035,
+        "0.65": 0.2908229211546747,
+        "0.70": 0.16221456268849632,
+        "0.75": 0.08207669108143043,
+        "0.80": 0.03317535545023697,
+        "0.85": 0.011417492460146488,
+        "0.90": 0.001938819474364498,
+        "0.95": 0.0
+      }
+    },
+    "polygon_iou_metrics": {
+      "iou_threshold": 0.5,
+      "precision": 0.8602175422355937,
+      "recall": 0.7489421720733427,
+      "hmean": 0.8007324429125376,
+      "dice_f1": 0.8739659223111783,
+      "mean_matched_iou": 0.661377241291272,
+      "true_positives": 3717,
+      "false_positives": 604,
+      "false_negatives": 1246,
+      "evaluated_images": 100
+    }
+  }
+}

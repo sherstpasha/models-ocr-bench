@@ -1,0 +1,59 @@
+{
+  "dataset": "svea_hovratt_seg",
+  "level": "line",
+  "cpu": null,
+  "gpu": {
+    "device": "cuda",
+    "detection_level": "line",
+    "architecture": "Surya text-line detector",
+    "repository": "https://github.com/datalab-to/surya",
+    "ground_truth_version": 4,
+    "num_images": 100,
+    "mean_time_ms": 723.2784470001934,
+    "median_time_ms": 729.6180499979528,
+    "throughput_fps": 1.3825933900664575,
+    "ram_after_load_mb": 634.9765625,
+    "ram_peak_mb": 1336.86328125,
+    "ram_delta_mb": 701.88671875,
+    "gpu_after_load_mb": 73.86181640625,
+    "gpu_peak_mb": 1546.3515625,
+    "gpu_delta_mb": 1472.48974609375,
+    "accuracy_metrics": {
+      "iou_threshold": 0.5,
+      "precision": 0.5261178437108233,
+      "recall": 0.2725698203074258,
+      "f1": 0.35909868796349115,
+      "mean_matched_iou": 0.6516949704055652,
+      "true_positives": 1259,
+      "false_positives": 1134,
+      "false_negatives": 3360,
+      "evaluated_images": 100,
+      "f1@0.5": 0.35909868796349115,
+      "f1@0.5:0.95": 0.1268967484312607,
+      "f1_by_iou": {
+        "0.50": 0.35909868796349115,
+        "0.55": 0.30433542498573873,
+        "0.60": 0.24130062749572162,
+        "0.65": 0.16828294352538506,
+        "0.70": 0.10439247005134056,
+        "0.75": 0.06046776953793497,
+        "0.80": 0.024529378208784938,
+        "0.85": 0.006274957216200798,
+        "0.90": 0.0002852253280091272,
+        "0.95": 0.0
+      }
+    },
+    "polygon_iou_metrics": {
+      "iou_threshold": 0.5,
+      "precision": 0.549937317175094,
+      "recall": 0.2849101537129249,
+      "hmean": 0.3753565316600114,
+      "dice_f1": 0.8545485226438794,
+      "mean_matched_iou": 0.656768560272637,
+      "true_positives": 1316,
+      "false_positives": 1077,
+      "false_negatives": 3303,
+      "evaluated_images": 100
+    }
+  }
+}

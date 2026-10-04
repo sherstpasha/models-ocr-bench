@@ -1,0 +1,29 @@
+{
+  "task": "recognition",
+  "dataset": "russian_old_orthography",
+  "model": "turkicocr_svtrv2_b",
+  "repository": "alenisaw/turkicocr-svtrv2-b-onnx",
+  "cpu": null,
+  "gpu": {
+    "device": "cuda",
+    "active_providers": [
+      "CUDAExecutionProvider",
+      "CPUExecutionProvider"
+    ],
+    "num_words": 8489,
+    "batch_size": 128,
+    "total_time_s": 9.51328890000002,
+    "mean_time_ms": 1.1206607256449548,
+    "throughput_words_s": 892.3307269686703,
+    "ram_after_load_mb": 1187.87890625,
+    "ram_peak_mb": 1313.5390625,
+    "mean_confidence": 0.8290810951715335,
+    "accuracy_metrics": {
+      "cer": 0.27473437855974153,
+      "wer": 0.8589939922252326,
+      "exact_match": 0.21251030745670868,
+      "character_similarity": 0.6907705433772927,
+      "evaluated_words": 8489
+    }
+  }
+}

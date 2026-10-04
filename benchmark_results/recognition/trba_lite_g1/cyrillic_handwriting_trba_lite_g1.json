@@ -1,0 +1,28 @@
+{
+  "task": "recognition",
+  "dataset": "cyrillic_handwriting",
+  "model": "trba_lite_g1",
+  "cpu": null,
+  "gpu": {
+    "device": "cuda",
+    "active_providers": [
+      "CUDAExecutionProvider",
+      "CPUExecutionProvider"
+    ],
+    "num_words": 1544,
+    "batch_size": 128,
+    "total_time_s": 7.564336299998104,
+    "mean_time_ms": 4.899181541449549,
+    "throughput_words_s": 204.11572658402127,
+    "ram_after_load_mb": 1749.68359375,
+    "ram_peak_mb": 1731.9296875,
+    "mean_confidence": 0.9806233097080121,
+    "accuracy_metrics": {
+      "cer": 0.06951871657754011,
+      "wer": 0.29739776951672864,
+      "evaluated_words": 1544,
+      "exact_match": 0.6794041450777202,
+      "character_similarity": 0.9369340030966136
+    }
+  }
+}

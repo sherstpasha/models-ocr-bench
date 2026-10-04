@@ -1,0 +1,59 @@
+{
+  "dataset": "bergskollegium_relationer_och_skrivelser_seg",
+  "level": "line",
+  "cpu": null,
+  "gpu": {
+    "device": "cuda:0",
+    "detection_level": "line",
+    "architecture": "Riksarkivet RTMDet Lines",
+    "repository": "https://huggingface.co/Riksarkivet/rtmdet_lines",
+    "ground_truth_version": 4,
+    "num_images": 100,
+    "mean_time_ms": 6996.365440999507,
+    "median_time_ms": 7020.9806999992,
+    "throughput_fps": 0.14293135606380492,
+    "ram_after_load_mb": 1319.28125,
+    "ram_peak_mb": 10906.30078125,
+    "ram_delta_mb": 9587.01953125,
+    "gpu_after_load_mb": 107.02685546875,
+    "gpu_peak_mb": 8953.6845703125,
+    "gpu_delta_mb": 8846.65771484375,
+    "accuracy_metrics": {
+      "iou_threshold": 0.5,
+      "precision": 0.9678344601516082,
+      "recall": 0.9518436429578884,
+      "f1": 0.9597724502234863,
+      "mean_matched_iou": 0.8043304083046585,
+      "true_positives": 4724,
+      "false_positives": 157,
+      "false_negatives": 239,
+      "evaluated_images": 100,
+      "f1@0.5": 0.9597724502234863,
+      "f1@0.5:0.95": 0.6320601381552214,
+      "f1_by_iou": {
+        "0.50": 0.9597724502234863,
+        "0.55": 0.9555058919138562,
+        "0.60": 0.9514425030475416,
+        "0.65": 0.9372206420154409,
+        "0.70": 0.8864282811865096,
+        "0.75": 0.753758634701341,
+        "0.80": 0.5239739943112556,
+        "0.85": 0.26412027631044294,
+        "0.90": 0.07964242177976433,
+        "0.95": 0.008736286062576188
+      }
+    },
+    "polygon_iou_metrics": {
+      "iou_threshold": 0.5,
+      "precision": 0.9684490883015775,
+      "recall": 0.9524481160588354,
+      "hmean": 0.9603819585534336,
+      "dice_f1": 0.8961775117839209,
+      "mean_matched_iou": 0.7473471368519272,
+      "true_positives": 4727,
+      "false_positives": 154,
+      "false_negatives": 236,
+      "evaluated_images": 100
+    }
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "task": "recognition",
+  "dataset": "cyrillic_handwriting",
+  "model": "trocr_base_ru",
+  "repository": "raxtemur/trocr-base-ru",
+  "cpu": null,
+  "gpu": {
+    "device": "cuda",
+    "num_words": 1544,
+    "batch_size": 8,
+    "total_time_s": 65.94020069999533,
+    "mean_time_ms": 42.70738387305397,
+    "throughput_words_s": 23.415154694852323,
+    "ram_after_load_mb": 2244.40625,
+    "ram_peak_mb": 2241.5390625,
+    "gpu_peak_mb": 1498.6796875,
+    "accuracy_metrics": {
+      "cer": 0.08163541596155148,
+      "wer": 0.3447955390334573,
+      "evaluated_words": 1544,
+      "exact_match": 0.6314766839378239,
+      "character_similarity": 0.9239662190105455
+    }
+  }
+}

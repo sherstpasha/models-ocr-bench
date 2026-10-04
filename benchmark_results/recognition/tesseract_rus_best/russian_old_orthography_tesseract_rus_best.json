@@ -1,0 +1,26 @@
+{
+  "benchmark_version": 2,
+  "task": "recognition",
+  "dataset": "russian_old_orthography",
+  "model": "tesseract_rus_best",
+  "origin": "https://github.com/tesseract-ocr/tessdata_best/blob/main/rus.traineddata",
+  "engine": "tesseract v5.5.3.20260724",
+  "cpu": {
+    "device": "cpu",
+    "num_words": 8489,
+    "batch_size": 512,
+    "total_time_s": 68.3079596,
+    "mean_time_ms": 8.04664384497585,
+    "throughput_words_s": 124.27541460336636,
+    "ram_peak_mb": 63.08203125,
+    "mean_confidence": 0.5224987170772569,
+    "accuracy_metrics": {
+      "cer": 0.722428183832819,
+      "wer": 1.696312875485923,
+      "exact_match": 0.46330545411709273,
+      "character_similarity": 0.8013066370305602,
+      "evaluated_words": 8489
+    }
+  },
+  "gpu": null
+}

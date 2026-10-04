@@ -1,0 +1,28 @@
+{
+  "task": "recognition",
+  "dataset": "handwritten_essay",
+  "model": "trba_lite_g1",
+  "cpu": null,
+  "gpu": {
+    "device": "cuda",
+    "active_providers": [
+      "CUDAExecutionProvider",
+      "CPUExecutionProvider"
+    ],
+    "num_words": 5146,
+    "batch_size": 128,
+    "total_time_s": 17.53829009999754,
+    "mean_time_ms": 3.408140322580167,
+    "throughput_words_s": 293.4151488348754,
+    "ram_after_load_mb": 989.29296875,
+    "ram_peak_mb": 994.3046875,
+    "mean_confidence": 0.9513483221428755,
+    "accuracy_metrics": {
+      "cer": 0.1272483484858395,
+      "wer": 0.39332448321638536,
+      "evaluated_words": 5146,
+      "exact_match": 0.6245627671978236,
+      "character_similarity": 0.8743158709674668
+    }
+  }
+}

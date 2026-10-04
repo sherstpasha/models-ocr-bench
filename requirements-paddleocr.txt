@@ -1,0 +1,8 @@
+--extra-index-url https://www.paddlepaddle.org.cn/packages/stable/cu126/
+--extra-index-url https://download.pytorch.org/whl/cpu
+
+paddleocr>=3.7,<4
+paddlepaddle-gpu==3.3.0
+torch==2.7.1+cpu
+psutil
+pypdfium2>=4.30,<6

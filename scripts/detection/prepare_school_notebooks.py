@@ -2,8 +2,8 @@
 
 import argparse
 import json
+import os
 import shutil
-import zipfile
 from pathlib import Path
 
 
@@ -21,7 +21,7 @@ def parse_args():
     parser.add_argument(
         "--force",
         action="store_true",
-        help="Overwrite already extracted images.",
+        help="Overwrite already prepared images.",
     )
     return parser.parse_args()
 
@@ -82,64 +82,72 @@ def convert_annotations(source_file: Path):
     }
 
 
-def archive_images(archive: zipfile.ZipFile):
+def source_images(source_dir: Path):
     images = {}
-    for member in archive.infolist():
-        if member.is_dir() or member.filename.startswith("__MACOSX/"):
+    for path in source_dir.rglob("*"):
+        if not path.is_file() or path.name.startswith("._"):
             continue
-        filename = Path(member.filename).name
+        filename = path.name
         if filename in images:
-            raise ValueError(f"Duplicate image name in archive: {filename}")
-        images[filename] = member
+            raise ValueError(f"Duplicate image name in source directory: {filename}")
+        images[filename] = path
     return images
 
 
-def extract_validation_images(
-    archive_file: Path,
+def prepare_validation_images(
+    source_dir: Path,
     images,
     output_dir: Path,
     force: bool,
 ):
     output_dir.mkdir(parents=True, exist_ok=True)
-    with zipfile.ZipFile(archive_file) as archive:
-        members = archive_images(archive)
-        missing = sorted(
-            image["file_name"] for image in images if image["file_name"] not in members
-        )
-        if missing:
-            raise FileNotFoundError(
-                f"Missing {len(missing)} validation images in {archive_file}: {missing[:5]}"
-            )
-
-        for image in images:
-            filename = image["file_name"]
-            destination = output_dir / filename
-            if destination.is_file() and not force:
-                continue
-            with archive.open(members[filename]) as source, destination.open("wb") as target:
-                shutil.copyfileobj(source, target)
-
-
-def main():
-    args = parse_args()
-    annotation_source = args.source / "annotations_val.json"
-    archive_source = args.source / "images.zip"
-    if not annotation_source.is_file() or not archive_source.is_file():
+    available = source_images(source_dir)
+    missing = sorted(
+        image["file_name"] for image in images if image["file_name"] not in available
+    )
+    if missing:
         raise FileNotFoundError(
-            f"Expected annotations_val.json and images.zip in {args.source}"
+            f"Missing {len(missing)} validation images in {source_dir}: {missing[:5]}"
         )
+
+    for image in images:
+        filename = image["file_name"]
+        destination = output_dir / filename
+        if destination.is_file() and not force:
+            continue
+        if destination.exists():
+            destination.unlink()
+        try:
+            os.link(available[filename], destination)
+        except OSError:
+            shutil.copy2(available[filename], destination)
+
+
+def prepare_dataset(source=DEFAULT_SOURCE, output=DEFAULT_OUTPUT, force=False):
+    source = Path(source)
+    output = Path(output)
+    annotation_source = source / "annotations_val.json"
+    image_source = source / "images"
+    image_dir = output / "images"
+    annotation_output = output / "annotations.json"
+    if not annotation_source.is_file() or not image_source.is_dir():
+        raise FileNotFoundError(
+            f"Extract images.zip manually into {source}. Expected "
+            f"{annotation_source} and {image_source}"
+        )
+    if not force and annotation_output.is_file() and image_dir.is_dir():
+        with annotation_output.open("r", encoding="utf-8") as file:
+            prepared = json.load(file)
+        expected = len(prepared.get("images", []))
+        actual = sum(1 for path in image_dir.iterdir() if path.is_file())
+        if expected > 0 and actual == expected:
+            print(f"Skip preparation: already completed ({output})")
+            return
 
     converted = convert_annotations(annotation_source)
-    image_dir = args.output / "images"
-    extract_validation_images(
-        archive_source,
-        converted["images"],
-        image_dir,
-        args.force,
-    )
+    prepare_validation_images(image_source, converted["images"], image_dir, force)
 
-    args.output.mkdir(parents=True, exist_ok=True)
-    annotation_output = args.output / "annotations.json"
+    output.mkdir(parents=True, exist_ok=True)
     with annotation_output.open("w", encoding="utf-8") as file:
         json.dump(converted, file, ensure_ascii=False, indent=2)
 
@@ -147,6 +155,11 @@ def main():
     print(f"Text annotations: {len(converted['annotations'])}")
     print(f"Image directory: {image_dir}")
     print(f"Annotations: {annotation_output}")
+
+
+def main():
+    args = parse_args()
+    prepare_dataset(args.source, args.output, args.force)
 
 
 if __name__ == "__main__":

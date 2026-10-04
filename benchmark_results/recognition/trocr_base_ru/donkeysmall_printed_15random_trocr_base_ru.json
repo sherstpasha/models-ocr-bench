@@ -1,0 +1,25 @@
+{
+  "task": "recognition",
+  "dataset": "donkeysmall_printed_15random",
+  "model": "trocr_base_ru",
+  "repository": "raxtemur/trocr-base-ru",
+  "cpu": null,
+  "gpu": {
+    "device": "cuda",
+    "num_words": 1500,
+    "batch_size": 8,
+    "total_time_s": 61.01321359999565,
+    "mean_time_ms": 40.67547573333044,
+    "throughput_words_s": 24.584838455388407,
+    "ram_after_load_mb": 2244.21875,
+    "ram_peak_mb": 2244.2421875,
+    "gpu_peak_mb": 1498.6806640625,
+    "accuracy_metrics": {
+      "cer": 0.1029857787962526,
+      "wer": 0.502,
+      "evaluated_words": 1500,
+      "exact_match": 0.62,
+      "character_similarity": 0.9099080527569827
+    }
+  }
+}

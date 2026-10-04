@@ -1,0 +1,55 @@
+{
+  "dataset": "TotalText",
+  "cpu": null,
+  "gpu": {
+    "device": "cuda",
+    "architecture": "db_resnet50",
+    "word_level": true,
+    "num_images": 300,
+    "mean_time_ms": 151.70848766661948,
+    "median_time_ms": 137.76030000008177,
+    "throughput_fps": 6.5915890098219645,
+    "ram_after_load_mb": 13163.26171875,
+    "ram_peak_mb": 18473.87890625,
+    "gpu_after_load_mb": 97.70166015625,
+    "gpu_peak_mb": 479.2646484375,
+    "gpu_delta_mb": 381.56298828125,
+    "accuracy_metrics": {
+      "iou_threshold": 0.5,
+      "precision": 0.37986680327868855,
+      "recall": 0.5884920634920635,
+      "f1": 0.46170610211706103,
+      "mean_matched_iou": 0.7467390755256812,
+      "true_positives": 1483,
+      "false_positives": 2421,
+      "false_negatives": 1037,
+      "evaluated_images": 300,
+      "f1@0.5": 0.46170610211706103,
+      "f1@0.5:0.95": 0.2504047322540473,
+      "f1_by_iou": {
+        "0.50": 0.46170610211706103,
+        "0.55": 0.4343088418430885,
+        "0.60": 0.39788293897882937,
+        "0.65": 0.35990037359900373,
+        "0.70": 0.30635118306351183,
+        "0.75": 0.24595267745952681,
+        "0.80": 0.16718555417185554,
+        "0.85": 0.08997509339975093,
+        "0.90": 0.0361145703611457,
+        "0.95": 0.004669987546699875
+      }
+    },
+    "polygon_iou_metrics": {
+      "iou_threshold": 0.5,
+      "precision": 0.26793032786885246,
+      "recall": 0.4150793650793651,
+      "hmean": 0.32565379825653795,
+      "dice_f1": 0.46296171043018886,
+      "mean_matched_iou": 0.7077077755336051,
+      "true_positives": 1046,
+      "false_positives": 2858,
+      "false_negatives": 1474,
+      "evaluated_images": 300
+    }
+  }
+}

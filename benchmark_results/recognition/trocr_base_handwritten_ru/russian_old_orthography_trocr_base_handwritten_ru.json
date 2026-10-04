@@ -1,0 +1,25 @@
+{
+  "task": "recognition",
+  "dataset": "russian_old_orthography",
+  "model": "trocr_base_handwritten_ru",
+  "repository": "kazars24/trocr-base-handwritten-ru",
+  "cpu": null,
+  "gpu": {
+    "device": "cuda",
+    "num_words": 8489,
+    "batch_size": 8,
+    "total_time_s": 816.911439200001,
+    "mean_time_ms": 96.231763364354,
+    "throughput_words_s": 10.391579298134511,
+    "ram_after_load_mb": 2229.4453125,
+    "ram_peak_mb": 2229.51171875,
+    "gpu_peak_mb": 1605.07177734375,
+    "accuracy_metrics": {
+      "cer": 0.30915643187043057,
+      "wer": 0.8063376133820238,
+      "exact_match": 0.19884556484862764,
+      "character_similarity": 0.6337285957636346,
+      "evaluated_words": 8489
+    }
+  }
+}

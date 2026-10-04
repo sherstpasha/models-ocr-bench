@@ -92,13 +92,13 @@ def write_summary():
             for dataset in datasets
         ]
         rank = mean_rank[model]
-        rank_cell = "-" if rank is None else f"{rank:.4f}"
+        rank_cell = "-" if rank is None else f"{rank:.2f}"
         if rank is not None and rank == best_mean_rank:
             rank_cell = f"**{rank_cell}**"
         mean_cells = []
         for index in range(4):
             value = means[index][model]
-            cell = "-" if value is None else f"{value:.4f}"
+            cell = "-" if value is None else f"{value:.2f}"
             if value is not None and value == best_means[index]:
                 cell = f"**{cell}**"
             mean_cells.append(cell)
@@ -108,7 +108,7 @@ def write_summary():
             *mean_cells,
             rank_cell,
             *cells,
-            "-" if speeds[model] is None else f"{speeds[model]:.4f}",
+            "-" if speeds[model] is None else f"{speeds[model]:.2f}",
         ]) + " |")
     md_path = RESULTS_ROOT / "summary.md"
     md_path.write_text("\n".join(lines) + "\n", encoding="utf-8")
@@ -121,7 +121,7 @@ def format_csv_cell(values):
 
 
 def format_md_cell(values):
-    return " / ".join(f"{value:.4f}" for value in values[:4])
+    return " / ".join(f"{value:.2f}" for value in values[:4])
 
 
 if __name__ == "__main__":

@@ -183,16 +183,16 @@ def write_summary():
             format_cell(
                 raw_metrics[model_name, dataset_name],
                 best=best[dataset_name],
-                precision=4,
+                precision=2,
             )
             for dataset_name in dataset_names
         ]
         f1 = mean_f1[model_name]
         fps = mean_fps[model_name]
-        f1_cell = "-" if f1 is None else f"{f1:.4f}"
-        fps_cell = "-" if fps is None else f"{fps:.4f}"
+        f1_cell = "-" if f1 is None else f"{f1:.2f}"
+        fps_cell = "-" if fps is None else f"{fps:.2f}"
         rank = mean_rank[model_name]
-        rank_cell = "-" if rank is None else f"{rank:.4f}"
+        rank_cell = "-" if rank is None else f"{rank:.2f}"
         if f1 is not None and f1 == best_mean_f1:
             f1_cell = f"**{f1_cell}**"
         if fps is not None and fps == best_mean_fps:
@@ -205,7 +205,7 @@ def write_summary():
             (mean_dice[model_name], best_mean_dice),
             (mean_polygon[model_name], best_mean_polygon),
         ):
-            cell = "-" if value is None else f"{value:.4f}"
+            cell = "-" if value is None else f"{value:.2f}"
             if value is not None and value == best_value:
                 cell = f"**{cell}**"
             mean_cells.append(cell)

@@ -14,6 +14,10 @@ RESULTS_ROOT = PROJECT_ROOT / "benchmark_results"
 DATA_ROOT = Path(os.environ.get("OCR_BENCH_DATA_ROOT", r"C:\benchmark"))
 OUTPUT_ROOT = RESULTS_ROOT / "prediction_collages"
 
+PREFERRED_EXAMPLES = {
+    ("word", "russian_old_orthography"): "0002613.jpg",  # «посѣтительницъ»
+}
+
 DATASETS = {
     "handwritten_essay": {
         "name": "Handwritten Essay",
@@ -88,7 +92,11 @@ def select_examples(
             print(f"Skip {level}/{dataset}: no complete local example; using dash")
             chosen = [None] * count
         else:
-            chosen = random.Random(seed + dataset_index).sample(candidates, count)
+            preferred = PREFERRED_EXAMPLES.get((level, dataset))
+            if count == 1 and preferred in candidates:
+                chosen = [preferred]
+            else:
+                chosen = random.Random(seed + dataset_index).sample(candidates, count)
         selected.extend((dataset, name) for name in chosen)
     return selected
 

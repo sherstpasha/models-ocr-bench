@@ -208,7 +208,7 @@ def markdown_table(raw, models, table_key, mean_metrics, mean_rank, mean_speed):
                 if raw[model, dataset] is not None
                 else None,
                 best[dataset],
-                precision=4,
+                precision=2,
             )
             for dataset in DATASETS
         ]
@@ -216,13 +216,13 @@ def markdown_table(raw, models, table_key, mean_metrics, mean_rank, mean_speed):
         mean_cells = []
         for metric, best_mean in zip(mean_metrics, best_means):
             value = metric[model]
-            cell = "-" if value is None else f"{value:.4f}"
+            cell = "-" if value is None else f"{value:.2f}"
             if value is not None and value == best_mean:
                 cell = f"**{cell}**"
             mean_cells.append(cell)
         rank = mean_rank[model]
-        rank_cell = "-" if rank is None else f"{rank:.4f}"
-        speed_cell = "-" if speed is None else f"{speed:.4f}"
+        rank_cell = "-" if rank is None else f"{rank:.2f}"
+        speed_cell = "-" if speed is None else f"{speed:.2f}"
         if rank is not None and rank == best_rank:
             rank_cell = f"**{rank_cell}**"
         if speed is not None and speed == best_speed:

@@ -23,7 +23,7 @@ MODEL_LICENSES = {
     "openocr_repvit_db": "Apache-2.0",
     "paddleocr_v6_medium_line": "Apache-2.0",
     "rfdetr_textline_textregion_2xl": "Apache-2.0",
-    "mask2former_line_v0_prev": "Apache-2.0",
+    "mask2former_line_v0_prev": "CC-BY-NC-3.0",
     "doc_ufcn_generic_historical_line": "MIT",
     "surya_text_line_detection": "Apache-2.0",
     "kraken_blla_default": "Apache-2.0",

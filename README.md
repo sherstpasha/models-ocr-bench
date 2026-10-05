@@ -21,7 +21,7 @@
 | `openocr_repvit_db` | [source](https://github.com/Topdu/OpenOCR) | Apache-2.0 |
 | `paddleocr_v6_medium_line` | [source](https://www.paddleocr.ai/latest/en/version3.x/algorithm/PP-OCRv6/PP-OCRv6.html) | Apache-2.0 |
 | `rfdetr_textline_textregion_2xl` | [source](https://huggingface.co/Kansallisarkisto/rfdetr-textline-textregion-detection-2xl) | Apache-2.0 |
-| `mask2former_line_v0_prev` | [source](https://github.com/konstantinkozhin/manuscript-ocr) | Apache-2.0 |
+| `mask2former_line_v0_prev` | [source](https://github.com/konstantinkozhin/manuscript-ocr) | CC-BY-NC-3.0 |
 | `doc_ufcn_generic_historical_line` | [source](https://huggingface.co/Teklia/doc-ufcn-generic-historical-line) | MIT |
 | `surya_text_line_detection` | [source](https://github.com/datalab-to/surya) | Apache-2.0 |
 | `kraken_blla_default` | [source](https://github.com/mittagessen/kraken) | Apache-2.0 |

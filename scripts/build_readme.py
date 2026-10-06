@@ -43,6 +43,8 @@ MODEL_LICENSES = {
     "cyrillic_large_handwritten": "Apache-2.0",
     "turkicocr_svtrv2_b": "Apache-2.0",
     "kraken_ppocrv6_medium": "Apache-2.0",
+    "kraken_ppocrv6_small": "Apache-2.0",
+    "kraken_ppocrv6_tiny": "Apache-2.0",
     "tesseract_rus_best": "Apache-2.0",
     "tesseract_cyrillic_best": "Apache-2.0",
 }

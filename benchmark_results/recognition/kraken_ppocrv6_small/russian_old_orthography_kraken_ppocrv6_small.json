@@ -1,0 +1,27 @@
+{
+  "task": "recognition",
+  "dataset": "russian_old_orthography",
+  "model": "kraken_ppocrv6_small",
+  "repository": "small-models-for-glam/kraken-ppocrv6-small",
+  "evaluation_input": "word crops treated as single text lines",
+  "cpu": null,
+  "gpu": {
+    "device": "cuda:0",
+    "num_words": 8489,
+    "batch_size": 32,
+    "total_time_s": 30.33519409998553,
+    "mean_time_ms": 3.5734708564006983,
+    "throughput_words_s": 279.8399763660668,
+    "ram_after_load_mb": 2084.05078125,
+    "ram_peak_mb": 2068.10546875,
+    "gpu_peak_mb": 1235.34814453125,
+    "mean_confidence": 0.8511926973217614,
+    "accuracy_metrics": {
+      "cer": 0.1734979185220471,
+      "wer": 0.5044174814465779,
+      "exact_match": 0.509011662151019,
+      "character_similarity": 0.7619684031580395,
+      "evaluated_words": 8489
+    }
+  }
+}

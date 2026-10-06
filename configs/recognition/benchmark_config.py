@@ -194,6 +194,30 @@ BENCHMARKS = {
         "warmup_size": 16,
         "output_dir": RESULTS_ROOT / "kraken_ppocrv6_medium",
     },
+    "kraken_ppocrv6_small": {
+        "run": False,
+        "backend": "kraken",
+        "origin": "https://zenodo.org/records/21788405",
+        "repository": "small-models-for-glam/kraken-ppocrv6-small",
+        "filename": "small.safetensors",
+        "model_path": PROJECT_ROOT / "models" / "kraken-ppocrv6-small" / "small.safetensors",
+        "device": "cuda:0",
+        "batch_size": 32,
+        "warmup_size": 16,
+        "output_dir": RESULTS_ROOT / "kraken_ppocrv6_small",
+    },
+    "kraken_ppocrv6_tiny": {
+        "run": False,
+        "backend": "kraken",
+        "origin": "https://zenodo.org/records/21788403",
+        "repository": "small-models-for-glam/kraken-ppocrv6-tiny",
+        "filename": "tiny.safetensors",
+        "model_path": PROJECT_ROOT / "models" / "kraken-ppocrv6-tiny" / "tiny.safetensors",
+        "device": "cuda:0",
+        "batch_size": 32,
+        "warmup_size": 16,
+        "output_dir": RESULTS_ROOT / "kraken_ppocrv6_tiny",
+    },
     "tesseract_rus_best": {
         "run": False,
         "backend": "tesseract",
@@ -370,9 +394,11 @@ DATASETS = LINE_DATASETS if RECOGNITION_LEVEL == "line" else WORD_DATASETS
 if RECOGNITION_LEVEL == "line":
     for config in BENCHMARKS.values():
         config["output_dir"] = RESULTS_ROOT / config["output_dir"].name
-    # Kraken composes a synthetic page from every batch. Line crops require a
-    # smaller batch than word crops to avoid native CUDA crashes on Windows.
-    BENCHMARKS["kraken_ppocrv6_medium"]["batch_size"] = 1
-    BENCHMARKS["kraken_ppocrv6_medium"]["warmup_size"] = 1
+    # Kraken composes a synthetic page from every batch. Keep a common batch
+    # size across the three PP-OCRv6 variants for comparable throughput.
+    for config in BENCHMARKS.values():
+        if config.get("backend") == "kraken":
+            config["batch_size"] = 16
+            config["warmup_size"] = 16
     BENCHMARKS["tesseract_rus_best"]["psm"] = 7
     BENCHMARKS["tesseract_cyrillic_best"]["psm"] = 7

@@ -1,0 +1,27 @@
+{
+  "task": "recognition",
+  "dataset": "school_notebooks_ru",
+  "model": "kraken_ppocrv6_small",
+  "repository": "small-models-for-glam/kraken-ppocrv6-small",
+  "evaluation_input": "word crops treated as single text lines",
+  "cpu": null,
+  "gpu": {
+    "device": "cuda:0",
+    "num_words": 27893,
+    "batch_size": 32,
+    "total_time_s": 105.12232410002616,
+    "mean_time_ms": 3.7687708062964242,
+    "throughput_words_s": 265.3385019670913,
+    "ram_after_load_mb": 2070.953125,
+    "ram_peak_mb": 2064.05859375,
+    "gpu_peak_mb": 1144.740234375,
+    "mean_confidence": 0.791258671593669,
+    "accuracy_metrics": {
+      "cer": 0.1782035086771193,
+      "wer": 0.5400645001240387,
+      "exact_match": 0.47015380202918294,
+      "character_similarity": 0.7551215775640135,
+      "evaluated_words": 27893
+    }
+  }
+}

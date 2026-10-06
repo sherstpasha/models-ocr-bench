@@ -1,0 +1,27 @@
+{
+  "task": "recognition",
+  "dataset": "donkeysmall_printed_15random",
+  "model": "kraken_ppocrv6_tiny",
+  "repository": "small-models-for-glam/kraken-ppocrv6-tiny",
+  "evaluation_input": "word crops treated as single text lines",
+  "cpu": null,
+  "gpu": {
+    "device": "cuda:0",
+    "num_words": 1500,
+    "batch_size": 32,
+    "total_time_s": 4.798942099994747,
+    "mean_time_ms": 3.199294733329831,
+    "throughput_words_s": 312.5688888810811,
+    "ram_after_load_mb": 1826.2578125,
+    "ram_peak_mb": 1826.2578125,
+    "gpu_peak_mb": 503.748046875,
+    "mean_confidence": 0.8952640362942128,
+    "accuracy_metrics": {
+      "cer": 0.14234683561366854,
+      "wer": 0.494,
+      "exact_match": 0.598,
+      "character_similarity": 0.8669059450009925,
+      "evaluated_words": 1500
+    }
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "task": "recognition",
+  "dataset": "handwritten_essay",
+  "model": "kraken_ppocrv6_tiny",
+  "repository": "small-models-for-glam/kraken-ppocrv6-tiny",
+  "evaluation_input": "word crops treated as single text lines",
+  "cpu": null,
+  "gpu": {
+    "device": "cuda:0",
+    "num_words": 5146,
+    "batch_size": 32,
+    "total_time_s": 16.46813329998986,
+    "mean_time_ms": 3.200181364164372,
+    "throughput_words_s": 312.48228965957964,
+    "ram_after_load_mb": 1817.65625,
+    "ram_peak_mb": 1817.65234375,
+    "gpu_peak_mb": 453.033203125,
+    "mean_confidence": 0.647624230656402,
+    "accuracy_metrics": {
+      "cer": 0.4626855909477402,
+      "wer": 0.8884885264555281,
+      "exact_match": 0.12922658375437232,
+      "character_similarity": 0.48686836523520083,
+      "evaluated_words": 5146
+    }
+  }
+}

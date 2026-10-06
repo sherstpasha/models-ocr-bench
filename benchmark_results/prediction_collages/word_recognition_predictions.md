@@ -10,7 +10,9 @@
 | **trocr_dialectic_stackmix** | степи | них: | ПОСБТИПЕЛЬНИЦБ |
 | **trocr_dialectic** | степи | них: | ПОСБЕПИТЕЛЬНИЦБ |
 | **trocr_base_ru** | степи | них! | посыпительницы |
+| **kraken_ppocrv6_small** | стeпи | тх! | посѣти пельниць |
 | **trocr_base_handwritten_ru** | степи | них! | посытиплавныч |
+| **kraken_ppocrv6_tiny** | cmenu | нх! | посѣтиіпельииць |
 | **paddleocr_cyrillic_v5_mobile** | cmenu | vue! | посьпипельниць |
 | **turkicocr_svtrv2_b** | стетии | кег і. | посьипельниць |
 | **paddleocr_eslav_v5_mobile** | cmenu | nue! | посьпипельниць |

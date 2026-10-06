@@ -1,5 +1,6 @@
-"""Benchmark Kraken PP-OCRv6 recognition on prepared word crops."""
+"""Benchmark Kraken PP-OCRv6 recognition on prepared word or line crops."""
 
+import argparse
 import csv
 import gc
 import json
@@ -23,8 +24,19 @@ from utils.metrics import (
 )
 
 
-MODEL_NAME = "kraken_ppocrv6_medium"
-CONFIG = BENCHMARKS[MODEL_NAME]
+MODEL_NAMES = [
+    name for name, config in BENCHMARKS.items() if config.get("backend") == "kraken"
+]
+
+
+def parse_args():
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument(
+        "--force",
+        action="store_true",
+        help="Recompute and overwrite completed results.",
+    )
+    return parser.parse_args()
 
 
 def load_samples(config):
@@ -45,13 +57,13 @@ def completed_result(path):
     )
 
 
-def ensure_model():
-    path = CONFIG["model_path"]
+def ensure_model(config):
+    path = config["model_path"]
     if not path.is_file():
         path.parent.mkdir(parents=True, exist_ok=True)
         hf_hub_download(
-            repo_id=CONFIG["repository"],
-            filename=CONFIG["filename"],
+            repo_id=config["repository"],
+            filename=config["filename"],
             local_dir=path.parent,
         )
     return path
@@ -73,7 +85,7 @@ def patch_kraken_cuda_lengths():
     network._lengths_and_mask = torch.compiler.disable(lengths_and_mask)
 
 
-def create_recognizer():
+def create_recognizer(config):
     if not torch.cuda.is_available():
         raise RuntimeError("Kraken recognition benchmark requires CUDA")
     torch.set_float32_matmul_precision("high")
@@ -81,11 +93,11 @@ def create_recognizer():
     from kraken.configs import RecognitionInferenceConfig
     from kraken.tasks import RecognitionTaskModel
 
-    model = RecognitionTaskModel.load_model(ensure_model())
+    model = RecognitionTaskModel.load_model(ensure_model(config))
     inference_config = RecognitionInferenceConfig(
         accelerator="gpu",
         device=[0],
-        batch_size=CONFIG["batch_size"],
+        batch_size=config["batch_size"],
         num_line_workers=0,
         precision="32-true",
     )
@@ -158,12 +170,14 @@ def predict_batches(recognizer, samples, batch_size, description=None):
     return predictions, confidences
 
 
-def run_model(recognizer, dataset_name, dataset_config):
-    output_dir = CONFIG["output_dir"]
+def run_model(
+    model_name, config, recognizer, dataset_name, dataset_config, force=False
+):
+    output_dir = config["output_dir"]
     output_dir.mkdir(parents=True, exist_ok=True)
-    result_path = output_dir / f"{dataset_name}_{MODEL_NAME}.json"
-    predictions_path = output_dir / f"{dataset_name}_{MODEL_NAME}.csv"
-    if completed_result(result_path):
+    result_path = output_dir / f"{dataset_name}_{model_name}.json"
+    predictions_path = output_dir / f"{dataset_name}_{model_name}.csv"
+    if not force and completed_result(result_path):
         print(f"Skip: already completed ({result_path})")
         return
 
@@ -173,8 +187,8 @@ def run_model(recognizer, dataset_name, dataset_config):
 
     predict_batches(
         recognizer,
-        samples[: CONFIG["warmup_size"]],
-        CONFIG["batch_size"],
+        samples[: config["warmup_size"]],
+        config["batch_size"],
     )
     torch.cuda.synchronize()
     torch.cuda.reset_peak_memory_stats()
@@ -183,8 +197,8 @@ def run_model(recognizer, dataset_name, dataset_config):
     predictions, confidences = predict_batches(
         recognizer,
         samples,
-        CONFIG["batch_size"],
-        description=f"{MODEL_NAME} / {dataset_name}",
+        config["batch_size"],
+        description=f"{model_name} / {dataset_name}",
     )
     torch.cuda.synchronize()
     total_time = time.perf_counter() - started
@@ -202,9 +216,9 @@ def run_model(recognizer, dataset_name, dataset_config):
         "evaluated_words": len(samples),
     }
     gpu_stats = {
-        "device": CONFIG["device"],
+        "device": config["device"],
         "num_words": len(samples),
-        "batch_size": CONFIG["batch_size"],
+        "batch_size": config["batch_size"],
         "total_time_s": total_time,
         "mean_time_ms": total_time * 1000 / len(samples),
         "throughput_words_s": len(samples) / total_time,
@@ -217,8 +231,8 @@ def run_model(recognizer, dataset_name, dataset_config):
     result = {
         "task": "recognition",
         "dataset": dataset_name,
-        "model": MODEL_NAME,
-        "repository": CONFIG["repository"],
+        "model": model_name,
+        "repository": config["repository"],
         "evaluation_input": (
             "ground-truth line crops"
             if RECOGNITION_LEVEL == "line"
@@ -239,23 +253,37 @@ def run_model(recognizer, dataset_name, dataset_config):
 
 
 def main():
-    pending = []
+    args = parse_args()
     for dataset_name, dataset_config in DATASETS.items():
         print(f"\n### DATASET: {dataset_name}")
         prepare_dataset(dataset_name, dataset_config)
-        result_path = CONFIG["output_dir"] / f"{dataset_name}_{MODEL_NAME}.json"
-        if not completed_result(result_path):
-            pending.append((dataset_name, dataset_config))
-        else:
-            print(f"Skip: already completed ({result_path})")
-    if not pending:
-        return
-    gc.collect()
-    torch.cuda.empty_cache()
-    recognizer = create_recognizer()
-    for dataset_name, dataset_config in pending:
-        print(f"\n## MODEL: {MODEL_NAME} / {dataset_name}")
-        run_model(recognizer, dataset_name, dataset_config)
+    for model_name in MODEL_NAMES:
+        config = BENCHMARKS[model_name]
+        pending = []
+        for dataset_name, dataset_config in DATASETS.items():
+            result_path = config["output_dir"] / f"{dataset_name}_{model_name}.json"
+            if args.force or not completed_result(result_path):
+                pending.append((dataset_name, dataset_config))
+            else:
+                print(f"Skip: already completed ({result_path})")
+        if not pending:
+            continue
+        gc.collect()
+        torch.cuda.empty_cache()
+        recognizer = create_recognizer(config)
+        for dataset_name, dataset_config in pending:
+            print(f"\n## MODEL: {model_name} / {dataset_name}")
+            run_model(
+                model_name,
+                config,
+                recognizer,
+                dataset_name,
+                dataset_config,
+                force=args.force,
+            )
+        del recognizer
+        gc.collect()
+        torch.cuda.empty_cache()
 
 
 if __name__ == "__main__":

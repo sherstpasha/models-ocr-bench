@@ -1,0 +1,27 @@
+{
+  "task": "recognition",
+  "dataset": "yenisei_gov_reports_hwr",
+  "model": "kraken_ppocrv6_tiny",
+  "repository": "small-models-for-glam/kraken-ppocrv6-tiny",
+  "evaluation_input": "word crops treated as single text lines",
+  "cpu": null,
+  "gpu": {
+    "device": "cuda:0",
+    "num_words": 22400,
+    "batch_size": 32,
+    "total_time_s": 81.57340459999978,
+    "mean_time_ms": 3.6416698482142755,
+    "throughput_words_s": 274.5993024299989,
+    "ram_after_load_mb": 1816.78125,
+    "ram_peak_mb": 1827.23828125,
+    "gpu_peak_mb": 934.14453125,
+    "mean_confidence": 0.7082854397452127,
+    "accuracy_metrics": {
+      "cer": 0.4133059235330068,
+      "wer": 0.744011176398077,
+      "exact_match": 0.275625,
+      "character_similarity": 0.5903223484249948,
+      "evaluated_words": 22400
+    }
+  }
+}

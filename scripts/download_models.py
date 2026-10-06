@@ -119,9 +119,11 @@ def download_surya():
 
 
 def download_kraken():
-    announce("Kraken PP-OCRv6 medium")
-    from scripts.recognition.benchmark_kraken import ensure_model
-    ensure_model()
+    announce("Kraken PP-OCRv6 recognition models")
+    from configs.recognition.benchmark_config import BENCHMARKS
+    from scripts.recognition.benchmark_kraken import MODEL_NAMES, ensure_model
+    for name in MODEL_NAMES:
+        ensure_model(BENCHMARKS[name])
     # Kraken BLLA is bundled in the installed package.
 
 

@@ -8,19 +8,19 @@
   "gpu": {
     "device": "cuda:0",
     "num_words": 6453,
-    "batch_size": 1,
-    "total_time_s": 143.6560018,
-    "mean_time_ms": 22.261893971796066,
-    "throughput_words_s": 44.91980786841027,
-    "ram_after_load_mb": 1487.3515625,
-    "ram_peak_mb": 1740.84375,
-    "gpu_peak_mb": 216.0947265625,
-    "mean_confidence": 0.8589663648375684,
+    "batch_size": 16,
+    "total_time_s": 113.50846029998502,
+    "mean_time_ms": 17.590029490157296,
+    "throughput_words_s": 56.850387917744065,
+    "ram_after_load_mb": 1487.12109375,
+    "ram_peak_mb": 1597.2890625,
+    "gpu_peak_mb": 2276.34423828125,
+    "mean_confidence": 0.8927024018667485,
     "accuracy_metrics": {
-      "cer": 0.09864755922944567,
-      "wer": 0.40308483290488434,
-      "exact_match": 0.1834805516813885,
-      "character_similarity": 0.8165877032943001,
+      "cer": 0.09214405178741171,
+      "wer": 0.3937201615864855,
+      "exact_match": 0.21168448783511545,
+      "character_similarity": 0.8412294252365088,
       "evaluated_words": 6453
     }
   }

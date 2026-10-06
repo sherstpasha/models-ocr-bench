@@ -1,0 +1,27 @@
+{
+  "task": "recognition",
+  "dataset": "school_notebooks_ru",
+  "model": "kraken_ppocrv6_tiny",
+  "repository": "small-models-for-glam/kraken-ppocrv6-tiny",
+  "evaluation_input": "ground-truth line crops",
+  "cpu": null,
+  "gpu": {
+    "device": "cuda:0",
+    "num_words": 6453,
+    "batch_size": 16,
+    "total_time_s": 73.10523630000534,
+    "mean_time_ms": 11.32887591817842,
+    "throughput_words_s": 88.27001083094137,
+    "ram_after_load_mb": 1712.59375,
+    "ram_peak_mb": 1718.93359375,
+    "gpu_peak_mb": 506.13134765625,
+    "mean_confidence": 0.7548900339046258,
+    "accuracy_metrics": {
+      "cer": 0.23383749052449193,
+      "wer": 0.7458318031582813,
+      "exact_match": 0.0564078723074539,
+      "character_similarity": 0.7047915694171908,
+      "evaluated_words": 6453
+    }
+  }
+}

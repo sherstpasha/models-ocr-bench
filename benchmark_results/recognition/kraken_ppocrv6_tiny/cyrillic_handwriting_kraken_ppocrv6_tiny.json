@@ -1,0 +1,27 @@
+{
+  "task": "recognition",
+  "dataset": "cyrillic_handwriting",
+  "model": "kraken_ppocrv6_tiny",
+  "repository": "small-models-for-glam/kraken-ppocrv6-tiny",
+  "evaluation_input": "word crops treated as single text lines",
+  "cpu": null,
+  "gpu": {
+    "device": "cuda:0",
+    "num_words": 1544,
+    "batch_size": 32,
+    "total_time_s": 6.483711999986554,
+    "mean_time_ms": 4.199295336778856,
+    "throughput_words_s": 238.13519169315387,
+    "ram_after_load_mb": 1827.2578125,
+    "ram_peak_mb": 1826.2578125,
+    "gpu_peak_mb": 475.5859375,
+    "mean_confidence": 0.7869033825895524,
+    "accuracy_metrics": {
+      "cer": 0.2983144926555202,
+      "wer": 0.8178438661710037,
+      "exact_match": 0.13212435233160622,
+      "character_similarity": 0.6908277885059589,
+      "evaluated_words": 1544
+    }
+  }
+}

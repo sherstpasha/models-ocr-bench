@@ -12,6 +12,7 @@
 | **trocr_base_ru** | степи | них! | посыпительницы |
 | **kraken_ppocrv6_small** | стeпи | тх! | посѣти пельниць |
 | **trocr_base_handwritten_ru** | степи | них! | посытиплавныч |
+| **cyrillic_htr_model** | степи | них. | посетительницъ |
 | **kraken_ppocrv6_tiny** | cmenu | нх! | посѣтиіпельииць |
 | **paddleocr_cyrillic_v5_mobile** | cmenu | vue! | посьпипельниць |
 | **turkicocr_svtrv2_b** | стетии | кег і. | посьипельниць |
@@ -19,4 +20,6 @@
 | **cyrillic_g2** | €<л2& | Илу < | посъпишпельницъ |
 | **cyrillic_g1** | (ели | иуе ! | посъшилельниц |
 | **tesseract_cyrillic_best** | СУТТЕ | ГСТУ | посътиштельни ць |
+| **trocr_prereform_orthography** | Стева | ЛІЕСВА | посѣшишельницъ |
+| **crnn_ctc_church_slavonic** | за¬ | . | посьтительницъ |
 | **tesseract_rus_best** | Сидов | ∅ | посъпиищельниць |

@@ -1,0 +1,26 @@
+{
+  "task": "recognition",
+  "dataset": "handwritten_essay",
+  "model": "cyrillic_htr_model",
+  "repository": "Kansallisarkisto/cyrillic-htr-model",
+  "cpu": null,
+  "gpu": {
+    "device": "cuda",
+    "num_words": 5146,
+    "batch_size": 8,
+    "total_time_s": 540.1033404999762,
+    "mean_time_ms": 104.95595423629541,
+    "throughput_words_s": 9.527806280991197,
+    "ram_after_load_mb": 1505.34375,
+    "ram_peak_mb": 1503.5703125,
+    "gpu_peak_mb": 2466.4697265625,
+    "accuracy_metrics": {
+      "cer": 0.389528419124861,
+      "wer": 0.8913332069030913,
+      "exact_match": 0.1548775748153906,
+      "character_similarity": 0.5496296085331545,
+      "evaluated_words": 5146
+    },
+    "prediction_postprocess": "character_spaced"
+  }
+}

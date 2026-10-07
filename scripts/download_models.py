@@ -8,7 +8,7 @@ from pathlib import Path
 
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
-GROUPS = ("main", "paddleocr", "rfdetr", "doc-ufcn", "surya", "kraken", "pero", "rtmdet")
+GROUPS = ("main", "paddleocr", "rfdetr", "ultralytics-line", "doc-ufcn", "surya", "kraken", "pero", "rtmdet")
 
 
 def announce(name):
@@ -44,6 +44,13 @@ def download_main():
             target.parent.mkdir(parents=True, exist_ok=True)
             if not target.is_file():
                 urllib.request.urlretrieve(config["traineddata_url"], target)
+        elif backend == "crnn_ctc":
+            announce(name)
+            for key in ("checkpoint_filename", "config_filename", "symbols_filename"):
+                hf_hub_download(
+                    repo_id=config["repository"], filename=config[key],
+                    local_dir=config["model_dir"],
+                )
 
     announce("EasyOCR CRAFT and Cyrillic recognizers")
     import easyocr
@@ -101,9 +108,26 @@ def download_paddleocr():
 
 
 def download_rfdetr():
-    announce("RF-DETR text-line/text-region 2XL")
+    announce("RF-DETR text-line/text-region models")
+    from configs.line_detection.benchmark_config import BENCHMARKS
     from scripts.line_detection.benchmark_rfdetr import download_weights
-    download_weights()
+    for config in BENCHMARKS.values():
+        if config.get("backend") == "rfdetr" and config.get("run", False):
+            download_weights(config)
+
+
+def download_ultralytics_line():
+    from configs.line_detection.benchmark_config import BENCHMARKS
+    from huggingface_hub import hf_hub_download
+    for name, config in BENCHMARKS.items():
+        if config.get("backend") != "ultralytics" or not config.get("run", False):
+            continue
+        announce(name)
+        config["model_dir"].mkdir(parents=True, exist_ok=True)
+        hf_hub_download(
+            repo_id=config["repository"], filename=config["filename"],
+            local_dir=config["model_dir"],
+        )
 
 
 def download_doc_ufcn():
@@ -144,6 +168,7 @@ DOWNLOADERS = {
     "main": download_main,
     "paddleocr": download_paddleocr,
     "rfdetr": download_rfdetr,
+    "ultralytics-line": download_ultralytics_line,
     "doc-ufcn": download_doc_ufcn,
     "surya": download_surya,
     "kraken": download_kraken,

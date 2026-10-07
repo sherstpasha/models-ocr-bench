@@ -1,0 +1,59 @@
+{
+  "dataset": "svea_hovratt_seg",
+  "level": "line",
+  "cpu": null,
+  "gpu": {
+    "device": "cuda:0",
+    "detection_level": "line",
+    "architecture": "Court Records YOLOv8x-Seg",
+    "repository": "https://huggingface.co/Kansallisarkisto/court-records-textline-detection",
+    "ground_truth_version": 4,
+    "num_images": 100,
+    "mean_time_ms": 1122.663035999285,
+    "median_time_ms": 937.7702500059968,
+    "throughput_fps": 0.8907392226643479,
+    "ram_after_load_mb": 3419.609375,
+    "ram_peak_mb": 11128.734375,
+    "ram_delta_mb": 7709.125,
+    "gpu_after_load_mb": 1277.95263671875,
+    "gpu_peak_mb": 7804.27099609375,
+    "gpu_delta_mb": 6526.318359375,
+    "accuracy_metrics": {
+      "iou_threshold": 0.5,
+      "precision": 0.9227600411946447,
+      "recall": 0.9699069062567656,
+      "f1": 0.945746252902681,
+      "mean_matched_iou": 0.8311176753350223,
+      "true_positives": 4480,
+      "false_positives": 375,
+      "false_negatives": 139,
+      "evaluated_images": 100,
+      "f1@0.5": 0.945746252902681,
+      "f1@0.5:0.95": 0.6733797762296814,
+      "f1_by_iou": {
+        "0.50": 0.945746252902681,
+        "0.55": 0.9402575469706566,
+        "0.60": 0.9311800717753852,
+        "0.65": 0.917458306945324,
+        "0.70": 0.8912814017310535,
+        "0.75": 0.8258391386953768,
+        "0.80": 0.6803884314967279,
+        "0.85": 0.4209415241714165,
+        "0.90": 0.15558370276546335,
+        "0.95": 0.02512138484272746
+      }
+    },
+    "polygon_iou_metrics": {
+      "iou_threshold": 0.5,
+      "precision": 0.9186405767250257,
+      "recall": 0.9655769647109764,
+      "hmean": 0.9415241714165083,
+      "dice_f1": 0.8815287891080611,
+      "mean_matched_iou": 0.7460327184713744,
+      "true_positives": 4460,
+      "false_positives": 395,
+      "false_negatives": 159,
+      "evaluated_images": 100
+    }
+  }
+}

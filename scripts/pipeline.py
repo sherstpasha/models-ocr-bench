@@ -61,6 +61,7 @@ def model_units(task):
             "doc_ufcn": ".venv-doc-ufcn", "paddleocr": ".venv-paddleocr",
             "surya": ".venv-surya", "kraken": ".venv-kraken",
             "pero": ".venv-pero", "rtmdet": ".venv-rtmdet",
+            "ultralytics": ".venv",
         }
         return [
             (name, environments[config["backend"]],
@@ -77,6 +78,7 @@ def model_units(task):
         "turkicocr_onnx": (".venv", "scripts.recognition.benchmark_turkicocr"),
         "kraken": (".venv-kraken", "scripts.recognition.benchmark_kraken"),
         "tesseract": (".venv", "scripts.recognition.benchmark_tesseract"),
+        "crnn_ctc": (".venv", "scripts.recognition.benchmark_crnn_ctc"),
     }
     return [(name, *modules[config["backend"]]) for name, config in BENCHMARKS.items()]
 

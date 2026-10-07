@@ -1,0 +1,26 @@
+{
+  "task": "recognition",
+  "dataset": "yenisei_gov_reports_prt",
+  "model": "cyrillic_htr_model",
+  "repository": "Kansallisarkisto/cyrillic-htr-model",
+  "cpu": null,
+  "gpu": {
+    "device": "cuda",
+    "num_words": 15394,
+    "batch_size": 8,
+    "total_time_s": 1619.8798905000149,
+    "mean_time_ms": 105.22800380018286,
+    "throughput_words_s": 9.50317371694038,
+    "ram_after_load_mb": 1524.3125,
+    "ram_peak_mb": 1522.484375,
+    "gpu_peak_mb": 2471.1376953125,
+    "accuracy_metrics": {
+      "cer": 0.16085575681429518,
+      "wer": 0.4957471118446109,
+      "exact_match": 0.5308561777315838,
+      "character_similarity": 0.7850616199116823,
+      "evaluated_words": 15394
+    },
+    "prediction_postprocess": "character_spaced"
+  }
+}

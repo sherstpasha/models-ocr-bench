@@ -1,0 +1,25 @@
+{
+  "task": "recognition",
+  "dataset": "cyrillic_handwriting",
+  "model": "crnn_ctc_church_slavonic",
+  "repository": "achimrabus/crnn-ctc-church-slavonic",
+  "cpu": null,
+  "gpu": {
+    "device": "cuda",
+    "num_words": 1544,
+    "batch_size": 32,
+    "total_time_s": 4.628123800008325,
+    "mean_time_ms": 2.9974895077774124,
+    "throughput_words_s": 333.61251053768757,
+    "ram_after_load_mb": 1155.0703125,
+    "ram_peak_mb": 1148.18359375,
+    "gpu_peak_mb": 782.32958984375,
+    "accuracy_metrics": {
+      "cer": 0.8803222094361335,
+      "wer": 1.028810408921933,
+      "exact_match": 0.0019430051813471502,
+      "character_similarity": 0.1369268392889239,
+      "evaluated_words": 1544
+    }
+  }
+}

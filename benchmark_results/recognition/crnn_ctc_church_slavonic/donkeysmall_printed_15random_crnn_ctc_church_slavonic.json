@@ -1,0 +1,25 @@
+{
+  "task": "recognition",
+  "dataset": "donkeysmall_printed_15random",
+  "model": "crnn_ctc_church_slavonic",
+  "repository": "achimrabus/crnn-ctc-church-slavonic",
+  "cpu": null,
+  "gpu": {
+    "device": "cuda",
+    "num_words": 1500,
+    "batch_size": 32,
+    "total_time_s": 3.6848392999963835,
+    "mean_time_ms": 2.4565595333309225,
+    "throughput_words_s": 407.07338309203124,
+    "ram_after_load_mb": 1164.20703125,
+    "ram_peak_mb": 1120.4765625,
+    "gpu_peak_mb": 849.60595703125,
+    "accuracy_metrics": {
+      "cer": 0.8592707420637595,
+      "wer": 1.3453333333333333,
+      "exact_match": 0.005333333333333333,
+      "character_similarity": 0.17060301368351902,
+      "evaluated_words": 1500
+    }
+  }
+}

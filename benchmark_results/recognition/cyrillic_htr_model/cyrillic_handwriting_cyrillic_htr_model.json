@@ -1,0 +1,26 @@
+{
+  "task": "recognition",
+  "dataset": "cyrillic_handwriting",
+  "model": "cyrillic_htr_model",
+  "repository": "Kansallisarkisto/cyrillic-htr-model",
+  "cpu": null,
+  "gpu": {
+    "device": "cuda",
+    "num_words": 1544,
+    "batch_size": 8,
+    "total_time_s": 226.75139910000144,
+    "mean_time_ms": 146.8597144430061,
+    "throughput_words_s": 6.809219286532685,
+    "ram_after_load_mb": 1524.73046875,
+    "ram_peak_mb": 1522.91796875,
+    "gpu_peak_mb": 2490.916015625,
+    "accuracy_metrics": {
+      "cer": 0.2450416300006769,
+      "wer": 0.7783457249070632,
+      "exact_match": 0.1871761658031088,
+      "character_similarity": 0.7513663395417017,
+      "evaluated_words": 1544
+    },
+    "prediction_postprocess": "character_spaced"
+  }
+}

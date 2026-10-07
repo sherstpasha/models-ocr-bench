@@ -1,0 +1,25 @@
+{
+  "task": "recognition",
+  "dataset": "cyrillic_handwriting",
+  "model": "trocr_prereform_orthography",
+  "repository": "Serovvans/trocr-prereform-orthography",
+  "cpu": null,
+  "gpu": {
+    "device": "cuda",
+    "num_words": 1544,
+    "batch_size": 16,
+    "total_time_s": 120.30871790001402,
+    "mean_time_ms": 77.92015408031996,
+    "throughput_words_s": 12.83365018720576,
+    "ram_after_load_mb": 1151.78125,
+    "ram_peak_mb": 1611.3125,
+    "gpu_peak_mb": 1875.58740234375,
+    "accuracy_metrics": {
+      "cer": 0.8085696879442226,
+      "wer": 1.1514869888475836,
+      "exact_match": 0.0025906735751295338,
+      "character_similarity": 0.259346796632601,
+      "evaluated_words": 1544
+    }
+  }
+}

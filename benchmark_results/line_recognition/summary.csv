@@ -17,3 +17,4 @@ cyrillic_g1,https://github.com/JaidedAI/EasyOCR,0.402907,0.000568,0.590581,0.971
 tesseract_cyrillic_best,https://github.com/tesseract-ocr/tessdata_best/blob/main/script/Cyrillic.traineddata,0.312420,0.010319,1.891291,3.295731,16.000000,0.733979 / 0.029872 / 1.800290 / 3.576841,0.088905 / 0.001085 / 1.267215 / 1.737055,0.114377 / 0.000000 / 2.606368 / 4.573298,32.327726
 cyrillic_g2,https://github.com/JaidedAI/EasyOCR,0.358581,0.000857,0.666263,1.190408,16.250000,0.730238 / 0.000711 / 0.301938 / 0.758756,0.169330 / 0.001860 / 0.831865 / 1.236137,0.176174 / 0.000000 / 0.864985 / 1.576332,26.485108
 tesseract_rus_best,https://github.com/tesseract-ocr/tessdata_best/blob/main/rus.traineddata,0.324084,0.006845,2.482644,4.422591,17.000000,0.804325 / 0.019915 / 0.915703 / 1.967311,0.078933 / 0.000620 / 2.592403 / 4.270878,0.088995 / 0.000000 / 3.939825 / 7.029585,25.362546
+cyrillic_htr_model,https://huggingface.co/Kansallisarkisto/cyrillic-htr-model,-,-,-,-,-,-,-,-,-

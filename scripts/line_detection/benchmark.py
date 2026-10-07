@@ -19,10 +19,11 @@ BACKEND_ENVIRONMENTS = {
     "kraken": ".venv-kraken",
     "pero": ".venv-pero",
     "rtmdet": ".venv-rtmdet",
+    "ultralytics": ".venv",
 }
 BACKEND_ORDER = [
     "doc_ufcn", "rfdetr", "paddleocr", "surya", "mask2former",
-    "kraken", "pero", "rtmdet",
+    "kraken", "pero", "rtmdet", "ultralytics",
 ]
 
 

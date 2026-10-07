@@ -1,0 +1,26 @@
+{
+  "task": "recognition",
+  "dataset": "donkeysmall_printed_15random",
+  "model": "cyrillic_htr_model",
+  "repository": "Kansallisarkisto/cyrillic-htr-model",
+  "cpu": null,
+  "gpu": {
+    "device": "cuda",
+    "num_words": 1500,
+    "batch_size": 8,
+    "total_time_s": 226.40336789999856,
+    "mean_time_ms": 150.93557859999905,
+    "throughput_words_s": 6.625343138281158,
+    "ram_after_load_mb": 1521.5625,
+    "ram_peak_mb": 1521.5703125,
+    "gpu_peak_mb": 2470.51220703125,
+    "accuracy_metrics": {
+      "cer": 0.1610837770438768,
+      "wer": 0.8826666666666667,
+      "exact_match": 0.4226666666666667,
+      "character_similarity": 0.8564355731357293,
+      "evaluated_words": 1500
+    },
+    "prediction_postprocess": "character_spaced"
+  }
+}

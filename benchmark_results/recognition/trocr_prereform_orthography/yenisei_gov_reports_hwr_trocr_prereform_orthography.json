@@ -1,0 +1,25 @@
+{
+  "task": "recognition",
+  "dataset": "yenisei_gov_reports_hwr",
+  "model": "trocr_prereform_orthography",
+  "repository": "Serovvans/trocr-prereform-orthography",
+  "cpu": null,
+  "gpu": {
+    "device": "cuda",
+    "num_words": 22400,
+    "batch_size": 16,
+    "total_time_s": 2961.223721999995,
+    "mean_time_ms": 132.19748758928552,
+    "throughput_words_s": 7.564440279733797,
+    "ram_after_load_mb": 1587.30078125,
+    "ram_peak_mb": 19364.34375,
+    "gpu_peak_mb": 3609.8779296875,
+    "accuracy_metrics": {
+      "cer": 1.22167014580638,
+      "wer": 1.418991658791141,
+      "exact_match": 0.0040178571428571425,
+      "character_similarity": 0.16986318872418396,
+      "evaluated_words": 22400
+    }
+  }
+}

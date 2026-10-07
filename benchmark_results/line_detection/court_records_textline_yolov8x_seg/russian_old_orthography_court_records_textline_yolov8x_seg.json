@@ -1,0 +1,59 @@
+{
+  "dataset": "russian_old_orthography",
+  "level": "line",
+  "cpu": null,
+  "gpu": {
+    "device": "cuda:0",
+    "detection_level": "line",
+    "architecture": "Court Records YOLOv8x-Seg",
+    "repository": "https://huggingface.co/Kansallisarkisto/court-records-textline-detection",
+    "ground_truth_version": 4,
+    "num_images": 39,
+    "mean_time_ms": 46.29720256511624,
+    "median_time_ms": 40.49569999915548,
+    "throughput_fps": 21.599577179496254,
+    "ram_after_load_mb": 830.5078125,
+    "ram_peak_mb": 1768.2265625,
+    "ram_delta_mb": 937.71875,
+    "gpu_after_load_mb": 0.0,
+    "gpu_peak_mb": 585.66796875,
+    "gpu_delta_mb": 585.66796875,
+    "accuracy_metrics": {
+      "iou_threshold": 0.5,
+      "precision": 0.7169517884914464,
+      "recall": 0.9836415362731152,
+      "f1": 0.829385307346327,
+      "mean_matched_iou": 0.7285844533493608,
+      "true_positives": 1383,
+      "false_positives": 546,
+      "false_negatives": 23,
+      "evaluated_images": 39,
+      "f1@0.5": 0.829385307346327,
+      "f1@0.5:0.95": 0.4188305847076462,
+      "f1_by_iou": {
+        "0.50": 0.829385307346327,
+        "0.55": 0.817391304347826,
+        "0.60": 0.7772113943028485,
+        "0.65": 0.6998500749625188,
+        "0.70": 0.5523238380809596,
+        "0.75": 0.3460269865067466,
+        "0.80": 0.1313343328335832,
+        "0.85": 0.029385307346326835,
+        "0.90": 0.0047976011994003,
+        "0.95": 0.0005997001499250375
+      }
+    },
+    "polygon_iou_metrics": {
+      "iou_threshold": 0.5,
+      "precision": 0.7190254017625712,
+      "recall": 0.9864864864864865,
+      "hmean": 0.8317841079460269,
+      "dice_f1": 0.8636875161784473,
+      "mean_matched_iou": 0.7687271377889185,
+      "true_positives": 1387,
+      "false_positives": 542,
+      "false_negatives": 19,
+      "evaluated_images": 39
+    }
+  }
+}

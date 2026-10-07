@@ -2,6 +2,7 @@ import csv
 import gc
 import json
 import os
+import re
 import time
 
 import psutil
@@ -33,6 +34,18 @@ class TrOCRProcessorCustom(TrOCRProcessor):
     def __init__(self, image_processor, tokenizer):
         super().__init__(image_processor=image_processor, tokenizer=tokenizer)
         self.chat_template = None
+
+
+def postprocess_prediction(text, mode=None):
+    if mode != "character_spaced":
+        return text
+    # This checkpoint emits spaces between characters and a wider whitespace
+    # run between words: "в о т  т а к" -> "вот так".
+    text = re.sub(
+        r"\s+", lambda match: " " if len(match.group()) >= 2 else "", text
+    ).strip()
+    text = re.sub(r"\s+([,.;:!?…%)\]»\-])", r"\1", text)
+    return re.sub(r"([(\"«\[])\s+", r"\1", text)
 
 
 def load_custom_processor(repository, cache_dir):
@@ -128,7 +141,10 @@ def run_model(model_name, model_config, dataset_name, dataset_config):
         processor = load_custom_processor(model_config["repository"], cache_dir)
     else:
         processor = TrOCRProcessor.from_pretrained(
-            model_config["repository"], cache_dir=cache_dir
+            model_config.get("processor_repository", model_config["repository"]),
+            cache_dir=cache_dir,
+            subfolder=model_config.get("processor_subfolder", ""),
+            use_fast=False,
         )
     model = VisionEncoderDecoderModel.from_pretrained(
         model_config["repository"], cache_dir=cache_dir
@@ -145,13 +161,17 @@ def run_model(model_name, model_config, dataset_name, dataset_config):
     torch.cuda.synchronize()
     ram_after_load = psutil.Process().memory_info().rss / 1024**2
     started = time.perf_counter()
-    predictions = predict_batches(
+    raw_predictions = predict_batches(
         processor,
         model,
         samples,
         model_config["batch_size"],
         description=f"{model_name} / {dataset_name}",
     )
+    predictions = [
+        postprocess_prediction(text, model_config.get("prediction_postprocess"))
+        for text in raw_predictions
+    ]
     torch.cuda.synchronize()
     total_time = time.perf_counter() - started
     ram_peak = psutil.Process().memory_info().rss / 1024**2
@@ -193,9 +213,13 @@ def run_model(model_name, model_config, dataset_name, dataset_config):
     )
     with predictions_path.open("w", encoding="utf-8", newline="") as file:
         writer = csv.writer(file)
-        writer.writerow(["image", "prediction", "reference"])
-        for sample, prediction, reference in zip(samples, predictions, references):
-            writer.writerow([sample["image"], prediction, reference])
+        writer.writerow(["image", "prediction", "reference", "raw_prediction"])
+        for sample, prediction, reference, raw_prediction in zip(
+            samples, predictions, references, raw_predictions
+        ):
+            writer.writerow(
+                [sample["image"], prediction, reference, raw_prediction]
+            )
     print(f"Saved: {result_path}")
 
 

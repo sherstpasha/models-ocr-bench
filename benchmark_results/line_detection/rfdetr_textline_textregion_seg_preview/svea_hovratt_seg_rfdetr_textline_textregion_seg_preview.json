@@ -1,0 +1,60 @@
+{
+  "dataset": "svea_hovratt_seg",
+  "level": "line",
+  "cpu": null,
+  "gpu": {
+    "device": "cuda:0",
+    "detection_level": "line",
+    "architecture": "RF-DETR Seg Preview",
+    "repository": "Kansallisarkisto/rfdetr_textline_textregion_detection_model",
+    "checkpoint": "rfdetr_text_seg_model_202510.pth",
+    "threshold": 0.5,
+    "num_images": 100,
+    "mean_time_ms": 431.7879779986106,
+    "median_time_ms": 360.63655000180006,
+    "throughput_fps": 2.3159514645014454,
+    "ram_after_load_mb": 5925.78125,
+    "ram_peak_mb": 20388.94921875,
+    "gpu_after_load_mb": 74.55908203125,
+    "gpu_peak_mb": 5769.93310546875,
+    "gpu_delta_mb": 5695.3740234375,
+    "ground_truth_version": 4,
+    "accuracy_metrics": {
+      "iou_threshold": 0.5,
+      "precision": 0.9953508966127961,
+      "recall": 0.9733708594933969,
+      "f1": 0.9842381786339756,
+      "mean_matched_iou": 0.8717052137104979,
+      "true_positives": 4496,
+      "false_positives": 21,
+      "false_negatives": 123,
+      "evaluated_images": 100,
+      "f1@0.5": 0.9842381786339756,
+      "f1@0.5:0.95": 0.7811952714535902,
+      "f1_by_iou": {
+        "0.50": 0.9842381786339756,
+        "0.55": 0.9807355516637479,
+        "0.60": 0.9754816112084063,
+        "0.65": 0.9662872154115586,
+        "0.70": 0.9468038528896671,
+        "0.75": 0.9165936952714535,
+        "0.80": 0.8452276707530647,
+        "0.85": 0.6930823117338003,
+        "0.90": 0.4087127845884413,
+        "0.95": 0.09478984238178634
+      }
+    },
+    "polygon_iou_metrics": {
+      "iou_threshold": 0.5,
+      "precision": 0.730352003542174,
+      "recall": 0.7142238579779173,
+      "hmean": 0.722197898423818,
+      "dice_f1": 0.8892695925406915,
+      "mean_matched_iou": 0.5860627160043127,
+      "true_positives": 3299,
+      "false_positives": 1218,
+      "false_negatives": 1320,
+      "evaluated_images": 100
+    }
+  }
+}

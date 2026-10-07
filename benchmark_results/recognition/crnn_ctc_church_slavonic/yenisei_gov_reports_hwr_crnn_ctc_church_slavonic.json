@@ -1,0 +1,25 @@
+{
+  "task": "recognition",
+  "dataset": "yenisei_gov_reports_hwr",
+  "model": "crnn_ctc_church_slavonic",
+  "repository": "achimrabus/crnn-ctc-church-slavonic",
+  "cpu": null,
+  "gpu": {
+    "device": "cuda",
+    "num_words": 22400,
+    "batch_size": 32,
+    "total_time_s": 58.68636570000672,
+    "mean_time_ms": 2.6199270401788715,
+    "throughput_words_s": 381.69001833414666,
+    "ram_after_load_mb": 1034.64453125,
+    "ram_peak_mb": 1121.78125,
+    "gpu_peak_mb": 1594.044921875,
+    "accuracy_metrics": {
+      "cer": 0.9564406416433181,
+      "wer": 1.0073139663886264,
+      "exact_match": 0.0011607142857142858,
+      "character_similarity": 0.04085729863152188,
+      "evaluated_words": 22400
+    }
+  }
+}

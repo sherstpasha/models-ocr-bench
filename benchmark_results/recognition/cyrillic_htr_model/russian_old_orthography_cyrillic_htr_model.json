@@ -1,0 +1,26 @@
+{
+  "task": "recognition",
+  "dataset": "russian_old_orthography",
+  "model": "cyrillic_htr_model",
+  "repository": "Kansallisarkisto/cyrillic-htr-model",
+  "cpu": null,
+  "gpu": {
+    "device": "cuda",
+    "num_words": 8489,
+    "batch_size": 8,
+    "total_time_s": 927.1555449999869,
+    "mean_time_ms": 109.21846448344762,
+    "throughput_words_s": 9.155960988185774,
+    "ram_after_load_mb": 1494.83984375,
+    "ram_peak_mb": 1535.01953125,
+    "gpu_peak_mb": 2470.484375,
+    "accuracy_metrics": {
+      "cer": 0.18010479879046457,
+      "wer": 0.5774531746966662,
+      "exact_match": 0.43361997879608905,
+      "character_similarity": 0.760072519331561,
+      "evaluated_words": 8489
+    },
+    "prediction_postprocess": "character_spaced"
+  }
+}

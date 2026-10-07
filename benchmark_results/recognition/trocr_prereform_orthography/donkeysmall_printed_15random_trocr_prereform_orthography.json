@@ -1,0 +1,25 @@
+{
+  "task": "recognition",
+  "dataset": "donkeysmall_printed_15random",
+  "model": "trocr_prereform_orthography",
+  "repository": "Serovvans/trocr-prereform-orthography",
+  "cpu": null,
+  "gpu": {
+    "device": "cuda",
+    "num_words": 1500,
+    "batch_size": 16,
+    "total_time_s": 45.09738739999011,
+    "mean_time_ms": 30.06492493332674,
+    "throughput_words_s": 33.26135030164362,
+    "ram_after_load_mb": 1242.328125,
+    "ram_peak_mb": 1241.46875,
+    "gpu_peak_mb": 936.07958984375,
+    "accuracy_metrics": {
+      "cer": 0.6967041854822403,
+      "wer": 1.016,
+      "exact_match": 0.13,
+      "character_similarity": 0.3291521730305012,
+      "evaluated_words": 1500
+    }
+  }
+}

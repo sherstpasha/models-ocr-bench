@@ -1,0 +1,25 @@
+{
+  "task": "recognition",
+  "dataset": "russian_old_orthography",
+  "model": "parseq_b_rukopys",
+  "repository": "Hukyl/parseq-b-rukopys",
+  "cpu": null,
+  "gpu": {
+    "device": "cuda",
+    "num_words": 1406,
+    "batch_size": 4,
+    "total_time_s": 52.58676010000636,
+    "mean_time_ms": 37.40167859175417,
+    "throughput_words_s": 26.73676791127944,
+    "ram_after_load_mb": 1754.2265625,
+    "ram_peak_mb": 1767.52734375,
+    "gpu_peak_mb": 663.857421875,
+    "accuracy_metrics": {
+      "cer": 0.21841524110880384,
+      "wer": 0.609106346847803,
+      "exact_match": 0.001422475106685633,
+      "character_similarity": 0.796806127927896,
+      "evaluated_words": 1406
+    }
+  }
+}

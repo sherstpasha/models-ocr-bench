@@ -1,0 +1,25 @@
+{
+  "task": "recognition",
+  "dataset": "cyrillic_handwriting",
+  "model": "trocr_rukopys",
+  "repository": "Hukyl/trocr-rukopys",
+  "cpu": null,
+  "gpu": {
+    "device": "cuda",
+    "num_words": 1544,
+    "batch_size": 1,
+    "total_time_s": 236.6502332999953,
+    "mean_time_ms": 153.27087648963428,
+    "throughput_words_s": 6.524396694943087,
+    "ram_after_load_mb": 1543.43359375,
+    "ram_peak_mb": 1544.5,
+    "gpu_peak_mb": 1350.90478515625,
+    "accuracy_metrics": {
+      "cer": 0.23231571109456442,
+      "wer": 0.724907063197026,
+      "exact_match": 0.23121761658031087,
+      "character_similarity": 0.78309757952611,
+      "evaluated_words": 1544
+    }
+  }
+}

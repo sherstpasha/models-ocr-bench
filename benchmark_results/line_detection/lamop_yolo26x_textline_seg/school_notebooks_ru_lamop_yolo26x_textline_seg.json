@@ -1,0 +1,59 @@
+{
+  "dataset": "school_notebooks_ru",
+  "level": "line",
+  "cpu": null,
+  "gpu": {
+    "device": "cuda:0",
+    "detection_level": "line",
+    "architecture": "LaMOP YOLO26x-Seg TextLine",
+    "repository": "https://huggingface.co/LaMOP/Yolo-Seg-TextRegion-TextLine-Manuscript",
+    "ground_truth_version": 4,
+    "num_images": 150,
+    "mean_time_ms": 295.09783933346625,
+    "median_time_ms": 308.21040000046196,
+    "throughput_fps": 3.3887066142493194,
+    "ram_after_load_mb": 1894.56640625,
+    "ram_peak_mb": 2730.57421875,
+    "ram_delta_mb": 836.0078125,
+    "gpu_after_load_mb": 426.4130859375,
+    "gpu_peak_mb": 2269.9296875,
+    "gpu_delta_mb": 1843.5166015625,
+    "accuracy_metrics": {
+      "iou_threshold": 0.5,
+      "precision": 0.9043377226955848,
+      "recall": 0.7236944057027739,
+      "f1": 0.8039941465094257,
+      "mean_matched_iou": 0.7835486258902692,
+      "true_positives": 4670,
+      "false_positives": 494,
+      "false_negatives": 1783,
+      "evaluated_images": 150,
+      "f1@0.5": 0.8039941465094257,
+      "f1@0.5:0.95": 0.49606611001119044,
+      "f1_by_iou": {
+        "0.50": 0.8039941465094257,
+        "0.55": 0.795213910648188,
+        "0.60": 0.7779977619006628,
+        "0.65": 0.7387449427563054,
+        "0.70": 0.660411465955066,
+        "0.75": 0.5318068348110527,
+        "0.80": 0.36343290006025647,
+        "0.85": 0.20263407075837137,
+        "0.90": 0.07437376258930878,
+        "0.95": 0.012051304123267624
+      }
+    },
+    "polygon_iou_metrics": {
+      "iou_threshold": 0.5,
+      "precision": 0.8952362509682417,
+      "recall": 0.7164109716410971,
+      "hmean": 0.7959025565980891,
+      "dice_f1": 0.8950477707895547,
+      "mean_matched_iou": 0.7316294776234392,
+      "true_positives": 4623,
+      "false_positives": 541,
+      "false_negatives": 1830,
+      "evaluated_images": 150
+    }
+  }
+}

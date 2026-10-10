@@ -19,6 +19,8 @@ Install-Environment ".venv-rfdetr" "requirements-rfdetr.txt"
 Install-Environment ".venv-doc-ufcn" "requirements-doc-ufcn.txt"
 Install-Environment ".venv-surya" "requirements-surya.txt"
 Install-Environment ".venv-kraken" "requirements-kraken.txt"
+Install-Environment ".venv-orli" "requirements-orli.txt"
+Install-Environment ".venv-party" "requirements-party.txt"
 Install-Environment ".venv-pero" "requirements-pero.txt"
 Install-Environment ".venv-rtmdet" "requirements-rtmdet.txt"
 & ".venv-rtmdet\Scripts\mim.exe" install "mmengine>=0.10" "mmcv>=2.1,<2.2" "mmdet>=3.3,<3.4"
@@ -37,6 +39,8 @@ if (-not (Get-Command tesseract -ErrorAction SilentlyContinue)) {
 & ".venv-doc-ufcn\Scripts\python.exe" -m scripts.download_models --group doc-ufcn
 & ".venv-surya\Scripts\python.exe" -m scripts.download_models --group surya
 & ".venv-kraken\Scripts\python.exe" -m scripts.download_models --group kraken
+& ".venv-orli\Scripts\python.exe" -m scripts.download_models --group orli
+& ".venv-party\Scripts\python.exe" -m scripts.download_models --group party
 & ".venv-pero\Scripts\python.exe" -m scripts.download_models --group pero
 & ".venv-rtmdet\Scripts\python.exe" -m scripts.download_models --group rtmdet
 

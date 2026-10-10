@@ -1,0 +1,25 @@
+{
+  "task": "recognition",
+  "dataset": "donkeysmall_printed_15random",
+  "model": "trocr_large_rukopys_hw",
+  "repository": "Hukyl/trocr-large-rukopys-hw",
+  "cpu": null,
+  "gpu": {
+    "device": "cuda",
+    "num_words": 1500,
+    "batch_size": 1,
+    "total_time_s": 250.25910300000032,
+    "mean_time_ms": 166.8394020000002,
+    "throughput_words_s": 5.99378796622634,
+    "ram_after_load_mb": 1498.6484375,
+    "ram_peak_mb": 1481.9765625,
+    "gpu_peak_mb": 2180.21435546875,
+    "accuracy_metrics": {
+      "cer": 0.07723933409718946,
+      "wer": 0.596,
+      "exact_match": 0.6713333333333333,
+      "character_similarity": 0.9304731564960672,
+      "evaluated_words": 1500
+    }
+  }
+}

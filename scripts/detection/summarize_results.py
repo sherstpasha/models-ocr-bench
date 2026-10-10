@@ -6,6 +6,7 @@ from configs.detection.benchmark_config import BENCHMARKS, DATASETS, RESULTS_ROO
 from utils.datasets import result_is_compatible
 from utils.ranking import mean_metric_ranks
 from utils.dataset_sources import markdown_dataset_header
+from utils.training_overlaps import mark_training_overlap
 
 
 SUMMARY_CSV = RESULTS_ROOT / "summary.csv"
@@ -171,6 +172,7 @@ def write_summary():
         "# Benchmark summary",
         "",
         "Each dataset cell: `F1@0.5 / F1@0.5:0.95 / Dice F1 / Polygon H-mean@0.5`.",
+        "`*` marks a dataset known to have been used to train that model.",
         "`Mean GPU FPS` is the arithmetic mean across available datasets.",
         "`Mean Metric Rank` averages conventional ranks across the four mean metrics: rank 1 is best.",
         "Rows are sorted by `Mean Metric Rank` in ascending order.",
@@ -180,10 +182,14 @@ def write_summary():
     ]
     for model_name in model_names:
         cells = [
-            format_cell(
-                raw_metrics[model_name, dataset_name],
-                best=best[dataset_name],
-                precision=2,
+            mark_training_overlap(
+                format_cell(
+                    raw_metrics[model_name, dataset_name],
+                    best=best[dataset_name],
+                    precision=2,
+                ),
+                model_name,
+                dataset_name,
             )
             for dataset_name in dataset_names
         ]

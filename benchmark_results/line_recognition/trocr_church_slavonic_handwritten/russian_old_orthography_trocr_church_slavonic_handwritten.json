@@ -1,0 +1,25 @@
+{
+  "task": "recognition",
+  "dataset": "russian_old_orthography",
+  "model": "trocr_church_slavonic_handwritten",
+  "repository": "cyrillic-trocr/trocr-church-slavonic-handwritten",
+  "cpu": null,
+  "gpu": {
+    "device": "cuda",
+    "num_words": 1406,
+    "batch_size": 1,
+    "total_time_s": 529.4460335999902,
+    "mean_time_ms": 376.56190156471564,
+    "throughput_words_s": 2.65560588005513,
+    "ram_after_load_mb": 1509.07421875,
+    "ram_peak_mb": 1508.47265625,
+    "gpu_peak_mb": 1320.001953125,
+    "accuracy_metrics": {
+      "cer": 0.4212894294472461,
+      "wer": 1.0836340479728295,
+      "exact_match": 0.002844950213371266,
+      "character_similarity": 0.6028659862935164,
+      "evaluated_words": 1406
+    }
+  }
+}

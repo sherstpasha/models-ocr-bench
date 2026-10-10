@@ -188,7 +188,7 @@ def run_model(
     predict_batches(
         recognizer,
         samples[: config["warmup_size"]],
-        config["batch_size"],
+        config.get("page_size", config["batch_size"]),
     )
     torch.cuda.synchronize()
     torch.cuda.reset_peak_memory_stats()
@@ -197,7 +197,7 @@ def run_model(
     predictions, confidences = predict_batches(
         recognizer,
         samples,
-        config["batch_size"],
+        config.get("page_size", config["batch_size"]),
         description=f"{model_name} / {dataset_name}",
     )
     torch.cuda.synchronize()

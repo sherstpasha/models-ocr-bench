@@ -1,0 +1,25 @@
+{
+  "task": "recognition",
+  "dataset": "russian_old_orthography",
+  "model": "trocr_prereform_orthography",
+  "repository": "Serovvans/trocr-prereform-orthography",
+  "cpu": null,
+  "gpu": {
+    "device": "cuda",
+    "num_words": 1406,
+    "batch_size": 4,
+    "total_time_s": 162.78715400001965,
+    "mean_time_ms": 115.78033712661427,
+    "throughput_words_s": 8.637045156522795,
+    "ram_after_load_mb": 1476.7890625,
+    "ram_peak_mb": 1483.65625,
+    "gpu_peak_mb": 554.71337890625,
+    "accuracy_metrics": {
+      "cer": 0.12401529384620455,
+      "wer": 0.49745277011250266,
+      "exact_match": 0.049786628733997154,
+      "character_similarity": 0.8792852639131837,
+      "evaluated_words": 1406
+    }
+  }
+}

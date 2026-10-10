@@ -1,0 +1,25 @@
+{
+  "task": "recognition",
+  "dataset": "yenisei_gov_reports_prt",
+  "model": "trocr_handwritten_cyrillic",
+  "repository": "cyrillic-trocr/trocr-handwritten-cyrillic",
+  "cpu": null,
+  "gpu": {
+    "device": "cuda",
+    "num_words": 15394,
+    "batch_size": 1,
+    "total_time_s": 1850.4124862000008,
+    "mean_time_ms": 120.20348747563992,
+    "throughput_words_s": 8.319226180543698,
+    "ram_after_load_mb": 1490.6796875,
+    "ram_peak_mb": 1490.5078125,
+    "gpu_peak_mb": 1353.24658203125,
+    "accuracy_metrics": {
+      "cer": 0.2832978513012017,
+      "wer": 0.6507553637171511,
+      "exact_match": 0.4805118877484734,
+      "character_similarity": 0.736957468032427,
+      "evaluated_words": 15394
+    }
+  }
+}

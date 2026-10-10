@@ -1,0 +1,25 @@
+{
+  "task": "recognition",
+  "dataset": "donkeysmall_printed_15random",
+  "model": "parseq_s_rukopys",
+  "repository": "Hukyl/parseq-s-rukopys",
+  "cpu": null,
+  "gpu": {
+    "device": "cuda",
+    "num_words": 1500,
+    "batch_size": 8,
+    "total_time_s": 15.31600800002343,
+    "mean_time_ms": 10.21067200001562,
+    "throughput_words_s": 97.93674696420277,
+    "ram_after_load_mb": 1355.265625,
+    "ram_peak_mb": 1333.60546875,
+    "gpu_peak_mb": 392.99169921875,
+    "accuracy_metrics": {
+      "cer": 0.22194513715710723,
+      "wer": 0.9306666666666666,
+      "exact_match": 0.506,
+      "character_similarity": 0.849623145646038,
+      "evaluated_words": 1500
+    }
+  }
+}

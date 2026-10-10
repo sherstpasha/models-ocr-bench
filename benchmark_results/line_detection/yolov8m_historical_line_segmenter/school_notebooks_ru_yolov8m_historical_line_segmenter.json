@@ -1,0 +1,59 @@
+{
+  "dataset": "school_notebooks_ru",
+  "level": "line",
+  "cpu": null,
+  "gpu": {
+    "device": "cuda:0",
+    "detection_level": "line",
+    "architecture": "YOLOv8m Historical Line Segmenter",
+    "repository": "https://huggingface.co/abhishekjha1008/yolov8m-historical-line-segmenter",
+    "ground_truth_version": 4,
+    "num_images": 150,
+    "mean_time_ms": 67.32456000027014,
+    "median_time_ms": 68.70739999430953,
+    "throughput_fps": 14.853420505027994,
+    "ram_after_load_mb": 1495.6328125,
+    "ram_peak_mb": 1518.19921875,
+    "ram_delta_mb": 22.56640625,
+    "gpu_after_load_mb": 99.57373046875,
+    "gpu_peak_mb": 145.27880859375,
+    "gpu_delta_mb": 45.705078125,
+    "accuracy_metrics": {
+      "iou_threshold": 0.5,
+      "precision": 0.8621114188981225,
+      "recall": 0.868123353479002,
+      "f1": 0.8651069415489152,
+      "mean_matched_iou": 0.8111207190873428,
+      "true_positives": 5602,
+      "false_positives": 896,
+      "false_negatives": 851,
+      "evaluated_images": 150,
+      "f1@0.5": 0.8651069415489152,
+      "f1@0.5:0.95": 0.5818546830360589,
+      "f1_by_iou": {
+        "0.50": 0.8651069415489152,
+        "0.55": 0.854914678403212,
+        "0.60": 0.8377731449308933,
+        "0.65": 0.803953362674697,
+        "0.70": 0.7517566211103389,
+        "0.75": 0.662342676241217,
+        "0.80": 0.5201142768898155,
+        "0.85": 0.3406686742336498,
+        "0.90": 0.1547370859393097,
+        "0.95": 0.027179368388541427
+      }
+    },
+    "polygon_iou_metrics": {
+      "iou_threshold": 0.5,
+      "precision": 0.7987072945521699,
+      "recall": 0.8042770804277081,
+      "hmean": 0.8014825110030114,
+      "dice_f1": 0.9050535758469708,
+      "mean_matched_iou": 0.6799827205070954,
+      "true_positives": 5190,
+      "false_positives": 1308,
+      "false_negatives": 1263,
+      "evaluated_images": 150
+    }
+  }
+}

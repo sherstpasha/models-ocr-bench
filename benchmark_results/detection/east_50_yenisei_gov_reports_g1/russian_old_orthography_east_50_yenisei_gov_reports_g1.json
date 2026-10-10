@@ -1,0 +1,61 @@
+{
+  "dataset_name": "russian_old_orthography",
+  "cpu": null,
+  "gpu": {
+    "device": "cuda",
+    "num_images": 39,
+    "target_size": 1408,
+    "mean_time_ms": 214.62746155567658,
+    "median_time_ms": 221.00090980529785,
+    "std_time_ms": 26.744231409735363,
+    "min_time_ms": 127.99906730651855,
+    "max_time_ms": 261.00730895996094,
+    "total_time_s": 8.370471000671387,
+    "throughput_fps": 4.659236021111817,
+    "mean_detections": 248.97435897435898,
+    "total_detections": 9710,
+    "ram_after_load_mb": 352.27734375,
+    "ram_peak_mb": 1028.97265625,
+    "ram_delta_mb": 676.6953125,
+    "gpu_after_load_mb": null,
+    "gpu_peak_mb": null,
+    "gpu_delta_mb": null,
+    "accuracy_metrics": {
+      "iou_threshold": 0.5,
+      "precision": 0.8679711637487126,
+      "recall": 0.9928142301802333,
+      "f1": 0.9262047365239849,
+      "mean_matched_iou": 0.8355433126151495,
+      "true_positives": 8428,
+      "false_positives": 1282,
+      "false_negatives": 61,
+      "evaluated_images": 39,
+      "f1@0.5": 0.9262047365239849,
+      "f1@0.5:0.95": 0.6682784768393868,
+      "f1_by_iou": {
+        "0.50": 0.9262047365239849,
+        "0.55": 0.9229078520797845,
+        "0.60": 0.9180724215616242,
+        "0.65": 0.9056541568218035,
+        "0.70": 0.8663113357876806,
+        "0.75": 0.7910324743117753,
+        "0.80": 0.6634430463212264,
+        "0.85": 0.45354140337381177,
+        "0.90": 0.20616517391065445,
+        "0.95": 0.02945216770152206
+      }
+    },
+    "polygon_iou_metrics": {
+      "iou_threshold": 0.5,
+      "precision": 0.8683831101956746,
+      "recall": 0.9932854282012016,
+      "hmean": 0.9266443211165449,
+      "dice_f1": 0.8690091412998093,
+      "mean_matched_iou": 0.8466586401187229,
+      "true_positives": 8432,
+      "false_positives": 1278,
+      "false_negatives": 57,
+      "evaluated_images": 39
+    }
+  }
+}

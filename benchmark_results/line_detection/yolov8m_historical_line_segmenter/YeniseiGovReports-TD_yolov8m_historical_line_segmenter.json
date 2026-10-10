@@ -1,0 +1,54 @@
+{
+  "dataset": "YeniseiGovReports-TD",
+  "cpu": null,
+  "gpu": {
+    "device": "cuda",
+    "num_images": 270,
+    "mean_time_ms": 74.15606445736356,
+    "median_time_ms": 79.76973056793213,
+    "throughput_fps": 13.485073774039824,
+    "ram_after_load_mb": 1399.41015625,
+    "ram_peak_mb": 1445.41796875,
+    "ram_delta_mb": 46.0078125,
+    "gpu_after_load_mb": 100.259765625,
+    "gpu_peak_mb": 201.8544921875,
+    "gpu_delta_mb": 101.5947265625,
+    "accuracy_metrics": {
+      "iou_threshold": 0.5,
+      "precision": 0.10442632890925015,
+      "recall": 0.031997027372940835,
+      "f1": 0.04898475152089752,
+      "mean_matched_iou": 0.6192027126798996,
+      "true_positives": 1550,
+      "false_positives": 13293,
+      "false_negatives": 46892,
+      "evaluated_images": 270,
+      "f1@0.5": 0.04898475152089752,
+      "f1@0.5:0.95": 0.014262463458955519,
+      "f1_by_iou": {
+        "0.50": 0.04898475152089752,
+        "0.55": 0.03523741802954886,
+        "0.60": 0.024776803349924947,
+        "0.65": 0.01595954807616339,
+        "0.70": 0.00944931658370862,
+        "0.75": 0.0049932843485818125,
+        "0.80": 0.0024966421742909062,
+        "0.85": 0.000537252113455005,
+        "0.90": 0.00018961839298411943,
+        "0.95": 0.0
+      }
+    },
+    "polygon_iou_metrics": {
+      "iou_threshold": 0.5,
+      "precision": 0.10624536818702418,
+      "recall": 0.032554394946534,
+      "hmean": 0.04983803428932606,
+      "dice_f1": 0.6072516911574682,
+      "mean_matched_iou": 0.6207278432695192,
+      "true_positives": 1577,
+      "false_positives": 13266,
+      "false_negatives": 46865,
+      "evaluated_images": 270
+    }
+  }
+}

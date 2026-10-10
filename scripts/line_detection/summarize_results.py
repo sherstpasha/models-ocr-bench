@@ -7,6 +7,7 @@ from pathlib import Path
 from configs.line_detection.benchmark_config import BENCHMARKS, DATASETS, RESULTS_ROOT
 from utils.ranking import mean_metric_ranks
 from utils.dataset_sources import markdown_dataset_header
+from utils.training_overlaps import mark_training_overlap
 
 
 def read_metrics(model_name, config, dataset_name):
@@ -81,6 +82,7 @@ def write_summary():
         "# Line-level detection benchmark",
         "",
         "Each dataset cell: `F1@0.5 / F1@0.5:0.95 / Dice F1 / Polygon H-mean@0.5`.",
+        "`*` marks a dataset known to have been used to train that model.",
         "`Mean Metric Rank` averages conventional ranks across the four mean metrics: rank 1 is best. Rows are sorted by it in ascending order.",
         "",
         "| " + " | ".join(headers) + " |",
@@ -88,7 +90,11 @@ def write_summary():
     ]
     for model in models:
         cells = [
-            "-" if raw[model, dataset] is None else format_md_cell(raw[model, dataset])
+            mark_training_overlap(
+                "-" if raw[model, dataset] is None else format_md_cell(raw[model, dataset]),
+                model,
+                dataset,
+            )
             for dataset in datasets
         ]
         rank = mean_rank[model]

@@ -1,0 +1,25 @@
+{
+  "task": "recognition",
+  "dataset": "school_notebooks_ru",
+  "model": "parseq_s_rukopys",
+  "repository": "Hukyl/parseq-s-rukopys",
+  "cpu": null,
+  "gpu": {
+    "device": "cuda",
+    "num_words": 6453,
+    "batch_size": 8,
+    "total_time_s": 95.90682999999262,
+    "mean_time_ms": 14.862363241901848,
+    "throughput_words_s": 67.28405057283716,
+    "ram_after_load_mb": 1311.83203125,
+    "ram_peak_mb": 1295.7578125,
+    "gpu_peak_mb": 392.99169921875,
+    "accuracy_metrics": {
+      "cer": 0.10731689708695809,
+      "wer": 0.43470437017994856,
+      "exact_match": 0.29428172942817293,
+      "character_similarity": 0.8906156290011304,
+      "evaluated_words": 6453
+    }
+  }
+}

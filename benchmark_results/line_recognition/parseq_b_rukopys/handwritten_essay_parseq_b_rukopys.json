@@ -1,0 +1,25 @@
+{
+  "task": "recognition",
+  "dataset": "handwritten_essay",
+  "model": "parseq_b_rukopys",
+  "repository": "Hukyl/parseq-b-rukopys",
+  "cpu": null,
+  "gpu": {
+    "device": "cuda",
+    "num_words": 676,
+    "batch_size": 4,
+    "total_time_s": 27.096558899997035,
+    "mean_time_ms": 40.08366701182993,
+    "throughput_words_s": 24.947817266939897,
+    "ram_after_load_mb": 1867.34375,
+    "ram_peak_mb": 1869.05078125,
+    "gpu_peak_mb": 664.482421875,
+    "accuracy_metrics": {
+      "cer": 0.23898653275507875,
+      "wer": 0.6760857197041532,
+      "exact_match": 0.020710059171597635,
+      "character_similarity": 0.7897135810509688,
+      "evaluated_words": 676
+    }
+  }
+}

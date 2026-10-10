@@ -1,0 +1,25 @@
+{
+  "task": "recognition",
+  "dataset": "school_notebooks_ru",
+  "model": "cyrillic_htr_model",
+  "repository": "Kansallisarkisto/cyrillic-htr-model",
+  "cpu": null,
+  "gpu": {
+    "device": "cuda",
+    "num_words": 6453,
+    "batch_size": 8,
+    "total_time_s": 3484.700966400007,
+    "mean_time_ms": 540.0125470943758,
+    "throughput_words_s": 1.8518088244072486,
+    "ram_after_load_mb": 1568.81640625,
+    "ram_peak_mb": 1800.55078125,
+    "gpu_peak_mb": 2645.38623046875,
+    "accuracy_metrics": {
+      "cer": 0.24119529774152018,
+      "wer": 0.6779654792508263,
+      "exact_match": 0.09313497598016426,
+      "character_similarity": 0.7307030094660101,
+      "evaluated_words": 6453
+    }
+  }
+}

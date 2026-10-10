@@ -13,6 +13,21 @@ DATA_ROOT = Path(os.environ.get(
 OLD_ORTHOGRAPHY_ROOT = DATA_ROOT / "russian_old_orthography_ocr"
 
 BENCHMARKS = {
+    "east_50_yenisei_gov_reports_g1": {
+        "origin": "https://github.com/konstantinkozhin/manuscript-ocr",
+        "run": True,
+        "backend": "manuscript",
+        "detector": "east",
+        "script": PROJECT_ROOT / "scripts" / "detection" / "benchmark_east_50_g1.py",
+        "output_dir": RESULTS_ROOT / "east_50_yenisei_gov_reports_g1",
+        "weights": "https://github.com/konstantinkozhin/manuscript-ocr/releases/download/v0.1.0/east_50_yenisei_gov_reports_g1.onnx",
+        "preset": None,
+        "target_size": 1408,
+        "score_thresh": 0.6,
+        "warmup_runs": 3,
+        "cpu_only": False,
+        "gpu_only": True,
+    },
     "east_50_g1": {
         "origin": "https://github.com/konstantinkozhin/manuscript-ocr",
         "run": True,

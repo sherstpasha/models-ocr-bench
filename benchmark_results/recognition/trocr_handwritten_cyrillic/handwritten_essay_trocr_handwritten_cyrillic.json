@@ -1,0 +1,25 @@
+{
+  "task": "recognition",
+  "dataset": "handwritten_essay",
+  "model": "trocr_handwritten_cyrillic",
+  "repository": "cyrillic-trocr/trocr-handwritten-cyrillic",
+  "cpu": null,
+  "gpu": {
+    "device": "cuda",
+    "num_words": 5146,
+    "batch_size": 4,
+    "total_time_s": 546.8872599000006,
+    "mean_time_ms": 106.27424405363399,
+    "throughput_words_s": 9.409617625652784,
+    "ram_after_load_mb": 1525.80859375,
+    "ram_peak_mb": 1524.20703125,
+    "gpu_peak_mb": 1508.94091796875,
+    "accuracy_metrics": {
+      "cer": 0.3414546405912748,
+      "wer": 0.7477716669827422,
+      "exact_match": 0.3462883793237466,
+      "character_similarity": 0.7027736287785047,
+      "evaluated_words": 5146
+    }
+  }
+}

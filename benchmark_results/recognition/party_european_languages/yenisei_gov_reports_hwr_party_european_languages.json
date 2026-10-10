@@ -1,0 +1,27 @@
+{
+  "task": "recognition",
+  "dataset": "yenisei_gov_reports_hwr",
+  "model": "party_european_languages",
+  "repository": "Zenodo 15764161",
+  "evaluation_input": "word crops treated as single text lines",
+  "cpu": null,
+  "gpu": {
+    "device": "cuda:0",
+    "num_words": 22400,
+    "batch_size": 16,
+    "total_time_s": 5305.509420600003,
+    "mean_time_ms": 236.85309913392868,
+    "throughput_words_s": 4.2220262418206715,
+    "ram_after_load_mb": 1953.28515625,
+    "ram_peak_mb": 1967.76953125,
+    "gpu_peak_mb": 8734.39794921875,
+    "mean_confidence": 0.7856654066047601,
+    "accuracy_metrics": {
+      "cer": 1.7423663970664105,
+      "wer": 1.794839133829149,
+      "exact_match": 0.03125,
+      "character_similarity": 0.10468206559503744,
+      "evaluated_words": 22400
+    }
+  }
+}

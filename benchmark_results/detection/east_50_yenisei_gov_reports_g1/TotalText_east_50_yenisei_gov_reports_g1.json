@@ -1,0 +1,61 @@
+{
+  "dataset_name": "TotalText",
+  "cpu": null,
+  "gpu": {
+    "device": "cuda",
+    "num_images": 300,
+    "target_size": 1408,
+    "mean_time_ms": 81.35638157526652,
+    "median_time_ms": 75.99997520446777,
+    "std_time_ms": 19.294541572914873,
+    "min_time_ms": 55.99403381347656,
+    "max_time_ms": 192.0011043548584,
+    "total_time_s": 24.406914472579956,
+    "throughput_fps": 12.29159877366048,
+    "mean_detections": 22.8,
+    "total_detections": 6840,
+    "ram_after_load_mb": 957.0390625,
+    "ram_peak_mb": 1058.4296875,
+    "ram_delta_mb": 101.390625,
+    "gpu_after_load_mb": null,
+    "gpu_peak_mb": null,
+    "gpu_delta_mb": null,
+    "accuracy_metrics": {
+      "iou_threshold": 0.5,
+      "precision": 0.17002923976608186,
+      "recall": 0.46150793650793653,
+      "f1": 0.24850427350427348,
+      "mean_matched_iou": 0.6520549974370381,
+      "true_positives": 1163,
+      "false_positives": 5677,
+      "false_negatives": 1357,
+      "evaluated_images": 300,
+      "f1@0.5": 0.24850427350427348,
+      "f1@0.5:0.95": 0.0882051282051282,
+      "f1_by_iou": {
+        "0.50": 0.24850427350427348,
+        "0.55": 0.20598290598290597,
+        "0.60": 0.16346153846153844,
+        "0.65": 0.1170940170940171,
+        "0.70": 0.07799145299145299,
+        "0.75": 0.04038461538461538,
+        "0.80": 0.021794871794871794,
+        "0.85": 0.005555555555555556,
+        "0.90": 0.001282051282051282,
+        "0.95": 0.0
+      }
+    },
+    "polygon_iou_metrics": {
+      "iou_threshold": 0.5,
+      "precision": 0.1935672514619883,
+      "recall": 0.5253968253968254,
+      "hmean": 0.2829059829059829,
+      "dice_f1": 0.47559427137656046,
+      "mean_matched_iou": 0.6810051457125892,
+      "true_positives": 1324,
+      "false_positives": 5516,
+      "false_negatives": 1196,
+      "evaluated_images": 300
+    }
+  }
+}

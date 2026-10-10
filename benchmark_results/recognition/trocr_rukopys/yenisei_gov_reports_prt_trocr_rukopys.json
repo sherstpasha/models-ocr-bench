@@ -1,0 +1,25 @@
+{
+  "task": "recognition",
+  "dataset": "yenisei_gov_reports_prt",
+  "model": "trocr_rukopys",
+  "repository": "Hukyl/trocr-rukopys",
+  "cpu": null,
+  "gpu": {
+    "device": "cuda",
+    "num_words": 15394,
+    "batch_size": 1,
+    "total_time_s": 1643.4828064999892,
+    "mean_time_ms": 106.7612580550857,
+    "throughput_words_s": 9.366693669758266,
+    "ram_after_load_mb": 1544.17578125,
+    "ram_peak_mb": 1543.3125,
+    "gpu_peak_mb": 1359.98388671875,
+    "accuracy_metrics": {
+      "cer": 0.2584604288090834,
+      "wer": 0.7270534467436841,
+      "exact_match": 0.37910874366636355,
+      "character_similarity": 0.7536087356607569,
+      "evaluated_words": 15394
+    }
+  }
+}

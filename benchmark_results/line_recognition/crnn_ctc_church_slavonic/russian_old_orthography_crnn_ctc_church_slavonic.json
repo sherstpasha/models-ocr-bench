@@ -1,0 +1,25 @@
+{
+  "task": "recognition",
+  "dataset": "russian_old_orthography",
+  "model": "crnn_ctc_church_slavonic",
+  "repository": "achimrabus/crnn-ctc-church-slavonic",
+  "cpu": null,
+  "gpu": {
+    "device": "cuda",
+    "num_words": 1406,
+    "batch_size": 32,
+    "total_time_s": 10.805972200003453,
+    "mean_time_ms": 7.685613229020948,
+    "throughput_words_s": 130.11323497570638,
+    "ram_after_load_mb": 1055.85546875,
+    "ram_peak_mb": 1110.25390625,
+    "gpu_peak_mb": 1792.8046875,
+    "accuracy_metrics": {
+      "cer": 0.42127294900952567,
+      "wer": 0.952876247081299,
+      "exact_match": 0.001422475106685633,
+      "character_similarity": 0.5734692117556774,
+      "evaluated_words": 1406
+    }
+  }
+}

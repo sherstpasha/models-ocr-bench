@@ -1,0 +1,25 @@
+{
+  "task": "recognition",
+  "dataset": "yenisei_gov_reports_hwr",
+  "model": "parseq_b_rukopys",
+  "repository": "Hukyl/parseq-b-rukopys",
+  "cpu": null,
+  "gpu": {
+    "device": "cuda",
+    "num_words": 22400,
+    "batch_size": 4,
+    "total_time_s": 416.35550720000174,
+    "mean_time_ms": 18.587299428571505,
+    "throughput_words_s": 53.80017704254809,
+    "ram_after_load_mb": 1929.4375,
+    "ram_peak_mb": 1910.03125,
+    "gpu_peak_mb": 664.482421875,
+    "accuracy_metrics": {
+      "cer": 0.7724721999539642,
+      "wer": 1.2331840407609813,
+      "exact_match": 0.29035714285714287,
+      "character_similarity": 0.6140910513090926,
+      "evaluated_words": 22400
+    }
+  }
+}

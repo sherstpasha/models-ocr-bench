@@ -1,0 +1,9 @@
+--extra-index-url https://download.pytorch.org/whl/cu128
+torch==2.7.1+cu128
+torchvision==0.22.1+cu128
+# The Zenodo v1 weights use Party's June 2025 safetensors format.
+git+https://github.com/mittagessen/party.git@5eb40c58d7d5107200321599a17b73071e95aaf3
+albumentations
+numpy<2
+psutil
+tqdm

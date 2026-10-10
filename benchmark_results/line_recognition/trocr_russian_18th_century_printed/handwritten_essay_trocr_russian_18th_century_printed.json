@@ -1,0 +1,25 @@
+{
+  "task": "recognition",
+  "dataset": "handwritten_essay",
+  "model": "trocr_russian_18th_century_printed",
+  "repository": "dsmchr/trocr_russian_18th_century_printed",
+  "cpu": null,
+  "gpu": {
+    "device": "cuda",
+    "num_words": 676,
+    "batch_size": 1,
+    "total_time_s": 335.750444699981,
+    "mean_time_ms": 496.6722554733447,
+    "throughput_words_s": 2.0134001627430704,
+    "ram_after_load_mb": 1796.24609375,
+    "ram_peak_mb": 1621.9296875,
+    "gpu_peak_mb": 1352.11279296875,
+    "accuracy_metrics": {
+      "cer": 0.7302271170965533,
+      "wer": 0.994120993741703,
+      "exact_match": 0.0,
+      "character_similarity": 0.2761754743634059,
+      "evaluated_words": 676
+    }
+  }
+}

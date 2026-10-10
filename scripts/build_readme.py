@@ -8,15 +8,16 @@ from configs.recognition.benchmark_config import BENCHMARKS as RECOGNITION_MODEL
 
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
-VERSION = "v1"
-VERSION_DATE = "4 октября 2026 года"
+VERSION = "v2"
 
 MODEL_LICENSES = {
     "east_50_g1": "MIT",
+    "east_50_yenisei_gov_reports_g1": "MIT",
     "yolo26s_obb_text_g1": "AGPL-3.0",
     "yolo26x_obb_text_g1": "AGPL-3.0",
     "yolo11n_text": "Apache-2.0",
     "yolo11x_dialectic": "AGPL-3.0",
+    "yolov8m_historical_line_segmenter": "AGPL-3.0",
     "craft_easyocr": "Apache-2.0",
     "paddleocr_v6_medium_word": "Apache-2.0",
     "doctr_db_resnet50": "Apache-2.0",
@@ -25,10 +26,13 @@ MODEL_LICENSES = {
     "rfdetr_textline_textregion_2xl": "Apache-2.0",
     "rfdetr_textline_textregion_seg_preview": "Apache-2.0",
     "court_records_textline_yolov8x_seg": "AGPL-3.0",
+    "lamop_yolo26n_textline_seg": "CC0-1.0",
+    "lamop_yolo26x_textline_seg": "CC0-1.0",
     "mask2former_line_v0_prev": "CC-BY-NC-3.0",
     "doc_ufcn_generic_historical_line": "MIT",
     "surya_text_line_detection": "Apache-2.0",
     "kraken_blla_default": "Apache-2.0",
+    "orli_base": "Apache-2.0",
     "pero_layout_general": "BSD-3-Clause",
     "riksarkivet_rtmdet_lines": "MIT",
     "trba_lite_g1": "MIT",
@@ -39,13 +43,21 @@ MODEL_LICENSES = {
     "paddleocr_eslav_v5_mobile": "Apache-2.0",
     "trocr_ru_1700s": "MIT",
     "trocr_prereform_orthography": "OpenRAIL",
+    "trocr_russian_18th_century_printed": "CC-BY-NC-4.0",
+    "trocr_handwritten_cyrillic": "MIT",
+    "trocr_church_slavonic_handwritten": "Apache-2.0",
     "trocr_dialectic_stackmix": "Apache-2.0",
     "trocr_dialectic": "Apache-2.0",
     "trocr_base_ru": "Apache-2.0",
     "trocr_base_handwritten_ru": "Не указана",
+    "parseq_s_rukopys": "CC-BY-SA-4.0",
+    "parseq_b_rukopys": "CC-BY-SA-4.0",
+    "trocr_rukopys": "CC-BY-SA-4.0",
+    "trocr_large_rukopys_hw": "Apache-2.0",
     "cyrillic_htr_model": "Apache-2.0",
     "cyrillic_large_handwritten": "Apache-2.0",
     "crnn_ctc_church_slavonic": "Apache-2.0",
+    "party_european_languages": "Не указана",
     "turkicocr_svtrv2_b": "Apache-2.0",
     "kraken_ppocrv6_medium": "Apache-2.0",
     "kraken_ppocrv6_small": "Apache-2.0",
@@ -227,9 +239,11 @@ def build():
     lines = [
         "# Russian OCR Benchmark",
         "",
-        f"Бенчмарк OCR для современного и исторического русского текста. Версия **{VERSION}**, дата фиксации — **{VERSION_DATE}**.",
+        f"Бенчмарк OCR для современного и исторического русского текста. Версия **{VERSION}**.",
         "",
         "Инструкция по полному воспроизведению окружений, загрузке моделей и датасетов, запуску задач и пересборке таблиц: [REPRODUCING.md](REPRODUCING.md).",
+        "",
+        "Известные проблемы моделей, ограничения и рабочие обходные пути: [KNOWN_ISSUES.md](KNOWN_ISSUES.md).",
         "",
         f"Протестировано **{len(MODEL_LICENSES)} модели/конфигурации** на **{len(DATASETS)} наборах данных** в четырёх задачах: детекция слов, детекция строк, распознавание слов и распознавание строк.",
         "",

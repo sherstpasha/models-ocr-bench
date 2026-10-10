@@ -1,0 +1,25 @@
+{
+  "task": "recognition",
+  "dataset": "russian_old_orthography",
+  "model": "trocr_russian_18th_century_printed",
+  "repository": "dsmchr/trocr_russian_18th_century_printed",
+  "cpu": null,
+  "gpu": {
+    "device": "cuda",
+    "num_words": 1406,
+    "batch_size": 1,
+    "total_time_s": 829.2931204000197,
+    "mean_time_ms": 589.8244099573398,
+    "throughput_words_s": 1.695419828542408,
+    "ram_after_load_mb": 1485.2578125,
+    "ram_peak_mb": 1485.69140625,
+    "gpu_peak_mb": 1352.11279296875,
+    "accuracy_metrics": {
+      "cer": 0.1137150202709384,
+      "wer": 0.44555296115474424,
+      "exact_match": 0.06116642958748222,
+      "character_similarity": 0.8900138661350163,
+      "evaluated_words": 1406
+    }
+  }
+}

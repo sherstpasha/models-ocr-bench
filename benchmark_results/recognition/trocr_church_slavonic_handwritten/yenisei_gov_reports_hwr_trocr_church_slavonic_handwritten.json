@@ -1,0 +1,25 @@
+{
+  "task": "recognition",
+  "dataset": "yenisei_gov_reports_hwr",
+  "model": "trocr_church_slavonic_handwritten",
+  "repository": "cyrillic-trocr/trocr-church-slavonic-handwritten",
+  "cpu": null,
+  "gpu": {
+    "device": "cuda",
+    "num_words": 22400,
+    "batch_size": 1,
+    "total_time_s": 2071.056235199998,
+    "mean_time_ms": 92.45786764285705,
+    "throughput_words_s": 10.81573721625037,
+    "ram_after_load_mb": 1305.84765625,
+    "ram_peak_mb": 1305.59765625,
+    "gpu_peak_mb": 1321.138671875,
+    "accuracy_metrics": {
+      "cer": 1.2544269737834255,
+      "wer": 1.8070427743764639,
+      "exact_match": 0.024776785714285713,
+      "character_similarity": 0.2051585817344369,
+      "evaluated_words": 22400
+    }
+  }
+}

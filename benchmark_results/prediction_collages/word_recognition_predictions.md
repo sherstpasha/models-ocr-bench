@@ -5,6 +5,7 @@
 | **trba_base_g1** | степи | них! | посѣшительницъ |
 | **trba_lite_g1** | степи | них! | посѣтишельницъ |
 | **trocr_ru_1700s** | степи | них! | посѣтительницъ |
+| **trocr_large_rukopys_hw** | степи | них! | посътипельниць |
 | **kraken_ppocrv6_medium** | сmeu | них! | посѣтиіпельницы |
 | **cyrillic_large_handwritten** | степи | ниях. | посетительницъ |
 | **trocr_dialectic_stackmix** | степи | них: | ПОСБТИПЕЛЬНИЦБ |
@@ -13,13 +14,20 @@
 | **kraken_ppocrv6_small** | стeпи | тх! | посѣти пельниць |
 | **trocr_base_handwritten_ru** | степи | них! | посытиплавныч |
 | **cyrillic_htr_model** | степи | них. | посетительницъ |
+| **trocr_handwritten_cyrillic** | степи | них! | посѣтительницъ |
+| **trocr_rukopys** | степи | них! | посьпипельниць |
 | **kraken_ppocrv6_tiny** | cmenu | нх! | посѣтиіпельииць |
 | **paddleocr_cyrillic_v5_mobile** | cmenu | vue! | посьпипельниць |
+| **trocr_russian_18th_century_printed** | спеми | Иеле | посьтительницъ |
 | **turkicocr_svtrv2_b** | стетии | кег і. | посьипельниць |
 | **paddleocr_eslav_v5_mobile** | cmenu | nue! | посьпипельниць |
+| **parseq_s_rukopys** | степи | них! | посьмительниць |
+| **parseq_b_rukopys** | степи | них! | посьмительницт |
 | **cyrillic_g2** | €<л2& | Илу < | посъпишпельницъ |
 | **cyrillic_g1** | (ели | иуе ! | посъшилельниц |
-| **tesseract_cyrillic_best** | СУТТЕ | ГСТУ | посътиштельни ць |
 | **trocr_prereform_orthography** | Стева | ЛІЕСВА | посѣшишельницъ |
 | **crnn_ctc_church_slavonic** | за¬ | . | посьтительницъ |
+| **tesseract_cyrillic_best** | СУТТЕ | ГСТУ | посътиштельни ць |
+| **trocr_church_slavonic_handwritten** | ствиꙗ | имъ. | посьтительниць |
 | **tesseract_rus_best** | Сидов | ∅ | посъпиищельниць |
+| **party_european_languages** | Evand | Шек | ineching to us in |

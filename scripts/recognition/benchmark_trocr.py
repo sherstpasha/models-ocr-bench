@@ -12,7 +12,9 @@ from huggingface_hub import hf_hub_download
 from transformers import (
     BitImageProcessor,
     PreTrainedTokenizerFast,
+    RobertaTokenizerFast,
     TrOCRProcessor,
+    ViTImageProcessor,
     VisionEncoderDecoderModel,
 )
 from tqdm.auto import tqdm
@@ -88,13 +90,24 @@ def completed_result(path):
     return all(key in metrics for key in ("cer", "wer"))
 
 
-def predict_batches(processor, model, samples, batch_size, description=None):
-    predictions = []
-    starts = range(0, len(samples), batch_size)
+def predict_batches(
+    processor,
+    model,
+    samples,
+    batch_size,
+    description=None,
+    preserve_aspect_height=None,
+    generation_max_length=None,
+    initial_predictions=None,
+    checkpoint_callback=None,
+):
+    predictions = list(initial_predictions or [])
+    starts = range(len(predictions), len(samples), batch_size)
     if description:
         starts = tqdm(
             starts,
             total=(len(samples) + batch_size - 1) // batch_size,
+            initial=(len(predictions) + batch_size - 1) // batch_size,
             desc=description,
             unit="batch",
         )
@@ -103,17 +116,33 @@ def predict_batches(processor, model, samples, batch_size, description=None):
         images = []
         for sample in batch:
             with Image.open(sample["path"]) as image:
-                images.append(image.convert("RGB"))
+                image = image.convert("RGB")
+                if preserve_aspect_height:
+                    width = max(
+                        1,
+                        round(image.width * preserve_aspect_height / image.height),
+                    )
+                    image = image.resize(
+                        (width, preserve_aspect_height), Image.Resampling.LANCZOS
+                    )
+                images.append(image)
         pixel_values = processor(images=images, return_tensors="pt").pixel_values
         pixel_values = pixel_values.to("cuda", non_blocking=True)
         with torch.inference_mode():
-            generated_ids = model.generate(pixel_values)
+            generation_kwargs = {}
+            if generation_max_length:
+                generation_kwargs["max_length"] = generation_max_length
+            generated_ids = model.generate(pixel_values, **generation_kwargs)
         predictions.extend(
             text.strip()
             for text in processor.batch_decode(
                 generated_ids, skip_special_tokens=True
             )
         )
+        if checkpoint_callback and (
+            len(predictions) % 100 == 0 or len(predictions) == len(samples)
+        ):
+            checkpoint_callback(predictions)
     return predictions
 
 
@@ -122,6 +151,7 @@ def run_model(model_name, model_config, dataset_name, dataset_config):
     output_dir.mkdir(parents=True, exist_ok=True)
     result_path = output_dir / f"{dataset_name}_{model_name}.json"
     predictions_path = output_dir / f"{dataset_name}_{model_name}.csv"
+    checkpoint_path = output_dir / f"{dataset_name}_{model_name}.checkpoint.json"
     if completed_result(result_path):
         print(f"Skip: already completed ({result_path})")
         return
@@ -139,6 +169,19 @@ def run_model(model_name, model_config, dataset_name, dataset_config):
     cache_dir.mkdir(parents=True, exist_ok=True)
     if model_config.get("custom_processor", False):
         processor = load_custom_processor(model_config["repository"], cache_dir)
+    elif model_config.get("tokenizer_json_processor", False):
+        # Some checkpoints publish tokenizer.json but omit the vocab/merges
+        # files required by the slow Roberta tokenizer selected by
+        # TrOCRProcessor.from_pretrained.
+        image_processor = ViTImageProcessor.from_pretrained(
+            model_config["repository"], cache_dir=cache_dir
+        )
+        tokenizer = RobertaTokenizerFast.from_pretrained(
+            model_config["repository"], cache_dir=cache_dir
+        )
+        processor = TrOCRProcessor(
+            image_processor=image_processor, tokenizer=tokenizer
+        )
     else:
         processor = TrOCRProcessor.from_pretrained(
             model_config.get("processor_repository", model_config["repository"]),
@@ -157,23 +200,62 @@ def run_model(model_name, model_config, dataset_name, dataset_config):
         model,
         samples[: model_config["warmup_size"]],
         model_config["batch_size"],
+        preserve_aspect_height=model_config.get("preserve_aspect_height"),
+        generation_max_length=model_config.get("generation_max_length"),
     )
     torch.cuda.synchronize()
     ram_after_load = psutil.Process().memory_info().rss / 1024**2
+    checkpoint = {"raw_predictions": [], "elapsed_s": 0.0}
+    if checkpoint_path.is_file():
+        checkpoint = json.loads(checkpoint_path.read_text(encoding="utf-8"))
+        if len(checkpoint.get("raw_predictions", [])) > len(samples):
+            checkpoint = {"raw_predictions": [], "elapsed_s": 0.0}
+    resumed_predictions = checkpoint.get("raw_predictions", [])
+    elapsed_before = float(checkpoint.get("elapsed_s", 0.0))
     started = time.perf_counter()
+
+    def save_checkpoint(current_predictions):
+        payload = {
+            "raw_predictions": current_predictions,
+            "elapsed_s": elapsed_before + time.perf_counter() - started,
+        }
+        temporary = checkpoint_path.with_suffix(checkpoint_path.suffix + ".tmp")
+        temporary.write_text(
+            json.dumps(payload, ensure_ascii=False), encoding="utf-8"
+        )
+        for attempt in range(5):
+            try:
+                temporary.replace(checkpoint_path)
+                break
+            except PermissionError:
+                if attempt == 4:
+                    # Windows indexing/antivirus can transiently hold the old
+                    # checkpoint. A direct write is less atomic but preserves
+                    # hours of inference instead of aborting the benchmark.
+                    checkpoint_path.write_text(
+                        json.dumps(payload, ensure_ascii=False), encoding="utf-8"
+                    )
+                    temporary.unlink(missing_ok=True)
+                    break
+                time.sleep(0.2 * (attempt + 1))
+
     raw_predictions = predict_batches(
         processor,
         model,
         samples,
         model_config["batch_size"],
         description=f"{model_name} / {dataset_name}",
+        preserve_aspect_height=model_config.get("preserve_aspect_height"),
+        generation_max_length=model_config.get("generation_max_length"),
+        initial_predictions=resumed_predictions,
+        checkpoint_callback=save_checkpoint,
     )
     predictions = [
         postprocess_prediction(text, model_config.get("prediction_postprocess"))
         for text in raw_predictions
     ]
     torch.cuda.synchronize()
-    total_time = time.perf_counter() - started
+    total_time = elapsed_before + time.perf_counter() - started
     ram_peak = psutil.Process().memory_info().rss / 1024**2
 
     references = [sample["text"] for sample in samples]
@@ -221,6 +303,7 @@ def run_model(model_name, model_config, dataset_name, dataset_config):
                 [sample["image"], prediction, reference, raw_prediction]
             )
     print(f"Saved: {result_path}")
+    checkpoint_path.unlink(missing_ok=True)
 
 
 def main():

@@ -60,6 +60,7 @@ def model_units(task):
             "mask2former": ".venv", "rfdetr": ".venv-rfdetr",
             "doc_ufcn": ".venv-doc-ufcn", "paddleocr": ".venv-paddleocr",
             "surya": ".venv-surya", "kraken": ".venv-kraken",
+            "orli": ".venv-orli",
             "pero": ".venv-pero", "rtmdet": ".venv-rtmdet",
             "ultralytics": ".venv",
         }
@@ -74,11 +75,13 @@ def model_units(task):
         "trba": (".venv", "scripts.recognition.benchmark_trba"),
         "easyocr": (".venv", "scripts.recognition.benchmark_easyocr"),
         "trocr": (".venv", "scripts.recognition.benchmark_trocr"),
+        "parseq": (".venv", "scripts.recognition.benchmark_parseq"),
         "paddleocr": (".venv-paddleocr", "scripts.recognition.benchmark_paddleocr"),
         "turkicocr_onnx": (".venv", "scripts.recognition.benchmark_turkicocr"),
         "kraken": (".venv-kraken", "scripts.recognition.benchmark_kraken"),
         "tesseract": (".venv", "scripts.recognition.benchmark_tesseract"),
         "crnn_ctc": (".venv", "scripts.recognition.benchmark_crnn_ctc"),
+        "party": (".venv-party", "scripts.recognition.benchmark_party"),
     }
     return [(name, *modules[config["backend"]]) for name, config in BENCHMARKS.items()]
 

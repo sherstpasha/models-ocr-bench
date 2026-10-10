@@ -1,0 +1,25 @@
+{
+  "task": "recognition",
+  "dataset": "russian_old_orthography",
+  "model": "trocr_large_rukopys_hw",
+  "repository": "Hukyl/trocr-large-rukopys-hw",
+  "cpu": null,
+  "gpu": {
+    "device": "cuda",
+    "num_words": 8489,
+    "batch_size": 1,
+    "total_time_s": 1015.2380982999748,
+    "mean_time_ms": 119.59454568264516,
+    "throughput_words_s": 8.361585340635765,
+    "ram_after_load_mb": 1469.29296875,
+    "ram_peak_mb": 1497.703125,
+    "gpu_peak_mb": 2181.46484375,
+    "accuracy_metrics": {
+      "cer": 0.18256943437648862,
+      "wer": 0.5601366474260808,
+      "exact_match": 0.4892213452703499,
+      "character_similarity": 0.7785899166358644,
+      "evaluated_words": 8489
+    }
+  }
+}

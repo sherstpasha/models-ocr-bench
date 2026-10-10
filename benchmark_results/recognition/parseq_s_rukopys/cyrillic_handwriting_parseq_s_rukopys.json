@@ -1,0 +1,25 @@
+{
+  "task": "recognition",
+  "dataset": "cyrillic_handwriting",
+  "model": "parseq_s_rukopys",
+  "repository": "Hukyl/parseq-s-rukopys",
+  "cpu": null,
+  "gpu": {
+    "device": "cuda",
+    "num_words": 1544,
+    "batch_size": 8,
+    "total_time_s": 16.01714060001541,
+    "mean_time_ms": 10.373795725398582,
+    "throughput_words_s": 96.39673138653191,
+    "ram_after_load_mb": 1329.125,
+    "ram_peak_mb": 1333.546875,
+    "gpu_peak_mb": 392.99169921875,
+    "accuracy_metrics": {
+      "cer": 0.10607188790360793,
+      "wer": 0.3736059479553903,
+      "exact_match": 0.6055699481865285,
+      "character_similarity": 0.9164246252072525,
+      "evaluated_words": 1544
+    }
+  }
+}

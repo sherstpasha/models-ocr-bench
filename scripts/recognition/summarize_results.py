@@ -15,6 +15,7 @@ from utils.metrics import (
 )
 from utils.ranking import mean_metric_ranks
 from utils.dataset_sources import markdown_dataset_header
+from utils.training_overlaps import mark_training_overlap
 
 
 SUMMARY_CSV = RESULTS_ROOT / "summary.csv"
@@ -203,12 +204,16 @@ def markdown_table(raw, models, table_key, mean_metrics, mean_rank, mean_speed):
     ]
     for model in models:
         cells = [
-            format_cell(
-                raw[model, dataset][table_key]
-                if raw[model, dataset] is not None
-                else None,
-                best[dataset],
-                precision=2,
+            mark_training_overlap(
+                format_cell(
+                    raw[model, dataset][table_key]
+                    if raw[model, dataset] is not None
+                    else None,
+                    best[dataset],
+                    precision=2,
+                ),
+                model,
+                dataset,
             )
             for dataset in DATASETS
         ]
@@ -284,6 +289,7 @@ def write_summary():
         f"# {title}",
         "",
         "Each dataset cell: `Character Similarity / Exact Match / CER / WER`.",
+        "`*` marks a dataset known to have been used to train that model.",
         f"`Mean {speed_unit}/s` is the arithmetic mean across available datasets on the device used by each model.",
         "",
         "## Aggregate metrics",

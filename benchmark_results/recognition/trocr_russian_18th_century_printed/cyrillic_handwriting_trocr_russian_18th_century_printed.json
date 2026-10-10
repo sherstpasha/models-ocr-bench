@@ -1,0 +1,25 @@
+{
+  "task": "recognition",
+  "dataset": "cyrillic_handwriting",
+  "model": "trocr_russian_18th_century_printed",
+  "repository": "dsmchr/trocr_russian_18th_century_printed",
+  "cpu": null,
+  "gpu": {
+    "device": "cuda",
+    "num_words": 1544,
+    "batch_size": 1,
+    "total_time_s": 232.28673919998982,
+    "mean_time_ms": 150.4447792746048,
+    "throughput_words_s": 6.646957141495177,
+    "ram_after_load_mb": 1498.296875,
+    "ram_peak_mb": 1497.6171875,
+    "gpu_peak_mb": 1333.85595703125,
+    "accuracy_metrics": {
+      "cer": 0.6425235226426589,
+      "wer": 1.0199814126394051,
+      "exact_match": 0.014896373056994818,
+      "character_similarity": 0.3910310960155975,
+      "evaluated_words": 1544
+    }
+  }
+}

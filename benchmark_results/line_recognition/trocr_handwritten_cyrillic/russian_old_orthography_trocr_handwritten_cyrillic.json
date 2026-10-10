@@ -1,0 +1,25 @@
+{
+  "task": "recognition",
+  "dataset": "russian_old_orthography",
+  "model": "trocr_handwritten_cyrillic",
+  "repository": "cyrillic-trocr/trocr-handwritten-cyrillic",
+  "cpu": null,
+  "gpu": {
+    "device": "cuda",
+    "num_words": 1406,
+    "batch_size": 1,
+    "total_time_s": 843.9154235000024,
+    "mean_time_ms": 600.2243410384085,
+    "throughput_words_s": 1.6660437300326174,
+    "ram_after_load_mb": 1487.33984375,
+    "ram_peak_mb": 1485.40625,
+    "gpu_peak_mb": 1364.81982421875,
+    "accuracy_metrics": {
+      "cer": 0.09079073140182603,
+      "wer": 0.35714285714285715,
+      "exact_match": 0.09103840682788052,
+      "character_similarity": 0.9088606591554366,
+      "evaluated_words": 1406
+    }
+  }
+}

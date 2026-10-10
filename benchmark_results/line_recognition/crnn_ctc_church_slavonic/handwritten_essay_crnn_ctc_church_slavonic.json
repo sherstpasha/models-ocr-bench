@@ -1,0 +1,25 @@
+{
+  "task": "recognition",
+  "dataset": "handwritten_essay",
+  "model": "crnn_ctc_church_slavonic",
+  "repository": "achimrabus/crnn-ctc-church-slavonic",
+  "cpu": null,
+  "gpu": {
+    "device": "cuda",
+    "num_words": 676,
+    "batch_size": 32,
+    "total_time_s": 4.789742699998897,
+    "mean_time_ms": 7.08541819526464,
+    "throughput_words_s": 141.13492985753822,
+    "ram_after_load_mb": 1191.640625,
+    "ram_peak_mb": 1244.2109375,
+    "gpu_peak_mb": 1868.11279296875,
+    "accuracy_metrics": {
+      "cer": 0.9147454918968272,
+      "wer": 0.9992414185473165,
+      "exact_match": 0.0,
+      "character_similarity": 0.08386408471922192,
+      "evaluated_words": 676
+    }
+  }
+}

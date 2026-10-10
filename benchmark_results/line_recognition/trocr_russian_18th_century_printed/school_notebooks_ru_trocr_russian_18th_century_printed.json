@@ -1,0 +1,25 @@
+{
+  "task": "recognition",
+  "dataset": "school_notebooks_ru",
+  "model": "trocr_russian_18th_century_printed",
+  "repository": "dsmchr/trocr_russian_18th_century_printed",
+  "cpu": null,
+  "gpu": {
+    "device": "cuda",
+    "num_words": 6453,
+    "batch_size": 1,
+    "total_time_s": 1977.0024622999772,
+    "mean_time_ms": 306.36951221137105,
+    "throughput_words_s": 3.2640323535524582,
+    "ram_after_load_mb": 1737.8359375,
+    "ram_peak_mb": 1548.078125,
+    "gpu_peak_mb": 1352.11279296875,
+    "accuracy_metrics": {
+      "cer": 0.6650904234198463,
+      "wer": 0.9726037458685274,
+      "exact_match": 0.010537734387106772,
+      "character_similarity": 0.33980757799803524,
+      "evaluated_words": 6453
+    }
+  }
+}

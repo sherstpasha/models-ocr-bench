@@ -1,0 +1,25 @@
+{
+  "task": "recognition",
+  "dataset": "handwritten_essay",
+  "model": "trocr_prereform_orthography",
+  "repository": "Serovvans/trocr-prereform-orthography",
+  "cpu": null,
+  "gpu": {
+    "device": "cuda",
+    "num_words": 676,
+    "batch_size": 4,
+    "total_time_s": 92.70243269999628,
+    "mean_time_ms": 137.13377618342645,
+    "throughput_words_s": 7.292149518747496,
+    "ram_after_load_mb": 1796.24609375,
+    "ram_peak_mb": 7691.6796875,
+    "gpu_peak_mb": 678.8154296875,
+    "accuracy_metrics": {
+      "cer": 0.8486361561287378,
+      "wer": 1.033756874644415,
+      "exact_match": 0.0,
+      "character_similarity": 0.16281474991402684,
+      "evaluated_words": 676
+    }
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "task": "recognition",
+  "dataset": "school_notebooks_ru",
+  "model": "trocr_prereform_orthography",
+  "repository": "Serovvans/trocr-prereform-orthography",
+  "cpu": null,
+  "gpu": {
+    "device": "cuda",
+    "num_words": 6453,
+    "batch_size": 4,
+    "total_time_s": 1022.970562100003,
+    "mean_time_ms": 158.5263539593992,
+    "throughput_words_s": 6.308099410752321,
+    "ram_after_load_mb": 1524.08203125,
+    "ram_peak_mb": 11947.7890625,
+    "gpu_peak_mb": 718.1962890625,
+    "accuracy_metrics": {
+      "cer": 0.9027060847802284,
+      "wer": 1.1228791773778921,
+      "exact_match": 0.0,
+      "character_similarity": 0.17611867764018152,
+      "evaluated_words": 6453
+    }
+  }
+}

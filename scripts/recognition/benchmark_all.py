@@ -12,6 +12,7 @@ JOBS = {
     "paddleocr": (".venv-paddleocr", "scripts.recognition.benchmark_paddleocr"),
     "turkicocr": (".venv", "scripts.recognition.benchmark_turkicocr"),
     "kraken": (".venv-kraken", "scripts.recognition.benchmark_kraken"),
+    "party": (".venv-party", "scripts.recognition.benchmark_party"),
     "tesseract": (".venv", "scripts.recognition.benchmark_tesseract"),
     "crnn-ctc": (".venv", "scripts.recognition.benchmark_crnn_ctc"),
 }

@@ -1,0 +1,25 @@
+{
+  "task": "recognition",
+  "dataset": "yenisei_gov_reports_prt",
+  "model": "trocr_russian_18th_century_printed",
+  "repository": "dsmchr/trocr_russian_18th_century_printed",
+  "cpu": null,
+  "gpu": {
+    "device": "cuda",
+    "num_words": 15394,
+    "batch_size": 1,
+    "total_time_s": 1567.270646799996,
+    "mean_time_ms": 101.81048764453658,
+    "throughput_words_s": 9.822170811040827,
+    "ram_after_load_mb": 1499.39453125,
+    "ram_peak_mb": 1499.17578125,
+    "gpu_peak_mb": 1353.24951171875,
+    "accuracy_metrics": {
+      "cer": 0.21604485859537687,
+      "wer": 0.5367525707756761,
+      "exact_match": 0.4883720930232558,
+      "character_similarity": 0.808944088372078,
+      "evaluated_words": 15394
+    }
+  }
+}

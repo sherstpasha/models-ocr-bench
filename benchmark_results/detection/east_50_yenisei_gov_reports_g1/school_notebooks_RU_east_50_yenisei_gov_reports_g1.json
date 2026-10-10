@@ -1,0 +1,61 @@
+{
+  "dataset_name": "school_notebooks_RU",
+  "cpu": null,
+  "gpu": {
+    "device": "cuda",
+    "num_images": 150,
+    "target_size": 1408,
+    "mean_time_ms": 258.85199069976807,
+    "median_time_ms": 258.99970531463623,
+    "std_time_ms": 36.823719267208865,
+    "min_time_ms": 176.99861526489258,
+    "max_time_ms": 363.9991283416748,
+    "total_time_s": 38.82779860496521,
+    "throughput_fps": 3.8632115491816306,
+    "mean_detections": 178.45333333333335,
+    "total_detections": 26768,
+    "ram_after_load_mb": 955.3515625,
+    "ram_peak_mb": 1060.53515625,
+    "ram_delta_mb": 105.18359375,
+    "gpu_after_load_mb": null,
+    "gpu_peak_mb": null,
+    "gpu_delta_mb": null,
+    "accuracy_metrics": {
+      "iou_threshold": 0.5,
+      "precision": 0.9234533771667663,
+      "recall": 0.88620800917793,
+      "f1": 0.9044474122317556,
+      "mean_matched_iou": 0.7344219911359033,
+      "true_positives": 24719,
+      "false_positives": 2049,
+      "false_negatives": 3174,
+      "evaluated_images": 150,
+      "f1@0.5": 0.9044474122317556,
+      "f1@0.5:0.95": 0.46942792850478404,
+      "f1_by_iou": {
+        "0.50": 0.9044474122317556,
+        "0.55": 0.8738588756151552,
+        "0.60": 0.8185360677631217,
+        "0.65": 0.7301000713488593,
+        "0.70": 0.592561424050054,
+        "0.75": 0.41598214449058746,
+        "0.80": 0.2326704597427782,
+        "0.85": 0.09743692943780759,
+        "0.90": 0.02652714000841551,
+        "0.95": 0.0021587603593055376
+      }
+    },
+    "polygon_iou_metrics": {
+      "iou_threshold": 0.5,
+      "precision": 0.887104004781829,
+      "recall": 0.8513247051231492,
+      "hmean": 0.8688461608825305,
+      "dice_f1": 0.7993495866594738,
+      "mean_matched_iou": 0.6889735766285363,
+      "true_positives": 23746,
+      "false_positives": 3022,
+      "false_negatives": 4147,
+      "evaluated_images": 150
+    }
+  }
+}

@@ -1,0 +1,58 @@
+{
+  "dataset": "handwritten_essay",
+  "level": "line",
+  "cpu": null,
+  "gpu": {
+    "device": "gpu:0",
+    "detection_level": "line",
+    "detection_model": "PP-OCRv5_server_det",
+    "return_word_box": false,
+    "num_images": 28,
+    "mean_time_ms": 310.93831428513244,
+    "median_time_ms": 311.3079499999003,
+    "throughput_fps": 3.216071979739987,
+    "ram_after_load_mb": 1646.70703125,
+    "ram_peak_mb": 1646.74609375,
+    "gpu_after_load_mb": 91.209716796875,
+    "gpu_peak_mb": 2432.64208984375,
+    "gpu_delta_mb": 2341.432373046875,
+    "ground_truth_version": 4,
+    "accuracy_metrics": {
+      "iou_threshold": 0.5,
+      "precision": 0.6767922235722965,
+      "recall": 0.8239644970414202,
+      "f1": 0.7431621080720481,
+      "mean_matched_iou": 0.7842884185435763,
+      "true_positives": 557,
+      "false_positives": 266,
+      "false_negatives": 119,
+      "evaluated_images": 28,
+      "f1@0.5": 0.7431621080720481,
+      "f1@0.5:0.95": 0.4616410940627086,
+      "f1_by_iou": {
+        "0.50": 0.7431621080720481,
+        "0.55": 0.7271514342895264,
+        "0.60": 0.7111407605070048,
+        "0.65": 0.6831220813875917,
+        "0.70": 0.6230820547031354,
+        "0.75": 0.5190126751167445,
+        "0.80": 0.36424282855236817,
+        "0.85": 0.1787858572381588,
+        "0.90": 0.050700466977985324,
+        "0.95": 0.016010673782521682
+      }
+    },
+    "polygon_iou_metrics": {
+      "iou_threshold": 0.5,
+      "precision": 0.6731470230862697,
+      "recall": 0.8195266272189349,
+      "hmean": 0.7391594396264176,
+      "dice_f1": 0.9143817286807949,
+      "mean_matched_iou": 0.763352748759574,
+      "true_positives": 554,
+      "false_positives": 269,
+      "false_negatives": 122,
+      "evaluated_images": 28
+    }
+  }
+}

@@ -1,0 +1,58 @@
+{
+  "dataset": "school_notebooks_ru",
+  "level": "line",
+  "cpu": null,
+  "gpu": {
+    "device": "gpu:0",
+    "detection_level": "line",
+    "detection_model": "PP-OCRv6_small_det",
+    "return_word_box": false,
+    "num_images": 150,
+    "mean_time_ms": 257.5195113335455,
+    "median_time_ms": 261.20294999964244,
+    "throughput_fps": 3.883200907075254,
+    "ram_after_load_mb": 1510.45703125,
+    "ram_peak_mb": 1546.44921875,
+    "gpu_after_load_mb": 16.98779296875,
+    "gpu_peak_mb": 549.844482421875,
+    "gpu_delta_mb": 532.856689453125,
+    "ground_truth_version": 4,
+    "accuracy_metrics": {
+      "iou_threshold": 0.5,
+      "precision": 0.8380817554415148,
+      "recall": 0.733922206725554,
+      "f1": 0.7825512227362855,
+      "mean_matched_iou": 0.8050296469884846,
+      "true_positives": 4736,
+      "false_positives": 915,
+      "false_negatives": 1717,
+      "evaluated_images": 150,
+      "f1@0.5": 0.7825512227362855,
+      "f1@0.5:0.95": 0.5167878387309981,
+      "f1_by_iou": {
+        "0.50": 0.7825512227362855,
+        "0.55": 0.7728023793787178,
+        "0.60": 0.7564441506939854,
+        "0.65": 0.7295109054857898,
+        "0.70": 0.6768010575016523,
+        "0.75": 0.5831130204890944,
+        "0.80": 0.44729015201586253,
+        "0.85": 0.274619960343688,
+        "0.90": 0.12194315928618639,
+        "0.95": 0.02280237937871778
+      }
+    },
+    "polygon_iou_metrics": {
+      "iou_threshold": 0.5,
+      "precision": 0.833126880198195,
+      "recall": 0.7295831396249807,
+      "hmean": 0.7779246530072704,
+      "dice_f1": 0.8581397205925676,
+      "mean_matched_iou": 0.752929879535737,
+      "true_positives": 4708,
+      "false_positives": 943,
+      "false_negatives": 1745,
+      "evaluated_images": 150
+    }
+  }
+}

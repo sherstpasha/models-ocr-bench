@@ -1,0 +1,59 @@
+{
+  "dataset": "gota_hovratt_seg",
+  "level": "line",
+  "cpu": null,
+  "gpu": {
+    "device": "cuda:0",
+    "detection_level": "line",
+    "architecture": "Arjuna OCR PP-OCRv6 Small line detector",
+    "repository": "https://huggingface.co/anandkaman/arjuna-ocr-kn-en",
+    "ground_truth_version": 4,
+    "num_images": 51,
+    "mean_time_ms": 142.68710588222865,
+    "median_time_ms": 142.7555999980541,
+    "throughput_fps": 7.008341740601158,
+    "ram_after_load_mb": 1372.2109375,
+    "ram_peak_mb": 1372.25,
+    "ram_delta_mb": 0.0390625,
+    "gpu_after_load_mb": 0.0,
+    "gpu_peak_mb": 0.0,
+    "gpu_delta_mb": 0.0,
+    "accuracy_metrics": {
+      "iou_threshold": 0.5,
+      "precision": 0.9446886446886447,
+      "recall": 0.9587360594795539,
+      "f1": 0.9516605166051659,
+      "mean_matched_iou": 0.8063153749595063,
+      "true_positives": 2579,
+      "false_positives": 151,
+      "false_negatives": 111,
+      "evaluated_images": 51,
+      "f1@0.5": 0.9516605166051659,
+      "f1@0.5:0.95": 0.6313284132841329,
+      "f1_by_iou": {
+        "0.50": 0.9516605166051659,
+        "0.55": 0.9405904059040592,
+        "0.60": 0.9287822878228783,
+        "0.65": 0.907011070110701,
+        "0.70": 0.8464944649446494,
+        "0.75": 0.7132841328413285,
+        "0.80": 0.5309963099630998,
+        "0.85": 0.32952029520295206,
+        "0.90": 0.13985239852398523,
+        "0.95": 0.02509225092250923
+      }
+    },
+    "polygon_iou_metrics": {
+      "iou_threshold": 0.5,
+      "precision": 0.9311355311355312,
+      "recall": 0.9449814126394052,
+      "hmean": 0.9380073800738007,
+      "dice_f1": 0.9099441331661228,
+      "mean_matched_iou": 0.6684343678110797,
+      "true_positives": 2542,
+      "false_positives": 188,
+      "false_negatives": 148,
+      "evaluated_images": 51
+    }
+  }
+}

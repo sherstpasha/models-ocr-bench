@@ -13,6 +13,17 @@ DATA_ROOT = Path(os.environ.get(
 OLD_ORTHOGRAPHY_ROOT = DATA_ROOT / "russian_old_orthography_ocr"
 
 BENCHMARKS = {
+    "arjuna_ocr_kn_en_line": {
+        "origin": "https://huggingface.co/anandkaman/arjuna-ocr-kn-en",
+        "run": True,
+        "backend": "arjuna",
+        "output_dir": RESULTS_ROOT / "arjuna_ocr_kn_en_line",
+        "model_dir": PROJECT_ROOT / "models" / "arjuna-ocr-kn-en",
+        "repository": "anandkaman/arjuna-ocr-kn-en",
+        "filename": "models/det/inference.onnx",
+        "device": "cuda:0",
+        "warmup": 1,
+    },
     "paddleocr_v6_medium_line": {
         "origin": "https://www.paddleocr.ai/latest/en/version3.x/algorithm/PP-OCRv6/PP-OCRv6.html",
         # Run separately from .venv-paddleocr; see README.md.
@@ -113,6 +124,29 @@ BENCHMARKS = {
         "num_classes": 2,
         "line_class_ids": [2],
         "threshold": 0.5,
+        "warmup": 1,
+        "device": "cuda:0",
+    },
+    "rfdetr_leibniz_text_regions": {
+        "origin": "https://huggingface.co/DenisaBumba/rfdetr-instance-segmentation-leibniz-manuscripts",
+        # This checkpoint predicts page zones, not text lines. Keep it out of
+        # the line leaderboard; run it only when explicitly selected.
+        "run": False,
+        "backend": "rfdetr",
+        "output_dir": RESULTS_ROOT / "rfdetr_leibniz_text_regions",
+        "model_dir": PROJECT_ROOT / "models" / "rfdetr-instance-segmentation-leibniz-manuscripts",
+        "repository": "DenisaBumba/rfdetr-instance-segmentation-leibniz-manuscripts",
+        "filename": "checkpoint_best_regular.pth",
+        "architecture": "RF-DETR Seg Nano",
+        "variant": "seg_nano",
+        "num_classes": 10,
+        # COCO category IDs from training_config.json:
+        # 7=MainZone, 8=MarginTextZone.
+        "class_ids": [7, 8],
+        "class_names": ["MainZone", "MarginTextZone"],
+        "detection_level": "region",
+        "resolution": 720,
+        "threshold": 0.4,
         "warmup": 1,
         "device": "cuda:0",
     },

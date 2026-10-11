@@ -8,7 +8,7 @@ from pathlib import Path
 
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
-GROUPS = ("main", "paddleocr", "rfdetr", "ultralytics-line", "doc-ufcn", "surya", "kraken", "orli", "party", "pero", "rtmdet")
+GROUPS = ("main", "paddleocr", "rfdetr", "arjuna", "ultralytics-line", "doc-ufcn", "surya", "kraken", "orli", "party", "pero", "rtmdet")
 
 
 def announce(name):
@@ -122,6 +122,13 @@ def download_rfdetr():
             download_weights(config)
 
 
+def download_arjuna():
+    announce("Arjuna OCR PP-OCRv6 line detector")
+    from configs.line_detection.benchmark_config import BENCHMARKS
+    from scripts.line_detection.benchmark_arjuna import ensure_model
+    ensure_model(BENCHMARKS["arjuna_ocr_kn_en_line"])
+
+
 def download_ultralytics_line():
     from configs.line_detection.benchmark_config import BENCHMARKS
     from huggingface_hub import hf_hub_download
@@ -188,6 +195,7 @@ DOWNLOADERS = {
     "main": download_main,
     "paddleocr": download_paddleocr,
     "rfdetr": download_rfdetr,
+    "arjuna": download_arjuna,
     "ultralytics-line": download_ultralytics_line,
     "doc-ufcn": download_doc_ufcn,
     "surya": download_surya,

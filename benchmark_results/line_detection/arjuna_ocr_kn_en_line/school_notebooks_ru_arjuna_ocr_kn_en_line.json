@@ -1,0 +1,59 @@
+{
+  "dataset": "school_notebooks_ru",
+  "level": "line",
+  "cpu": null,
+  "gpu": {
+    "device": "cuda:0",
+    "detection_level": "line",
+    "architecture": "Arjuna OCR PP-OCRv6 Small line detector",
+    "repository": "https://huggingface.co/anandkaman/arjuna-ocr-kn-en",
+    "ground_truth_version": 4,
+    "num_images": 150,
+    "mean_time_ms": 123.14909400001247,
+    "median_time_ms": 124.91864999901736,
+    "throughput_fps": 8.120238383563738,
+    "ram_after_load_mb": 1335.48828125,
+    "ram_peak_mb": 1335.94140625,
+    "ram_delta_mb": 0.453125,
+    "gpu_after_load_mb": 0.0,
+    "gpu_peak_mb": 0.0,
+    "gpu_delta_mb": 0.0,
+    "accuracy_metrics": {
+      "iou_threshold": 0.5,
+      "precision": 0.8947550631815822,
+      "recall": 0.801022780102278,
+      "f1": 0.8452984464431725,
+      "mean_matched_iou": 0.8218702917466124,
+      "true_positives": 5169,
+      "false_positives": 608,
+      "false_negatives": 1284,
+      "evaluated_images": 150,
+      "f1@0.5": 0.8452984464431725,
+      "f1@0.5:0.95": 0.5868356500408831,
+      "f1_by_iou": {
+        "0.50": 0.8452984464431725,
+        "0.55": 0.8328699918233851,
+        "0.60": 0.8184791496320524,
+        "0.65": 0.7942763695829926,
+        "0.70": 0.7538838920686836,
+        "0.75": 0.6753883892068683,
+        "0.80": 0.5556827473426001,
+        "0.85": 0.3771054783319706,
+        "0.90": 0.18152085036794768,
+        "0.95": 0.033851185609157806
+      }
+    },
+    "polygon_iou_metrics": {
+      "iou_threshold": 0.5,
+      "precision": 0.8814263458542496,
+      "recall": 0.7890903455757012,
+      "hmean": 0.8327064595257564,
+      "dice_f1": 0.9397746302584908,
+      "mean_matched_iou": 0.7749157211710145,
+      "true_positives": 5092,
+      "false_positives": 685,
+      "false_negatives": 1361,
+      "evaluated_images": 150
+    }
+  }
+}

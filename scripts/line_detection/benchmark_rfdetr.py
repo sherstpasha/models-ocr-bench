@@ -11,7 +11,7 @@ import psutil
 import torch
 from huggingface_hub import hf_hub_download
 from PIL import Image
-from rfdetr import RFDETRSeg2XLarge, RFDETRSegPreview
+from rfdetr import RFDETRSeg2XLarge, RFDETRSegNano, RFDETRSegPreview
 from tqdm import tqdm
 
 from configs.line_detection.benchmark_config import BENCHMARKS, DATASETS
@@ -23,6 +23,7 @@ from utils.prediction_artifacts import prediction_artifact_path, save_prediction
 
 MODEL_CLASSES = {
     "seg_2xlarge": RFDETRSeg2XLarge,
+    "seg_nano": RFDETRSegNano,
     "seg_preview": RFDETRSegPreview,
 }
 
@@ -62,11 +63,14 @@ def download_weights(config):
 
 def create_model(weights, config):
     model_class = MODEL_CLASSES[config.get("variant", "seg_2xlarge")]
-    model = model_class(
+    model_kwargs = dict(
         pretrain_weights=str(weights),
         device=config["device"],
         num_classes=config["num_classes"],
     )
+    if "resolution" in config:
+        model_kwargs["resolution"] = config["resolution"]
+    model = model_class(**model_kwargs)
     # The published checkpoint was evaluated in FP16. Avoid compilation so the
     # benchmark has no large one-time tracing step and works with dynamic inputs.
     model.inference(compile=False, dtype=torch.float16, inplace=True)
@@ -81,7 +85,8 @@ def text_line_mask(detections, config):
     # fine-tuned classes are 0-based when generating `class_name`, shifting the
     # legacy names by one: category 1 is incorrectly exposed as `text_line`.
     # Filter on the checkpoint's stable category IDs instead.
-    return np.isin(np.asarray(detections.class_id), config["line_class_ids"])
+    class_ids = config.get("class_ids", config.get("line_class_ids"))
+    return np.isin(np.asarray(detections.class_id), class_ids)
 
 
 def detect_lines(model, image_path, config):
@@ -119,7 +124,7 @@ def benchmark_gpu(model, images, dataset_config, config, model_name):
     gpu_peak = torch.cuda.max_memory_allocated() / 1024**2
     return {
         "device": config["device"],
-        "detection_level": "line",
+        "detection_level": config.get("detection_level", "line"),
         "architecture": config.get("architecture", "RF-DETR Seg 2XLarge"),
         "repository": config["repository"],
         "checkpoint": config["filename"],
@@ -143,7 +148,11 @@ def main():
         raise RuntimeError("RF-DETR line benchmark requires CUDA")
     selected_model = os.environ.get("OCR_BENCH_ONLY_MODEL")
     for model_name, config in BENCHMARKS.items():
-        if config.get("backend") != "rfdetr" or not config.get("run", False):
+        if config.get("backend") != "rfdetr":
+            continue
+        # Region-only checkpoints are disabled in the normal line benchmark,
+        # but remain runnable through OCR_BENCH_ONLY_MODEL.
+        if not config.get("run", False) and selected_model != model_name:
             continue
         if selected_model not in (None, model_name):
             continue

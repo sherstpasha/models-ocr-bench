@@ -57,6 +57,7 @@ def model_units(task):
     if task == "line-detection":
         from configs.line_detection.benchmark_config import BENCHMARKS
         environments = {
+            "arjuna": ".venv",
             "mask2former": ".venv", "rfdetr": ".venv-rfdetr",
             "doc_ufcn": ".venv-doc-ufcn", "paddleocr": ".venv-paddleocr",
             "surya": ".venv-surya", "kraken": ".venv-kraken",

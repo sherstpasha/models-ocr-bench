@@ -1,0 +1,28 @@
+{
+  "task": "recognition",
+  "dataset": "russian_old_orthography",
+  "model": "paddleocr_v6_tiny_ru",
+  "cpu": null,
+  "gpu": {
+    "device": "gpu:0",
+    "model_name": "PP-OCRv6_tiny_rec",
+    "num_words": 8489,
+    "batch_size": 128,
+    "total_time_s": 8.555922199993802,
+    "mean_time_ms": 1.0078834020489813,
+    "throughput_words_s": 992.1782598731613,
+    "ram_after_load_mb": 1370.08984375,
+    "ram_peak_mb": 1414.796875,
+    "gpu_after_load_mb": 92.65234375,
+    "gpu_peak_mb": 465.291015625,
+    "gpu_delta_mb": 372.638671875,
+    "mean_confidence": 0.8625749521434047,
+    "accuracy_metrics": {
+      "cer": 0.18818217592113165,
+      "wer": 0.6322299446342325,
+      "exact_match": 0.3740134291435976,
+      "character_similarity": 0.7931337839804191,
+      "evaluated_words": 8489
+    }
+  }
+}

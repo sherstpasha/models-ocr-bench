@@ -1,0 +1,28 @@
+{
+  "task": "recognition",
+  "dataset": "cyrillic_handwriting",
+  "model": "paddleocr_v6_medium_ru",
+  "cpu": null,
+  "gpu": {
+    "device": "gpu:0",
+    "model_name": "PP-OCRv6_medium_rec",
+    "num_words": 1544,
+    "batch_size": 64,
+    "total_time_s": 4.4532222999987425,
+    "mean_time_ms": 2.8842113341960767,
+    "throughput_words_s": 346.715231350664,
+    "ram_after_load_mb": 1557.6171875,
+    "ram_peak_mb": 1482.80859375,
+    "gpu_after_load_mb": 103.203125,
+    "gpu_peak_mb": 1133.5302734375,
+    "gpu_delta_mb": 1030.3271484375,
+    "mean_confidence": 0.9309144589490224,
+    "accuracy_metrics": {
+      "cer": 0.10153658701685507,
+      "wer": 0.4679368029739777,
+      "exact_match": 0.46696891191709844,
+      "character_similarity": 0.8981896133812641,
+      "evaluated_words": 1544
+    }
+  }
+}

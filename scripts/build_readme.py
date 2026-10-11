@@ -56,6 +56,8 @@ MODEL_LICENSES = {
     "cyrillic_g2": "Apache-2.0",
     "paddleocr_cyrillic_v5_mobile": "Apache-2.0",
     "paddleocr_eslav_v5_mobile": "Apache-2.0",
+    "paddleocr_v6_medium_ru": "Apache-2.0",
+    "paddleocr_v6_tiny_ru": "Apache-2.0",
     "trocr_ru_1700s": "MIT",
     "trocr_prereform_orthography": "OpenRAIL",
     "trocr_russian_18th_century_printed": "CC-BY-NC-4.0",

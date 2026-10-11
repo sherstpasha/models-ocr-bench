@@ -1,0 +1,28 @@
+{
+  "task": "recognition",
+  "dataset": "donkeysmall_printed_15random",
+  "model": "paddleocr_v6_medium_ru",
+  "cpu": null,
+  "gpu": {
+    "device": "gpu:0",
+    "model_name": "PP-OCRv6_medium_rec",
+    "num_words": 1500,
+    "batch_size": 64,
+    "total_time_s": 4.156472299997404,
+    "mean_time_ms": 2.7709815333316024,
+    "throughput_words_s": 360.88295355677866,
+    "ram_after_load_mb": 1547.58203125,
+    "ram_peak_mb": 1653.35546875,
+    "gpu_after_load_mb": 109.14453125,
+    "gpu_peak_mb": 1228.4375,
+    "gpu_delta_mb": 1119.29296875,
+    "mean_confidence": 0.984283462524414,
+    "accuracy_metrics": {
+      "cer": 0.02487025679045629,
+      "wer": 0.11733333333333333,
+      "exact_match": 0.8873333333333333,
+      "character_similarity": 0.9754317852798502,
+      "evaluated_words": 1500
+    }
+  }
+}

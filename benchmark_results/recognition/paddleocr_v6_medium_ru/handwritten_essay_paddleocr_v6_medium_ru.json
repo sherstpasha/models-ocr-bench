@@ -1,0 +1,28 @@
+{
+  "task": "recognition",
+  "dataset": "handwritten_essay",
+  "model": "paddleocr_v6_medium_ru",
+  "cpu": null,
+  "gpu": {
+    "device": "gpu:0",
+    "model_name": "PP-OCRv6_medium_rec",
+    "num_words": 5146,
+    "batch_size": 64,
+    "total_time_s": 12.242516199999955,
+    "mean_time_ms": 2.379035406140683,
+    "throughput_words_s": 420.33842683418453,
+    "ram_after_load_mb": 1505.03515625,
+    "ram_peak_mb": 1444.83984375,
+    "gpu_after_load_mb": 98.9052734375,
+    "gpu_peak_mb": 1108.73046875,
+    "gpu_delta_mb": 1009.8251953125,
+    "mean_confidence": 0.8570347999552322,
+    "accuracy_metrics": {
+      "cer": 0.1964811302243443,
+      "wer": 0.6140716859472786,
+      "exact_match": 0.4026428293820443,
+      "character_similarity": 0.77138333549238,
+      "evaluated_words": 5146
+    }
+  }
+}

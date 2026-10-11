@@ -5,9 +5,11 @@ import gc
 import json
 import os
 import time
+from pathlib import Path
 
 import numpy as np
 import psutil
+from huggingface_hub import snapshot_download
 
 from configs.recognition.benchmark_config import BENCHMARKS, DATASETS
 from scripts.recognition.prepare_handwritten_essay import prepare_dataset
@@ -23,6 +25,8 @@ from utils.metrics import (
 MODEL_NAMES = (
     "paddleocr_cyrillic_v5_mobile",
     "paddleocr_eslav_v5_mobile",
+    "paddleocr_v6_medium_ru",
+    "paddleocr_v6_tiny_ru",
 )
 
 os.environ.setdefault(
@@ -68,6 +72,34 @@ def predict(recognizer, paths, batch_size):
     return predictions, confidences
 
 
+def ensure_model(config):
+    repository = config.get("repository")
+    if not repository:
+        return None
+    model_dir = Path(config["model_dir"])
+    required = ("inference.json", "inference.pdiparams", "inference.yml")
+    if not all((model_dir / name).is_file() for name in required):
+        snapshot_download(repo_id=repository, local_dir=model_dir)
+    return model_dir
+
+
+def enable_author_aspect_ratio_padding(recognizer):
+    predictor = getattr(
+        recognizer, "paddlex_predictor", getattr(recognizer, "predictor", recognizer)
+    )
+    transforms = getattr(predictor, "pre_tfs", None)
+    if transforms is None:
+        transforms = getattr(recognizer, "pre_tfs", None)
+    if transforms is None or "ReisizeNorm" not in transforms:
+        raise RuntimeError("Cannot locate PaddleOCR ReisizeNorm preprocessing transform")
+    resize_op = transforms["ReisizeNorm"]
+    original_resize = resize_op.resize_norm_img
+    resize_op.resize_norm_img = lambda img, ratio: original_resize(
+        img,
+        min(max(ratio, 1.5 * img.shape[1] / img.shape[0]), resize_op.max_imgW / 48),
+    )
+
+
 def run_model(model_name, config, dataset_name, dataset_config):
     output_dir = config["output_dir"]
     output_dir.mkdir(parents=True, exist_ok=True)
@@ -88,10 +120,13 @@ def run_model(model_name, config, dataset_name, dataset_config):
     paddle.set_device(config["device"])
     paddle.device.cuda.empty_cache()
     paddle.device.cuda.reset_max_memory_allocated()
-    recognizer = TextRecognition(
-        model_name=config["model_name"],
-        device=config["device"],
-    )
+    custom_dir = ensure_model(config)
+    arguments = {"model_name": config["model_name"], "device": config["device"]}
+    if custom_dir is not None:
+        arguments["model_dir"] = str(custom_dir)
+    recognizer = TextRecognition(**arguments)
+    if config.get("aspect_ratio_padding"):
+        enable_author_aspect_ratio_padding(recognizer)
     predict(
         recognizer,
         paths[: config["warmup_size"]],

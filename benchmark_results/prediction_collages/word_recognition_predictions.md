@@ -6,6 +6,7 @@
 | **trba_lite_g1** | степи | них! | посѣтишельницъ |
 | **trocr_ru_1700s** | степи | них! | посѣтительницъ |
 | **trocr_large_rukopys_hw** | степи | них! | посътипельниць |
+| **paddleocr_v6_medium_ru** | стерти | них! | посъпишельниць |
 | **kraken_ppocrv6_medium** | сmeu | них! | посѣтиіпельницы |
 | **cyrillic_large_handwritten** | степи | ниях. | посетительницъ |
 | **trocr_dialectic_stackmix** | степи | них: | ПОСБТИПЕЛЬНИЦБ |
@@ -15,13 +16,14 @@
 | **trocr_base_handwritten_ru** | степи | них! | посытиплавныч |
 | **cyrillic_htr_model** | степи | них. | посетительницъ |
 | **trocr_handwritten_cyrillic** | степи | них! | посѣтительницъ |
+| **paddleocr_v6_tiny_ru** | стери | нех | посъпипельниць |
 | **trocr_rukopys** | степи | них! | посьпипельниць |
 | **kraken_ppocrv6_tiny** | cmenu | нх! | посѣтиіпельииць |
 | **paddleocr_cyrillic_v5_mobile** | cmenu | vue! | посьпипельниць |
+| **parseq_s_rukopys** | степи | них! | посьмительниць |
 | **trocr_russian_18th_century_printed** | спеми | Иеле | посьтительницъ |
 | **turkicocr_svtrv2_b** | стетии | кег і. | посьипельниць |
 | **paddleocr_eslav_v5_mobile** | cmenu | nue! | посьпипельниць |
-| **parseq_s_rukopys** | степи | них! | посьмительниць |
 | **parseq_b_rukopys** | степи | них! | посьмительницт |
 | **cyrillic_g2** | €<л2& | Илу < | посъпишпельницъ |
 | **cyrillic_g1** | (ели | иуе ! | посъшилельниц |

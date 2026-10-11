@@ -1,0 +1,28 @@
+{
+  "task": "recognition",
+  "dataset": "school_notebooks_ru",
+  "model": "paddleocr_v6_medium_ru",
+  "cpu": null,
+  "gpu": {
+    "device": "gpu:0",
+    "model_name": "PP-OCRv6_medium_rec",
+    "num_words": 27893,
+    "batch_size": 64,
+    "total_time_s": 65.09424639999634,
+    "mean_time_ms": 2.333712630408932,
+    "throughput_words_s": 428.5017730845344,
+    "ram_after_load_mb": 1459.55078125,
+    "ram_peak_mb": 1512.84765625,
+    "gpu_after_load_mb": 98.9052734375,
+    "gpu_peak_mb": 954.845703125,
+    "gpu_delta_mb": 855.9404296875,
+    "mean_confidence": 0.8788829527917386,
+    "accuracy_metrics": {
+      "cer": 0.14054974228719272,
+      "wer": 0.4747847042562994,
+      "exact_match": 0.5359767683648227,
+      "character_similarity": 0.8176478971336751,
+      "evaluated_words": 27893
+    }
+  }
+}

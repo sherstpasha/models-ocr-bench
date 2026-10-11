@@ -1,0 +1,28 @@
+{
+  "task": "recognition",
+  "dataset": "yenisei_gov_reports_prt",
+  "model": "paddleocr_v6_medium_ru",
+  "cpu": null,
+  "gpu": {
+    "device": "gpu:0",
+    "model_name": "PP-OCRv6_medium_rec",
+    "num_words": 15394,
+    "batch_size": 64,
+    "total_time_s": 39.51166600000579,
+    "mean_time_ms": 2.566692607509795,
+    "throughput_words_s": 389.6064519273306,
+    "ram_after_load_mb": 1542.23828125,
+    "ram_peak_mb": 1507.640625,
+    "gpu_after_load_mb": 104.8466796875,
+    "gpu_peak_mb": 2614.7275390625,
+    "gpu_delta_mb": 2509.880859375,
+    "mean_confidence": 0.9373383648166977,
+    "accuracy_metrics": {
+      "cer": 0.07672262357635617,
+      "wer": 0.30144725149168466,
+      "exact_match": 0.7096271274522541,
+      "character_similarity": 0.9244800876064081,
+      "evaluated_words": 15394
+    }
+  }
+}

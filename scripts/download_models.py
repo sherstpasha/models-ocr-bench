@@ -84,6 +84,8 @@ def download_main():
 
 def download_paddleocr():
     from configs.detection.benchmark_config import BENCHMARKS as detection
+    from configs.recognition.benchmark_config import BENCHMARKS as recognition
+    from scripts.recognition.benchmark_paddleocr import ensure_model
 
     home = detection["paddleocr_v6_medium_word"]["model_dir"]
     home.mkdir(parents=True, exist_ok=True)
@@ -111,6 +113,10 @@ def download_paddleocr():
     for model_name in ("cyrillic_PP-OCRv5_mobile_rec", "eslav_PP-OCRv5_mobile_rec"):
         announce(model_name)
         TextRecognition(model_name=model_name, device="cpu")
+    for name, config in recognition.items():
+        if config.get("backend") == "paddleocr" and config.get("repository"):
+            announce(name)
+            ensure_model(config)
 
 
 def download_rfdetr():

@@ -1,0 +1,59 @@
+{
+  "dataset": "bergskollegium_relationer_och_skrivelser_seg",
+  "level": "line",
+  "cpu": null,
+  "gpu": {
+    "device": "cuda:0",
+    "detection_level": "line",
+    "architecture": "NDLOCR-Lite DEIMv2 line detector",
+    "repository": "https://github.com/ndl-lab/ndlocr-lite",
+    "ground_truth_version": 4,
+    "num_images": 100,
+    "mean_time_ms": 259.82188699999824,
+    "median_time_ms": 267.9741500032833,
+    "throughput_fps": 3.8487904600585354,
+    "ram_after_load_mb": 1482.3203125,
+    "ram_peak_mb": 1482.3203125,
+    "ram_delta_mb": 0.0,
+    "gpu_after_load_mb": 0.0,
+    "gpu_peak_mb": 0.0,
+    "gpu_delta_mb": 0.0,
+    "accuracy_metrics": {
+      "iou_threshold": 0.5,
+      "precision": 0.12283044058744993,
+      "recall": 0.01853717509570824,
+      "f1": 0.03221288515406162,
+      "mean_matched_iou": 0.5597925478033364,
+      "true_positives": 92,
+      "false_positives": 657,
+      "false_negatives": 4871,
+      "evaluated_images": 100,
+      "f1@0.5": 0.03221288515406162,
+      "f1@0.5:0.95": 0.005742296918767506,
+      "f1_by_iou": {
+        "0.50": 0.03221288515406162,
+        "0.55": 0.01610644257703081,
+        "0.60": 0.00665266106442577,
+        "0.65": 0.0021008403361344537,
+        "0.70": 0.0003501400560224089,
+        "0.75": 0.0,
+        "0.80": 0.0,
+        "0.85": 0.0,
+        "0.90": 0.0,
+        "0.95": 0.0
+      }
+    },
+    "polygon_iou_metrics": {
+      "iou_threshold": 0.5,
+      "precision": 0.25100133511348466,
+      "recall": 0.03788031432601249,
+      "hmean": 0.06582633053221289,
+      "dice_f1": 0.017630835910749865,
+      "mean_matched_iou": 0.6131814558672872,
+      "true_positives": 188,
+      "false_positives": 561,
+      "false_negatives": 4775,
+      "evaluated_images": 100
+    }
+  }
+}

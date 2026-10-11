@@ -8,7 +8,7 @@ from pathlib import Path
 
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
-GROUPS = ("main", "paddleocr", "rfdetr", "arjuna", "ultralytics-line", "doc-ufcn", "surya", "kraken", "orli", "party", "pero", "rtmdet")
+GROUPS = ("main", "paddleocr", "rfdetr", "arjuna", "manga-onnx", "dbnet-onnx", "ndlocr-deimv2", "regnetx-polyline", "ultralytics-line", "doc-ufcn", "surya", "kraken", "orli", "party", "pero", "rtmdet")
 
 
 def announce(name):
@@ -129,6 +129,30 @@ def download_arjuna():
     ensure_model(BENCHMARKS["arjuna_ocr_kn_en_line"])
 
 
+def download_manga_onnx():
+    announce("PP-OCRv6 Manga v0.2 line detector")
+    from configs.line_detection.benchmark_config import BENCHMARKS
+    from scripts.line_detection.benchmark_manga_onnx import ensure_model
+    ensure_model(BENCHMARKS["ppocrv6_manga_det_v02_line"])
+
+
+def download_dbnet_onnx():
+    from configs.detection.benchmark_config import BENCHMARKS
+    from scripts.detection.benchmark_dbnet_onnx import ensure_model
+    ensure_model(BENCHMARKS["dbnet_khmer_word"])
+
+
+def download_ndlocr_deimv2():
+    announce("NDLOCR-Lite DEIMv2 line detector")
+    from scripts.line_detection.benchmark_ndlocr_deimv2 import CONFIG, ensure_model
+    ensure_model(CONFIG)
+
+
+def download_regnetx_polyline():
+    from scripts.line_detection.benchmark_regnetx_polyline import ensure_weights
+    ensure_weights(BENCHMARKS["regnetx_8gf_polyline_baseline_stage0_line"])
+
+
 def download_ultralytics_line():
     from configs.line_detection.benchmark_config import BENCHMARKS
     from huggingface_hub import hf_hub_download
@@ -196,6 +220,10 @@ DOWNLOADERS = {
     "paddleocr": download_paddleocr,
     "rfdetr": download_rfdetr,
     "arjuna": download_arjuna,
+    "manga-onnx": download_manga_onnx,
+    "dbnet-onnx": download_dbnet_onnx,
+    "ndlocr-deimv2": download_ndlocr_deimv2,
+    "regnetx-polyline": download_regnetx_polyline,
     "ultralytics-line": download_ultralytics_line,
     "doc-ufcn": download_doc_ufcn,
     "surya": download_surya,

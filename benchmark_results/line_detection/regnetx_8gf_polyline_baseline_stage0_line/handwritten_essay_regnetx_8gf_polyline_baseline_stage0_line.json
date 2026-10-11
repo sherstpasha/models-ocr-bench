@@ -1,0 +1,59 @@
+{
+  "dataset": "handwritten_essay",
+  "level": "line",
+  "cpu": null,
+  "gpu": {
+    "device": "cuda:0",
+    "detection_level": "line",
+    "architecture": "RegNetX-8GF Stage-0 polyline baseline detector",
+    "repository": "https://huggingface.co/johnlockejrr/regnetx-8gf-polyline-baseline-stage0",
+    "ground_truth_version": 4,
+    "num_images": 28,
+    "mean_time_ms": 3151.3420035704,
+    "median_time_ms": 2859.5779499992204,
+    "throughput_fps": 0.3173251265229297,
+    "ram_after_load_mb": 864.98828125,
+    "ram_peak_mb": 1653.7109375,
+    "ram_delta_mb": 788.72265625,
+    "gpu_after_load_mb": 207.68896484375,
+    "gpu_peak_mb": 647.919921875,
+    "gpu_delta_mb": 440.23095703125,
+    "accuracy_metrics": {
+      "iou_threshold": 0.5,
+      "precision": 0.5018773466833542,
+      "recall": 0.5931952662721893,
+      "f1": 0.543728813559322,
+      "mean_matched_iou": 0.7474740282738621,
+      "true_positives": 401,
+      "false_positives": 398,
+      "false_negatives": 275,
+      "evaluated_images": 28,
+      "f1@0.5": 0.543728813559322,
+      "f1@0.5:0.95": 0.2958644067796611,
+      "f1_by_iou": {
+        "0.50": 0.543728813559322,
+        "0.55": 0.5233898305084747,
+        "0.60": 0.504406779661017,
+        "0.65": 0.4515254237288136,
+        "0.70": 0.3877966101694915,
+        "0.75": 0.28067796610169493,
+        "0.80": 0.17355932203389832,
+        "0.85": 0.07186440677966101,
+        "0.90": 0.018983050847457626,
+        "0.95": 0.002711864406779661
+      }
+    },
+    "polygon_iou_metrics": {
+      "iou_threshold": 0.5,
+      "precision": 0.4230287859824781,
+      "recall": 0.5,
+      "hmean": 0.4583050847457627,
+      "dice_f1": 0.6298613375950932,
+      "mean_matched_iou": 0.6334585304794862,
+      "true_positives": 338,
+      "false_positives": 461,
+      "false_negatives": 338,
+      "evaluated_images": 28
+    }
+  }
+}

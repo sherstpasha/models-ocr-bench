@@ -12,5 +12,10 @@
 | **doctr_db_resnet50** | <img src="assets/word_detection/doctr_db_resnet50_russian_old_orthography_page_007.jpg" width="300"> | <img src="assets/word_detection/doctr_db_resnet50_handwritten_essay_test_10_0.jpg" width="300"> | <img src="assets/word_detection/doctr_db_resnet50_TotalText_img632.jpg" width="300"> |
 | **craft_easyocr** | <img src="assets/word_detection/craft_easyocr_russian_old_orthography_page_007.jpg" width="300"> | <img src="assets/word_detection/craft_easyocr_handwritten_essay_test_10_0.jpg" width="300"> | <img src="assets/word_detection/craft_easyocr_TotalText_img632.jpg" width="300"> |
 | **yolo11x_dialectic** | <img src="assets/word_detection/yolo11x_dialectic_russian_old_orthography_page_007.jpg" width="300"> | <img src="assets/word_detection/yolo11x_dialectic_handwritten_essay_test_10_0.jpg" width="300"> | <img src="assets/word_detection/yolo11x_dialectic_TotalText_img632.jpg" width="300"> |
+| **dbnet_khmer_word** | <img src="assets/word_detection/dbnet_khmer_word_russian_old_orthography_page_007.jpg" width="300"> | <img src="assets/word_detection/dbnet_khmer_word_handwritten_essay_test_10_0.jpg" width="300"> | <img src="assets/word_detection/dbnet_khmer_word_TotalText_img632.jpg" width="300"> |
 | **openocr_repvit_db** | <img src="assets/word_detection/openocr_repvit_db_russian_old_orthography_page_007.jpg" width="300"> | <img src="assets/word_detection/openocr_repvit_db_handwritten_essay_test_10_0.jpg" width="300"> | <img src="assets/word_detection/openocr_repvit_db_TotalText_img632.jpg" width="300"> |
 | **paddleocr_v6_medium_word** | <img src="assets/word_detection/paddleocr_v6_medium_word_russian_old_orthography_page_007.jpg" width="300"> | <img src="assets/word_detection/paddleocr_v6_medium_word_handwritten_essay_test_10_0.jpg" width="300"> | <img src="assets/word_detection/paddleocr_v6_medium_word_TotalText_img632.jpg" width="300"> |
+| **paddleocr_v6_small_word** | — | — | — |
+| **paddleocr_v6_tiny_word** | — | — | — |
+| **paddleocr_v5_mobile_word** | — | — | — |
+| **paddleocr_v5_server_word** | — | — | — |

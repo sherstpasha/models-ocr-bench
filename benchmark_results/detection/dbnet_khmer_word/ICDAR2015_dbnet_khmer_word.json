@@ -1,0 +1,56 @@
+{
+  "dataset": "ICDAR2015",
+  "cpu": null,
+  "gpu": {
+    "device": "cuda:0",
+    "architecture": "DBNet MobileNetV3 + FPN",
+    "word_level_target": true,
+    "repository": "https://huggingface.co/Darayut/dbnet-khmer",
+    "num_images": 200,
+    "mean_time_ms": 116.01336050001919,
+    "median_time_ms": 118.31789999996545,
+    "throughput_fps": 8.619696866722817,
+    "ram_after_load_mb": 1602.0859375,
+    "ram_peak_mb": 1602.0859375,
+    "ram_delta_mb": 0.0,
+    "gpu_after_load_mb": 0.0,
+    "gpu_peak_mb": 0.0,
+    "accuracy_metrics": {
+      "iou_threshold": 0.5,
+      "precision": 0.013864390037395046,
+      "recall": 0.15502958579881657,
+      "f1": 0.025452543635244972,
+      "mean_matched_iou": 0.7316347397404365,
+      "true_positives": 393,
+      "false_positives": 27953,
+      "false_negatives": 2142,
+      "evaluated_images": 200,
+      "f1@0.5": 0.025452543635244972,
+      "f1@0.5:0.95": 0.01310838379586153,
+      "f1_by_iou": {
+        "0.50": 0.025452543635244972,
+        "0.55": 0.022732424468119555,
+        "0.60": 0.02014183478514297,
+        "0.65": 0.018263657264984943,
+        "0.70": 0.015543538097859523,
+        "0.75": 0.01230530099413879,
+        "0.80": 0.009196593374566886,
+        "0.85": 0.004986885139729931,
+        "0.90": 0.0022667659726045143,
+        "0.95": 0.0001942942262232441
+      }
+    },
+    "polygon_iou_metrics": {
+      "iou_threshold": 0.5,
+      "precision": 0.01319410146052353,
+      "recall": 0.147534516765286,
+      "hmean": 0.024222013535831092,
+      "dice_f1": 0.25763586012439726,
+      "mean_matched_iou": 0.6979056603592226,
+      "true_positives": 374,
+      "false_positives": 27972,
+      "false_negatives": 2161,
+      "evaluated_images": 200
+    }
+  }
+}

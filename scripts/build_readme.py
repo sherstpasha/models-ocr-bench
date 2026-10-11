@@ -11,6 +11,7 @@ PROJECT_ROOT = Path(__file__).resolve().parents[1]
 VERSION = "v2"
 
 MODEL_LICENSES = {
+    "ndlocr_lite_deimv2_line": "CC-BY-4.0 / DINOv3",
     "east_50_g1": "MIT",
     "east_50_yenisei_gov_reports_g1": "MIT",
     "yolo26s_obb_text_g1": "AGPL-3.0",
@@ -32,6 +33,9 @@ MODEL_LICENSES = {
     "paddleocr_v5_mobile_line": "Apache-2.0",
     "paddleocr_v5_server_line": "Apache-2.0",
     "arjuna_ocr_kn_en_line": "Apache-2.0",
+    "ppocrv6_manga_det_v02_line": "Apache-2.0",
+    "dbnet_khmer_word": "MIT",
+    "regnetx_8gf_polyline_baseline_stage0_line": "Apache-2.0",
     "rfdetr_textline_textregion_2xl": "Apache-2.0",
     "rfdetr_textline_textregion_seg_preview": "Apache-2.0",
     "rfdetr_leibniz_text_regions": "CC-BY-4.0",

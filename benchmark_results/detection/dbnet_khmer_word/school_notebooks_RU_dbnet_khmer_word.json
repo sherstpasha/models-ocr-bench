@@ -1,0 +1,56 @@
+{
+  "dataset": "school_notebooks_RU",
+  "cpu": null,
+  "gpu": {
+    "device": "cuda:0",
+    "architecture": "DBNet MobileNetV3 + FPN",
+    "word_level_target": true,
+    "repository": "https://huggingface.co/Darayut/dbnet-khmer",
+    "num_images": 150,
+    "mean_time_ms": 158.3913353335326,
+    "median_time_ms": 160.6014499993762,
+    "throughput_fps": 6.313476667737221,
+    "ram_after_load_mb": 1676.17578125,
+    "ram_peak_mb": 1676.44140625,
+    "ram_delta_mb": 0.265625,
+    "gpu_after_load_mb": 0.0,
+    "gpu_peak_mb": 0.0,
+    "accuracy_metrics": {
+      "iou_threshold": 0.5,
+      "precision": 0.5157027045439062,
+      "recall": 0.5427885132470512,
+      "f1": 0.5288990585317287,
+      "mean_matched_iou": 0.7198810622773295,
+      "true_positives": 15140,
+      "false_positives": 14218,
+      "false_negatives": 12753,
+      "evaluated_images": 150,
+      "f1@0.5": 0.5288990585317287,
+      "f1@0.5:0.95": 0.2595168643342474,
+      "f1_by_iou": {
+        "0.50": 0.5288990585317287,
+        "0.55": 0.48442821959441756,
+        "0.60": 0.434263156975424,
+        "0.65": 0.37284938254353633,
+        "0.70": 0.30266720231961014,
+        "0.75": 0.22651132731306003,
+        "0.80": 0.14522017082671043,
+        "0.85": 0.07566680057990254,
+        "0.90": 0.02249742362578819,
+        "0.95": 0.002165901032296379
+      }
+    },
+    "polygon_iou_metrics": {
+      "iou_threshold": 0.5,
+      "precision": 0.5205736085564412,
+      "recall": 0.5479152475531496,
+      "hmean": 0.5338946044610575,
+      "dice_f1": 0.8000947547632882,
+      "mean_matched_iou": 0.6833544449300232,
+      "true_positives": 15283,
+      "false_positives": 14075,
+      "false_negatives": 12610,
+      "evaluated_images": 150
+    }
+  }
+}

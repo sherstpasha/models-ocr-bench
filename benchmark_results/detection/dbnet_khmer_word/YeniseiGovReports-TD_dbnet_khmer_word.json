@@ -1,0 +1,56 @@
+{
+  "dataset": "YeniseiGovReports-TD",
+  "cpu": null,
+  "gpu": {
+    "device": "cuda:0",
+    "architecture": "DBNet MobileNetV3 + FPN",
+    "word_level_target": true,
+    "repository": "https://huggingface.co/Darayut/dbnet-khmer",
+    "num_images": 270,
+    "mean_time_ms": 189.7448122222327,
+    "median_time_ms": 191.86114999865822,
+    "throughput_fps": 5.270236315229432,
+    "ram_after_load_mb": 1416.75,
+    "ram_peak_mb": 1537.30078125,
+    "ram_delta_mb": 120.55078125,
+    "gpu_after_load_mb": 0.0,
+    "gpu_peak_mb": 0.0,
+    "accuracy_metrics": {
+      "iou_threshold": 0.5,
+      "precision": 0.4881387025413212,
+      "recall": 0.5602782709219273,
+      "f1": 0.5217265938121738,
+      "mean_matched_iou": 0.7449587651166809,
+      "true_positives": 27141,
+      "false_positives": 28460,
+      "false_negatives": 21301,
+      "evaluated_images": 270,
+      "f1@0.5": 0.5217265938121738,
+      "f1@0.5:0.95": 0.2818027161846544,
+      "f1_by_iou": {
+        "0.50": 0.5217265938121738,
+        "0.55": 0.49048950914525724,
+        "0.60": 0.4534471324356276,
+        "0.65": 0.4067164537739204,
+        "0.70": 0.3488365387387907,
+        "0.75": 0.27263727497284773,
+        "0.80": 0.18357794373480193,
+        "0.85": 0.1002470132541353,
+        "0.90": 0.03585056178695347,
+        "0.95": 0.0044981401920359855
+      }
+    },
+    "polygon_iou_metrics": {
+      "iou_threshold": 0.5,
+      "precision": 0.4851711300156472,
+      "recall": 0.5568721357499691,
+      "hmean": 0.5185548282921485,
+      "dice_f1": 0.6758831479448721,
+      "mean_matched_iou": 0.7359180675149107,
+      "true_positives": 26976,
+      "false_positives": 28625,
+      "false_negatives": 21466,
+      "evaluated_images": 270
+    }
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "dataset": "svea_hovratt_seg",
+  "level": "line",
+  "cpu": null,
+  "gpu": {
+    "device": "cuda:0",
+    "detection_level": "line",
+    "architecture": "PP-OCRv6 Manga v0.2 line detector",
+    "repository": "https://huggingface.co/Kellenok/PP-OCRv6_manga",
+    "ground_truth_version": 4,
+    "num_images": 100,
+    "mean_time_ms": 179.11438800001633,
+    "median_time_ms": 174.81745000077353,
+    "throughput_fps": 5.583024407843265,
+    "ram_after_load_mb": 1405.1875,
+    "ram_peak_mb": 1405.19921875,
+    "ram_delta_mb": 0.01171875,
+    "gpu_after_load_mb": 0.0,
+    "gpu_peak_mb": 0.0,
+    "gpu_delta_mb": 0.0,
+    "accuracy_metrics": {
+      "iou_threshold": 0.5,
+      "precision": 0.5738552437223042,
+      "recall": 0.6728729162156311,
+      "f1": 0.6194319880418534,
+      "mean_matched_iou": 0.6500456299766412,
+      "true_positives": 3108,
+      "false_positives": 2308,
+      "false_negatives": 1511,
+      "evaluated_images": 100,
+      "f1@0.5": 0.6194319880418534,
+      "f1@0.5:0.95": 0.2175186846038864,
+      "f1_by_iou": {
+        "0.50": 0.6194319880418534,
+        "0.55": 0.512406576980568,
+        "0.60": 0.3964125560538117,
+        "0.65": 0.28181365221723964,
+        "0.70": 0.18156452416542104,
+        "0.75": 0.10303936223218736,
+        "0.80": 0.05142002989536622,
+        "0.85": 0.02192326856003986,
+        "0.90": 0.006178375685102142,
+        "0.95": 0.0009965122072745393
+      }
+    },
+    "polygon_iou_metrics": {
+      "iou_threshold": 0.5,
+      "precision": 0.6802067946824224,
+      "recall": 0.797575232734358,
+      "hmean": 0.7342301943198803,
+      "dice_f1": 0.8440938395120096,
+      "mean_matched_iou": 0.6669135929694875,
+      "true_positives": 3684,
+      "false_positives": 1732,
+      "false_negatives": 935,
+      "evaluated_images": 100
+    }
+  }
+}

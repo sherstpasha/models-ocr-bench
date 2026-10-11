@@ -1,0 +1,59 @@
+{
+  "dataset": "handwritten_essay",
+  "level": "line",
+  "cpu": null,
+  "gpu": {
+    "device": "cuda:0",
+    "detection_level": "line",
+    "architecture": "NDLOCR-Lite DEIMv2 line detector",
+    "repository": "https://github.com/ndl-lab/ndlocr-lite",
+    "ground_truth_version": 4,
+    "num_images": 28,
+    "mean_time_ms": 81.64613214259069,
+    "median_time_ms": 78.69615000163321,
+    "throughput_fps": 12.247977629283803,
+    "ram_after_load_mb": 1428.80859375,
+    "ram_peak_mb": 1428.96875,
+    "ram_delta_mb": 0.16015625,
+    "gpu_after_load_mb": 0.0,
+    "gpu_peak_mb": 0.0,
+    "gpu_delta_mb": 0.0,
+    "accuracy_metrics": {
+      "iou_threshold": 0.5,
+      "precision": 0.5409836065573771,
+      "recall": 0.04881656804733728,
+      "f1": 0.08955223880597014,
+      "mean_matched_iou": 0.6276634496323457,
+      "true_positives": 33,
+      "false_positives": 28,
+      "false_negatives": 643,
+      "evaluated_images": 28,
+      "f1@0.5": 0.08955223880597014,
+      "f1@0.5:0.95": 0.027408412483039345,
+      "f1_by_iou": {
+        "0.50": 0.08955223880597014,
+        "0.55": 0.07869742198100407,
+        "0.60": 0.04341926729986431,
+        "0.65": 0.02985074626865672,
+        "0.70": 0.016282225237449117,
+        "0.75": 0.013568521031207597,
+        "0.80": 0.0027137042062415195,
+        "0.85": 0.0,
+        "0.90": 0.0,
+        "0.95": 0.0
+      }
+    },
+    "polygon_iou_metrics": {
+      "iou_threshold": 0.5,
+      "precision": 0.5901639344262295,
+      "recall": 0.05325443786982249,
+      "hmean": 0.0976933514246947,
+      "dice_f1": 0.43699817942590047,
+      "mean_matched_iou": 0.7068979831411187,
+      "true_positives": 36,
+      "false_positives": 25,
+      "false_negatives": 640,
+      "evaluated_images": 28
+    }
+  }
+}

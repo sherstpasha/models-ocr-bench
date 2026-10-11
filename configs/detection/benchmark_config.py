@@ -13,6 +13,24 @@ DATA_ROOT = Path(os.environ.get(
 OLD_ORTHOGRAPHY_ROOT = DATA_ROOT / "russian_old_orthography_ocr"
 
 BENCHMARKS = {
+    "dbnet_khmer_word": {
+        "origin": "https://huggingface.co/Darayut/dbnet-khmer",
+        "run": True,
+        "backend": "dbnet_onnx",
+        "script": PROJECT_ROOT / "scripts" / "detection" / "benchmark_dbnet_onnx.py",
+        "output_dir": RESULTS_ROOT / "dbnet_khmer_word",
+        "model_dir": PROJECT_ROOT / "models" / "dbnet-khmer",
+        "repository": "Darayut/dbnet-khmer",
+        "filename": "khmer_dbnet_mobilenetv3.onnx",
+        "device": "cuda:0",
+        "short_size": 1088,
+        "threshold": 0.3,
+        "box_threshold": 0.3,
+        "unclip_ratio": 1.5,
+        "warmup": 1,
+        "cpu_only": False,
+        "gpu_only": True,
+    },
     "east_50_yenisei_gov_reports_g1": {
         "origin": "https://github.com/konstantinkozhin/manuscript-ocr",
         "run": True,

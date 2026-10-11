@@ -7,6 +7,10 @@ TRAINING_DATASET_OVERLAPS = {
     "east_50_g1": {"YeniseiGovReports-TD", "ICDAR2015"},
     "east_50_yenisei_gov_reports_g1": {"YeniseiGovReports-TD"},
     "mask2former_line_v0_prev": {"handwritten_essay", "school_notebooks_ru"},
+    "doc_ufcn_generic_historical_line_x3_y8": {
+        "russian_old_orthography",
+        "school_notebooks_ru",
+    },
     "trba_base_g1": {
         "school_notebooks_ru",
         "yenisei_gov_reports_hwr",

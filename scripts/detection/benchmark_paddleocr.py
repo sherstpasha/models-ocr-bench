@@ -1,4 +1,4 @@
-"""Benchmark PP-OCRv6 medium detection with word-level output."""
+"""Benchmark PaddleOCR detectors with word-level output."""
 
 import gc
 import json
@@ -15,11 +15,10 @@ from utils.metrics import evaluate_dataset
 from utils.prediction_artifacts import prediction_artifact_path, save_predictions
 
 
-MODEL_NAME = "paddleocr_v6_medium_word"
-CONFIG = BENCHMARKS[MODEL_NAME]
-
 # PaddleX uses this directory for automatically downloaded official models.
-os.environ.setdefault("PADDLE_PDX_CACHE_HOME", str(CONFIG["model_dir"]))
+os.environ.setdefault(
+    "PADDLE_PDX_CACHE_HOME", str(Path(__file__).resolve().parents[2] / "models" / "paddleocr")
+)
 
 # ModelScope (loaded by PaddleOCR) imports its CPU-only Torch dependency. On
 # Windows Torch must load first, before Paddle adds its CUDA DLLs to the process.
@@ -119,31 +118,31 @@ def detect_words(ocr, image_path):
     return flatten_word_boxes(raw_boxes)
 
 
-def create_pipeline():
-    CONFIG["model_dir"].mkdir(parents=True, exist_ok=True)
+def create_pipeline(config):
+    config["model_dir"].mkdir(parents=True, exist_ok=True)
     return PaddleOCR(
-        text_detection_model_name=CONFIG["detection_model"],
-        text_recognition_model_name=CONFIG["recognition_model"],
+        text_detection_model_name=config["detection_model"],
+        text_recognition_model_name=config["recognition_model"],
         use_doc_orientation_classify=False,
         use_doc_unwarping=False,
         use_textline_orientation=False,
-        return_word_box=CONFIG["return_word_box"],
-        text_det_limit_side_len=CONFIG["text_det_limit_side_len"],
-        text_det_limit_type=CONFIG["text_det_limit_type"],
-        device=CONFIG["device"],
+        return_word_box=config["return_word_box"],
+        text_det_limit_side_len=config["text_det_limit_side_len"],
+        text_det_limit_type=config["text_det_limit_type"],
+        device=config["device"],
     )
 
 
-def benchmark_gpu(images, dataset_config):
+def benchmark_gpu(config, images, dataset_config):
     gc.collect()
     paddle.device.cuda.empty_cache()
     paddle.device.cuda.reset_max_memory_allocated()
 
-    ocr = create_pipeline()
+    ocr = create_pipeline(config)
     ram_after_load = psutil.Process().memory_info().rss / 1024**2
     gpu_after_load = gpu_memory_mb()
 
-    for image_path in images[: CONFIG["warmup"]]:
+    for image_path in images[: config["warmup"]]:
         detect_words(ocr, image_path)
     cuda_synchronize()
 
@@ -160,9 +159,9 @@ def benchmark_gpu(images, dataset_config):
     ram_peak = psutil.Process().memory_info().rss / 1024**2
     gpu_peak = paddle.device.cuda.max_memory_allocated() / 1024**2
     return {
-        "device": CONFIG["device"],
-        "detection_model": CONFIG["detection_model"],
-        "recognition_model_for_word_split": CONFIG["recognition_model"],
+        "device": config["device"],
+        "detection_model": config["detection_model"],
+        "recognition_model_for_word_split": config["recognition_model"],
         "return_word_box": True,
         "num_images": len(images),
         "mean_time_ms": float(values.mean() * 1000),
@@ -181,33 +180,39 @@ def main():
     if not paddle.is_compiled_with_cuda() or paddle.device.cuda.device_count() < 1:
         raise RuntimeError("PaddleOCR benchmark requires PaddlePaddle with CUDA")
 
-    output_dir = Path(CONFIG["output_dir"])
-    output_dir.mkdir(parents=True, exist_ok=True)
-    for dataset_name, dataset in DATASETS.items():
-        print(f"\n### DATASET: {dataset_name}")
-        output_file = output_dir / f"{dataset_name}_{MODEL_NAME}.json"
-        if output_file.is_file():
-            existing = json.loads(output_file.read_text(encoding="utf-8")).get("gpu")
-            if result_is_compatible(existing, dataset) and prediction_artifact_path(output_file).is_file():
-                print(f"Skip: already completed ({output_file})")
+    only_model = os.environ.get("OCR_BENCH_ONLY_MODEL")
+    models = {
+        name: config for name, config in BENCHMARKS.items()
+        if config.get("backend") == "paddleocr"
+        and (only_model is None or only_model == name)
+    }
+    for model_name, config in models.items():
+        print(f"\n## MODEL: {model_name}")
+        output_dir = Path(config["output_dir"])
+        output_dir.mkdir(parents=True, exist_ok=True)
+        for dataset_name, dataset in DATASETS.items():
+            print(f"\n### DATASET: {dataset_name}")
+            output_file = output_dir / f"{dataset_name}_{model_name}.json"
+            if output_file.is_file():
+                existing = json.loads(output_file.read_text(encoding="utf-8")).get("gpu")
+                if result_is_compatible(existing, dataset) and prediction_artifact_path(output_file).is_file():
+                    print(f"Skip: already completed ({output_file})")
+                    continue
+            images = get_image_files(dataset["folder"])
+            if not images or not dataset["annotations"].is_file():
+                print("Skip: missing images or annotations")
                 continue
-
-        images = get_image_files(dataset["folder"])
-        if not images or not dataset["annotations"].is_file():
-            print("Skip: missing images or annotations")
-            continue
-
-        ground_truths = load_ground_truth(dataset["annotations"])
-        gpu_stats = benchmark_gpu(images, dataset)
-        save_predictions(output_file, gpu_stats["predictions"])
-        gpu_stats["accuracy_metrics"] = evaluate_dataset(
-            gpu_stats.pop("predictions"), ground_truths
-        )
-        result = {"dataset": dataset_name, "cpu": None, "gpu": gpu_stats}
-        output_file.write_text(
-            json.dumps(result, ensure_ascii=False, indent=2), encoding="utf-8"
-        )
-        print(f"Saved: {output_file}")
+            ground_truths = load_ground_truth(dataset["annotations"])
+            gpu_stats = benchmark_gpu(config, images, dataset)
+            save_predictions(output_file, gpu_stats["predictions"])
+            gpu_stats["accuracy_metrics"] = evaluate_dataset(
+                gpu_stats.pop("predictions"), ground_truths
+            )
+            result = {"dataset": dataset_name, "cpu": None, "gpu": gpu_stats}
+            output_file.write_text(
+                json.dumps(result, ensure_ascii=False, indent=2), encoding="utf-8"
+            )
+            print(f"Saved: {output_file}")
 
 
 if __name__ == "__main__":

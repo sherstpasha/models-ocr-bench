@@ -16,5 +16,10 @@
 | **riksarkivet_rtmdet_lines** | <img src="assets/line_detection/riksarkivet_rtmdet_lines_russian_old_orthography_page_007.jpg" width="300"> | <img src="assets/line_detection/riksarkivet_rtmdet_lines_school_notebooks_ru_2647.jpg" width="300"> | <img src="assets/line_detection/riksarkivet_rtmdet_lines_gota_hovratt_seg_image_00026.jpg" width="300"> |
 | **surya_text_line_detection** | <img src="assets/line_detection/surya_text_line_detection_russian_old_orthography_page_007.jpg" width="300"> | <img src="assets/line_detection/surya_text_line_detection_school_notebooks_ru_2647.jpg" width="300"> | <img src="assets/line_detection/surya_text_line_detection_gota_hovratt_seg_image_00026.jpg" width="300"> |
 | **pero_layout_general** | <img src="assets/line_detection/pero_layout_general_russian_old_orthography_page_007.jpg" width="300"> | <img src="assets/line_detection/pero_layout_general_school_notebooks_ru_2647.jpg" width="300"> | <img src="assets/line_detection/pero_layout_general_gota_hovratt_seg_image_00026.jpg" width="300"> |
+| **doc_ufcn_generic_historical_line_x3_y8** | <img src="assets/line_detection/doc_ufcn_generic_historical_line_x3_y8_russian_old_orthography_page_007.jpg" width="300"> | <img src="assets/line_detection/doc_ufcn_generic_historical_line_x3_y8_school_notebooks_ru_2647.jpg" width="300"> | <img src="assets/line_detection/doc_ufcn_generic_historical_line_x3_y8_gota_hovratt_seg_image_00026.jpg" width="300"> |
 | **doc_ufcn_generic_historical_line** | <img src="assets/line_detection/doc_ufcn_generic_historical_line_russian_old_orthography_page_007.jpg" width="300"> | <img src="assets/line_detection/doc_ufcn_generic_historical_line_school_notebooks_ru_2647.jpg" width="300"> | <img src="assets/line_detection/doc_ufcn_generic_historical_line_gota_hovratt_seg_image_00026.jpg" width="300"> |
+| **paddleocr_v6_small_line** | — | — | — |
+| **paddleocr_v6_tiny_line** | — | — | — |
+| **paddleocr_v5_mobile_line** | — | — | — |
+| **paddleocr_v5_server_line** | — | — | — |
 | **orli_base** | — | — | — |

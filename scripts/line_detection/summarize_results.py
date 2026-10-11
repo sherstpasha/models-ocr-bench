@@ -82,7 +82,7 @@ def write_summary():
         "# Line-level detection benchmark",
         "",
         "Each dataset cell: `F1@0.5 / F1@0.5:0.95 / Dice F1 / Polygon H-mean@0.5`.",
-        "`*` marks a dataset known to have been used to train that model.",
+        "`*` marks a dataset known to have been used to train or tune that model.",
         "`Mean Metric Rank` averages conventional ranks across the four mean metrics: rank 1 is best. Rows are sorted by it in ascending order.",
         "",
         "| " + " | ".join(headers) + " |",

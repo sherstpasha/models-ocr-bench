@@ -3,6 +3,7 @@ import gc
 import json
 import os
 import re
+import shutil
 import time
 
 import psutil
@@ -152,6 +153,9 @@ def run_model(model_name, model_config, dataset_name, dataset_config):
     result_path = output_dir / f"{dataset_name}_{model_name}.json"
     predictions_path = output_dir / f"{dataset_name}_{model_name}.csv"
     checkpoint_path = output_dir / f"{dataset_name}_{model_name}.checkpoint.json"
+    checkpoint_backup_path = checkpoint_path.with_suffix(
+        checkpoint_path.suffix + ".bak"
+    )
     if completed_result(result_path):
         print(f"Skip: already completed ({result_path})")
         return
@@ -206,10 +210,19 @@ def run_model(model_name, model_config, dataset_name, dataset_config):
     torch.cuda.synchronize()
     ram_after_load = psutil.Process().memory_info().rss / 1024**2
     checkpoint = {"raw_predictions": [], "elapsed_s": 0.0}
-    if checkpoint_path.is_file():
-        checkpoint = json.loads(checkpoint_path.read_text(encoding="utf-8"))
-        if len(checkpoint.get("raw_predictions", [])) > len(samples):
-            checkpoint = {"raw_predictions": [], "elapsed_s": 0.0}
+    for candidate in (checkpoint_path, checkpoint_backup_path):
+        if not candidate.is_file():
+            continue
+        try:
+            loaded = json.loads(candidate.read_text(encoding="utf-8"))
+        except (OSError, UnicodeDecodeError, json.JSONDecodeError):
+            print(f"Ignore damaged checkpoint: {candidate}")
+            continue
+        if len(loaded.get("raw_predictions", [])) <= len(samples):
+            checkpoint = loaded
+            if candidate == checkpoint_backup_path:
+                print(f"Resume from checkpoint backup: {candidate}")
+            break
     resumed_predictions = checkpoint.get("raw_predictions", [])
     elapsed_before = float(checkpoint.get("elapsed_s", 0.0))
     started = time.perf_counter()
@@ -225,6 +238,8 @@ def run_model(model_name, model_config, dataset_name, dataset_config):
         )
         for attempt in range(5):
             try:
+                if checkpoint_path.is_file():
+                    shutil.copy2(checkpoint_path, checkpoint_backup_path)
                 temporary.replace(checkpoint_path)
                 break
             except PermissionError:
@@ -304,6 +319,7 @@ def run_model(model_name, model_config, dataset_name, dataset_config):
             )
     print(f"Saved: {result_path}")
     checkpoint_path.unlink(missing_ok=True)
+    checkpoint_backup_path.unlink(missing_ok=True)
 
 
 def main():

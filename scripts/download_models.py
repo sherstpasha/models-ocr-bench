@@ -91,17 +91,23 @@ def download_paddleocr():
     import torch  # noqa: F401
     from paddleocr import PaddleOCR, TextRecognition
 
-    config = detection["paddleocr_v6_medium_word"]
-    announce("PaddleOCR PP-OCRv6 detector")
-    PaddleOCR(
-        text_detection_model_name=config["detection_model"],
-        text_recognition_model_name=config["recognition_model"],
-        use_doc_orientation_classify=False,
-        use_doc_unwarping=False,
-        use_textline_orientation=False,
-        return_word_box=True,
-        device="cpu",
+    detector_models = dict.fromkeys(
+        config["detection_model"]
+        for config in detection.values()
+        if config.get("backend") == "paddleocr"
     )
+    config = detection["paddleocr_v6_medium_word"]
+    for detector_model in detector_models:
+        announce(f"PaddleOCR {detector_model}")
+        PaddleOCR(
+            text_detection_model_name=detector_model,
+            text_recognition_model_name=config["recognition_model"],
+            use_doc_orientation_classify=False,
+            use_doc_unwarping=False,
+            use_textline_orientation=False,
+            return_word_box=True,
+            device="cpu",
+        )
     for model_name in ("cyrillic_PP-OCRv5_mobile_rec", "eslav_PP-OCRv5_mobile_rec"):
         announce(model_name)
         TextRecognition(model_name=model_name, device="cpu")

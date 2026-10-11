@@ -1,7 +1,7 @@
 # Line-level detection benchmark
 
 Each dataset cell: `F1@0.5 / F1@0.5:0.95 / Dice F1 / Polygon H-mean@0.5`.
-`*` marks a dataset known to have been used to train that model.
+`*` marks a dataset known to have been used to train or tune that model.
 `Mean Metric Rank` averages conventional ranks across the four mean metrics: rank 1 is best. Rows are sorted by it in ascending order.
 
 | Model | Origin | Mean F1@0.5 | Mean F1@0.5:0.95 | Mean Dice F1 | Mean Polygon H-mean@0.5 | Mean Metric Rank | [russian_old_orthography](https://huggingface.co/datasets/nevmenandr/russian-old-orthography-ocr) | [handwritten_essay](https://huggingface.co/datasets/sherstpasha/handwritten_essay) | [school_notebooks_ru](https://huggingface.co/datasets/ai-forever/school_notebooks_RU) | [gota_hovratt_seg](https://huggingface.co/datasets/Riksarkivet/gota_hovratt_seg) | [svea_hovratt_seg](https://huggingface.co/datasets/Riksarkivet/svea_hovratt_seg) | [bergskollegium_relationer_och_skrivelser_seg](https://huggingface.co/datasets/Riksarkivet/bergskollegium_relationer_och_skrivelser_seg) | Mean GPU FPS |
@@ -18,5 +18,10 @@ Each dataset cell: `F1@0.5 / F1@0.5:0.95 / Dice F1 / Polygon H-mean@0.5`.
 | riksarkivet_rtmdet_lines | [source](https://huggingface.co/Riksarkivet/rtmdet_lines) | 0.82 | 0.47 | 0.82 | 0.85 | 9.75 | 0.76 / 0.56 / 0.74 / 0.76 | 0.87 / 0.50 / 0.86 / 0.86 | 0.81 / 0.48 / 0.84 / 0.79 | 0.80 / 0.34 / 0.81 / 0.90 | 0.73 / 0.31 / 0.77 / 0.82 | 0.96 / 0.63 / 0.90 / 0.96 | 2.22 |
 | surya_text_line_detection | [source](https://github.com/datalab-to/surya) | 0.75 | 0.35 | 0.88 | 0.75 | 10.50 | 0.91 / 0.52 / 0.88 / 0.92 | 0.95 / 0.53 / 0.92 / 0.94 | 0.72 / 0.38 / 0.89 / 0.71 | 0.76 / 0.31 / 0.88 / 0.75 | 0.36 / 0.13 / 0.85 / 0.38 | 0.80 / 0.25 / 0.87 / 0.80 | 2.99 |
 | pero_layout_general | [source](https://github.com/DCGM/pero-ocr) | 0.74 | 0.37 | 0.85 | 0.74 | 11.25 | 0.97 / 0.67 / 0.90 / 0.97 | 0.77 / 0.30 / 0.83 / 0.76 | 0.56 / 0.27 / 0.83 / 0.54 | 0.79 / 0.36 / 0.87 / 0.82 | 0.56 / 0.20 / 0.80 / 0.59 | 0.80 / 0.41 / 0.88 / 0.78 | 5.19 |
-| doc_ufcn_generic_historical_line | [source](https://huggingface.co/Teklia/doc-ufcn-generic-historical-line) | 0.27 | 0.10 | 0.60 | 0.22 | 13.00 | 0.85 / 0.42 / 0.72 / 0.57 | 0.10 / 0.02 / 0.49 / 0.01 | 0.33 / 0.09 / 0.58 / 0.10 | 0.19 / 0.04 / 0.62 / 0.20 | 0.08 / 0.01 / 0.54 / 0.05 | 0.08 / 0.01 / 0.66 / 0.36 | 4.68 |
+| doc_ufcn_generic_historical_line_x3_y8 | [source](https://huggingface.co/Teklia/doc-ufcn-generic-historical-line) | 0.44 | 0.14 | 0.75 | 0.55 | 13.00 | 0.84 / 0.34 / 0.90 / 0.89 \* | 0.31 / 0.10 / 0.73 / 0.16 | 0.60 / 0.21 / 0.74 / 0.48 \* | 0.40 / 0.09 / 0.72 / 0.68 | 0.20 / 0.04 / 0.64 / 0.30 | 0.27 / 0.05 / 0.75 / 0.79 | 4.29 |
+| doc_ufcn_generic_historical_line | [source](https://huggingface.co/Teklia/doc-ufcn-generic-historical-line) | 0.27 | 0.10 | 0.60 | 0.22 | 14.00 | 0.85 / 0.42 / 0.72 / 0.57 | 0.10 / 0.02 / 0.49 / 0.01 | 0.33 / 0.09 / 0.58 / 0.10 | 0.19 / 0.04 / 0.62 / 0.20 | 0.08 / 0.01 / 0.54 / 0.05 | 0.08 / 0.01 / 0.66 / 0.36 | 4.68 |
+| paddleocr_v6_small_line | [source](https://www.paddleocr.ai/latest/en/version3.x/module_usage/text_detection.html) | - | - | - | - | - | - | - | - | - | - | - | - |
+| paddleocr_v6_tiny_line | [source](https://www.paddleocr.ai/latest/en/version3.x/module_usage/text_detection.html) | - | - | - | - | - | - | - | - | - | - | - | - |
+| paddleocr_v5_mobile_line | [source](https://www.paddleocr.ai/latest/en/version3.x/module_usage/text_detection.html) | - | - | - | - | - | - | - | - | - | - | - | - |
+| paddleocr_v5_server_line | [source](https://www.paddleocr.ai/latest/en/version3.x/module_usage/text_detection.html) | - | - | - | - | - | - | - | - | - | - | - | - |
 | orli_base | [source](https://github.com/mittagessen/orli) | - | - | - | - | - | - | - | - | - | - | - | - |

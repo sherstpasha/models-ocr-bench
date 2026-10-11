@@ -1,0 +1,1825 @@
+{
+  "datasets": [
+    "school_notebooks_ru",
+    "russian_old_orthography"
+  ],
+  "objective": "equal dataset mean of mean(f1@0.5, f1@0.5:0.95, dice_f1, polygon_hmean)",
+  "search_ranges": {
+    "x": [
+      0,
+      64
+    ],
+    "y": [
+      0,
+      64
+    ]
+  },
+  "best": {
+    "mask_expand_x": 3,
+    "mask_expand_y": 8,
+    "objective_mean": 0.6257239112176842,
+    "per_dataset": {
+      "school_notebooks_ru": {
+        "f1@0.5": 0.6004647560030983,
+        "f1@0.5:0.95": 0.2095894655305964,
+        "dice_f1": 0.7443036921236935,
+        "polygon_hmean": 0.480867544539117,
+        "objective_mean": 0.5088063645491263
+      },
+      "russian_old_orthography": {
+        "f1@0.5": 0.8436657681940701,
+        "f1@0.5:0.95": 0.3420485175202156,
+        "dice_f1": 0.8960375296581763,
+        "polygon_hmean": 0.8888140161725068,
+        "objective_mean": 0.7426414578862423
+      }
+    }
+  },
+  "evaluations": [
+    {
+      "mask_expand_x": 0,
+      "mask_expand_y": 0,
+      "objective_mean": 0.4623952899506006,
+      "per_dataset": {
+        "school_notebooks_ru": {
+          "f1@0.5": 0.3326103795507359,
+          "f1@0.5:0.95": 0.08963594113090625,
+          "dice_f1": 0.6220676916941864,
+          "polygon_hmean": 0.09604957397366383,
+          "objective_mean": 0.2850908965873731
+        },
+        "russian_old_orthography": {
+          "f1@0.5": 0.8470350404312668,
+          "f1@0.5:0.95": 0.41677897574123984,
+          "dice_f1": 0.724903854549113,
+          "polygon_hmean": 0.5700808625336928,
+          "objective_mean": 0.6396996833138281
+        }
+      }
+    },
+    {
+      "mask_expand_x": 0,
+      "mask_expand_y": 7,
+      "objective_mean": 0.6227909443829456,
+      "per_dataset": {
+        "school_notebooks_ru": {
+          "f1@0.5": 0.5643687064291246,
+          "f1@0.5:0.95": 0.18875290472501932,
+          "dice_f1": 0.7295636777406106,
+          "polygon_hmean": 0.41843532145623547,
+          "objective_mean": 0.4752801525877475
+        },
+        "russian_old_orthography": {
+          "f1@0.5": 0.8659029649595686,
+          "f1@0.5:0.95": 0.4152291105121294,
+          "dice_f1": 0.9031745996990979,
+          "polygon_hmean": 0.8969002695417789,
+          "objective_mean": 0.7703017361781437
+        }
+      }
+    },
+    {
+      "mask_expand_x": 0,
+      "mask_expand_y": 8,
+      "objective_mean": 0.6241356790615568,
+      "per_dataset": {
+        "school_notebooks_ru": {
+          "f1@0.5": 0.5951975213013168,
+          "f1@0.5:0.95": 0.20611928737412857,
+          "dice_f1": 0.7413154534433415,
+          "polygon_hmean": 0.4701781564678543,
+          "objective_mean": 0.5032026046466603
+        },
+        "russian_old_orthography": {
+          "f1@0.5": 0.8450134770889488,
+          "f1@0.5:0.95": 0.34582210242587597,
+          "dice_f1": 0.8979300004287241,
+          "polygon_hmean": 0.891509433962264,
+          "objective_mean": 0.7450687534764532
+        }
+      }
+    },
+    {
+      "mask_expand_x": 1,
+      "mask_expand_y": 8,
+      "objective_mean": 0.6247606268136825,
+      "per_dataset": {
+        "school_notebooks_ru": {
+          "f1@0.5": 0.596281951975213,
+          "f1@0.5:0.95": 0.20715724244771497,
+          "dice_f1": 0.7423678513551023,
+          "polygon_hmean": 0.4749806351665376,
+          "objective_mean": 0.5051969202361419
+        },
+        "russian_old_orthography": {
+          "f1@0.5": 0.8450134770889488,
+          "f1@0.5:0.95": 0.3451482479784366,
+          "dice_f1": 0.897647737877561,
+          "polygon_hmean": 0.8894878706199462,
+          "objective_mean": 0.7443243333912232
+        }
+      }
+    },
+    {
+      "mask_expand_x": 2,
+      "mask_expand_y": 7,
+      "objective_mean": 0.6244615421399653,
+      "per_dataset": {
+        "school_notebooks_ru": {
+          "f1@0.5": 0.5697908597986057,
+          "f1@0.5:0.95": 0.19143299767621996,
+          "dice_f1": 0.7317163203352909,
+          "polygon_hmean": 0.4263361735089078,
+          "objective_mean": 0.479819087829756
+        },
+        "russian_old_orthography": {
+          "f1@0.5": 0.8618598382749326,
+          "f1@0.5:0.95": 0.4152964959568733,
+          "dice_f1": 0.903033236474552,
+          "polygon_hmean": 0.8962264150943398,
+          "objective_mean": 0.7691039964501745
+        }
+      }
+    },
+    {
+      "mask_expand_x": 2,
+      "mask_expand_y": 8,
+      "objective_mean": 0.6253277475265535,
+      "per_dataset": {
+        "school_notebooks_ru": {
+          "f1@0.5": 0.5978311386522076,
+          "f1@0.5:0.95": 0.20828814872192097,
+          "dice_f1": 0.7433647169245436,
+          "polygon_hmean": 0.47885360185902404,
+          "objective_mean": 0.507084401539424
+        },
+        "russian_old_orthography": {
+          "f1@0.5": 0.8443396226415094,
+          "f1@0.5:0.95": 0.3440700808625337,
+          "dice_f1": 0.8970606543781816,
+          "polygon_hmean": 0.8888140161725068,
+          "objective_mean": 0.7435710935136829
+        }
+      }
+    },
+    {
+      "mask_expand_x": 3,
+      "mask_expand_y": 0,
+      "objective_mean": 0.46915586915162055,
+      "per_dataset": {
+        "school_notebooks_ru": {
+          "f1@0.5": 0.33787761425251744,
+          "f1@0.5:0.95": 0.0915724244771495,
+          "dice_f1": 0.626225133199307,
+          "polygon_hmean": 0.10085205267234702,
+          "objective_mean": 0.28913180615033024
+        },
+        "russian_old_orthography": {
+          "f1@0.5": 0.8470350404312668,
+          "f1@0.5:0.95": 0.4148247978436658,
+          "dice_f1": 0.7324340143259288,
+          "polygon_hmean": 0.6024258760107817,
+          "objective_mean": 0.6491799321529108
+        }
+      }
+    },
+    {
+      "mask_expand_x": 3,
+      "mask_expand_y": 5,
+      "objective_mean": 0.6140093661633066,
+      "per_dataset": {
+        "school_notebooks_ru": {
+          "f1@0.5": 0.5081332300542215,
+          "f1@0.5:0.95": 0.16072811773818746,
+          "dice_f1": 0.7068412466522848,
+          "polygon_hmean": 0.3251742835011619,
+          "objective_mean": 0.42521921948646396
+        },
+        "russian_old_orthography": {
+          "f1@0.5": 0.8894878706199462,
+          "f1@0.5:0.95": 0.526954177897574,
+          "dice_f1": 0.8931387521692223,
+          "polygon_hmean": 0.9016172506738545,
+          "objective_mean": 0.8027995128401493
+        }
+      }
+    },
+    {
+      "mask_expand_x": 3,
+      "mask_expand_y": 6,
+      "objective_mean": 0.6215028861106322,
+      "per_dataset": {
+        "school_notebooks_ru": {
+          "f1@0.5": 0.5405112316034082,
+          "f1@0.5:0.95": 0.1757862122385747,
+          "dice_f1": 0.7202220645902676,
+          "polygon_hmean": 0.3786212238574748,
+          "objective_mean": 0.4537851830724314
+        },
+        "russian_old_orthography": {
+          "f1@0.5": 0.8793800539083557,
+          "f1@0.5:0.95": 0.4762803234501348,
+          "dice_f1": 0.9009524374578658,
+          "polygon_hmean": 0.9002695417789758,
+          "objective_mean": 0.789220589148833
+        }
+      }
+    },
+    {
+      "mask_expand_x": 3,
+      "mask_expand_y": 7,
+      "objective_mean": 0.6248547064671413,
+      "per_dataset": {
+        "school_notebooks_ru": {
+          "f1@0.5": 0.5710302091402013,
+          "f1@0.5:0.95": 0.1923470178156468,
+          "dice_f1": 0.732704146849194,
+          "polygon_hmean": 0.4292796281951975,
+          "objective_mean": 0.4813402505000599
+        },
+        "russian_old_orthography": {
+          "f1@0.5": 0.8618598382749326,
+          "f1@0.5:0.95": 0.4138140161725068,
+          "dice_f1": 0.9022502346425512,
+          "polygon_hmean": 0.8955525606469003,
+          "objective_mean": 0.7683691624342227
+        }
+      }
+    },
+    {
+      "mask_expand_x": 3,
+      "mask_expand_y": 8,
+      "objective_mean": 0.6257239112176842,
+      "per_dataset": {
+        "school_notebooks_ru": {
+          "f1@0.5": 0.6004647560030983,
+          "f1@0.5:0.95": 0.2095894655305964,
+          "dice_f1": 0.7443036921236935,
+          "polygon_hmean": 0.480867544539117,
+          "objective_mean": 0.5088063645491263
+        },
+        "russian_old_orthography": {
+          "f1@0.5": 0.8436657681940701,
+          "f1@0.5:0.95": 0.3420485175202156,
+          "dice_f1": 0.8960375296581763,
+          "polygon_hmean": 0.8888140161725068,
+          "objective_mean": 0.7426414578862423
+        }
+      }
+    },
+    {
+      "mask_expand_x": 3,
+      "mask_expand_y": 9,
+      "objective_mean": 0.6234038667327684,
+      "per_dataset": {
+        "school_notebooks_ru": {
+          "f1@0.5": 0.6311386522075911,
+          "f1@0.5:0.95": 0.2262432223082882,
+          "dice_f1": 0.755038907090561,
+          "polygon_hmean": 0.5230054221533694,
+          "objective_mean": 0.5338565509399524
+        },
+        "russian_old_orthography": {
+          "f1@0.5": 0.8187331536388139,
+          "f1@0.5:0.95": 0.27789757412398924,
+          "dice_f1": 0.8832063473530115,
+          "polygon_hmean": 0.8719676549865228,
+          "objective_mean": 0.7129511825255844
+        }
+      }
+    },
+    {
+      "mask_expand_x": 3,
+      "mask_expand_y": 10,
+      "objective_mean": 0.6157328952466319,
+      "per_dataset": {
+        "school_notebooks_ru": {
+          "f1@0.5": 0.6563903950426027,
+          "f1@0.5:0.95": 0.24365608055770713,
+          "dice_f1": 0.7649379882807933,
+          "polygon_hmean": 0.5666924864446167,
+          "objective_mean": 0.5579192375814299
+        },
+        "russian_old_orthography": {
+          "f1@0.5": 0.7533692722371967,
+          "f1@0.5:0.95": 0.216644204851752,
+          "dice_f1": 0.8670298774155296,
+          "polygon_hmean": 0.8571428571428571,
+          "objective_mean": 0.6735465529118339
+        }
+      }
+    },
+    {
+      "mask_expand_x": 3,
+      "mask_expand_y": 12,
+      "objective_mean": 0.5876113814386086,
+      "per_dataset": {
+        "school_notebooks_ru": {
+          "f1@0.5": 0.6958946553059643,
+          "f1@0.5:0.95": 0.27840433772269557,
+          "dice_f1": 0.7822606577623866,
+          "polygon_hmean": 0.6384198295894655,
+          "objective_mean": 0.598744870095128
+        },
+        "russian_old_orthography": {
+          "f1@0.5": 0.5646900269541778,
+          "f1@0.5:0.95": 0.12392183288409704,
+          "dice_f1": 0.8234991722065237,
+          "polygon_hmean": 0.793800539083558,
+          "objective_mean": 0.5764778927820892
+        }
+      }
+    },
+    {
+      "mask_expand_x": 3,
+      "mask_expand_y": 16,
+      "objective_mean": 0.48670444019935954,
+      "per_dataset": {
+        "school_notebooks_ru": {
+          "f1@0.5": 0.7580170410534469,
+          "f1@0.5:0.95": 0.3457319907048799,
+          "dice_f1": 0.8080613933032057,
+          "polygon_hmean": 0.7259488768396591,
+          "objective_mean": 0.6594398254752979
+        },
+        "russian_old_orthography": {
+          "f1@0.5": 0.1597035040431267,
+          "f1@0.5:0.95": 0.016037735849056607,
+          "dice_f1": 0.6313479178068923,
+          "polygon_hmean": 0.4487870619946092,
+          "objective_mean": 0.3139690549234212
+        }
+      }
+    },
+    {
+      "mask_expand_x": 3,
+      "mask_expand_y": 24,
+      "objective_mean": 0.4178812486045055,
+      "per_dataset": {
+        "school_notebooks_ru": {
+          "f1@0.5": 0.803098373353989,
+          "f1@0.5:0.95": 0.4503795507358636,
+          "dice_f1": 0.8339984703855032,
+          "polygon_hmean": 0.8013942680092951,
+          "objective_mean": 0.7222176656211627
+        },
+        "russian_old_orthography": {
+          "f1@0.5": 0.0,
+          "f1@0.5:0.95": 0.0,
+          "dice_f1": 0.4541793263513929,
+          "polygon_hmean": 0.0,
+          "objective_mean": 0.11354483158784823
+        }
+      }
+    },
+    {
+      "mask_expand_x": 3,
+      "mask_expand_y": 32,
+      "objective_mean": 0.4648196072011912,
+      "per_dataset": {
+        "school_notebooks_ru": {
+          "f1@0.5": 0.818280402788536,
+          "f1@0.5:0.95": 0.5048024786986832,
+          "dice_f1": 0.8406276429595819,
+          "polygon_hmean": 0.8164213787761425,
+          "objective_mean": 0.7450329758057359
+        },
+        "russian_old_orthography": {
+          "f1@0.5": 0.0,
+          "f1@0.5:0.95": 0.0,
+          "dice_f1": 0.7384249543865861,
+          "polygon_hmean": 0.0,
+          "objective_mean": 0.18460623859664652
+        }
+      }
+    },
+    {
+      "mask_expand_x": 3,
+      "mask_expand_y": 40,
+      "objective_mean": 0.4573052266176234,
+      "per_dataset": {
+        "school_notebooks_ru": {
+          "f1@0.5": 0.8192099147947328,
+          "f1@0.5:0.95": 0.5029279628195198,
+          "dice_f1": 0.8256558139785237,
+          "polygon_hmean": 0.8111541440743609,
+          "objective_mean": 0.7397369589167843
+        },
+        "russian_old_orthography": {
+          "f1@0.5": 0.0,
+          "f1@0.5:0.95": 0.0,
+          "dice_f1": 0.6994939772738503,
+          "polygon_hmean": 0.0,
+          "objective_mean": 0.17487349431846258
+        }
+      }
+    },
+    {
+      "mask_expand_x": 3,
+      "mask_expand_y": 48,
+      "objective_mean": 0.41054900393161237,
+      "per_dataset": {
+        "school_notebooks_ru": {
+          "f1@0.5": 0.8116189000774594,
+          "f1@0.5:0.95": 0.4579240898528273,
+          "dice_f1": 0.7803246613503013,
+          "polygon_hmean": 0.7908597986057321,
+          "objective_mean": 0.71018186247158
+        },
+        "russian_old_orthography": {
+          "f1@0.5": 0.0,
+          "f1@0.5:0.95": 0.0,
+          "dice_f1": 0.44366458156657884,
+          "polygon_hmean": 0.0,
+          "objective_mean": 0.11091614539164471
+        }
+      }
+    },
+    {
+      "mask_expand_x": 3,
+      "mask_expand_y": 56,
+      "objective_mean": 0.4091608469964166,
+      "per_dataset": {
+        "school_notebooks_ru": {
+          "f1@0.5": 0.7924089852827265,
+          "f1@0.5:0.95": 0.3907823392718822,
+          "dice_f1": 0.7045877910264983,
+          "polygon_hmean": 0.7488768396591788,
+          "objective_mean": 0.6591639888100714
+        },
+        "russian_old_orthography": {
+          "f1@0.5": 0.0,
+          "f1@0.5:0.95": 0.0,
+          "dice_f1": 0.6366308207310468,
+          "polygon_hmean": 0.0,
+          "objective_mean": 0.1591577051827617
+        }
+      }
+    },
+    {
+      "mask_expand_x": 3,
+      "mask_expand_y": 64,
+      "objective_mean": 0.3832622807285974,
+      "per_dataset": {
+        "school_notebooks_ru": {
+          "f1@0.5": 0.7575522850503486,
+          "f1@0.5:0.95": 0.3173818745158792,
+          "dice_f1": 0.6109174788696506,
+          "polygon_hmean": 0.6786986831913245,
+          "objective_mean": 0.5911375804068008
+        },
+        "russian_old_orthography": {
+          "f1@0.5": 0.0,
+          "f1@0.5:0.95": 0.0,
+          "dice_f1": 0.7015479242015762,
+          "polygon_hmean": 0.0,
+          "objective_mean": 0.17538698105039405
+        }
+      }
+    },
+    {
+      "mask_expand_x": 4,
+      "mask_expand_y": 7,
+      "objective_mean": 0.6252290842599306,
+      "per_dataset": {
+        "school_notebooks_ru": {
+          "f1@0.5": 0.5739736638264911,
+          "f1@0.5:0.95": 0.19349341595662278,
+          "dice_f1": 0.733634887958533,
+          "polygon_hmean": 0.43268783888458556,
+          "objective_mean": 0.4834474516565581
+        },
+        "russian_old_orthography": {
+          "f1@0.5": 0.8611859838274932,
+          "f1@0.5:0.95": 0.41098382749326146,
+          "dice_f1": 0.9009943499329963,
+          "polygon_hmean": 0.894878706199461,
+          "objective_mean": 0.767010716863303
+        }
+      }
+    },
+    {
+      "mask_expand_x": 4,
+      "mask_expand_y": 8,
+      "objective_mean": 0.6256603472764688,
+      "per_dataset": {
+        "school_notebooks_ru": {
+          "f1@0.5": 0.6027885360185903,
+          "f1@0.5:0.95": 0.2107668474051123,
+          "dice_f1": 0.7451877771314778,
+          "polygon_hmean": 0.484585592563904,
+          "objective_mean": 0.5108321882797711
+        },
+        "russian_old_orthography": {
+          "f1@0.5": 0.8416442048517521,
+          "f1@0.5:0.95": 0.33962264150943394,
+          "dice_f1": 0.8945685803487309,
+          "polygon_hmean": 0.8861185983827492,
+          "objective_mean": 0.7404885062731665
+        }
+      }
+    },
+    {
+      "mask_expand_x": 5,
+      "mask_expand_y": 0,
+      "objective_mean": 0.47169517191012234,
+      "per_dataset": {
+        "school_notebooks_ru": {
+          "f1@0.5": 0.3414407436096049,
+          "f1@0.5:0.95": 0.09256390395042602,
+          "dice_f1": 0.6286460693320264,
+          "polygon_hmean": 0.1056545313710302,
+          "objective_mean": 0.2920763120657719
+        },
+        "russian_old_orthography": {
+          "f1@0.5": 0.8483827493261455,
+          "f1@0.5:0.95": 0.4080188679245283,
+          "dice_f1": 0.7342992537025275,
+          "polygon_hmean": 0.61455525606469,
+          "objective_mean": 0.6513140317544728
+        }
+      }
+    },
+    {
+      "mask_expand_x": 5,
+      "mask_expand_y": 7,
+      "objective_mean": 0.6251596494419785,
+      "per_dataset": {
+        "school_notebooks_ru": {
+          "f1@0.5": 0.5755228505034857,
+          "f1@0.5:0.95": 0.19463981409759876,
+          "dice_f1": 0.7345069265254146,
+          "polygon_hmean": 0.4362509682416731,
+          "objective_mean": 0.48523013984204305
+        },
+        "russian_old_orthography": {
+          "f1@0.5": 0.8598382749326146,
+          "f1@0.5:0.95": 0.4075471698113208,
+          "dice_f1": 0.8994401941191389,
+          "polygon_hmean": 0.8935309973045822,
+          "objective_mean": 0.7650891590419141
+        }
+      }
+    },
+    {
+      "mask_expand_x": 5,
+      "mask_expand_y": 8,
+      "objective_mean": 0.6257173163956016,
+      "per_dataset": {
+        "school_notebooks_ru": {
+          "f1@0.5": 0.6052672347017815,
+          "f1@0.5:0.95": 0.2119597211463981,
+          "dice_f1": 0.7460146326441284,
+          "polygon_hmean": 0.48814872192099146,
+          "objective_mean": 0.5128475776033248
+        },
+        "russian_old_orthography": {
+          "f1@0.5": 0.8402964959568733,
+          "f1@0.5:0.95": 0.3371293800539083,
+          "dice_f1": 0.8928253097003003,
+          "polygon_hmean": 0.8840970350404312,
+          "objective_mean": 0.7385870551878783
+        }
+      }
+    },
+    {
+      "mask_expand_x": 6,
+      "mask_expand_y": 0,
+      "objective_mean": 0.4727207149436235,
+      "per_dataset": {
+        "school_notebooks_ru": {
+          "f1@0.5": 0.3432997676219985,
+          "f1@0.5:0.95": 0.09324554608830364,
+          "dice_f1": 0.6297588470180496,
+          "polygon_hmean": 0.10797831138652209,
+          "objective_mean": 0.2935706180287184
+        },
+        "russian_old_orthography": {
+          "f1@0.5": 0.8490566037735849,
+          "f1@0.5:0.95": 0.40505390835579524,
+          "dice_f1": 0.7347743525554078,
+          "polygon_hmean": 0.6185983827493262,
+          "objective_mean": 0.6518708118585286
+        }
+      }
+    },
+    {
+      "mask_expand_x": 6,
+      "mask_expand_y": 5,
+      "objective_mean": 0.613849742277383,
+      "per_dataset": {
+        "school_notebooks_ru": {
+          "f1@0.5": 0.5141750580945005,
+          "f1@0.5:0.95": 0.1633152594887684,
+          "dice_f1": 0.7097333265378675,
+          "polygon_hmean": 0.334004647560031,
+          "objective_mean": 0.4303070729202919
+        },
+        "russian_old_orthography": {
+          "f1@0.5": 0.8854447439353099,
+          "f1@0.5:0.95": 0.5139487870619945,
+          "dice_f1": 0.8899065737616161,
+          "polygon_hmean": 0.9002695417789758,
+          "objective_mean": 0.797392411634474
+        }
+      }
+    },
+    {
+      "mask_expand_x": 6,
+      "mask_expand_y": 6,
+      "objective_mean": 0.6220616016653743,
+      "per_dataset": {
+        "school_notebooks_ru": {
+          "f1@0.5": 0.5454686289697909,
+          "f1@0.5:0.95": 0.1789155693261038,
+          "dice_f1": 0.7229796775472992,
+          "polygon_hmean": 0.3905499612703331,
+          "objective_mean": 0.45947845927838177
+        },
+        "russian_old_orthography": {
+          "f1@0.5": 0.8787061994609163,
+          "f1@0.5:0.95": 0.4659029649595688,
+          "dice_f1": 0.8970695422472033,
+          "polygon_hmean": 0.8969002695417789,
+          "objective_mean": 0.7846447440523667
+        }
+      }
+    },
+    {
+      "mask_expand_x": 6,
+      "mask_expand_y": 7,
+      "objective_mean": 0.6254345657434022,
+      "per_dataset": {
+        "school_notebooks_ru": {
+          "f1@0.5": 0.5773818745158792,
+          "f1@0.5:0.95": 0.19556932610379552,
+          "dice_f1": 0.7353261652944607,
+          "polygon_hmean": 0.4404337722695585,
+          "objective_mean": 0.48717778454592353
+        },
+        "russian_old_orthography": {
+          "f1@0.5": 0.8584905660377359,
+          "f1@0.5:0.95": 0.40498652291105114,
+          "dice_f1": 0.8977573015101544,
+          "polygon_hmean": 0.8935309973045822,
+          "objective_mean": 0.7636913469408809
+        }
+      }
+    },
+    {
+      "mask_expand_x": 6,
+      "mask_expand_y": 8,
+      "objective_mean": 0.6255554920508533,
+      "per_dataset": {
+        "school_notebooks_ru": {
+          "f1@0.5": 0.6074360960495739,
+          "f1@0.5:0.95": 0.21284275755228504,
+          "dice_f1": 0.7467898493173735,
+          "polygon_hmean": 0.4924864446165763,
+          "objective_mean": 0.5148887868839522
+        },
+        "russian_old_orthography": {
+          "f1@0.5": 0.8362533692722373,
+          "f1@0.5:0.95": 0.3349056603773585,
+          "dice_f1": 0.8909804330758686,
+          "polygon_hmean": 0.8827493261455526,
+          "objective_mean": 0.7362221972177543
+        }
+      }
+    },
+    {
+      "mask_expand_x": 6,
+      "mask_expand_y": 9,
+      "objective_mean": 0.6225701659886321,
+      "per_dataset": {
+        "school_notebooks_ru": {
+          "f1@0.5": 0.6367157242447715,
+          "f1@0.5:0.95": 0.229992254066615,
+          "dice_f1": 0.757389298806724,
+          "polygon_hmean": 0.5353989155693262,
+          "objective_mean": 0.5398740481718591
+        },
+        "russian_old_orthography": {
+          "f1@0.5": 0.8079514824797844,
+          "f1@0.5:0.95": 0.268733153638814,
+          "dice_f1": 0.8778036796960137,
+          "polygon_hmean": 0.866576819407008,
+          "objective_mean": 0.7052662838054051
+        }
+      }
+    },
+    {
+      "mask_expand_x": 6,
+      "mask_expand_y": 10,
+      "objective_mean": 0.6135934610043903,
+      "per_dataset": {
+        "school_notebooks_ru": {
+          "f1@0.5": 0.6607281177381874,
+          "f1@0.5:0.95": 0.24774593338497283,
+          "dice_f1": 0.76715400692581,
+          "polygon_hmean": 0.5762974438419829,
+          "objective_mean": 0.5629813754727383
+        },
+        "russian_old_orthography": {
+          "f1@0.5": 0.7425876010781671,
+          "f1@0.5:0.95": 0.20842318059299192,
+          "dice_f1": 0.8614717818315004,
+          "polygon_hmean": 0.8443396226415094,
+          "objective_mean": 0.6642055465360421
+        }
+      }
+    },
+    {
+      "mask_expand_x": 6,
+      "mask_expand_y": 12,
+      "objective_mean": 0.5822722699503942,
+      "per_dataset": {
+        "school_notebooks_ru": {
+          "f1@0.5": 0.700852052672347,
+          "f1@0.5:0.95": 0.2828350116189001,
+          "dice_f1": 0.7842164668486106,
+          "polygon_hmean": 0.6444616576297444,
+          "objective_mean": 0.6030912971924005
+        },
+        "russian_old_orthography": {
+          "f1@0.5": 0.5397574123989217,
+          "f1@0.5:0.95": 0.11273584905660376,
+          "dice_f1": 0.8170393859278914,
+          "polygon_hmean": 0.7762803234501348,
+          "objective_mean": 0.5614532427083878
+        }
+      }
+    },
+    {
+      "mask_expand_x": 6,
+      "mask_expand_y": 16,
+      "objective_mean": 0.48209231155940274,
+      "per_dataset": {
+        "school_notebooks_ru": {
+          "f1@0.5": 0.7608055770720371,
+          "f1@0.5:0.95": 0.3500077459333849,
+          "dice_f1": 0.8095452091786908,
+          "polygon_hmean": 0.7312161115414407,
+          "objective_mean": 0.6628936609313884
+        },
+        "russian_old_orthography": {
+          "f1@0.5": 0.14757412398921835,
+          "f1@0.5:0.95": 0.014824797843665772,
+          "dice_f1": 0.6229536061620674,
+          "polygon_hmean": 0.419811320754717,
+          "objective_mean": 0.30129096218741713
+        }
+      }
+    },
+    {
+      "mask_expand_x": 6,
+      "mask_expand_y": 24,
+      "objective_mean": 0.41912399095445124,
+      "per_dataset": {
+        "school_notebooks_ru": {
+          "f1@0.5": 0.8054221533694811,
+          "f1@0.5:0.95": 0.4558171959721145,
+          "dice_f1": 0.8347804659450424,
+          "polygon_hmean": 0.8040278853601858,
+          "objective_mean": 0.725011925161706
+        },
+        "russian_old_orthography": {
+          "f1@0.5": 0.0,
+          "f1@0.5:0.95": 0.0,
+          "dice_f1": 0.45294422698878606,
+          "polygon_hmean": 0.0,
+          "objective_mean": 0.11323605674719651
+        }
+      }
+    },
+    {
+      "mask_expand_x": 6,
+      "mask_expand_y": 32,
+      "objective_mean": 0.46550424706988364,
+      "per_dataset": {
+        "school_notebooks_ru": {
+          "f1@0.5": 0.8202943454686291,
+          "f1@0.5:0.95": 0.5100697134004648,
+          "dice_f1": 0.8409342016922299,
+          "polygon_hmean": 0.8161115414407437,
+          "objective_mean": 0.7468524505005169
+        },
+        "russian_old_orthography": {
+          "f1@0.5": 0.0,
+          "f1@0.5:0.95": 0.0,
+          "dice_f1": 0.7366241745570018,
+          "polygon_hmean": 0.0,
+          "objective_mean": 0.18415604363925045
+        }
+      }
+    },
+    {
+      "mask_expand_x": 6,
+      "mask_expand_y": 40,
+      "objective_mean": 0.45744338251333294,
+      "per_dataset": {
+        "school_notebooks_ru": {
+          "f1@0.5": 0.8209140201394268,
+          "f1@0.5:0.95": 0.5074360960495741,
+          "dice_f1": 0.8254742916330242,
+          "polygon_hmean": 0.8105344694035631,
+          "objective_mean": 0.7410897193063971
+        },
+        "russian_old_orthography": {
+          "f1@0.5": 0.0,
+          "f1@0.5:0.95": 0.0,
+          "dice_f1": 0.6951881828810753,
+          "polygon_hmean": 0.0,
+          "objective_mean": 0.17379704572026883
+        }
+      }
+    },
+    {
+      "mask_expand_x": 6,
+      "mask_expand_y": 48,
+      "objective_mean": 0.4104670898801747,
+      "per_dataset": {
+        "school_notebooks_ru": {
+          "f1@0.5": 0.8136328427575523,
+          "f1@0.5:0.95": 0.46221533694810224,
+          "dice_f1": 0.779548634862767,
+          "polygon_hmean": 0.790240123934934,
+          "objective_mean": 0.7114092346258389
+        },
+        "russian_old_orthography": {
+          "f1@0.5": 0.0,
+          "f1@0.5:0.95": 0.0,
+          "dice_f1": 0.4380997805380421,
+          "polygon_hmean": 0.0,
+          "objective_mean": 0.10952494513451053
+        }
+      }
+    },
+    {
+      "mask_expand_x": 6,
+      "mask_expand_y": 56,
+      "objective_mean": 0.40935106357769935,
+      "per_dataset": {
+        "school_notebooks_ru": {
+          "f1@0.5": 0.794887683965918,
+          "f1@0.5:0.95": 0.39389620449264134,
+          "dice_f1": 0.7031769093995429,
+          "polygon_hmean": 0.7477924089852828,
+          "objective_mean": 0.6599383017108462
+        },
+        "russian_old_orthography": {
+          "f1@0.5": 0.0,
+          "f1@0.5:0.95": 0.0,
+          "dice_f1": 0.6350553017782099,
+          "polygon_hmean": 0.0,
+          "objective_mean": 0.15876382544455248
+        }
+      }
+    },
+    {
+      "mask_expand_x": 6,
+      "mask_expand_y": 64,
+      "objective_mean": 0.3829517605444409,
+      "per_dataset": {
+        "school_notebooks_ru": {
+          "f1@0.5": 0.759721146398141,
+          "f1@0.5:0.95": 0.3202478698683191,
+          "dice_f1": 0.6089328484807095,
+          "polygon_hmean": 0.6762199845081333,
+          "objective_mean": 0.5912804623138257
+        },
+        "russian_old_orthography": {
+          "f1@0.5": 0.0,
+          "f1@0.5:0.95": 0.0,
+          "dice_f1": 0.6984922351002245,
+          "polygon_hmean": 0.0,
+          "objective_mean": 0.17462305877505613
+        }
+      }
+    },
+    {
+      "mask_expand_x": 7,
+      "mask_expand_y": 0,
+      "objective_mean": 0.472982012486715,
+      "per_dataset": {
+        "school_notebooks_ru": {
+          "f1@0.5": 0.3453137103020914,
+          "f1@0.5:0.95": 0.09394268009295119,
+          "dice_f1": 0.6308393771266688,
+          "polygon_hmean": 0.1096824167312161,
+          "objective_mean": 0.29494454606323184
+        },
+        "russian_old_orthography": {
+          "f1@0.5": 0.8490566037735849,
+          "f1@0.5:0.95": 0.4013477088948787,
+          "dice_f1": 0.7350752202230031,
+          "polygon_hmean": 0.6185983827493262,
+          "objective_mean": 0.6510194789101982
+        }
+      }
+    },
+    {
+      "mask_expand_x": 7,
+      "mask_expand_y": 7,
+      "objective_mean": 0.6253893682164742,
+      "per_dataset": {
+        "school_notebooks_ru": {
+          "f1@0.5": 0.5800154918667699,
+          "f1@0.5:0.95": 0.1966537567776917,
+          "dice_f1": 0.7361099305417178,
+          "polygon_hmean": 0.44337722695584814,
+          "objective_mean": 0.4890391015355069
+        },
+        "russian_old_orthography": {
+          "f1@0.5": 0.8571428571428571,
+          "f1@0.5:0.95": 0.40161725067385445,
+          "dice_f1": 0.8960151433633506,
+          "polygon_hmean": 0.8921832884097035,
+          "objective_mean": 0.7617396348974415
+        }
+      }
+    },
+    {
+      "mask_expand_x": 8,
+      "mask_expand_y": 0,
+      "objective_mean": 0.47317903085617985,
+      "per_dataset": {
+        "school_notebooks_ru": {
+          "f1@0.5": 0.3473276529821844,
+          "f1@0.5:0.95": 0.09448489542989931,
+          "dice_f1": 0.6318866231668927,
+          "polygon_hmean": 0.11092176607281179,
+          "objective_mean": 0.296155234412947
+        },
+        "russian_old_orthography": {
+          "f1@0.5": 0.8477088948787063,
+          "f1@0.5:0.95": 0.39723719676549873,
+          "dice_f1": 0.7352452714618017,
+          "polygon_hmean": 0.6206199460916442,
+          "objective_mean": 0.6502028272994127
+        }
+      }
+    },
+    {
+      "mask_expand_x": 8,
+      "mask_expand_y": 2,
+      "objective_mean": 0.565704164910384,
+      "per_dataset": {
+        "school_notebooks_ru": {
+          "f1@0.5": 0.4113090627420604,
+          "f1@0.5:0.95": 0.11995352439969013,
+          "dice_f1": 0.6664818681473713,
+          "polygon_hmean": 0.19194422927962818,
+          "objective_mean": 0.34742217114218754
+        },
+        "russian_old_orthography": {
+          "f1@0.5": 0.8935309973045822,
+          "f1@0.5:0.95": 0.5324797843665767,
+          "dice_f1": 0.8265106724501703,
+          "polygon_hmean": 0.883423180592992,
+          "objective_mean": 0.7839861586785803
+        }
+      }
+    },
+    {
+      "mask_expand_x": 8,
+      "mask_expand_y": 3,
+      "objective_mean": 0.5883711756953804,
+      "per_dataset": {
+        "school_notebooks_ru": {
+          "f1@0.5": 0.4474051123160341,
+          "f1@0.5:0.95": 0.134004647560031,
+          "dice_f1": 0.682389526913871,
+          "polygon_hmean": 0.24089852827265684,
+          "objective_mean": 0.3761744537656482
+        },
+        "russian_old_orthography": {
+          "f1@0.5": 0.8969002695417789,
+          "f1@0.5:0.95": 0.556199460916442,
+          "dice_f1": 0.8542931538427693,
+          "polygon_hmean": 0.894878706199461,
+          "objective_mean": 0.8005678976251128
+        }
+      }
+    },
+    {
+      "mask_expand_x": 8,
+      "mask_expand_y": 4,
+      "objective_mean": 0.6029107355110509,
+      "per_dataset": {
+        "school_notebooks_ru": {
+          "f1@0.5": 0.4833462432223083,
+          "f1@0.5:0.95": 0.14912470952749807,
+          "dice_f1": 0.697370556203832,
+          "polygon_hmean": 0.29078233927188224,
+          "objective_mean": 0.40515596205638016
+        },
+        "russian_old_orthography": {
+          "f1@0.5": 0.8894878706199462,
+          "f1@0.5:0.95": 0.5399595687331538,
+          "dice_f1": 0.8736189091782504,
+          "polygon_hmean": 0.8995956873315364,
+          "objective_mean": 0.8006655089657216
+        }
+      }
+    },
+    {
+      "mask_expand_x": 8,
+      "mask_expand_y": 5,
+      "objective_mean": 0.6134774485979329,
+      "per_dataset": {
+        "school_notebooks_ru": {
+          "f1@0.5": 0.5188226181254841,
+          "f1@0.5:0.95": 0.16500387296669247,
+          "dice_f1": 0.7114408165358109,
+          "polygon_hmean": 0.34051123160340824,
+          "objective_mean": 0.43394463480784895
+        },
+        "russian_old_orthography": {
+          "f1@0.5": 0.883423180592992,
+          "f1@0.5:0.95": 0.5033018867924528,
+          "dice_f1": 0.8870680037299649,
+          "polygon_hmean": 0.8982479784366577,
+          "objective_mean": 0.7930102623880169
+        }
+      }
+    },
+    {
+      "mask_expand_x": 8,
+      "mask_expand_y": 6,
+      "objective_mean": 0.6215820159778899,
+      "per_dataset": {
+        "school_notebooks_ru": {
+          "f1@0.5": 0.5487219209914793,
+          "f1@0.5:0.95": 0.1806971340046475,
+          "dice_f1": 0.7245995025308589,
+          "polygon_hmean": 0.3950426026336174,
+          "objective_mean": 0.46226529004015077
+        },
+        "russian_old_orthography": {
+          "f1@0.5": 0.8766846361185985,
+          "f1@0.5:0.95": 0.4568059299191375,
+          "dice_f1": 0.8938779865304399,
+          "polygon_hmean": 0.8962264150943398,
+          "objective_mean": 0.7808987419156289
+        }
+      }
+    },
+    {
+      "mask_expand_x": 8,
+      "mask_expand_y": 7,
+      "objective_mean": 0.6251362121170512,
+      "per_dataset": {
+        "school_notebooks_ru": {
+          "f1@0.5": 0.5814097598760651,
+          "f1@0.5:0.95": 0.19733539891556934,
+          "dice_f1": 0.7368578132791864,
+          "polygon_hmean": 0.44663051897753686,
+          "objective_mean": 0.49055837276208947
+        },
+        "russian_old_orthography": {
+          "f1@0.5": 0.855121293800539,
+          "f1@0.5:0.95": 0.39730458221024256,
+          "dice_f1": 0.8942470414675665,
+          "polygon_hmean": 0.8921832884097035,
+          "objective_mean": 0.7597140514720129
+        }
+      }
+    },
+    {
+      "mask_expand_x": 8,
+      "mask_expand_y": 8,
+      "objective_mean": 0.6244315725630754,
+      "per_dataset": {
+        "school_notebooks_ru": {
+          "f1@0.5": 0.6102246320681641,
+          "f1@0.5:0.95": 0.21485670023237796,
+          "dice_f1": 0.7482337601454531,
+          "polygon_hmean": 0.49868319132455463,
+          "objective_mean": 0.5179995709426375
+        },
+        "russian_old_orthography": {
+          "f1@0.5": 0.8288409703504043,
+          "f1@0.5:0.95": 0.3266846361185984,
+          "dice_f1": 0.8872009274618161,
+          "polygon_hmean": 0.8807277628032345,
+          "objective_mean": 0.7308635741835133
+        }
+      }
+    },
+    {
+      "mask_expand_x": 8,
+      "mask_expand_y": 9,
+      "objective_mean": 0.6209501057218774,
+      "per_dataset": {
+        "school_notebooks_ru": {
+          "f1@0.5": 0.6391944229279629,
+          "f1@0.5:0.95": 0.2321920991479473,
+          "dice_f1": 0.7587461589342499,
+          "polygon_hmean": 0.541130906274206,
+          "objective_mean": 0.5428158968210915
+        },
+        "russian_old_orthography": {
+          "f1@0.5": 0.7991913746630728,
+          "f1@0.5:0.95": 0.26206199460916435,
+          "dice_f1": 0.8738979053909227,
+          "polygon_hmean": 0.8611859838274932,
+          "objective_mean": 0.6990843146226632
+        }
+      }
+    },
+    {
+      "mask_expand_x": 8,
+      "mask_expand_y": 16,
+      "objective_mean": 0.4797047001899708,
+      "per_dataset": {
+        "school_notebooks_ru": {
+          "f1@0.5": 0.7626646010844307,
+          "f1@0.5:0.95": 0.35247095274980633,
+          "dice_f1": 0.8103489638593058,
+          "polygon_hmean": 0.7350890782339272,
+          "objective_mean": 0.6651433989818676
+        },
+        "russian_old_orthography": {
+          "f1@0.5": 0.13814016172506738,
+          "f1@0.5:0.95": 0.013881401617250674,
+          "dice_f1": 0.6180343559966085,
+          "polygon_hmean": 0.40700808625336926,
+          "objective_mean": 0.29426600139807396
+        }
+      }
+    },
+    {
+      "mask_expand_x": 8,
+      "mask_expand_y": 24,
+      "objective_mean": 0.41953800666728625,
+      "per_dataset": {
+        "school_notebooks_ru": {
+          "f1@0.5": 0.8054221533694811,
+          "f1@0.5:0.95": 0.4589155693261038,
+          "dice_f1": 0.8351392053703897,
+          "polygon_hmean": 0.8040278853601858,
+          "objective_mean": 0.72587620335654
+        },
+        "russian_old_orthography": {
+          "f1@0.5": 0.0,
+          "f1@0.5:0.95": 0.0,
+          "dice_f1": 0.45279923991213006,
+          "polygon_hmean": 0.0,
+          "objective_mean": 0.11319980997803251
+        }
+      }
+    },
+    {
+      "mask_expand_x": 8,
+      "mask_expand_y": 32,
+      "objective_mean": 0.4658946535660106,
+      "per_dataset": {
+        "school_notebooks_ru": {
+          "f1@0.5": 0.8212238574748256,
+          "f1@0.5:0.95": 0.5127652982184353,
+          "dice_f1": 0.8409903674545455,
+          "polygon_hmean": 0.8168861347792409,
+          "objective_mean": 0.7479664144817618
+        },
+        "russian_old_orthography": {
+          "f1@0.5": 0.0,
+          "f1@0.5:0.95": 0.0,
+          "dice_f1": 0.7352915706010377,
+          "polygon_hmean": 0.0,
+          "objective_mean": 0.18382289265025942
+        }
+      }
+    },
+    {
+      "mask_expand_x": 8,
+      "mask_expand_y": 40,
+      "objective_mean": 0.4574075062903885,
+      "per_dataset": {
+        "school_notebooks_ru": {
+          "f1@0.5": 0.8207591014717274,
+          "f1@0.5:0.95": 0.5100542215336947,
+          "dice_f1": 0.8252255877194269,
+          "polygon_hmean": 0.8106893880712627,
+          "objective_mean": 0.7416820746990279
+        },
+        "russian_old_orthography": {
+          "f1@0.5": 0.0,
+          "f1@0.5:0.95": 0.0,
+          "dice_f1": 0.6925317515269962,
+          "polygon_hmean": 0.0,
+          "objective_mean": 0.17313293788174905
+        }
+      }
+    },
+    {
+      "mask_expand_x": 8,
+      "mask_expand_y": 48,
+      "objective_mean": 0.4104190904185866,
+      "per_dataset": {
+        "school_notebooks_ru": {
+          "f1@0.5": 0.8144074360960496,
+          "f1@0.5:0.95": 0.4648489542989931,
+          "dice_f1": 0.7789317982233683,
+          "polygon_hmean": 0.7896204492641363,
+          "objective_mean": 0.7119521594706368
+        },
+        "russian_old_orthography": {
+          "f1@0.5": 0.0,
+          "f1@0.5:0.95": 0.0,
+          "dice_f1": 0.4355440854661454,
+          "polygon_hmean": 0.0,
+          "objective_mean": 0.10888602136653636
+        }
+      }
+    },
+    {
+      "mask_expand_x": 8,
+      "mask_expand_y": 56,
+      "objective_mean": 0.40932673453273405,
+      "per_dataset": {
+        "school_notebooks_ru": {
+          "f1@0.5": 0.7961270333075137,
+          "f1@0.5:0.95": 0.39608055770720374,
+          "dice_f1": 0.7021724427240511,
+          "polygon_hmean": 0.7460883036405888,
+          "objective_mean": 0.6601170843448394
+        },
+        "russian_old_orthography": {
+          "f1@0.5": 0.0,
+          "f1@0.5:0.95": 0.0,
+          "dice_f1": 0.6341455388825147,
+          "polygon_hmean": 0.0,
+          "objective_mean": 0.15853638472062867
+        }
+      }
+    },
+    {
+      "mask_expand_x": 8,
+      "mask_expand_y": 64,
+      "objective_mean": 0.3825785006078511,
+      "per_dataset": {
+        "school_notebooks_ru": {
+          "f1@0.5": 0.761115414407436,
+          "f1@0.5:0.95": 0.3222153369481022,
+          "dice_f1": 0.6075818810897035,
+          "polygon_hmean": 0.6732765298218434,
+          "objective_mean": 0.5910472905667713
+        },
+        "russian_old_orthography": {
+          "f1@0.5": 0.0,
+          "f1@0.5:0.95": 0.0,
+          "dice_f1": 0.6964388425957236,
+          "polygon_hmean": 0.0,
+          "objective_mean": 0.1741097106489309
+        }
+      }
+    },
+    {
+      "mask_expand_x": 9,
+      "mask_expand_y": 0,
+      "objective_mean": 0.4730175749594314,
+      "per_dataset": {
+        "school_notebooks_ru": {
+          "f1@0.5": 0.34856700232378,
+          "f1@0.5:0.95": 0.09490317583268784,
+          "dice_f1": 0.6328989963698809,
+          "polygon_hmean": 0.11247095274980635,
+          "objective_mean": 0.29721003181903877
+        },
+        "russian_old_orthography": {
+          "f1@0.5": 0.8477088948787063,
+          "f1@0.5:0.95": 0.391644204851752,
+          "dice_f1": 0.7353274265771942,
+          "polygon_hmean": 0.6206199460916442,
+          "objective_mean": 0.6488251180998241
+        }
+      }
+    },
+    {
+      "mask_expand_x": 9,
+      "mask_expand_y": 7,
+      "objective_mean": 0.6246057922851249,
+      "per_dataset": {
+        "school_notebooks_ru": {
+          "f1@0.5": 0.583423702556158,
+          "f1@0.5:0.95": 0.19826491092176607,
+          "dice_f1": 0.7375684387899403,
+          "polygon_hmean": 0.44941905499612705,
+          "objective_mean": 0.49216902681599783
+        },
+        "russian_old_orthography": {
+          "f1@0.5": 0.8524258760107817,
+          "f1@0.5:0.95": 0.3924528301886792,
+          "dice_f1": 0.8924559453027223,
+          "polygon_hmean": 0.8908355795148248,
+          "objective_mean": 0.7570425577542519
+        }
+      }
+    },
+    {
+      "mask_expand_x": 9,
+      "mask_expand_y": 8,
+      "objective_mean": 0.6232884567187031,
+      "per_dataset": {
+        "school_notebooks_ru": {
+          "f1@0.5": 0.6122385747482572,
+          "f1@0.5:0.95": 0.21580170410534466,
+          "dice_f1": 0.7489005907920018,
+          "polygon_hmean": 0.5011618900077459,
+          "objective_mean": 0.5195256899133374
+        },
+        "russian_old_orthography": {
+          "f1@0.5": 0.824797843665768,
+          "f1@0.5:0.95": 0.32008086253369267,
+          "dice_f1": 0.8852938428833382,
+          "polygon_hmean": 0.878032345013477,
+          "objective_mean": 0.727051223524069
+        }
+      }
+    },
+    {
+      "mask_expand_x": 10,
+      "mask_expand_y": 0,
+      "objective_mean": 0.47285290649112033,
+      "per_dataset": {
+        "school_notebooks_ru": {
+          "f1@0.5": 0.3498063516653757,
+          "f1@0.5:0.95": 0.09536793183578621,
+          "dice_f1": 0.6338769788589076,
+          "polygon_hmean": 0.11386522075910147,
+          "objective_mean": 0.29822912077979274
+        },
+        "russian_old_orthography": {
+          "f1@0.5": 0.8477088948787063,
+          "f1@0.5:0.95": 0.38625336927223713,
+          "dice_f1": 0.7353245585672042,
+          "polygon_hmean": 0.6206199460916442,
+          "objective_mean": 0.647476692202448
+        }
+      }
+    },
+    {
+      "mask_expand_x": 12,
+      "mask_expand_y": 0,
+      "objective_mean": 0.472860996447688,
+      "per_dataset": {
+        "school_notebooks_ru": {
+          "f1@0.5": 0.35259488768396596,
+          "f1@0.5:0.95": 0.09625096824167312,
+          "dice_f1": 0.6357223079954146,
+          "polygon_hmean": 0.11835786212238576,
+          "objective_mean": 0.30073150651085984
+        },
+        "russian_old_orthography": {
+          "f1@0.5": 0.8470350404312668,
+          "f1@0.5:0.95": 0.37580862533692727,
+          "dice_f1": 0.7351506247833479,
+          "polygon_hmean": 0.621967654986523,
+          "objective_mean": 0.6449904863845162
+        }
+      }
+    },
+    {
+      "mask_expand_x": 16,
+      "mask_expand_y": 0,
+      "objective_mean": 0.4731039769492286,
+      "per_dataset": {
+        "school_notebooks_ru": {
+          "f1@0.5": 0.3552285050348567,
+          "f1@0.5:0.95": 0.09730441518202944,
+          "dice_f1": 0.638981437381534,
+          "polygon_hmean": 0.12470952749806351,
+          "objective_mean": 0.3040559712741209
+        },
+        "russian_old_orthography": {
+          "f1@0.5": 0.8470350404312668,
+          "f1@0.5:0.95": 0.36455525606468997,
+          "dice_f1": 0.7343761245674264,
+          "polygon_hmean": 0.6226415094339622,
+          "objective_mean": 0.6421519826243364
+        }
+      }
+    },
+    {
+      "mask_expand_x": 16,
+      "mask_expand_y": 7,
+      "objective_mean": 0.6192233339799974,
+      "per_dataset": {
+        "school_notebooks_ru": {
+          "f1@0.5": 0.5910147172734315,
+          "f1@0.5:0.95": 0.20286599535243996,
+          "dice_f1": 0.741477414996137,
+          "polygon_hmean": 0.46971340046475596,
+          "objective_mean": 0.5012678820216911
+        },
+        "russian_old_orthography": {
+          "f1@0.5": 0.8288409703504043,
+          "f1@0.5:0.95": 0.3599056603773585,
+          "dice_f1": 0.8799146046696569,
+          "polygon_hmean": 0.8800539083557951,
+          "objective_mean": 0.7371787859383037
+        }
+      }
+    },
+    {
+      "mask_expand_x": 16,
+      "mask_expand_y": 8,
+      "objective_mean": 0.6168087544022975,
+      "per_dataset": {
+        "school_notebooks_ru": {
+          "f1@0.5": 0.6195197521301317,
+          "f1@0.5:0.95": 0.21986057319907043,
+          "dice_f1": 0.7525013734779501,
+          "polygon_hmean": 0.5152594887683967,
+          "objective_mean": 0.5267852968938872
+        },
+        "russian_old_orthography": {
+          "f1@0.5": 0.8059299191374663,
+          "f1@0.5:0.95": 0.2927897574123989,
+          "dice_f1": 0.8721401683975492,
+          "polygon_hmean": 0.8564690026954178,
+          "objective_mean": 0.706832211910708
+        }
+      }
+    },
+    {
+      "mask_expand_x": 24,
+      "mask_expand_y": 0,
+      "objective_mean": 0.4681635904047857,
+      "per_dataset": {
+        "school_notebooks_ru": {
+          "f1@0.5": 0.3564678543764524,
+          "f1@0.5:0.95": 0.09749031758326879,
+          "dice_f1": 0.643838000585314,
+          "polygon_hmean": 0.12982184353214563,
+          "objective_mean": 0.30690450401929525
+        },
+        "russian_old_orthography": {
+          "f1@0.5": 0.8288409703504043,
+          "f1@0.5:0.95": 0.33773584905660375,
+          "dice_f1": 0.7318416505573312,
+          "polygon_hmean": 0.6192722371967654,
+          "objective_mean": 0.6294226767902762
+        }
+      }
+    },
+    {
+      "mask_expand_x": 24,
+      "mask_expand_y": 7,
+      "objective_mean": 0.6109926536586552,
+      "per_dataset": {
+        "school_notebooks_ru": {
+          "f1@0.5": 0.5931835786212238,
+          "f1@0.5:0.95": 0.2027730441518203,
+          "dice_f1": 0.7437894733835048,
+          "polygon_hmean": 0.47916343919442295,
+          "objective_mean": 0.504727383837743
+        },
+        "russian_old_orthography": {
+          "f1@0.5": 0.8146900269541779,
+          "f1@0.5:0.95": 0.3306603773584906,
+          "dice_f1": 0.8658645780153046,
+          "polygon_hmean": 0.8578167115902965,
+          "objective_mean": 0.7172579234795674
+        }
+      }
+    },
+    {
+      "mask_expand_x": 24,
+      "mask_expand_y": 8,
+      "objective_mean": 0.6092652396215671,
+      "per_dataset": {
+        "school_notebooks_ru": {
+          "f1@0.5": 0.6233927188226182,
+          "f1@0.5:0.95": 0.22030983733539888,
+          "dice_f1": 0.7544687166554926,
+          "polygon_hmean": 0.5256390395042603,
+          "objective_mean": 0.5309525780794425
+        },
+        "russian_old_orthography": {
+          "f1@0.5": 0.7857142857142857,
+          "f1@0.5:0.95": 0.2673854447439353,
+          "dice_f1": 0.8575892326871116,
+          "polygon_hmean": 0.839622641509434,
+          "objective_mean": 0.6875779011636917
+        }
+      }
+    },
+    {
+      "mask_expand_x": 32,
+      "mask_expand_y": 0,
+      "objective_mean": 0.4521445167872219,
+      "per_dataset": {
+        "school_notebooks_ru": {
+          "f1@0.5": 0.3527498063516653,
+          "f1@0.5:0.95": 0.09564678543764522,
+          "dice_f1": 0.6470193635327792,
+          "polygon_hmean": 0.1305964368706429,
+          "objective_mean": 0.30650309804818315
+        },
+        "russian_old_orthography": {
+          "f1@0.5": 0.7506738544474395,
+          "f1@0.5:0.95": 0.3102425876010782,
+          "dice_f1": 0.7284752784931824,
+          "polygon_hmean": 0.6017520215633423,
+          "objective_mean": 0.5977859355262607
+        }
+      }
+    },
+    {
+      "mask_expand_x": 32,
+      "mask_expand_y": 7,
+      "objective_mean": 0.6018315182892899,
+      "per_dataset": {
+        "school_notebooks_ru": {
+          "f1@0.5": 0.5893106119287375,
+          "f1@0.5:0.95": 0.1986057319907049,
+          "dice_f1": 0.7445096562982177,
+          "polygon_hmean": 0.48148721920991483,
+          "objective_mean": 0.5034783048568937
+        },
+        "russian_old_orthography": {
+          "f1@0.5": 0.8018867924528302,
+          "f1@0.5:0.95": 0.30363881401617254,
+          "dice_f1": 0.8522214066711105,
+          "polygon_hmean": 0.8429919137466308,
+          "objective_mean": 0.700184731721686
+        }
+      }
+    },
+    {
+      "mask_expand_x": 32,
+      "mask_expand_y": 8,
+      "objective_mean": 0.594776379739149,
+      "per_dataset": {
+        "school_notebooks_ru": {
+          "f1@0.5": 0.6181254841208366,
+          "f1@0.5:0.95": 0.2155538342370255,
+          "dice_f1": 0.7548652280313748,
+          "polygon_hmean": 0.5278079008520528,
+          "objective_mean": 0.5290881118103224
+        },
+        "russian_old_orthography": {
+          "f1@0.5": 0.7446091644204852,
+          "f1@0.5:0.95": 0.23632075471698114,
+          "dice_f1": 0.8435432267905003,
+          "polygon_hmean": 0.8173854447439353,
+          "objective_mean": 0.6604646476679754
+        }
+      }
+    },
+    {
+      "mask_expand_x": 40,
+      "mask_expand_y": 0,
+      "objective_mean": 0.4460763718742615,
+      "per_dataset": {
+        "school_notebooks_ru": {
+          "f1@0.5": 0.3474825716498838,
+          "f1@0.5:0.95": 0.0930286599535244,
+          "dice_f1": 0.6491997429283268,
+          "polygon_hmean": 0.1301316808675445,
+          "objective_mean": 0.3049606638498199
+        },
+        "russian_old_orthography": {
+          "f1@0.5": 0.7432614555256066,
+          "f1@0.5:0.95": 0.2913072776280324,
+          "dice_f1": 0.7245769449317395,
+          "polygon_hmean": 0.589622641509434,
+          "objective_mean": 0.5871920798987031
+        }
+      }
+    },
+    {
+      "mask_expand_x": 40,
+      "mask_expand_y": 7,
+      "objective_mean": 0.5916429726803456,
+      "per_dataset": {
+        "school_notebooks_ru": {
+          "f1@0.5": 0.5837335398915569,
+          "f1@0.5:0.95": 0.19310611928737412,
+          "dice_f1": 0.7443439763776882,
+          "polygon_hmean": 0.48117738187451586,
+          "objective_mean": 0.5005902543577837
+        },
+        "russian_old_orthography": {
+          "f1@0.5": 0.7843665768194069,
+          "f1@0.5:0.95": 0.279245283018868,
+          "dice_f1": 0.8390037882703896,
+          "polygon_hmean": 0.828167115902965,
+          "objective_mean": 0.6826956910029074
+        }
+      }
+    },
+    {
+      "mask_expand_x": 40,
+      "mask_expand_y": 8,
+      "objective_mean": 0.5850794266731183,
+      "per_dataset": {
+        "school_notebooks_ru": {
+          "f1@0.5": 0.6127033307513555,
+          "f1@0.5:0.95": 0.20946553059643688,
+          "dice_f1": 0.7543959650468482,
+          "polygon_hmean": 0.5281177381874516,
+          "objective_mean": 0.526170641145523
+        },
+        "russian_old_orthography": {
+          "f1@0.5": 0.7216981132075471,
+          "f1@0.5:0.95": 0.2183288409703504,
+          "dice_f1": 0.8299959754874909,
+          "polygon_hmean": 0.8059299191374663,
+          "objective_mean": 0.6439882122007137
+        }
+      }
+    },
+    {
+      "mask_expand_x": 48,
+      "mask_expand_y": 0,
+      "objective_mean": 0.4362141671317382,
+      "per_dataset": {
+        "school_notebooks_ru": {
+          "f1@0.5": 0.3391169635941131,
+          "f1@0.5:0.95": 0.09003872966692486,
+          "dice_f1": 0.6508446758878746,
+          "polygon_hmean": 0.12672347017815647,
+          "objective_mean": 0.3016809598317673
+        },
+        "russian_old_orthography": {
+          "f1@0.5": 0.7183288409703503,
+          "f1@0.5:0.95": 0.27075471698113207,
+          "dice_f1": 0.7204558050044646,
+          "polygon_hmean": 0.5734501347708894,
+          "objective_mean": 0.5707473744317091
+        }
+      }
+    },
+    {
+      "mask_expand_x": 48,
+      "mask_expand_y": 7,
+      "objective_mean": 0.5812969341016261,
+      "per_dataset": {
+        "school_notebooks_ru": {
+          "f1@0.5": 0.5739736638264911,
+          "f1@0.5:0.95": 0.1868783888458559,
+          "dice_f1": 0.7437597762936566,
+          "polygon_hmean": 0.4794732765298218,
+          "objective_mean": 0.4960212763739563
+        },
+        "russian_old_orthography": {
+          "f1@0.5": 0.7675202156334232,
+          "f1@0.5:0.95": 0.2570754716981133,
+          "dice_f1": 0.8263307985840304,
+          "polygon_hmean": 0.8153638814016173,
+          "objective_mean": 0.666572591829296
+        }
+      }
+    },
+    {
+      "mask_expand_x": 48,
+      "mask_expand_y": 8,
+      "objective_mean": 0.5725797843207503,
+      "per_dataset": {
+        "school_notebooks_ru": {
+          "f1@0.5": 0.6012393493415957,
+          "f1@0.5:0.95": 0.20269558481797056,
+          "dice_f1": 0.7535247481820964,
+          "polygon_hmean": 0.524554608830364,
+          "objective_mean": 0.5205035727930066
+        },
+        "russian_old_orthography": {
+          "f1@0.5": 0.690700808625337,
+          "f1@0.5:0.95": 0.1997978436657682,
+          "dice_f1": 0.8170202098090705,
+          "polygon_hmean": 0.7911051212938005,
+          "objective_mean": 0.6246559958484941
+        }
+      }
+    },
+    {
+      "mask_expand_x": 56,
+      "mask_expand_y": 0,
+      "objective_mean": 0.4263502910763297,
+      "per_dataset": {
+        "school_notebooks_ru": {
+          "f1@0.5": 0.330286599535244,
+          "f1@0.5:0.95": 0.08655305964368706,
+          "dice_f1": 0.652230844402957,
+          "polygon_hmean": 0.12486444616576298,
+          "objective_mean": 0.2984837374369128
+        },
+        "russian_old_orthography": {
+          "f1@0.5": 0.7014824797843666,
+          "f1@0.5:0.95": 0.24865229110512127,
+          "dice_f1": 0.7161935244155472,
+          "polygon_hmean": 0.5505390835579514,
+          "objective_mean": 0.5542168447157466
+        }
+      }
+    },
+    {
+      "mask_expand_x": 56,
+      "mask_expand_y": 7,
+      "objective_mean": 0.56937249251428,
+      "per_dataset": {
+        "school_notebooks_ru": {
+          "f1@0.5": 0.5615801704105345,
+          "f1@0.5:0.95": 0.18018590240123938,
+          "dice_f1": 0.7430170506681831,
+          "polygon_hmean": 0.4757552285050349,
+          "objective_mean": 0.490134587996248
+        },
+        "russian_old_orthography": {
+          "f1@0.5": 0.7479784366576819,
+          "f1@0.5:0.95": 0.22843665768194069,
+          "dice_f1": 0.8141181379944776,
+          "polygon_hmean": 0.8039083557951482,
+          "objective_mean": 0.6486103970323122
+        }
+      }
+    },
+    {
+      "mask_expand_x": 56,
+      "mask_expand_y": 8,
+      "objective_mean": 0.5597533610243421,
+      "per_dataset": {
+        "school_notebooks_ru": {
+          "f1@0.5": 0.5908597986057319,
+          "f1@0.5:0.95": 0.1958481797056545,
+          "dice_f1": 0.7525104546754156,
+          "polygon_hmean": 0.5214562354763749,
+          "objective_mean": 0.5151686671157942
+        },
+        "russian_old_orthography": {
+          "f1@0.5": 0.6583557951482479,
+          "f1@0.5:0.95": 0.1747978436657682,
+          "dice_f1": 0.8045489852302122,
+          "polygon_hmean": 0.7796495956873315,
+          "objective_mean": 0.60433805493289
+        }
+      }
+    },
+    {
+      "mask_expand_x": 64,
+      "mask_expand_y": 0,
+      "objective_mean": 0.41946278920685665,
+      "per_dataset": {
+        "school_notebooks_ru": {
+          "f1@0.5": 0.3236250968241673,
+          "f1@0.5:0.95": 0.08350116189000775,
+          "dice_f1": 0.6534552188221293,
+          "polygon_hmean": 0.12316034082106893,
+          "objective_mean": 0.2959354545893433
+        },
+        "russian_old_orthography": {
+          "f1@0.5": 0.6940700808625336,
+          "f1@0.5:0.95": 0.2342991913746631,
+          "dice_f1": 0.7119200640306338,
+          "polygon_hmean": 0.5316711590296496,
+          "objective_mean": 0.5429901238243701
+        }
+      }
+    },
+    {
+      "mask_expand_x": 64,
+      "mask_expand_y": 7,
+      "objective_mean": 0.5576161572249555,
+      "per_dataset": {
+        "school_notebooks_ru": {
+          "f1@0.5": 0.5515104570100697,
+          "f1@0.5:0.95": 0.17372579395817195,
+          "dice_f1": 0.742195415576523,
+          "polygon_hmean": 0.47126258714175057,
+          "objective_mean": 0.4846735634216288
+        },
+        "russian_old_orthography": {
+          "f1@0.5": 0.7142857142857143,
+          "f1@0.5:0.95": 0.2130053908355795,
+          "dice_f1": 0.8024910688031557,
+          "polygon_hmean": 0.7924528301886793,
+          "objective_mean": 0.6305587510282822
+        }
+      }
+    },
+    {
+      "mask_expand_x": 64,
+      "mask_expand_y": 8,
+      "objective_mean": 0.5441521922240566,
+      "per_dataset": {
+        "school_notebooks_ru": {
+          "f1@0.5": 0.5793958171959721,
+          "f1@0.5:0.95": 0.18910921766072813,
+          "dice_f1": 0.7514306506651283,
+          "polygon_hmean": 0.5172734314484896,
+          "objective_mean": 0.5093022792425795
+        },
+        "russian_old_orthography": {
+          "f1@0.5": 0.605121293800539,
+          "f1@0.5:0.95": 0.15673854447439353,
+          "dice_f1": 0.7926930569407337,
+          "polygon_hmean": 0.761455525606469,
+          "objective_mean": 0.5790021052055339
+        }
+      }
+    }
+  ]
+}

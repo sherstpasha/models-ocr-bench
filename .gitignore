@@ -215,6 +215,8 @@ tools/
 # Per-sample recognition predictions (keep recognition/summary.csv)
 benchmark_results/recognition/*/*.csv
 benchmark_results/line_recognition/*/*.csv
+benchmark_results/**/*.checkpoint.json
+benchmark_results/**/*.checkpoint.json.bak
 
 # Per-image detection predictions and rendered comparisons
 benchmark_results/detection/**/*_predictions.json

@@ -6,7 +6,7 @@
 
 Известные проблемы моделей, ограничения и рабочие обходные пути: [KNOWN_ISSUES.md](KNOWN_ISSUES.md).
 
-Протестировано **53 модели/конфигурации** на **13 наборах данных** в четырёх задачах: детекция слов, детекция строк, распознавание слов и распознавание строк.
+Протестировано **62 модели/конфигурации** на **13 наборах данных** в четырёх задачах: детекция слов, детекция строк, распознавание слов и распознавание строк.
 
 ## Модели
 
@@ -20,9 +20,17 @@
 | `yolo11x_dialectic` | [source](https://huggingface.co/Daniil-Domino/yolo11x-dialectic) | AGPL-3.0 |
 | `craft_easyocr` | [source](https://github.com/JaidedAI/EasyOCR) | Apache-2.0 |
 | `paddleocr_v6_medium_word` | [source](https://www.paddleocr.ai/latest/en/version3.x/algorithm/PP-OCRv6/PP-OCRv6.html) | Apache-2.0 |
+| `paddleocr_v6_small_word` | [source](https://www.paddleocr.ai/latest/en/version3.x/module_usage/text_detection.html) | Apache-2.0 |
+| `paddleocr_v6_tiny_word` | [source](https://www.paddleocr.ai/latest/en/version3.x/module_usage/text_detection.html) | Apache-2.0 |
+| `paddleocr_v5_mobile_word` | [source](https://www.paddleocr.ai/latest/en/version3.x/module_usage/text_detection.html) | Apache-2.0 |
+| `paddleocr_v5_server_word` | [source](https://www.paddleocr.ai/latest/en/version3.x/module_usage/text_detection.html) | Apache-2.0 |
 | `doctr_db_resnet50` | [source](https://github.com/mindee/doctr) | Apache-2.0 |
 | `openocr_repvit_db` | [source](https://github.com/Topdu/OpenOCR) | Apache-2.0 |
 | `paddleocr_v6_medium_line` | [source](https://www.paddleocr.ai/latest/en/version3.x/algorithm/PP-OCRv6/PP-OCRv6.html) | Apache-2.0 |
+| `paddleocr_v6_small_line` | [source](https://www.paddleocr.ai/latest/en/version3.x/module_usage/text_detection.html) | Apache-2.0 |
+| `paddleocr_v6_tiny_line` | [source](https://www.paddleocr.ai/latest/en/version3.x/module_usage/text_detection.html) | Apache-2.0 |
+| `paddleocr_v5_mobile_line` | [source](https://www.paddleocr.ai/latest/en/version3.x/module_usage/text_detection.html) | Apache-2.0 |
+| `paddleocr_v5_server_line` | [source](https://www.paddleocr.ai/latest/en/version3.x/module_usage/text_detection.html) | Apache-2.0 |
 | `rfdetr_textline_textregion_2xl` | [source](https://huggingface.co/Kansallisarkisto/rfdetr-textline-textregion-detection-2xl) | Apache-2.0 |
 | `rfdetr_textline_textregion_seg_preview` | [source](https://huggingface.co/Kansallisarkisto/rfdetr_textline_textregion_detection_model) | Apache-2.0 |
 | `court_records_textline_yolov8x_seg` | [source](https://huggingface.co/Kansallisarkisto/court-records-textline-detection) | AGPL-3.0 |
@@ -31,6 +39,7 @@
 | `lamop_yolo26x_textline_seg` | [source](https://huggingface.co/LaMOP/Yolo-Seg-TextRegion-TextLine-Manuscript) | CC0-1.0 |
 | `mask2former_line_v0_prev` | [source](https://github.com/konstantinkozhin/manuscript-ocr) | CC-BY-NC-3.0 |
 | `doc_ufcn_generic_historical_line` | [source](https://huggingface.co/Teklia/doc-ufcn-generic-historical-line) | MIT |
+| `doc_ufcn_generic_historical_line_x3_y8` | [source](https://huggingface.co/Teklia/doc-ufcn-generic-historical-line) | MIT |
 | `surya_text_line_detection` | [source](https://github.com/datalab-to/surya) | Apache-2.0 |
 | `kraken_blla_default` | [source](https://github.com/mittagessen/kraken) | Apache-2.0 |
 | `orli_base` | [source](https://github.com/mittagessen/orli) | Apache-2.0 |
@@ -144,7 +153,12 @@
 | riksarkivet_rtmdet_lines | [source](https://huggingface.co/Riksarkivet/rtmdet_lines) | 0.82 | 0.47 | 0.82 | 0.85 | 9.75 | 0.76 / 0.56 / 0.74 / 0.76 | 0.87 / 0.50 / 0.86 / 0.86 | 0.81 / 0.48 / 0.84 / 0.79 | 0.80 / 0.34 / 0.81 / 0.90 | 0.73 / 0.31 / 0.77 / 0.82 | 0.96 / 0.63 / 0.90 / 0.96 | 2.22 |
 | surya_text_line_detection | [source](https://github.com/datalab-to/surya) | 0.75 | 0.35 | 0.88 | 0.75 | 10.50 | 0.91 / 0.52 / 0.88 / 0.92 | 0.95 / 0.53 / 0.92 / 0.94 | 0.72 / 0.38 / 0.89 / 0.71 | 0.76 / 0.31 / 0.88 / 0.75 | 0.36 / 0.13 / 0.85 / 0.38 | 0.80 / 0.25 / 0.87 / 0.80 | 2.99 |
 | pero_layout_general | [source](https://github.com/DCGM/pero-ocr) | 0.74 | 0.37 | 0.85 | 0.74 | 11.25 | 0.97 / 0.67 / 0.90 / 0.97 | 0.77 / 0.30 / 0.83 / 0.76 | 0.56 / 0.27 / 0.83 / 0.54 | 0.79 / 0.36 / 0.87 / 0.82 | 0.56 / 0.20 / 0.80 / 0.59 | 0.80 / 0.41 / 0.88 / 0.78 | 5.19 |
-| doc_ufcn_generic_historical_line | [source](https://huggingface.co/Teklia/doc-ufcn-generic-historical-line) | 0.27 | 0.10 | 0.60 | 0.22 | 13.00 | 0.85 / 0.42 / 0.72 / 0.57 | 0.10 / 0.02 / 0.49 / 0.01 | 0.33 / 0.09 / 0.58 / 0.10 | 0.19 / 0.04 / 0.62 / 0.20 | 0.08 / 0.01 / 0.54 / 0.05 | 0.08 / 0.01 / 0.66 / 0.36 | 4.68 |
+| doc_ufcn_generic_historical_line_x3_y8 | [source](https://huggingface.co/Teklia/doc-ufcn-generic-historical-line) | 0.44 | 0.14 | 0.75 | 0.55 | 13.00 | 0.84 / 0.34 / 0.90 / 0.89 \* | 0.31 / 0.10 / 0.73 / 0.16 | 0.60 / 0.21 / 0.74 / 0.48 \* | 0.40 / 0.09 / 0.72 / 0.68 | 0.20 / 0.04 / 0.64 / 0.30 | 0.27 / 0.05 / 0.75 / 0.79 | 4.29 |
+| doc_ufcn_generic_historical_line | [source](https://huggingface.co/Teklia/doc-ufcn-generic-historical-line) | 0.27 | 0.10 | 0.60 | 0.22 | 14.00 | 0.85 / 0.42 / 0.72 / 0.57 | 0.10 / 0.02 / 0.49 / 0.01 | 0.33 / 0.09 / 0.58 / 0.10 | 0.19 / 0.04 / 0.62 / 0.20 | 0.08 / 0.01 / 0.54 / 0.05 | 0.08 / 0.01 / 0.66 / 0.36 | 4.68 |
+| paddleocr_v6_small_line | [source](https://www.paddleocr.ai/latest/en/version3.x/module_usage/text_detection.html) | - | - | - | - | - | - | - | - | - | - | - | - |
+| paddleocr_v6_tiny_line | [source](https://www.paddleocr.ai/latest/en/version3.x/module_usage/text_detection.html) | - | - | - | - | - | - | - | - | - | - | - | - |
+| paddleocr_v5_mobile_line | [source](https://www.paddleocr.ai/latest/en/version3.x/module_usage/text_detection.html) | - | - | - | - | - | - | - | - | - | - | - | - |
+| paddleocr_v5_server_line | [source](https://www.paddleocr.ai/latest/en/version3.x/module_usage/text_detection.html) | - | - | - | - | - | - | - | - | - | - | - | - |
 | orli_base | [source](https://github.com/mittagessen/orli) | - | - | - | - | - | - | - | - | - | - | - | - |
 
 ### Примеры предсказаний
@@ -165,7 +179,12 @@
 | **riksarkivet_rtmdet_lines** | <img src="benchmark_results/prediction_collages/assets/line_detection/riksarkivet_rtmdet_lines_russian_old_orthography_page_007.jpg" width="300"> | <img src="benchmark_results/prediction_collages/assets/line_detection/riksarkivet_rtmdet_lines_school_notebooks_ru_2647.jpg" width="300"> | <img src="benchmark_results/prediction_collages/assets/line_detection/riksarkivet_rtmdet_lines_gota_hovratt_seg_image_00026.jpg" width="300"> |
 | **surya_text_line_detection** | <img src="benchmark_results/prediction_collages/assets/line_detection/surya_text_line_detection_russian_old_orthography_page_007.jpg" width="300"> | <img src="benchmark_results/prediction_collages/assets/line_detection/surya_text_line_detection_school_notebooks_ru_2647.jpg" width="300"> | <img src="benchmark_results/prediction_collages/assets/line_detection/surya_text_line_detection_gota_hovratt_seg_image_00026.jpg" width="300"> |
 | **pero_layout_general** | <img src="benchmark_results/prediction_collages/assets/line_detection/pero_layout_general_russian_old_orthography_page_007.jpg" width="300"> | <img src="benchmark_results/prediction_collages/assets/line_detection/pero_layout_general_school_notebooks_ru_2647.jpg" width="300"> | <img src="benchmark_results/prediction_collages/assets/line_detection/pero_layout_general_gota_hovratt_seg_image_00026.jpg" width="300"> |
+| **doc_ufcn_generic_historical_line_x3_y8** | <img src="benchmark_results/prediction_collages/assets/line_detection/doc_ufcn_generic_historical_line_x3_y8_russian_old_orthography_page_007.jpg" width="300"> | <img src="benchmark_results/prediction_collages/assets/line_detection/doc_ufcn_generic_historical_line_x3_y8_school_notebooks_ru_2647.jpg" width="300"> | <img src="benchmark_results/prediction_collages/assets/line_detection/doc_ufcn_generic_historical_line_x3_y8_gota_hovratt_seg_image_00026.jpg" width="300"> |
 | **doc_ufcn_generic_historical_line** | <img src="benchmark_results/prediction_collages/assets/line_detection/doc_ufcn_generic_historical_line_russian_old_orthography_page_007.jpg" width="300"> | <img src="benchmark_results/prediction_collages/assets/line_detection/doc_ufcn_generic_historical_line_school_notebooks_ru_2647.jpg" width="300"> | <img src="benchmark_results/prediction_collages/assets/line_detection/doc_ufcn_generic_historical_line_gota_hovratt_seg_image_00026.jpg" width="300"> |
+| **paddleocr_v6_small_line** | — | — | — |
+| **paddleocr_v6_tiny_line** | — | — | — |
+| **paddleocr_v5_mobile_line** | — | — | — |
+| **paddleocr_v5_server_line** | — | — | — |
 | **orli_base** | — | — | — |
 
 ## Результаты распознавания слов

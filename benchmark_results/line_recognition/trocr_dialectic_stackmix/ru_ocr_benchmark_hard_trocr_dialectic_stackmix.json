@@ -1,0 +1,25 @@
+{
+  "task": "recognition",
+  "dataset": "ru_ocr_benchmark_hard",
+  "model": "trocr_dialectic_stackmix",
+  "repository": "Daniil-Domino/trocr-base-ru-dialectic-stackmix",
+  "cpu": null,
+  "gpu": {
+    "device": "cuda",
+    "num_words": 3182,
+    "batch_size": 8,
+    "total_time_s": 406.78500709999935,
+    "mean_time_ms": 127.83941140791934,
+    "throughput_words_s": 7.8223138622652675,
+    "ram_after_load_mb": 2326.6484375,
+    "ram_peak_mb": 2327.875,
+    "gpu_peak_mb": 1498.7041015625,
+    "accuracy_metrics": {
+      "cer": 0.3914374545844402,
+      "wer": 0.7723371209024769,
+      "exact_match": 0.24198617221873037,
+      "character_similarity": 0.7048820179307748,
+      "evaluated_words": 3182
+    }
+  }
+}

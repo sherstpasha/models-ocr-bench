@@ -1,0 +1,29 @@
+{
+  "task": "recognition",
+  "dataset": "ru_ocr_benchmark_hard",
+  "model": "turkicocr_svtrv2_b",
+  "repository": "alenisaw/turkicocr-svtrv2-b-onnx",
+  "cpu": null,
+  "gpu": {
+    "device": "cuda",
+    "active_providers": [
+      "CUDAExecutionProvider",
+      "CPUExecutionProvider"
+    ],
+    "num_words": 3182,
+    "batch_size": 128,
+    "total_time_s": 78.08197680000012,
+    "mean_time_ms": 24.538647642991865,
+    "throughput_words_s": 40.75204202565726,
+    "ram_after_load_mb": 1218.9921875,
+    "ram_peak_mb": 15273.69921875,
+    "mean_confidence": 0.8364879527210486,
+    "accuracy_metrics": {
+      "cer": 0.2553992399966646,
+      "wer": 0.6793918090411183,
+      "exact_match": 0.16656191074795726,
+      "character_similarity": 0.7708410970311935,
+      "evaluated_words": 3182
+    }
+  }
+}

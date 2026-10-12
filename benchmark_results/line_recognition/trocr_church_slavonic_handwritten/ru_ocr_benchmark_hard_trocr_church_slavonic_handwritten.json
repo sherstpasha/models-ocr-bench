@@ -1,0 +1,25 @@
+{
+  "task": "recognition",
+  "dataset": "ru_ocr_benchmark_hard",
+  "model": "trocr_church_slavonic_handwritten",
+  "repository": "cyrillic-trocr/trocr-church-slavonic-handwritten",
+  "cpu": null,
+  "gpu": {
+    "device": "cuda",
+    "num_words": 3182,
+    "batch_size": 1,
+    "total_time_s": 878.4417257999958,
+    "mean_time_ms": 276.06591005656685,
+    "throughput_words_s": 3.6223233784826836,
+    "ram_after_load_mb": 2315.56640625,
+    "ram_peak_mb": 2317.51171875,
+    "gpu_peak_mb": 1321.53759765625,
+    "accuracy_metrics": {
+      "cer": 0.7686873860888418,
+      "wer": 1.313905011035723,
+      "exact_match": 0.0021998742928975488,
+      "character_similarity": 0.36886924173304103,
+      "evaluated_words": 3182
+    }
+  }
+}

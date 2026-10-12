@@ -1,0 +1,25 @@
+{
+  "task": "recognition",
+  "dataset": "ru_ocr_benchmark_hard",
+  "model": "trocr_base_ru",
+  "repository": "raxtemur/trocr-base-ru",
+  "cpu": null,
+  "gpu": {
+    "device": "cuda",
+    "num_words": 3182,
+    "batch_size": 8,
+    "total_time_s": 407.23281300000235,
+    "mean_time_ms": 127.98014236329426,
+    "throughput_words_s": 7.813712202017428,
+    "ram_after_load_mb": 2336.5859375,
+    "ram_peak_mb": 2336.31640625,
+    "gpu_peak_mb": 1498.6806640625,
+    "accuracy_metrics": {
+      "cer": 0.3712580556779873,
+      "wer": 0.7418458268617674,
+      "exact_match": 0.25298554368321813,
+      "character_similarity": 0.719026943840867,
+      "evaluated_words": 3182
+    }
+  }
+}

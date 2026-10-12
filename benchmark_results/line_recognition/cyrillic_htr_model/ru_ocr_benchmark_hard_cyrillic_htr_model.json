@@ -1,0 +1,25 @@
+{
+  "task": "recognition",
+  "dataset": "ru_ocr_benchmark_hard",
+  "model": "cyrillic_htr_model",
+  "repository": "Kansallisarkisto/cyrillic-htr-model",
+  "cpu": null,
+  "gpu": {
+    "device": "cuda",
+    "num_words": 3182,
+    "batch_size": 8,
+    "total_time_s": 3053.496528399999,
+    "mean_time_ms": 959.6155023255811,
+    "throughput_words_s": 1.0420840405105471,
+    "ram_after_load_mb": 2332.3515625,
+    "ram_peak_mb": 23851.84765625,
+    "gpu_peak_mb": 2902.90771484375,
+    "accuracy_metrics": {
+      "cer": 0.337308063420968,
+      "wer": 0.7426632878280062,
+      "exact_match": 0.14896291640477688,
+      "character_similarity": 0.6985367586074718,
+      "evaluated_words": 3182
+    }
+  }
+}

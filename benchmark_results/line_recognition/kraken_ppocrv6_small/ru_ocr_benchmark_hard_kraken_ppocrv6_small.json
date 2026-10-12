@@ -1,0 +1,27 @@
+{
+  "task": "recognition",
+  "dataset": "ru_ocr_benchmark_hard",
+  "model": "kraken_ppocrv6_small",
+  "repository": "small-models-for-glam/kraken-ppocrv6-small",
+  "evaluation_input": "ground-truth line crops",
+  "cpu": null,
+  "gpu": {
+    "device": "cuda:0",
+    "num_words": 3182,
+    "batch_size": 16,
+    "total_time_s": 35.260766300001706,
+    "mean_time_ms": 11.081321904463138,
+    "throughput_words_s": 90.24194122519243,
+    "ram_after_load_mb": 1519.8359375,
+    "ram_peak_mb": 1577.65625,
+    "gpu_peak_mb": 2968.19287109375,
+    "mean_confidence": 0.7125927123949132,
+    "accuracy_metrics": {
+      "cer": 0.39391520840530336,
+      "wer": 0.6345949480912286,
+      "exact_match": 0.16687617850408548,
+      "character_similarity": 0.5304129399001097,
+      "evaluated_words": 3182
+    }
+  }
+}

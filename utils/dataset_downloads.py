@@ -105,6 +105,7 @@ def download_huggingface_snapshot(name, config):
         repo_id=repository,
         repo_type="dataset",
         local_dir=destination,
+        allow_patterns=config.get("snapshot_allow_patterns"),
     )
     if not config["folder"].is_dir() or not config["source_labels"].is_file():
         raise FileNotFoundError(

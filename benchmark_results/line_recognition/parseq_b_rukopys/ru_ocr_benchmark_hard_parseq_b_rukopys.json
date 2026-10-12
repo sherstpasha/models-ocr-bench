@@ -1,0 +1,25 @@
+{
+  "task": "recognition",
+  "dataset": "ru_ocr_benchmark_hard",
+  "model": "parseq_b_rukopys",
+  "repository": "Hukyl/parseq-b-rukopys",
+  "cpu": null,
+  "gpu": {
+    "device": "cuda",
+    "num_words": 3182,
+    "batch_size": 4,
+    "total_time_s": 117.46758269999555,
+    "mean_time_ms": 36.91627363293386,
+    "throughput_words_s": 27.088324513552116,
+    "ram_after_load_mb": 2990.17578125,
+    "ram_peak_mb": 2959.84375,
+    "gpu_peak_mb": 663.607421875,
+    "accuracy_metrics": {
+      "cer": 0.378512632970803,
+      "wer": 0.79890460230524,
+      "exact_match": 0.17567567567567569,
+      "character_similarity": 0.7016976812835365,
+      "evaluated_words": 3182
+    }
+  }
+}

@@ -175,6 +175,13 @@ DATASETS = [
         "val",
         "1 500 слов",
     ),
+    (
+        "ru-ocr-benchmark-hard",
+        "https://huggingface.co/datasets/vladlinv/ru-ocr-benchmark-hard",
+        "Не указана",
+        "crops/test",
+        "3 182 строки",
+    ),
 ]
 
 RESULTS = [

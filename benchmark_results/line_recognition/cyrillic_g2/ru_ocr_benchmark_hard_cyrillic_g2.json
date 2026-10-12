@@ -1,0 +1,24 @@
+{
+  "task": "recognition",
+  "dataset": "ru_ocr_benchmark_hard",
+  "model": "cyrillic_g2",
+  "cpu": null,
+  "gpu": {
+    "device": "cuda",
+    "num_words": 3182,
+    "total_time_s": 90.45977790000325,
+    "mean_time_ms": 28.428591420491276,
+    "throughput_words_s": 35.17585466015041,
+    "ram_after_load_mb": 1914.28125,
+    "ram_peak_mb": 1916.46484375,
+    "gpu_peak_mb": 83.85595703125,
+    "mean_confidence": 0.39988982190304306,
+    "accuracy_metrics": {
+      "cer": 0.3435620093630505,
+      "wer": 0.8169704896591188,
+      "exact_match": 0.1316781898177247,
+      "character_similarity": 0.6429338418647236,
+      "evaluated_words": 3182
+    }
+  }
+}

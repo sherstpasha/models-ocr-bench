@@ -1,0 +1,25 @@
+{
+  "task": "recognition",
+  "dataset": "ru_ocr_benchmark_hard",
+  "model": "trocr_base_handwritten_ru",
+  "repository": "kazars24/trocr-base-handwritten-ru",
+  "cpu": null,
+  "gpu": {
+    "device": "cuda",
+    "num_words": 3182,
+    "batch_size": 8,
+    "total_time_s": 1026.6766711000018,
+    "mean_time_ms": 322.65137369578935,
+    "throughput_words_s": 3.099320447781035,
+    "ram_after_load_mb": 2327.578125,
+    "ram_peak_mb": 2327.5625,
+    "gpu_peak_mb": 1767.51318359375,
+    "accuracy_metrics": {
+      "cer": 0.5443911039108008,
+      "wer": 0.88367530450421,
+      "exact_match": 0.0945945945945946,
+      "character_similarity": 0.5746126469104079,
+      "evaluated_words": 3182
+    }
+  }
+}

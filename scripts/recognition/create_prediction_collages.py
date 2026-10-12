@@ -31,6 +31,14 @@ DATASETS = {
         "name": "Russian Old Orthography OCR",
         "source": "https://huggingface.co/datasets/nevmenandr/russian-old-orthography-ocr",
     },
+    "yenisei_gov_reports_hwr": {
+        "name": "YeniseiGovReports-HWR",
+        "source": "https://huggingface.co/datasets/sherstpasha/YeniseiGovReports-HWR",
+    },
+    "ru_ocr_benchmark_hard": {
+        "name": "RU OCR Benchmark Hard",
+        "source": "https://huggingface.co/datasets/vladlinv/ru-ocr-benchmark-hard",
+    },
 }
 
 LEVELS = {
@@ -40,7 +48,9 @@ LEVELS = {
             "handwritten_essay": DATA_ROOT / "handwritten_essay" / "recognition_validation" / "images",
             "school_notebooks_ru": DATA_ROOT / "school_notebooks_RU" / "recognition_validation" / "images",
             "russian_old_orthography": DATA_ROOT / "russian_old_orthography_ocr" / "word_recognition" / "images",
+            "yenisei_gov_reports_hwr": DATA_ROOT / "YeniseiGovReports-HWR" / "recognition_test" / "images",
         },
+        "datasets": ["handwritten_essay", "school_notebooks_ru", "russian_old_orthography", "yenisei_gov_reports_hwr"],
         "title": "Распознавание слов: сравнение предсказаний",
     },
     "line": {
@@ -49,7 +59,9 @@ LEVELS = {
             "handwritten_essay": DATA_ROOT / "handwritten_essay" / "line_recognition_validation" / "images",
             "school_notebooks_ru": DATA_ROOT / "school_notebooks_RU" / "line_recognition_validation" / "images",
             "russian_old_orthography": DATA_ROOT / "russian_old_orthography_ocr" / "line_recognition" / "images",
+            "ru_ocr_benchmark_hard": DATA_ROOT / "ru-ocr-benchmark-hard" / "line_recognition_test" / "images",
         },
+        "datasets": ["handwritten_essay", "school_notebooks_ru", "russian_old_orthography", "ru_ocr_benchmark_hard"],
         "title": "Распознавание строк: сравнение предсказаний",
     },
 }
@@ -68,7 +80,7 @@ def collect(level: str) -> tuple[list[str], dict[str, dict[str, dict[str, dict[s
     data: dict[str, dict[str, dict[str, dict[str, str]]]] = {}
     for model in models:
         model_data: dict[str, dict[str, dict[str, str]]] = {}
-        for dataset in DATASETS:
+        for dataset in LEVELS[level]["datasets"]:
             path = result_root / model / f"{dataset}_{model}.csv"
             model_data[dataset] = read_csv(path) if path.exists() else {}
         data[model] = model_data
@@ -83,7 +95,7 @@ def select_examples(
     seed: int,
 ) -> list[tuple[str, str | None]]:
     selected: list[tuple[str, str | None]] = []
-    for dataset_index, dataset in enumerate(DATASETS):
+    for dataset_index, dataset in enumerate(LEVELS[level]["datasets"]):
         available = [set(data[model][dataset]) for model in models if data[model][dataset]]
         common = set.intersection(*available) if available else set()
         image_dir: Path = LEVELS[level]["images"][dataset]

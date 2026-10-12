@@ -22,6 +22,7 @@ CYRILLIC_HANDWRITING_ROOT = DATA_ROOT / "cyrillic-handwriting-dataset"
 DONKEYSMALL_PRINTED_ROOT = DATA_ROOT / "DonkeySmallOCR-Numbers-Printed-15random"
 SCHOOL_NOTEBOOKS_ROOT = DATA_ROOT / "school_notebooks_RU"
 OLD_ORTHOGRAPHY_ROOT = DATA_ROOT / "russian_old_orthography_ocr"
+RU_OCR_BENCHMARK_HARD_ROOT = DATA_ROOT / "ru-ocr-benchmark-hard"
 YENISEI_HWR_DATA = (
     YENISEI_HWR_ROOT / "YeniseiGovReports-HWR" / "YeniseiGovReports-HWR"
 )
@@ -564,6 +565,19 @@ LINE_DATASETS = {
         "labels": HANDWRITTEN_ESSAY_ROOT / "line_recognition_validation" / "labels.csv",
         "download_dir": HANDWRITTEN_ESSAY_ROOT,
         "repository": "sherstpasha/handwritten_essay",
+    },
+    "ru_ocr_benchmark_hard": {
+        "format": "imagefolder",
+        "folder": RU_OCR_BENCHMARK_HARD_ROOT / "crops",
+        "source_labels": RU_OCR_BENCHMARK_HARD_ROOT / "crops" / "metadata.csv",
+        "source_image_column": "file_name",
+        "prepared_dir": RU_OCR_BENCHMARK_HARD_ROOT / "line_recognition_test",
+        "images_dir": RU_OCR_BENCHMARK_HARD_ROOT / "line_recognition_test" / "images",
+        "labels": RU_OCR_BENCHMARK_HARD_ROOT / "line_recognition_test" / "labels.csv",
+        "repository": "vladlinv/ru-ocr-benchmark-hard",
+        "huggingface_snapshot": True,
+        "snapshot_allow_patterns": ["crops/**"],
+        "download_dir": RU_OCR_BENCHMARK_HARD_ROOT,
     },
 }
 

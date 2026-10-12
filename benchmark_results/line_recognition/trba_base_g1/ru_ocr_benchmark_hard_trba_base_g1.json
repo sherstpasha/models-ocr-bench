@@ -1,0 +1,28 @@
+{
+  "task": "recognition",
+  "dataset": "ru_ocr_benchmark_hard",
+  "model": "trba_base_g1",
+  "cpu": null,
+  "gpu": {
+    "device": "cuda",
+    "active_providers": [
+      "CUDAExecutionProvider",
+      "CPUExecutionProvider"
+    ],
+    "num_words": 3182,
+    "batch_size": 128,
+    "total_time_s": 4.6865383999975165,
+    "mean_time_ms": 1.4728279069759638,
+    "throughput_words_s": 678.9659506474302,
+    "ram_after_load_mb": 1712.09375,
+    "ram_peak_mb": 1779.28125,
+    "mean_confidence": 0.8506239196701217,
+    "accuracy_metrics": {
+      "cer": 0.46968920866737346,
+      "wer": 0.767922831684787,
+      "exact_match": 0.21244500314267756,
+      "character_similarity": 0.6604527800248203,
+      "evaluated_words": 3182
+    }
+  }
+}

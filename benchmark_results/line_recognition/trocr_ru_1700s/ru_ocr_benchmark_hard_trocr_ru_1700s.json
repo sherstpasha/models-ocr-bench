@@ -1,0 +1,25 @@
+{
+  "task": "recognition",
+  "dataset": "ru_ocr_benchmark_hard",
+  "model": "trocr_ru_1700s",
+  "repository": "taiga75/ru-trocr-1700s",
+  "cpu": null,
+  "gpu": {
+    "device": "cuda",
+    "num_words": 3182,
+    "batch_size": 8,
+    "total_time_s": 347.2747578000053,
+    "mean_time_ms": 109.13725889377918,
+    "throughput_words_s": 9.162773649769575,
+    "ram_after_load_mb": 2425.18359375,
+    "ram_peak_mb": 2425.76171875,
+    "gpu_peak_mb": 3366.0791015625,
+    "accuracy_metrics": {
+      "cer": 0.3036320535576018,
+      "wer": 0.5906155481075779,
+      "exact_match": 0.3001257071024513,
+      "character_similarity": 0.7637832619339483,
+      "evaluated_words": 3182
+    }
+  }
+}

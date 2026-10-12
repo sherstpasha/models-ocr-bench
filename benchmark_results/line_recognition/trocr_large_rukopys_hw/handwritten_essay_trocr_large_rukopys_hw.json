@@ -1,0 +1,25 @@
+{
+  "task": "recognition",
+  "dataset": "handwritten_essay",
+  "model": "trocr_large_rukopys_hw",
+  "repository": "Hukyl/trocr-large-rukopys-hw",
+  "cpu": null,
+  "gpu": {
+    "device": "cuda",
+    "num_words": 676,
+    "batch_size": 1,
+    "total_time_s": 477.2035536999974,
+    "mean_time_ms": 705.9224167159725,
+    "throughput_words_s": 1.4165862654597488,
+    "ram_after_load_mb": 2409.515625,
+    "ram_peak_mb": 2407.921875,
+    "gpu_peak_mb": 2227.564453125,
+    "accuracy_metrics": {
+      "cer": 0.22226660579776306,
+      "wer": 0.6683102598141475,
+      "exact_match": 0.014792899408284023,
+      "character_similarity": 0.7889662934388758,
+      "evaluated_words": 676
+    }
+  }
+}

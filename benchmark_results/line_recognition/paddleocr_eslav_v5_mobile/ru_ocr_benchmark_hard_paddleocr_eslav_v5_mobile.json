@@ -1,0 +1,28 @@
+{
+  "task": "recognition",
+  "dataset": "ru_ocr_benchmark_hard",
+  "model": "paddleocr_eslav_v5_mobile",
+  "cpu": null,
+  "gpu": {
+    "device": "gpu:0",
+    "model_name": "eslav_PP-OCRv5_mobile_rec",
+    "num_words": 3182,
+    "batch_size": 128,
+    "total_time_s": 17.065945099995588,
+    "mean_time_ms": 5.363276272783025,
+    "throughput_words_s": 186.45319561005869,
+    "ram_after_load_mb": 1440.98828125,
+    "ram_peak_mb": 1420.4765625,
+    "gpu_after_load_mb": 227.229248046875,
+    "gpu_peak_mb": 2722.39697265625,
+    "gpu_delta_mb": 2495.167724609375,
+    "mean_confidence": 0.7550531144082396,
+    "accuracy_metrics": {
+      "cer": 0.20508177778836648,
+      "wer": 0.5566091719120412,
+      "exact_match": 0.24041483343808925,
+      "character_similarity": 0.7446073570549301,
+      "evaluated_words": 3182
+    }
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "task": "recognition",
+  "dataset": "ru_ocr_benchmark_hard",
+  "model": "crnn_ctc_church_slavonic",
+  "repository": "achimrabus/crnn-ctc-church-slavonic",
+  "cpu": null,
+  "gpu": {
+    "device": "cuda",
+    "num_words": 3182,
+    "batch_size": 32,
+    "total_time_s": 20.918919999996433,
+    "mean_time_ms": 6.574142049024649,
+    "throughput_words_s": 152.11110325009813,
+    "ram_after_load_mb": 3075.76953125,
+    "ram_peak_mb": 3375.67578125,
+    "gpu_peak_mb": 3438.162109375,
+    "accuracy_metrics": {
+      "cer": 0.6881127377988493,
+      "wer": 1.0152865200686667,
+      "exact_match": 0.0015713387806411063,
+      "character_similarity": 0.29263919509095565,
+      "evaluated_words": 3182
+    }
+  }
+}

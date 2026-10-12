@@ -1,0 +1,25 @@
+{
+  "task": "recognition",
+  "dataset": "school_notebooks_ru",
+  "model": "trocr_large_rukopys_hw",
+  "repository": "Hukyl/trocr-large-rukopys-hw",
+  "cpu": null,
+  "gpu": {
+    "device": "cuda",
+    "num_words": 6453,
+    "batch_size": 1,
+    "total_time_s": 2291.7820161999916,
+    "mean_time_ms": 355.1498552921109,
+    "throughput_words_s": 2.8157128184030924,
+    "ram_after_load_mb": 2386.2109375,
+    "ram_peak_mb": 2390.03515625,
+    "gpu_peak_mb": 2203.26904296875,
+    "accuracy_metrics": {
+      "cer": 0.13245857849330397,
+      "wer": 0.48516342269555635,
+      "exact_match": 0.2502711916937858,
+      "character_similarity": 0.8631125128651987,
+      "evaluated_words": 6453
+    }
+  }
+}

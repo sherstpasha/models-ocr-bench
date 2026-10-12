@@ -6,7 +6,7 @@
 
 Известные проблемы моделей, ограничения и рабочие обходные пути: [KNOWN_ISSUES.md](KNOWN_ISSUES.md).
 
-Протестировано **70 модели/конфигурации** на **13 наборах данных** в четырёх задачах: детекция слов, детекция строк, распознавание слов и распознавание строк.
+Протестировано **70 модели/конфигурации** на **14 наборах данных** в четырёх задачах: детекция слов, детекция строк, распознавание слов и распознавание строк.
 
 ## Модели
 
@@ -102,6 +102,7 @@
 | `YeniseiGovReports-PRT` | [source](https://huggingface.co/datasets/sherstpasha/YeniseiGovReports-PRT) | MIT | val | 15 394 слова |
 | `cyrillic_handwriting` | [source](https://www.kaggle.com/datasets/constantinwerner/cyrillic-handwriting-dataset) | CC0-1.0 | test | 1 544 слова |
 | `DonkeySmallOCR-Numbers-Printed-15random` | [source](https://huggingface.co/datasets/sherstpasha/DonkeySmallOCR-Numbers-Printed-15random) | Не указана | val | 1 500 слов |
+| `ru-ocr-benchmark-hard` | [source](https://huggingface.co/datasets/vladlinv/ru-ocr-benchmark-hard) | Не указана | crops/test | 3 182 строки |
 
 Лицензии взяты из карточек датасетов или исходных репозиториев.
 
@@ -257,39 +258,39 @@
 
 ### Примеры предсказаний
 
-| Модель | [**Handwritten Essay**](https://huggingface.co/datasets/sherstpasha/handwritten_essay)<br><img src="benchmark_results/prediction_collages/assets/word/handwritten_essay_000912.jpg" width="280"><br>**GT:** степи | [**School Notebooks RU**](https://huggingface.co/datasets/ai-forever/school_notebooks_RU)<br><img src="benchmark_results/prediction_collages/assets/word/school_notebooks_ru_001263.jpg" width="280"><br>**GT:** них! | [**Russian Old Orthography OCR**](https://huggingface.co/datasets/nevmenandr/russian-old-orthography-ocr)<br><img src="benchmark_results/prediction_collages/assets/word/russian_old_orthography_0002613.jpg" width="280"><br>**GT:** посѣтительницъ |
-| --- | --- | --- | --- |
-| **trba_base_g1** | степи | них! | посѣшительницъ |
-| **trba_lite_g1** | степи | них! | посѣтишельницъ |
-| **trocr_ru_1700s** | степи | них! | посѣтительницъ |
-| **trocr_large_rukopys_hw** | степи | них! | посътипельниць |
-| **paddleocr_v6_medium_ru** | стерти | них! | посъпишельниць |
-| **kraken_ppocrv6_medium** | сmeu | них! | посѣтиіпельницы |
-| **cyrillic_large_handwritten** | степи | ниях. | посетительницъ |
-| **trocr_dialectic_stackmix** | степи | них: | ПОСБТИПЕЛЬНИЦБ |
-| **trocr_dialectic** | степи | них: | ПОСБЕПИТЕЛЬНИЦБ |
-| **trocr_base_ru** | степи | них! | посыпительницы |
-| **kraken_ppocrv6_small** | стeпи | тх! | посѣти пельниць |
-| **trocr_base_handwritten_ru** | степи | них! | посытиплавныч |
-| **cyrillic_htr_model** | степи | них. | посетительницъ |
-| **trocr_handwritten_cyrillic** | степи | них! | посѣтительницъ |
-| **paddleocr_v6_tiny_ru** | стери | нех | посъпипельниць |
-| **trocr_rukopys** | степи | них! | посьпипельниць |
-| **kraken_ppocrv6_tiny** | cmenu | нх! | посѣтиіпельииць |
-| **paddleocr_cyrillic_v5_mobile** | cmenu | vue! | посьпипельниць |
-| **parseq_s_rukopys** | степи | них! | посьмительниць |
-| **trocr_russian_18th_century_printed** | спеми | Иеле | посьтительницъ |
-| **turkicocr_svtrv2_b** | стетии | кег і. | посьипельниць |
-| **paddleocr_eslav_v5_mobile** | cmenu | nue! | посьпипельниць |
-| **parseq_b_rukopys** | степи | них! | посьмительницт |
-| **cyrillic_g2** | €<л2& | Илу < | посъпишпельницъ |
-| **cyrillic_g1** | (ели | иуе ! | посъшилельниц |
-| **trocr_prereform_orthography** | Стева | ЛІЕСВА | посѣшишельницъ |
-| **crnn_ctc_church_slavonic** | за¬ | . | посьтительницъ |
-| **tesseract_cyrillic_best** | СУТТЕ | ГСТУ | посътиштельни ць |
-| **trocr_church_slavonic_handwritten** | ствиꙗ | имъ. | посьтительниць |
-| **tesseract_rus_best** | Сидов | ∅ | посъпиищельниць |
-| **party_european_languages** | Evand | Шек | ineching to us in |
+| Модель | [**Handwritten Essay**](https://huggingface.co/datasets/sherstpasha/handwritten_essay)<br><img src="benchmark_results/prediction_collages/assets/word/handwritten_essay_000912.jpg" width="280"><br>**GT:** степи | [**School Notebooks RU**](https://huggingface.co/datasets/ai-forever/school_notebooks_RU)<br><img src="benchmark_results/prediction_collages/assets/word/school_notebooks_ru_001263.jpg" width="280"><br>**GT:** них! | [**Russian Old Orthography OCR**](https://huggingface.co/datasets/nevmenandr/russian-old-orthography-ocr)<br><img src="benchmark_results/prediction_collages/assets/word/russian_old_orthography_0002613.jpg" width="280"><br>**GT:** посѣтительницъ | [**YeniseiGovReports-HWR**](https://huggingface.co/datasets/sherstpasha/YeniseiGovReports-HWR)<br><img src="benchmark_results/prediction_collages/assets/word/yenisei_gov_reports_hwr_images_group_28_395_5183.jpg" width="280"><br>**GT:** мастерствомъ. |
+| --- | --- | --- | --- | --- |
+| **trba_base_g1** | степи | них! | посѣшительницъ | мастерствомъ. |
+| **trba_lite_g1** | степи | них! | посѣтишельницъ | мастерствомъ. |
+| **trocr_ru_1700s** | степи | них! | посѣтительницъ | мастерствомъ. |
+| **trocr_large_rukopys_hw** | степи | них! | посътипельниць | мастерствомъ. |
+| **paddleocr_v6_medium_ru** | стерти | них! | посъпишельниць | мастерствомь |
+| **kraken_ppocrv6_medium** | сmeu | них! | посѣтиіпельницы | мастерствомъ. |
+| **cyrillic_large_handwritten** | степи | ниях. | посетительницъ | мастерствомъ. |
+| **trocr_dialectic_stackmix** | степи | них: | ПОСБТИПЕЛЬНИЦБ | мастерствомъ. |
+| **trocr_dialectic** | степи | них: | ПОСБЕПИТЕЛЬНИЦБ | мастерствомъ. |
+| **trocr_base_ru** | степи | них! | посыпительницы | мастерствомъ. |
+| **kraken_ppocrv6_small** | стeпи | тх! | посѣти пельниць | мастерствомъ. |
+| **trocr_base_handwritten_ru** | степи | них! | посытиплавныч | мастерствомь. |
+| **cyrillic_htr_model** | степи | них. | посетительницъ | мастерствомъ. |
+| **trocr_handwritten_cyrillic** | степи | них! | посѣтительницъ | мастерствомъ. |
+| **paddleocr_v6_tiny_ru** | стери | нех | посъпипельниць | мастеостволь |
+| **trocr_rukopys** | степи | них! | посьпипельниць | мастерстьому. |
+| **kraken_ppocrv6_tiny** | cmenu | нх! | посѣтиіпельииць | мастерствомъ. |
+| **paddleocr_cyrillic_v5_mobile** | cmenu | vue! | посьпипельниць | шcmepсmвocil. |
+| **parseq_s_rukopys** | степи | них! | посьмительниць | мастерствомъ. |
+| **trocr_russian_18th_century_printed** | спеми | Иеле | посьтительницъ | ливсигерававовычъ. |
+| **turkicocr_svtrv2_b** | стетии | кег і. | посьипельниць | аастерсттвоыиы |
+| **paddleocr_eslav_v5_mobile** | cmenu | nue! | посьпипельниць | uастерсmвосиь. |
+| **parseq_b_rukopys** | степи | них! | посьмительницт | мастерствомъ. |
+| **cyrillic_g2** | €<л2& | Илу < | посъпишпельницъ | '09'0 042280 |
+| **cyrillic_g1** | (ели | иуе ! | посъшилельниц | шопоииоми |
+| **trocr_prereform_orthography** | Стева | ЛІЕСВА | посѣшишельницъ | ЧІОЯСДЕНТБІіЕ. Н |
+| **crnn_ctc_church_slavonic** | за¬ | . | посьтительницъ | ммооомъ |
+| **tesseract_cyrillic_best** | СУТТЕ | ГСТУ | посътиштельни ць | а 5 |
+| **trocr_church_slavonic_handwritten** | ствиꙗ | имъ. | посьтительниць | ими ситерꙿствомъ. |
+| **tesseract_rus_best** | Сидов | ∅ | посъпиищельниць | СОСОЕОООООРОСИЙ |
+| **party_european_languages** | Evand | Шек | ineching to us in | мавіровомъ. |
 
 ## Результаты распознавания строк
 
@@ -297,72 +298,72 @@
 
 `Mean Metric Rank`: 1 — лучший средний ранг; меньше — лучше.
 
-| Model | Origin | Mean Character Similarity | Mean Exact Match | Mean CER | Mean WER | Mean Metric Rank | [russian_old_orthography](https://huggingface.co/datasets/nevmenandr/russian-old-orthography-ocr) | [school_notebooks_ru](https://huggingface.co/datasets/ai-forever/school_notebooks_RU) | [handwritten_essay](https://huggingface.co/datasets/sherstpasha/handwritten_essay) | Mean lines/s |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| kraken_ppocrv6_medium | [source](https://zenodo.org/records/21788410) | **0.88** | 0.16 | **0.10** | 0.38 | **1.75** | 0.95 / 0.25 / **0.05** / 0.23 | 0.84 / 0.21 / **0.09** / 0.39 | **0.85** / 0.03 / **0.15** / 0.53 | 47.66 |
-| cyrillic_large_handwritten | [source](https://huggingface.co/Kansallisarkisto/cyrillic-large-handwritten) | 0.87 | 0.18 | 0.12 | **0.36** | **1.75** | **0.95** / 0.18 / 0.05 / 0.24 | 0.85 / 0.29 / 0.10 / **0.35** | 0.80 / **0.07** / 0.19 / **0.48** | 4.65 |
-| trocr_ru_1700s | [source](https://huggingface.co/taiga75/ru-trocr-1700s) | 0.85 | **0.18** | 0.15 | 0.41 | 3.00 | 0.95 / 0.25 / 0.05 / 0.21 | 0.85 / 0.25 / 0.13 / 0.44 | 0.76 / 0.04 / 0.26 / 0.57 | 9.14 |
-| kraken_ppocrv6_small | [source](https://zenodo.org/records/21788405) | 0.85 | 0.11 | 0.13 | 0.47 | 4.00 | 0.93 / 0.16 / 0.07 / 0.29 | 0.81 / 0.16 / 0.12 / 0.48 | 0.80 / 0.01 / 0.19 / 0.65 | 72.06 |
-| paddleocr_v6_medium_ru | [source](https://huggingface.co/vladlinv/PP-OCRv6_medium_rec_ru) | 0.85 | 0.07 | 0.13 | 0.51 | 7.00 | 0.89 / 0.03 / 0.11 / 0.50 | 0.82 / 0.16 / 0.11 / 0.45 | 0.83 / 0.02 / 0.16 / 0.58 | 149.81 |
-| party_european_languages | [source](https://zenodo.org/records/15764161) | 0.76 | 0.13 | 0.21 | 0.49 | 7.25 | 0.93 / **0.28** / 0.07 / **0.21** | 0.69 / 0.10 / 0.25 / 0.58 | 0.68 / 0.01 / 0.32 / 0.68 | 1.24 |
-| parseq_s_rukopys | [source](https://huggingface.co/Hukyl/parseq-s-rukopys) | 0.84 | 0.11 | 0.17 | 0.56 | 7.50 | 0.82 / 0.01 / 0.18 / 0.58 | **0.89** / 0.29 / 0.11 / 0.43 \* | 0.80 / 0.02 / 0.22 / 0.66 | 58.44 |
-| parseq_b_rukopys | [source](https://huggingface.co/Hukyl/parseq-b-rukopys) | 0.83 | 0.11 | 0.19 | 0.58 | 8.25 | 0.80 / 0.00 / 0.22 / 0.61 | 0.89 / **0.30** / 0.12 / 0.45 \* | 0.79 / 0.02 / 0.24 / 0.68 | 28.17 |
-| trocr_handwritten_cyrillic | [source](https://huggingface.co/cyrillic-trocr/trocr-handwritten-cyrillic) | 0.80 | 0.07 | 0.19 | 0.55 | 9.00 | 0.91 / 0.09 / 0.09 / 0.36 | 0.77 / 0.12 / 0.19 / 0.59 | 0.73 / 0.01 / 0.28 / 0.71 | 2.09 |
-| trocr_large_rukopys_hw | [source](https://huggingface.co/Hukyl/trocr-large-rukopys-hw) | 0.84 | 0.02 | 0.16 | 0.55 | 9.50 | 0.84 / 0.02 / 0.16 / 0.55 | - | - | 1.73 |
-| cyrillic_htr_model | [source](https://huggingface.co/Kansallisarkisto/cyrillic-htr-model) | 0.75 | 0.04 | 0.25 | 0.67 | 12.25 | 0.88 / 0.03 / 0.12 / 0.47 | 0.73 / 0.09 / 0.24 / 0.68 | 0.63 / 0.00 / 0.38 / 0.85 | 1.67 |
-| kraken_ppocrv6_tiny | [source](https://zenodo.org/records/21788403) | 0.74 | 0.03 | 0.23 | 0.68 | 13.25 | 0.87 / 0.03 / 0.12 / 0.46 | 0.70 / 0.06 / 0.23 / 0.75 | 0.66 / 0.00 / 0.33 / 0.84 | 83.50 |
-| trocr_dialectic_stackmix | [source](https://huggingface.co/Daniil-Domino/trocr-base-ru-dialectic-stackmix) | 0.70 | 0.08 | 0.31 | 0.81 | 13.75 | 0.63 / 0.01 / 0.38 / 0.93 | 0.81 / 0.21 / 0.19 / 0.66 | 0.66 / 0.02 / 0.37 / 0.85 | 8.30 |
-| trba_lite_g1 | [source](https://github.com/konstantinkozhin/manuscript-ocr) | 0.61 | 0.10 | 0.43 | 0.79 | 14.75 | 0.62 / 0.04 / 0.41 / 0.81 | 0.79 / 0.26 / 0.27 / 0.61 \* | 0.43 / 0.01 / 0.61 / 0.95 | **669.31** |
-| trocr_rukopys | [source](https://huggingface.co/Hukyl/trocr-rukopys) | 0.69 | 0.03 | 0.33 | 0.80 | 15.75 | 0.73 / 0.00 / 0.28 / 0.79 | 0.72 / 0.09 / 0.30 / 0.75 | 0.61 / 0.00 / 0.41 / 0.85 | 1.98 |
-| trocr_base_ru | [source](https://huggingface.co/raxtemur/trocr-base-ru) | 0.69 | 0.06 | 0.32 | 0.87 | 16.25 | 0.67 / 0.01 / 0.34 / 0.91 | 0.78 / 0.16 / 0.22 / 0.77 | 0.63 / 0.02 / 0.40 / 0.93 | 8.20 |
-| trocr_dialectic | [source](https://huggingface.co/Daniil-Domino/trocr-base-ru-dialectic) | 0.67 | 0.07 | 0.35 | 0.85 | 16.75 | 0.56 / 0.00 / 0.45 / 0.96 | 0.80 / 0.19 / 0.20 / 0.71 | 0.64 / 0.02 / 0.39 / 0.89 | 8.19 |
-| trba_base_g1 | [source](https://github.com/konstantinkozhin/manuscript-ocr) | 0.60 | 0.10 | 0.44 | 0.82 | 16.75 | 0.63 / 0.04 / 0.40 / 0.83 | 0.78 / 0.24 / 0.29 / 0.68 \* | 0.39 / 0.01 / 0.64 / 0.96 | 523.50 |
-| paddleocr_v6_tiny_ru | [source](https://huggingface.co/vladlinv/PP-OCRv6_tiny_rec_ru) | 0.68 | 0.00 | 0.29 | 0.76 | 17.00 | 0.86 / 0.01 / 0.13 / 0.55 | 0.54 / 0.00 / 0.39 / 0.87 | 0.63 / 0.00 / 0.36 / 0.86 | 367.20 |
-| trocr_russian_18th_century_printed | [source](https://huggingface.co/dsmchr/trocr_russian_18th_century_printed) | 0.50 | 0.02 | 0.50 | 0.80 | 19.75 | 0.89 / 0.06 / 0.11 / 0.45 | 0.34 / 0.01 / 0.67 / 0.97 | 0.28 / 0.00 / 0.73 / 0.99 | 2.32 |
-| paddleocr_eslav_v5_mobile | [source](https://huggingface.co/PaddlePaddle/eslav_PP-OCRv5_mobile_rec) | 0.47 | 0.01 | 0.50 | 0.81 | 21.00 | 0.87 / 0.02 / 0.12 / 0.49 | 0.20 / 0.01 / 0.75 / 0.99 | 0.34 / 0.00 / 0.63 / 0.95 | 276.64 |
-| trocr_base_handwritten_ru | [source](https://huggingface.co/kazars24/trocr-base-handwritten-ru) | 0.49 | 0.04 | 0.55 | 0.93 | 21.50 | 0.46 / 0.00 / 0.57 / 0.96 | 0.62 / 0.11 / 0.44 / 0.85 | 0.39 / 0.00 / 0.64 / 0.98 | 2.82 |
-| turkicocr_svtrv2_b | [source](https://huggingface.co/alenisaw/turkicocr-svtrv2-b) | 0.59 | 0.00 | 0.40 | 0.90 | 22.25 | 0.80 / 0.00 / 0.20 / 0.76 | 0.50 / 0.01 / 0.47 / 0.96 | 0.48 / 0.00 / 0.53 / 0.98 | 34.91 |
-| paddleocr_cyrillic_v5_mobile | [source](https://huggingface.co/PaddlePaddle/cyrillic_PP-OCRv5_mobile_rec) | 0.43 | 0.01 | 0.55 | 0.83 | 23.00 | 0.88 / 0.02 / 0.12 / 0.51 | 0.20 / 0.01 / 0.77 / 0.99 | 0.22 / 0.00 / 0.76 / 0.98 | 269.51 |
-| trocr_prereform_orthography | [source](https://huggingface.co/Serovvans/trocr-prereform-orthography) | 0.41 | 0.02 | 0.63 | 0.88 | 23.75 | 0.88 / 0.05 / 0.12 / 0.50 | 0.18 / 0.00 / 0.90 / 1.12 | 0.16 / 0.00 / 0.85 / 1.03 | 7.41 |
-| cyrillic_g1 | [source](https://github.com/JaidedAI/EasyOCR) | 0.40 | 0.00 | 0.59 | 0.97 | 27.00 | 0.75 / 0.00 / 0.25 / 0.79 | 0.25 / 0.00 / 0.73 / 1.06 | 0.22 / 0.00 / 0.79 / 1.07 | 16.43 |
-| trocr_church_slavonic_handwritten | [source](https://huggingface.co/cyrillic-trocr/trocr-church-slavonic-handwritten) | 0.36 | 0.00 | 0.66 | 1.10 | 27.50 | 0.60 / 0.00 / 0.42 / 1.08 | 0.26 / 0.00 / 0.79 / 1.17 | 0.23 / 0.00 / 0.77 / 1.04 | 3.43 |
-| tesseract_cyrillic_best | [source](https://github.com/tesseract-ocr/tessdata_best/blob/main/script/Cyrillic.traineddata) | 0.31 | 0.01 | 1.89 | 3.30 | 28.00 | 0.73 / 0.03 / 1.80 / 3.58 | 0.09 / 0.00 / 1.27 / 1.74 | 0.11 / 0.00 / 2.61 / 4.57 | 32.33 |
-| cyrillic_g2 | [source](https://github.com/JaidedAI/EasyOCR) | 0.36 | 0.00 | 0.67 | 1.19 | 28.75 | 0.73 / 0.00 / 0.30 / 0.76 | 0.17 / 0.00 / 0.83 / 1.24 | 0.18 / 0.00 / 0.86 / 1.58 | 26.49 |
-| tesseract_rus_best | [source](https://github.com/tesseract-ocr/tessdata_best/blob/main/rus.traineddata) | 0.32 | 0.01 | 2.48 | 4.42 | 29.00 | 0.80 / 0.02 / 0.92 / 1.97 | 0.08 / 0.00 / 2.59 / 4.27 | 0.09 / 0.00 / 3.94 / 7.03 | 25.36 |
-| crnn_ctc_church_slavonic | [source](https://huggingface.co/achimrabus/crnn-ctc-church-slavonic) | 0.23 | 0.00 | 0.76 | 0.98 | 29.00 | 0.57 / 0.00 / 0.42 / 0.95 | 0.04 / 0.00 / 0.95 / 1.00 | 0.08 / 0.00 / 0.91 / 1.00 | 155.32 |
+| Model | Origin | Mean Character Similarity | Mean Exact Match | Mean CER | Mean WER | Mean Metric Rank | [russian_old_orthography](https://huggingface.co/datasets/nevmenandr/russian-old-orthography-ocr) | [school_notebooks_ru](https://huggingface.co/datasets/ai-forever/school_notebooks_RU) | [handwritten_essay](https://huggingface.co/datasets/sherstpasha/handwritten_essay) | [ru_ocr_benchmark_hard](https://huggingface.co/datasets/vladlinv/ru-ocr-benchmark-hard) | Mean lines/s |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| paddleocr_v6_medium_ru | [source](https://huggingface.co/vladlinv/PP-OCRv6_medium_rec_ru) | **0.87** | 0.22 | **0.11** | 0.43 | **1.50** | 0.89 / 0.03 / 0.11 / 0.50 | 0.82 / 0.16 / 0.11 / 0.45 | 0.83 / 0.02 / 0.16 / 0.58 | **0.94** / **0.66** / **0.05** / **0.18** | 139.71 |
+| cyrillic_large_handwritten | [source](https://huggingface.co/Kansallisarkisto/cyrillic-large-handwritten) | 0.86 | **0.25** | 0.13 | **0.35** | **1.50** | **0.95** / 0.18 / 0.05 / 0.24 | 0.85 / 0.29 / 0.10 / **0.35** | 0.80 / **0.07** / 0.19 / **0.48** | 0.84 / 0.47 / 0.16 / 0.34 | 4.74 |
+| trocr_ru_1700s | [source](https://huggingface.co/taiga75/ru-trocr-1700s) | 0.83 | 0.21 | 0.19 | 0.45 | 3.50 | 0.95 / 0.25 / 0.05 / 0.21 | 0.85 / 0.25 / 0.13 / 0.44 | 0.76 / 0.04 / 0.26 / 0.57 | 0.76 / 0.30 / 0.30 / 0.59 | 9.15 |
+| kraken_ppocrv6_medium | [source](https://zenodo.org/records/21788410) | 0.81 | 0.18 | 0.16 | 0.43 | 3.75 | 0.95 / 0.25 / **0.05** / 0.23 | 0.84 / 0.21 / **0.09** / 0.39 | **0.85** / 0.03 / **0.15** / 0.53 | 0.58 / 0.21 / 0.36 / 0.58 | 47.29 |
+| trocr_large_rukopys_hw | [source](https://huggingface.co/Hukyl/trocr-large-rukopys-hw) | 0.82 | 0.14 | 0.19 | 0.58 | 5.50 | 0.84 / 0.02 / 0.16 / 0.55 | 0.86 / 0.25 / 0.13 / 0.49 | 0.79 / 0.01 / 0.22 / 0.67 | 0.78 / 0.26 / 0.26 / 0.63 | 2.16 |
+| kraken_ppocrv6_small | [source](https://zenodo.org/records/21788405) | 0.77 | 0.12 | 0.19 | 0.51 | 7.00 | 0.93 / 0.16 / 0.07 / 0.29 | 0.81 / 0.16 / 0.12 / 0.48 | 0.80 / 0.01 / 0.19 / 0.65 | 0.53 / 0.17 / 0.39 / 0.63 | 76.60 |
+| parseq_s_rukopys | [source](https://huggingface.co/Hukyl/parseq-s-rukopys) | 0.80 | 0.13 | 0.22 | 0.61 | 7.50 | 0.82 / 0.01 / 0.18 / 0.58 | **0.89** / 0.29 / 0.11 / 0.43 \* | 0.80 / 0.02 / 0.22 / 0.66 | 0.71 / 0.18 / 0.38 / 0.78 | 55.73 |
+| parseq_b_rukopys | [source](https://huggingface.co/Hukyl/parseq-b-rukopys) | 0.79 | 0.13 | 0.24 | 0.63 | 8.75 | 0.80 / 0.00 / 0.22 / 0.61 | 0.89 / **0.30** / 0.12 / 0.45 \* | 0.79 / 0.02 / 0.24 / 0.68 | 0.70 / 0.18 / 0.38 / 0.80 | 27.90 |
+| party_european_languages | [source](https://zenodo.org/records/15764161) | 0.71 | 0.13 | 0.27 | 0.56 | 9.00 | 0.93 / **0.28** / 0.07 / **0.21** | 0.69 / 0.10 / 0.25 / 0.58 | 0.68 / 0.01 / 0.32 / 0.68 | 0.54 / 0.14 / 0.46 / 0.77 | 1.17 |
+| trocr_handwritten_cyrillic | [source](https://huggingface.co/cyrillic-trocr/trocr-handwritten-cyrillic) | 0.76 | 0.08 | 0.24 | 0.61 | 10.25 | 0.91 / 0.09 / 0.09 / 0.36 | 0.77 / 0.12 / 0.19 / 0.59 | 0.73 / 0.01 / 0.28 / 0.71 | 0.64 / 0.10 / 0.38 / 0.78 | 2.26 |
+| paddleocr_v6_tiny_ru | [source](https://huggingface.co/vladlinv/PP-OCRv6_tiny_rec_ru) | 0.72 | 0.11 | 0.25 | 0.66 | 11.50 | 0.86 / 0.01 / 0.13 / 0.55 | 0.54 / 0.00 / 0.39 / 0.87 | 0.63 / 0.00 / 0.36 / 0.86 | 0.86 / 0.42 / 0.11 / 0.33 | 365.87 |
+| cyrillic_htr_model | [source](https://huggingface.co/Kansallisarkisto/cyrillic-htr-model) | 0.73 | 0.07 | 0.27 | 0.69 | 12.75 | 0.88 / 0.03 / 0.12 / 0.47 | 0.73 / 0.09 / 0.24 / 0.68 | 0.63 / 0.00 / 0.38 / 0.85 | 0.70 / 0.15 / 0.34 / 0.74 | 1.52 |
+| trocr_dialectic_stackmix | [source](https://huggingface.co/Daniil-Domino/trocr-base-ru-dialectic-stackmix) | 0.70 | 0.12 | 0.33 | 0.80 | 14.00 | 0.63 / 0.01 / 0.38 / 0.93 | 0.81 / 0.21 / 0.19 / 0.66 | 0.66 / 0.02 / 0.37 / 0.85 | 0.70 / 0.24 / 0.39 / 0.77 | 8.18 |
+| trocr_base_ru | [source](https://huggingface.co/raxtemur/trocr-base-ru) | 0.70 | 0.11 | 0.33 | 0.84 | 15.75 | 0.67 / 0.01 / 0.34 / 0.91 | 0.78 / 0.16 / 0.22 / 0.77 | 0.63 / 0.02 / 0.40 / 0.93 | 0.72 / 0.25 / 0.37 / 0.74 | 8.10 |
+| trba_lite_g1 | [source](https://github.com/konstantinkozhin/manuscript-ocr) | 0.62 | 0.12 | 0.44 | 0.79 | 16.50 | 0.62 / 0.04 / 0.41 / 0.81 | 0.79 / 0.26 / 0.27 / 0.61 \* | 0.43 / 0.01 / 0.61 / 0.95 | 0.64 / 0.19 / 0.48 / 0.79 | **578.67** |
+| trba_base_g1 | [source](https://github.com/konstantinkozhin/manuscript-ocr) | 0.62 | 0.13 | 0.45 | 0.81 | 16.75 | 0.63 / 0.04 / 0.40 / 0.83 | 0.78 / 0.24 / 0.29 / 0.68 \* | 0.39 / 0.01 / 0.64 / 0.96 | 0.66 / 0.21 / 0.47 / 0.77 | 562.37 |
+| kraken_ppocrv6_tiny | [source](https://zenodo.org/records/21788403) | 0.66 | 0.04 | 0.30 | 0.70 | 17.00 | 0.87 / 0.03 / 0.12 / 0.46 | 0.70 / 0.06 / 0.23 / 0.75 | 0.66 / 0.00 / 0.33 / 0.84 | 0.41 / 0.08 / 0.52 / 0.77 | 100.18 |
+| trocr_rukopys | [source](https://huggingface.co/Hukyl/trocr-rukopys) | 0.67 | 0.05 | 0.35 | 0.81 | 17.75 | 0.73 / 0.00 / 0.28 / 0.79 | 0.72 / 0.09 / 0.30 / 0.75 | 0.61 / 0.00 / 0.41 / 0.85 | 0.64 / 0.09 / 0.43 / 0.83 | 2.15 |
+| trocr_dialectic | [source](https://huggingface.co/Daniil-Domino/trocr-base-ru-dialectic) | 0.66 | 0.10 | 0.37 | 0.85 | 18.00 | 0.56 / 0.00 / 0.45 / 0.96 | 0.80 / 0.19 / 0.20 / 0.71 | 0.64 / 0.02 / 0.39 / 0.89 | 0.65 / 0.19 / 0.46 / 0.84 | 7.97 |
+| paddleocr_eslav_v5_mobile | [source](https://huggingface.co/PaddlePaddle/eslav_PP-OCRv5_mobile_rec) | 0.54 | 0.07 | 0.43 | 0.75 | 18.25 | 0.87 / 0.02 / 0.12 / 0.49 | 0.20 / 0.01 / 0.75 / 0.99 | 0.34 / 0.00 / 0.63 / 0.95 | 0.74 / 0.24 / 0.21 / 0.56 | 254.10 |
+| paddleocr_cyrillic_v5_mobile | [source](https://huggingface.co/PaddlePaddle/cyrillic_PP-OCRv5_mobile_rec) | 0.52 | 0.08 | 0.46 | 0.75 | 19.25 | 0.88 / 0.02 / 0.12 / 0.51 | 0.20 / 0.01 / 0.77 / 0.99 | 0.22 / 0.00 / 0.76 / 0.98 | 0.77 / 0.28 / 0.19 / 0.52 | 247.52 |
+| turkicocr_svtrv2_b | [source](https://huggingface.co/alenisaw/turkicocr-svtrv2-b) | 0.64 | 0.05 | 0.36 | 0.84 | 20.00 | 0.80 / 0.00 / 0.20 / 0.76 | 0.50 / 0.01 / 0.47 / 0.96 | 0.48 / 0.00 / 0.53 / 0.98 | 0.77 / 0.17 / 0.26 / 0.68 | 36.37 |
+| trocr_russian_18th_century_printed | [source](https://huggingface.co/dsmchr/trocr_russian_18th_century_printed) | 0.52 | 0.03 | 0.49 | 0.82 | 23.25 | 0.89 / 0.06 / 0.11 / 0.45 | 0.34 / 0.01 / 0.67 / 0.97 | 0.28 / 0.00 / 0.73 / 0.99 | 0.59 / 0.03 / 0.45 / 0.88 | 2.54 |
+| trocr_base_handwritten_ru | [source](https://huggingface.co/kazars24/trocr-base-handwritten-ru) | 0.51 | 0.05 | 0.55 | 0.92 | 23.50 | 0.46 / 0.00 / 0.57 / 0.96 | 0.62 / 0.11 / 0.44 / 0.85 | 0.39 / 0.00 / 0.64 / 0.98 | 0.57 / 0.09 / 0.54 / 0.88 | 2.89 |
+| trocr_prereform_orthography | [source](https://huggingface.co/Serovvans/trocr-prereform-orthography) | 0.44 | 0.03 | 0.59 | 0.88 | 25.75 | 0.88 / 0.05 / 0.12 / 0.50 | 0.18 / 0.00 / 0.90 / 1.12 | 0.16 / 0.00 / 0.85 / 1.03 | 0.55 / 0.06 / 0.47 / 0.85 | 6.96 |
+| cyrillic_g1 | [source](https://github.com/JaidedAI/EasyOCR) | 0.44 | 0.02 | 0.54 | 0.93 | 26.00 | 0.75 / 0.00 / 0.25 / 0.79 | 0.25 / 0.00 / 0.73 / 1.06 | 0.22 / 0.00 / 0.79 / 1.07 | 0.57 / 0.09 / 0.40 / 0.82 | 17.61 |
+| cyrillic_g2 | [source](https://github.com/JaidedAI/EasyOCR) | 0.43 | 0.03 | 0.59 | 1.10 | 27.00 | 0.73 / 0.00 / 0.30 / 0.76 | 0.17 / 0.00 / 0.83 / 1.24 | 0.18 / 0.00 / 0.86 / 1.58 | 0.64 / 0.13 / 0.34 / 0.82 | 28.66 |
+| tesseract_cyrillic_best | [source](https://github.com/tesseract-ocr/tessdata_best/blob/main/script/Cyrillic.traineddata) | 0.37 | 0.05 | 1.97 | 3.64 | 27.25 | 0.73 / 0.03 / 1.80 / 3.58 | 0.09 / 0.00 / 1.27 / 1.74 | 0.11 / 0.00 / 2.61 / 4.57 | 0.56 / 0.18 / 2.22 / 4.68 | 36.83 |
+| trocr_church_slavonic_handwritten | [source](https://huggingface.co/cyrillic-trocr/trocr-church-slavonic-handwritten) | 0.37 | 0.00 | 0.69 | 1.15 | 29.00 | 0.60 / 0.00 / 0.42 / 1.08 | 0.26 / 0.00 / 0.79 / 1.17 | 0.23 / 0.00 / 0.77 / 1.04 | 0.37 / 0.00 / 0.77 / 1.31 | 3.48 |
+| tesseract_rus_best | [source](https://github.com/tesseract-ocr/tessdata_best/blob/main/rus.traineddata) | 0.37 | 0.04 | 2.71 | 5.10 | 29.00 | 0.80 / 0.02 / 0.92 / 1.97 | 0.08 / 0.00 / 2.59 / 4.27 | 0.09 / 0.00 / 3.94 / 7.03 | 0.49 / 0.16 / 3.38 / 7.12 | 29.31 |
+| crnn_ctc_church_slavonic | [source](https://huggingface.co/achimrabus/crnn-ctc-church-slavonic) | 0.25 | 0.00 | 0.74 | 0.99 | 29.50 | 0.57 / 0.00 / 0.42 / 0.95 | 0.04 / 0.00 / 0.95 / 1.00 | 0.08 / 0.00 / 0.91 / 1.00 | 0.29 / 0.00 / 0.69 / 1.02 | 154.52 |
 
 ### Примеры предсказаний
 
-| Модель | [**Handwritten Essay**](https://huggingface.co/datasets/sherstpasha/handwritten_essay)<br><img src="benchmark_results/prediction_collages/assets/line/handwritten_essay_000654.jpg" width="520"><br>**GT:** Лиза". Главной героиней повести является сентименталь- | [**School Notebooks RU**](https://huggingface.co/datasets/ai-forever/school_notebooks_RU)<br><img src="benchmark_results/prediction_collages/assets/line/school_notebooks_ru_000315.jpg" width="520"><br>**GT:** небольшого роста, тщательно выбритый и аккуратно | [**Russian Old Orthography OCR**](https://huggingface.co/datasets/nevmenandr/russian-old-orthography-ocr)<br><img src="benchmark_results/prediction_collages/assets/line/russian_old_orthography_000836.jpg" width="520"><br>**GT:** роевъ. Адмиралъ Сенирской нездоровъ, не выходитъ изъ |
-| --- | --- | --- | --- |
-| **kraken_ppocrv6_medium** | Лиза». Главной чероиней повести являстся сентименталь¬ | небольшого роста, тщательно выбрятьй и аккуратно | роевъ. Адмиралъ Сенпрской нездоровъ, не выходитъ изъ |
-| **cyrillic_large_handwritten** | Лица "Главной черенней волости является сентименталь- | небольшого роста, тщательно выбритый и аккуратно | роевъ. Адмиралъ Сентрской нездоровъ, не выходитъ изъ |
-| **trocr_ru_1700s** | Лица Главной героиней повести является сентиментом | небольшого хроста, тщательно выбратьше и аккуратно, | роевъ. Адмираль Сенгрской нездоровъ, не выходитъ изъ |
-| **kraken_ppocrv6_small** | Лща. Тлавкой чрашней ловеси авляетя сентилонталь¬ | небольшого роста, тщательно выбритьйи аккуратно | роевъ. Адмиралъ Сенпрской нездоровъ, не выходитъ изъ |
-| **paddleocr_v6_medium_ru** | Лицза" Гравной герошней повести является сентилонталь- | небольшого роста, тцательно выбрятьий и сускуратно, | роевъ. Адмираль Сенирской нездоровь, не выходипь изъ |
-| **party_european_languages** | Лиза". Главкой черестой ковести являється в | небольшого (роста), тщательно выбриться и сускуратно) | роевъ. Адмиралъ Сенпрской нездоровъ, не выходитъ изъ |
-| **parseq_s_rukopys** | Лиза. Гравной гороиней повести является сентиланталь- | небольшого роста, тецательно выбриться аккуратно, | роєвч. Адмираль Сенарскої нездоровъ, не выходитъ пізв- |
-| **parseq_b_rukopys** | Лица". Гравной героиней повести являеться сентимантами | небольшою роста, тицательно выбриться и сускуратно | поєвз. Адмираль Сенарскої нездоровъ, не выходить пзо- |
-| **trocr_handwritten_cyrillic** | Еще. Травной гординей ровести явгяется сентилантан¬ | небольшого раста, туательно выбритьий, аккуратно, | роевъ. Адмиралъ Сенирской нездоровъ, не выходить изъ- |
-| **trocr_large_rukopys_hw** | — | — | росяб. Адмираль Сентрской нездоровь, на выходить изъ |
-| **cyrillic_htr_model** | Свиза Тавкай герашей совести дылето сентелантиль | небольшого капола тецательно свибратый и оскурамно | роевъ. Адиралъ Сенирской нездоровъ, нe выходитъ изъ |
-| **kraken_ppocrv6_tiny** | виуа.Гравкой черошней ровести двкяетчо сентиланталь- | небольшого роста, тцателно выбргитыи и сккуратна | роевъ. Адмиралъ Сенирской нездоровъ, ие выходитъ пзъ |
-| **trocr_dialectic_stackmix** | Связа́-Главной черв'иной пов'ести является | небольшого фоста, тщательно выбратьиб'еаркуратно | роевъ. Адмираль-Сенарской нездоровъ, невыходишё-133 |
-| **trba_lite_g1** | Каза Правой страний повести объекта летом | небольшого Чалазацительно Выбитыми о Выби | роевь. Адмираль Сенерской нездоровь, не в |
-| **trocr_rukopys** | Лиза - Гравором герошей повести являється сентилають- | небачимою поста, інцательно вибрятьми та оцекуратися | рось. Адмираль Сендрской нездоровь, на виходить кза- |
-| **trocr_base_ru** | Лиза-Главной героиней-повести является | небольшого врата, тщательно,выбритьшегоаккуратно, | роевъ. Адмираль Сентрской-нездоровъ, невыходитъ |
-| **trocr_dialectic** | Свеца́-Главной черв'иной повести является | небольшого фроста, тщательно-выбритый иаркуратно | роевъ. Адмираль-Сенарской нездоровъ,невыходишъ-133 |
-| **trba_base_g1** | Евгерей Павкой гражениямительными | ниопольного распл, вщитальное выдительной | реевы. Адмираль Северской нездоров, не вы |
-| **paddleocr_v6_tiny_ru** | Сиуч Плавкой чероичей ковенти являетао сентилюнттль | невольиого Просто в тзательно выбритьиь а аукуратно | роевь. Адмираль Сенирской нездоровъ, не выходипь изтъ |
-| **trocr_russian_18th_century_printed** | Їу Іаце, уulaulail вете вызыхь инатити. | воболыново пасто кнопопалыено Ввапѣсамавой пиккувита | роевъ. Адмиралъ Сенирской нездоровъ, нѽе выходить изъ |
-| **paddleocr_eslav_v5_mobile** | lуаTавно чероес ровеmu явеrs сеrрен | неsошorоpоmamyаmeоBбрumиsсyкураmu | роевь. Адмиралъ Сенирской нездоровъ, не выходипь изъ |
-| **trocr_base_handwritten_ru** | Лез Гравой ирмый лестиявляется итностной | голимео рапо, пракаявабрильна додазажданания | проеп. Ип Сенрей нарды, не пополподить ить |
-| **turkicocr_svtrv2_b** | Ануа — пабкы тэрдией. довети алгзетсо сентиивентать | нефоииою доста тцатешио быйитышл о очкуратик | роевь. Адмираль Сенирской нездоровы, не выходишь изы |
-| **paddleocr_cyrillic_v5_mobile** | la Tabpor чepoe robemu aвrsere cerren | нeдошoopocmamyаmeко брumuscyкypamu | роевь. Адмираль Сенирской нездоровъ, не выходипь изъ |
-| **trocr_prereform_orthography** | ъ совъ польютъ. | СОЛАСѢЯ СЕЛIО. Подольютъ чтораго и половъ назатья и | роевъ. Адмиралъ Сенирской нездоровъ, нe выходишъ |
-| **cyrillic_g1** | З?ч. 71<8кос "ои{ {@бе77г(- 8=7& <2~{7<<<7т- | юабо %ост( > туатаикСышми* счччратио | роевъ. Адмиралъ Сенпрской нездоповъ, не выходишъ нзъ |
-| **trocr_church_slavonic_handwritten** | мца. Їлакоущимъ миже дл҃жесити миче | кꙿ слⷭ҇ѡⷪоꙷ їасте, по анѡворьныⷨ | роевъ. Ади имъ Се и прокои и ездоровь, и евы холить къ |
-| **tesseract_cyrillic_best** | ∅ | ∅ | роевъ. Адмиралъ Сенирской нездоровъ, не выходитъ изъ |
-| **cyrillic_g2** | '? " 74Жёжо7 "ео /4бе./2ч ~ 04_з&Я&+ (1 < 4с7+46 - | и0[0 (010 {{ъ_п 0 > [пъ %&ка [ъ0 [ъ $ т [Ч~&ра лил | роевъ: Адмиралъ Сенпрской нездоровъ; не выходипъ пзъ |
-| **tesseract_rus_best** | беря. табиси ВДООНеНы девестаи, пиве сарардесмадрт | ∅ | роевъ. Адмиралъ Сенирской нездоровъ, не выходишЪ изЪ |
-| **crnn_ctc_church_slavonic** | еа | Момоммом¬ | Ровъ∙ Адмиѡл Сеи врекои иєздоровъ∙ и євькодитъ∙ иꙁъ¬ |
+| Модель | [**Handwritten Essay**](https://huggingface.co/datasets/sherstpasha/handwritten_essay)<br><img src="benchmark_results/prediction_collages/assets/line/handwritten_essay_000654.jpg" width="520"><br>**GT:** Лиза". Главной героиней повести является сентименталь- | [**School Notebooks RU**](https://huggingface.co/datasets/ai-forever/school_notebooks_RU)<br><img src="benchmark_results/prediction_collages/assets/line/school_notebooks_ru_000315.jpg" width="520"><br>**GT:** небольшого роста, тщательно выбритый и аккуратно | [**Russian Old Orthography OCR**](https://huggingface.co/datasets/nevmenandr/russian-old-orthography-ocr)<br><img src="benchmark_results/prediction_collages/assets/line/russian_old_orthography_000836.jpg" width="520"><br>**GT:** роевъ. Адмиралъ Сенирской нездоровъ, не выходитъ изъ | [**RU OCR Benchmark Hard**](https://huggingface.co/datasets/vladlinv/ru-ocr-benchmark-hard)<br><img src="benchmark_results/prediction_collages/assets/line/ru_ocr_benchmark_hard_472827e1886e3a4384ec68acbf3aa29f725071b6.jpg" width="520"><br>**GT:** урану-235 |
+| --- | --- | --- | --- | --- |
+| **paddleocr_v6_medium_ru** | Лицза" Гравной герошней повести является сентилонталь- | небольшого роста, тцательно выбрятьий и сускуратно, | роевъ. Адмираль Сенирской нездоровь, не выходипь изъ | урану-235 |
+| **cyrillic_large_handwritten** | Лица "Главной черенней волости является сентименталь- | небольшого роста, тщательно выбритый и аккуратно | роевъ. Адмиралъ Сентрской нездоровъ, не выходитъ изъ | урану-235 |
+| **trocr_ru_1700s** | Лица Главной героиней повести является сентиментом | небольшого хроста, тщательно выбратьше и аккуратно, | роевъ. Адмираль Сенгрской нездоровъ, не выходитъ изъ | урану 235 |
+| **kraken_ppocrv6_medium** | Лиза». Главной чероиней повести являстся сентименталь¬ | небольшого роста, тщательно выбрятьй и аккуратно | роевъ. Адмиралъ Сенпрской нездоровъ, не выходитъ изъ | vuy-235 |
+| **trocr_large_rukopys_hw** | Якца". Гравної горошней повести являється сентиланталь- | небольшого роста, пищательно выбиться й сускуратна | росяб. Адмираль Сентрской нездоровь, на выходить изъ | урану-235 |
+| **kraken_ppocrv6_small** | Лща. Тлавкой чрашней ловеси авляетя сентилонталь¬ | небольшого роста, тщательно выбритьйи аккуратно | роевъ. Адмиралъ Сенпрской нездоровъ, не выходитъ изъ | 1ay 235 |
+| **parseq_s_rukopys** | Лиза. Гравной гороиней повести является сентиланталь- | небольшого роста, тецательно выбриться аккуратно, | роєвч. Адмираль Сенарскої нездоровъ, не выходитъ пізв- | У рану-235 |
+| **parseq_b_rukopys** | Лица". Гравной героиней повести являеться сентимантами | небольшою роста, тицательно выбриться и сускуратно | поєвз. Адмираль Сенарскої нездоровъ, не выходить пзо- | У раку-235 |
+| **party_european_languages** | Лиза". Главкой черестой ковести являється в | небольшого (роста), тщательно выбриться и сускуратно) | роевъ. Адмиралъ Сенпрской нездоровъ, не выходитъ изъ | мангисты |
+| **trocr_handwritten_cyrillic** | Еще. Травной гординей ровести явгяется сентилантан¬ | небольшого раста, туательно выбритьий, аккуратно, | роевъ. Адмиралъ Сенирской нездоровъ, не выходить изъ- | оупау-23 |
+| **paddleocr_v6_tiny_ru** | Сиуч Плавкой чероичей ковенти являетао сентилюнттль | невольиого Просто в тзательно выбритьиь а аукуратно | роевь. Адмираль Сенирской нездоровъ, не выходипь изтъ | урану-235 |
+| **cyrillic_htr_model** | Свиза Тавкай герашей совести дылето сентелантиль | небольшого капола тецательно свибратый и оскурамно | роевъ. Адиралъ Сенирской нездоровъ, нe выходитъ изъ | урану 235 |
+| **trocr_dialectic_stackmix** | Связа́-Главной черв'иной пов'ести является | небольшого фоста, тщательно выбратьиб'еаркуратно | роевъ. Адмираль-Сенарской нездоровъ, невыходишё-133 | урэну-235 |
+| **trocr_base_ru** | Лиза-Главной героиней-повести является | небольшого врата, тщательно,выбритьшегоаккуратно, | роевъ. Адмираль Сентрской-нездоровъ, невыходитъ | Урэну-235 |
+| **trba_lite_g1** | Каза Правой страний повести объекта летом | небольшого Чалазацительно Выбитыми о Выби | роевь. Адмираль Сенерской нездоровь, не в | указу 235 |
+| **trba_base_g1** | Евгерей Павкой гражениямительными | ниопольного распл, вщитальное выдительной | реевы. Адмираль Северской нездоров, не вы | урену-235 |
+| **kraken_ppocrv6_tiny** | виуа.Гравкой черошней ровести двкяетчо сентиланталь- | небольшого роста, тцателно выбргитыи и сккуратна | роевъ. Адмиралъ Сенирской нездоровъ, ие выходитъ пзъ | vהy235 |
+| **trocr_rukopys** | Лиза - Гравором герошей повести являється сентилають- | небачимою поста, інцательно вибрятьми та оцекуратися | рось. Адмираль Сендрской нездоровь, на виходить кза- | Урану-25 |
+| **trocr_dialectic** | Свеца́-Главной черв'иной повести является | небольшого фроста, тщательно-выбритый иаркуратно | роевъ. Адмираль-Сенарской нездоровъ,невыходишъ-133 | УРАНУ-235 |
+| **paddleocr_eslav_v5_mobile** | lуаTавно чероес ровеmu явеrs сеrрен | неsошorоpоmamyаmeоBбрumиsсyкураmu | роевь. Адмиралъ Сенирской нездоровъ, не выходипь изъ | yPaHy-235 |
+| **paddleocr_cyrillic_v5_mobile** | la Tabpor чepoe robemu aвrsere cerren | нeдошoopocmamyаmeко брumuscyкypamu | роевь. Адмираль Сенирской нездоровъ, не выходипь изъ | yдaHy-235 |
+| **turkicocr_svtrv2_b** | Ануа — пабкы тэрдией. довети алгзетсо сентиивентать | нефоииою доста тцатешио быйитышл о очкуратик | роевь. Адмираль Сенирской нездоровы, не выходишь изы | Үрану-235 |
+| **trocr_russian_18th_century_printed** | Їу Іаце, уulaulail вете вызыхь инатити. | воболыново пасто кнопопалыено Ввапѣсамавой пиккувита | роевъ. Адмиралъ Сенирской нездоровъ, нѽе выходить изъ | унинуз25 |
+| **trocr_base_handwritten_ru** | Лез Гравой ирмый лестиявляется итностной | голимео рапо, пракаявабрильна додазажданания | проеп. Ип Сенрей нарды, не пополподить ить | удану-235 |
+| **trocr_prereform_orthography** | ъ совъ польютъ. | СОЛАСѢЯ СЕЛIО. Подольютъ чтораго и половъ назатья и | роевъ. Адмиралъ Сенирской нездоровъ, нe выходишъ | упану-X |
+| **cyrillic_g1** | З?ч. 71<8кос "ои{ {@бе77г(- 8=7& <2~{7<<<7т- | юабо %ост( > туатаикСышми* счччратио | роевъ. Адмиралъ Сенпрской нездоповъ, не выходишъ нзъ | ш2ау 235 |
+| **cyrillic_g2** | '? " 74Жёжо7 "ео /4бе./2ч ~ 04_з&Я&+ (1 < 4с7+46 - | и0[0 (010 {{ъ_п 0 > [пъ %&ка [ъ0 [ъ $ т [Ч~&ра лил | роевъ: Адмиралъ Сенпрской нездоровъ; не выходипъ пзъ | УННЧУ-235 |
+| **tesseract_cyrillic_best** | ∅ | ∅ | роевъ. Адмиралъ Сенирской нездоровъ, не выходитъ изъ | ∅ |
+| **trocr_church_slavonic_handwritten** | мца. Їлакоущимъ миже дл҃жесити миче | кꙿ слⷭ҇ѡⷪоꙷ їасте, по анѡворьныⷨ | роевъ. Ади имъ Се и прокои и ездоровь, и евы холить къ | ѱа чю цр҃ѧ хъ |
+| **tesseract_rus_best** | беря. табиси ВДООНеНы девестаи, пиве сарардесмадрт | ∅ | роевъ. Адмиралъ Сенирской нездоровъ, не выходишЪ изЪ | ∅ |
+| **crnn_ctc_church_slavonic** | еа | Момоммом¬ | Ровъ∙ Адмиѡл Сеи врекои иєздоровъ∙ и євькодитъ∙ иꙁъ¬ | у |

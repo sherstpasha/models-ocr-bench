@@ -1,0 +1,25 @@
+{
+  "task": "recognition",
+  "dataset": "ru_ocr_benchmark_hard",
+  "model": "trocr_rukopys",
+  "repository": "Hukyl/trocr-rukopys",
+  "cpu": null,
+  "gpu": {
+    "device": "cuda",
+    "num_words": 3182,
+    "batch_size": 1,
+    "total_time_s": 1191.5165697000048,
+    "mean_time_ms": 374.4552387492158,
+    "throughput_words_s": 2.67054616017732,
+    "ram_after_load_mb": 2324.03125,
+    "ram_peak_mb": 2326.18359375,
+    "gpu_peak_mb": 1403.0341796875,
+    "accuracy_metrics": {
+      "cer": 0.42611409579853954,
+      "wer": 0.8317665331480422,
+      "exact_match": 0.09145191703331239,
+      "character_similarity": 0.6376320192448957,
+      "evaluated_words": 3182
+    }
+  }
+}

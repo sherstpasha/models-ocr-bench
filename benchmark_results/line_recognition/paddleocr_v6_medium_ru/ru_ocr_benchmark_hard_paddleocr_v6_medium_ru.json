@@ -1,0 +1,28 @@
+{
+  "task": "recognition",
+  "dataset": "ru_ocr_benchmark_hard",
+  "model": "paddleocr_v6_medium_ru",
+  "cpu": null,
+  "gpu": {
+    "device": "gpu:0",
+    "model_name": "PP-OCRv6_medium_rec",
+    "num_words": 3182,
+    "batch_size": 64,
+    "total_time_s": 29.08127300000342,
+    "mean_time_ms": 9.1393064110633,
+    "throughput_words_s": 109.41749351892628,
+    "ram_after_load_mb": 1471.25,
+    "ram_peak_mb": 1499.19140625,
+    "gpu_after_load_mb": 245.7529296875,
+    "gpu_peak_mb": 3255.4677734375,
+    "gpu_delta_mb": 3009.71484375,
+    "mean_confidence": 0.9500687693993226,
+    "accuracy_metrics": {
+      "cer": 0.04968611147509738,
+      "wer": 0.17567236164473146,
+      "exact_match": 0.6643620364550598,
+      "character_similarity": 0.9429608677311582,
+      "evaluated_words": 3182
+    }
+  }
+}

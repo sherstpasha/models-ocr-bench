@@ -67,6 +67,7 @@ def model_units(task):
             "orli": ".venv-orli",
             "pero": ".venv-pero", "rtmdet": ".venv-rtmdet",
             "ultralytics": ".venv",
+            "nemotron": ".venv",
         }
         return [
             (name, environments[config["backend"]],
@@ -86,8 +87,13 @@ def model_units(task):
         "tesseract": (".venv", "scripts.recognition.benchmark_tesseract"),
         "crnn_ctc": (".venv", "scripts.recognition.benchmark_crnn_ctc"),
         "party": (".venv-party", "scripts.recognition.benchmark_party"),
+        "nemotron": (".venv", "scripts.nemotron.run_docker"),
     }
-    return [(name, *modules[config["backend"]]) for name, config in BENCHMARKS.items()]
+    return [
+        (name, *modules[config["backend"]])
+        for name, config in BENCHMARKS.items()
+        if level in config.get("levels", {"word", "line"})
+    ]
 
 
 def prepare_task(task):

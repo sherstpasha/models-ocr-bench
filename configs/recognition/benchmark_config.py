@@ -32,6 +32,17 @@ YENISEI_PRT_DATA = (
 )
 
 BENCHMARKS = {
+    "nemotron_ocr_v2_multilingual_line": {
+        "origin": "https://huggingface.co/nvidia/nemotron-ocr-v2",
+        "run": True,
+        "backend": "nemotron",
+        "levels": {"line"},
+        "model_dir": PROJECT_ROOT / "models" / "nemotron-ocr-v2" / "v2_multilingual",
+        "device": "cuda:0",
+        "batch_size": 8,
+        "warmup_size": 1,
+        "output_dir": RESULTS_ROOT / "nemotron_ocr_v2_multilingual_line",
+    },
     "trba_lite_g1": {
         "origin": "https://github.com/konstantinkozhin/manuscript-ocr",
         "run": True,

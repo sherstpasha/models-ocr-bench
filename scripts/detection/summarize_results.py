@@ -7,6 +7,7 @@ from utils.datasets import result_is_compatible
 from utils.ranking import mean_metric_ranks
 from utils.dataset_sources import markdown_dataset_header
 from utils.training_overlaps import mark_training_overlap
+from utils.heatmap import heat_span
 
 
 SUMMARY_CSV = RESULTS_ROOT / "summary.csv"
@@ -34,12 +35,17 @@ def read_metrics(model_name, config, dataset_name):
     return f1_50, f1_range, dice_f1, polygon_hmean, throughput_fps
 
 
-def format_cell(metrics, best=None, precision=6):
+def format_cell(metrics, best=None, precision=6, ranges=None):
     if metrics is None:
         return "-"
     metrics = metrics[:4]
     values = [f"{value:.{precision}f}" for value in metrics]
-    if best is not None:
+    if ranges is not None:
+        values = [
+            heat_span(value, metric, value_range, True, best is not None and metric == maximum)
+            for value, metric, value_range, maximum in zip(values, metrics, ranges, best or metrics)
+        ]
+    elif best is not None:
         values = [
             f"**{value}**" if metric == maximum else value
             for value, metric, maximum in zip(values, metrics, best)
@@ -113,13 +119,31 @@ def best_metrics(dataset_names, raw_metrics):
     return best
 
 
+def metric_ranges(dataset_names, raw_metrics):
+    ranges = {}
+    for dataset_name in dataset_names:
+        available = [
+            raw_metrics[model_name, dataset_name]
+            for model_name in BENCHMARKS
+            if raw_metrics[model_name, dataset_name] is not None
+        ]
+        ranges[dataset_name] = (
+            tuple(
+                (min(values[index] for values in available), max(values[index] for values in available))
+                for index in range(4)
+            )
+            if available else None
+        )
+    return ranges
+
+
 def write_summary():
     dataset_names, model_names, raw_metrics, mean_f1, mean_f1_range, mean_dice, mean_polygon, mean_rank, mean_fps = summary_data()
     SUMMARY_CSV.parent.mkdir(parents=True, exist_ok=True)
     with SUMMARY_CSV.open("w", encoding="utf-8-sig", newline="") as file:
         writer = csv.writer(file)
         writer.writerow(
-            ["model", "origin", "mean_f1@0.5", "mean_f1@0.5:0.95", "mean_dice_f1", "mean_polygon_hmean@0.5", "mean_metric_rank", *dataset_names, "mean_gpu_fps"]
+            ["model", "origin", "mean_f1@0.5", "mean_f1@0.5:0.95", "mean_dice_f1", "mean_polygon_hmean@0.5", *dataset_names, "mean_gpu_fps"]
         )
         for model_name in model_names:
             writer.writerow(
@@ -134,7 +158,6 @@ def write_summary():
                     "-" if mean_f1_range[model_name] is None else f"{mean_f1_range[model_name]:.6f}",
                     "-" if mean_dice[model_name] is None else f"{mean_dice[model_name]:.6f}",
                     "-" if mean_polygon[model_name] is None else f"{mean_polygon[model_name]:.6f}",
-                    "-" if mean_rank[model_name] is None else f"{mean_rank[model_name]:.6f}",
                     *(
                         format_cell(raw_metrics[model_name, dataset_name])
                         for dataset_name in dataset_names
@@ -148,6 +171,7 @@ def write_summary():
             )
 
     best = best_metrics(dataset_names, raw_metrics)
+    ranges = metric_ranges(dataset_names, raw_metrics)
     available_f1 = [value for value in mean_f1.values() if value is not None]
     available_fps = [value for value in mean_fps.values() if value is not None]
     best_mean_f1 = max(available_f1) if available_f1 else None
@@ -161,21 +185,24 @@ def write_summary():
         (value for value in mean_polygon.values() if value is not None), default=None
     )
     best_mean_fps = max(available_fps) if available_fps else None
-    best_mean_rank = min(
-        (value for value in mean_rank.values() if value is not None), default=None
-    )
+    mean_ranges = [
+        (min(values), max(values))
+        for metric in (mean_f1, mean_f1_range, mean_dice, mean_polygon)
+        for values in [[value for value in metric.values() if value is not None]]
+    ]
+    fps_range = (min(available_fps), max(available_fps)) if available_fps else None
     dataset_headers = [
         markdown_dataset_header(name, DATASETS[name]) for name in dataset_names
     ]
-    headers = ["Model", "Origin", "Mean F1@0.5", "Mean F1@0.5:0.95", "Mean Dice F1", "Mean Polygon H-mean@0.5", "Mean Metric Rank", *dataset_headers, "Mean GPU FPS"]
+    headers = ["Model", "Origin", "Mean F1@0.5", "Mean F1@0.5:0.95", "Mean Dice F1", "Mean Polygon H-mean@0.5", *dataset_headers, "Mean GPU FPS"]
     lines = [
         "# Benchmark summary",
         "",
         "Each dataset cell: `F1@0.5 / F1@0.5:0.95 / Dice F1 / Polygon H-mean@0.5`.",
         "`*` marks a dataset known to have been used to train that model.",
         "`Mean GPU FPS` is the arithmetic mean across available datasets.",
-        "`Mean Metric Rank` averages conventional ranks across the four mean metrics: rank 1 is best.",
-        "Rows are sorted by `Mean Metric Rank` in ascending order.",
+        "Rows are sorted by the mean rank across the four aggregate metrics.",
+        'Heatmap: <span style="color:#4f8a5b">better</span> / <span style="color:#8a7a52">middle</span> / <span style="color:#b35c5c">worse</span> within each metric column.',
         "",
         "| " + " | ".join(headers) + " |",
         "| " + " | ".join(["---"] * len(headers)) + " |",
@@ -187,6 +214,7 @@ def write_summary():
                     raw_metrics[model_name, dataset_name],
                     best=best[dataset_name],
                     precision=2,
+                    ranges=ranges[dataset_name],
                 ),
                 model_name,
                 dataset_name,
@@ -195,25 +223,17 @@ def write_summary():
         ]
         f1 = mean_f1[model_name]
         fps = mean_fps[model_name]
-        f1_cell = "-" if f1 is None else f"{f1:.2f}"
-        fps_cell = "-" if fps is None else f"{fps:.2f}"
-        rank = mean_rank[model_name]
-        rank_cell = "-" if rank is None else f"{rank:.2f}"
-        if f1 is not None and f1 == best_mean_f1:
-            f1_cell = f"**{f1_cell}**"
-        if fps is not None and fps == best_mean_fps:
-            fps_cell = f"**{fps_cell}**"
-        if rank is not None and rank == best_mean_rank:
-            rank_cell = f"**{rank_cell}**"
+        f1_cell = "-" if f1 is None else heat_span(f"{f1:.2f}", f1, mean_ranges[0], True, f1 == best_mean_f1)
+        fps_cell = "-" if fps is None else heat_span(f"{fps:.2f}", fps, fps_range, True, fps == best_mean_fps)
         mean_cells = []
-        for value, best_value in (
+        for range_index, (value, best_value) in enumerate((
             (mean_f1_range[model_name], best_mean_f1_range),
             (mean_dice[model_name], best_mean_dice),
             (mean_polygon[model_name], best_mean_polygon),
-        ):
+        ), start=1):
             cell = "-" if value is None else f"{value:.2f}"
-            if value is not None and value == best_value:
-                cell = f"**{cell}**"
+            if value is not None:
+                cell = heat_span(cell, value, mean_ranges[range_index], True, value == best_value)
             mean_cells.append(cell)
         lines.append(
             "| "
@@ -223,7 +243,6 @@ def write_summary():
                     f"[source]({BENCHMARKS[model_name]['origin']})",
                     f1_cell,
                     *mean_cells,
-                    rank_cell,
                     *cells,
                     fps_cell,
                 ]

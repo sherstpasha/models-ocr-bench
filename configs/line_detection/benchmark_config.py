@@ -13,6 +13,15 @@ DATA_ROOT = Path(os.environ.get(
 OLD_ORTHOGRAPHY_ROOT = DATA_ROOT / "russian_old_orthography_ocr"
 
 BENCHMARKS = {
+    "nemotron_ocr_v2_multilingual_line": {
+        "origin": "https://huggingface.co/nvidia/nemotron-ocr-v2",
+        "run": True,
+        "backend": "nemotron",
+        "output_dir": RESULTS_ROOT / "nemotron_ocr_v2_multilingual_line",
+        "model_dir": PROJECT_ROOT / "models" / "nemotron-ocr-v2" / "v2_multilingual",
+        "device": "cuda:0",
+        "batch_size": 1,
+    },
     "ndlocr_lite_deimv2_line": {
         "origin": "https://github.com/ndl-lab/ndlocr-lite",
         "run": True,

@@ -1,0 +1,26 @@
+{
+  "task": "recognition",
+  "dataset": "rus_xviii_printed_geography",
+  "model": "nemotron_ocr_v2_multilingual_line",
+  "cpu": null,
+  "gpu": {
+    "device": "cuda",
+    "num_words": 3214,
+    "batch_size": 8,
+    "total_time_s": 112.72674180800095,
+    "mean_time_ms": 35.07365955444958,
+    "throughput_words_s": 28.511424604768283,
+    "ram_after_load_mb": 1897.1796875,
+    "ram_peak_mb": 1897.2109375,
+    "gpu_after_load_mb": 323.48095703125,
+    "gpu_peak_mb": 4273.8662109375,
+    "mean_confidence": 0.6691193850667837,
+    "accuracy_metrics": {
+      "cer": 0.4572854674601651,
+      "wer": 0.8593134780413932,
+      "exact_match": 0.02582451773490977,
+      "character_similarity": 0.5672880793331533,
+      "evaluated_words": 3214
+    }
+  }
+}

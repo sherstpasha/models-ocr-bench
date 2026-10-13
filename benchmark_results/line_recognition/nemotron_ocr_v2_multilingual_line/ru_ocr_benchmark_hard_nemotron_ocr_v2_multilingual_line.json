@@ -1,0 +1,26 @@
+{
+  "task": "recognition",
+  "dataset": "ru_ocr_benchmark_hard",
+  "model": "nemotron_ocr_v2_multilingual_line",
+  "cpu": null,
+  "gpu": {
+    "device": "cuda",
+    "num_words": 3182,
+    "batch_size": 8,
+    "total_time_s": 118.46459600700109,
+    "mean_time_ms": 37.22960276775647,
+    "throughput_words_s": 26.860345683464352,
+    "ram_after_load_mb": 1896.6015625,
+    "ram_peak_mb": 1896.6015625,
+    "gpu_after_load_mb": 323.48095703125,
+    "gpu_peak_mb": 4273.8662109375,
+    "mean_confidence": 0.7134508233448127,
+    "accuracy_metrics": {
+      "cer": 0.29671102004836386,
+      "wer": 0.5561186953322979,
+      "exact_match": 0.2617850408548083,
+      "character_similarity": 0.6537191907225198,
+      "evaluated_words": 3182
+    }
+  }
+}

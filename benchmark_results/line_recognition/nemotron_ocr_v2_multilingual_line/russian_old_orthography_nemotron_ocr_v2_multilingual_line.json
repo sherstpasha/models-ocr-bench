@@ -1,0 +1,26 @@
+{
+  "task": "recognition",
+  "dataset": "russian_old_orthography",
+  "model": "nemotron_ocr_v2_multilingual_line",
+  "cpu": null,
+  "gpu": {
+    "device": "cuda",
+    "num_words": 1406,
+    "batch_size": 8,
+    "total_time_s": 49.43944229999943,
+    "mean_time_ms": 35.16318798008494,
+    "throughput_words_s": 28.43883212655124,
+    "ram_after_load_mb": 1797.9765625,
+    "ram_peak_mb": 1881.72265625,
+    "gpu_after_load_mb": 323.48095703125,
+    "gpu_peak_mb": 4399.78271484375,
+    "mean_confidence": 0.8010392297973867,
+    "accuracy_metrics": {
+      "cer": 0.16399683575595767,
+      "wer": 0.5672893228613882,
+      "exact_match": 0.02418207681365576,
+      "character_similarity": 0.8327623433537066,
+      "evaluated_words": 1406
+    }
+  }
+}

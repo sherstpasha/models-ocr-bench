@@ -8,6 +8,7 @@ from configs.line_detection.benchmark_config import BENCHMARKS, DATASETS, RESULT
 from utils.ranking import mean_metric_ranks
 from utils.dataset_sources import markdown_dataset_header
 from utils.training_overlaps import mark_training_overlap
+from utils.heatmap import heat_span
 
 
 def read_metrics(model_name, config, dataset_name):
@@ -54,36 +55,52 @@ def write_summary():
     csv_path = RESULTS_ROOT / "summary.csv"
     with csv_path.open("w", encoding="utf-8-sig", newline="") as file:
         writer = csv.writer(file)
-        writer.writerow(["model", "origin", "mean_f1@0.5", "mean_f1@0.5:0.95", "mean_dice_f1", "mean_polygon_hmean@0.5", "mean_metric_rank", *datasets, "mean_gpu_fps"])
+        writer.writerow(["model", "origin", "mean_f1@0.5", "mean_f1@0.5:0.95", "mean_dice_f1", "mean_polygon_hmean@0.5", *datasets, "mean_gpu_fps"])
         for model in models:
             writer.writerow([
                 model,
                 BENCHMARKS[model]["origin"],
                 *("-" if means[index][model] is None else f"{means[index][model]:.6f}" for index in range(4)),
-                "-" if mean_rank[model] is None else f"{mean_rank[model]:.6f}",
                 *(
                     "-" if raw[model, dataset] is None else format_csv_cell(raw[model, dataset])
                     for dataset in datasets
                 ),
                 "-" if speeds[model] is None else f"{speeds[model]:.6f}",
             ])
-    best_mean_rank = min(
-        (value for value in mean_rank.values() if value is not None), default=None
-    )
     best_means = [
         max((value for value in means[index].values() if value is not None), default=None)
         for index in range(4)
     ]
+    mean_ranges = [
+        (min(values), max(values))
+        for index in range(4)
+        for values in [[value for value in means[index].values() if value is not None]]
+    ]
+    available_speeds = [value for value in speeds.values() if value is not None]
+    speed_range = (min(available_speeds), max(available_speeds)) if available_speeds else None
+    best_speed = max(available_speeds) if available_speeds else None
+    dataset_ranges = {}
+    dataset_best = {}
+    for dataset in datasets:
+        available = [raw[model, dataset] for model in models if raw[model, dataset] is not None]
+        dataset_ranges[dataset] = tuple(
+            (min(item[index] for item in available), max(item[index] for item in available))
+            for index in range(4)
+        ) if available else None
+        dataset_best[dataset] = tuple(
+            max(item[index] for item in available) for index in range(4)
+        ) if available else None
     dataset_headers = [
         markdown_dataset_header(name, DATASETS[name]) for name in datasets
     ]
-    headers = ["Model", "Origin", "Mean F1@0.5", "Mean F1@0.5:0.95", "Mean Dice F1", "Mean Polygon H-mean@0.5", "Mean Metric Rank", *dataset_headers, "Mean GPU FPS"]
+    headers = ["Model", "Origin", "Mean F1@0.5", "Mean F1@0.5:0.95", "Mean Dice F1", "Mean Polygon H-mean@0.5", *dataset_headers, "Mean GPU FPS"]
     lines = [
         "# Line-level detection benchmark",
         "",
         "Each dataset cell: `F1@0.5 / F1@0.5:0.95 / Dice F1 / Polygon H-mean@0.5`.",
         "`*` marks a dataset known to have been used to train or tune that model.",
-        "`Mean Metric Rank` averages conventional ranks across the four mean metrics: rank 1 is best. Rows are sorted by it in ascending order.",
+        "Rows are sorted by the mean rank across the four aggregate metrics.",
+        'Heatmap: <span style="color:#4f8a5b">better</span> / <span style="color:#8a7a52">middle</span> / <span style="color:#b35c5c">worse</span> within each metric column.',
         "",
         "| " + " | ".join(headers) + " |",
         "| " + " | ".join(["---"] * len(headers)) + " |",
@@ -91,30 +108,29 @@ def write_summary():
     for model in models:
         cells = [
             mark_training_overlap(
-                "-" if raw[model, dataset] is None else format_md_cell(raw[model, dataset]),
+                "-" if raw[model, dataset] is None else format_md_cell(
+                    raw[model, dataset], dataset_ranges[dataset], dataset_best[dataset]
+                ),
                 model,
                 dataset,
             )
             for dataset in datasets
         ]
-        rank = mean_rank[model]
-        rank_cell = "-" if rank is None else f"{rank:.2f}"
-        if rank is not None and rank == best_mean_rank:
-            rank_cell = f"**{rank_cell}**"
         mean_cells = []
         for index in range(4):
             value = means[index][model]
             cell = "-" if value is None else f"{value:.2f}"
-            if value is not None and value == best_means[index]:
-                cell = f"**{cell}**"
+            if value is not None:
+                cell = heat_span(cell, value, mean_ranges[index], True, value == best_means[index])
             mean_cells.append(cell)
         lines.append("| " + " | ".join([
             model,
             f"[source]({BENCHMARKS[model]['origin']})",
             *mean_cells,
-            rank_cell,
             *cells,
-            "-" if speeds[model] is None else f"{speeds[model]:.2f}",
+            "-" if speeds[model] is None else heat_span(
+                f"{speeds[model]:.2f}", speeds[model], speed_range, True, speeds[model] == best_speed
+            ),
         ]) + " |")
     md_path = RESULTS_ROOT / "summary.md"
     md_path.write_text("\n".join(lines) + "\n", encoding="utf-8")
@@ -126,8 +142,11 @@ def format_csv_cell(values):
     return " / ".join(f"{value:.6f}" for value in values[:4])
 
 
-def format_md_cell(values):
-    return " / ".join(f"{value:.2f}" for value in values[:4])
+def format_md_cell(values, ranges, best):
+    return " / ".join(
+        heat_span(f"{value:.2f}", value, value_range, True, value == maximum)
+        for value, value_range, maximum in zip(values[:4], ranges, best)
+    )
 
 
 if __name__ == "__main__":

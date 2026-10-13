@@ -1,0 +1,58 @@
+{
+  "dataset": "bergskollegium_relationer_och_skrivelser_seg",
+  "level": "line",
+  "cpu": null,
+  "gpu": {
+    "device": "cuda:0",
+    "detection_level": "line",
+    "architecture": "Nemotron OCR v2 multilingual detector",
+    "repository": "https://huggingface.co/nvidia/nemotron-ocr-v2",
+    "ground_truth_version": 4,
+    "num_images": 100,
+    "mean_time_ms": 141.1438850300692,
+    "median_time_ms": 137.03289800014318,
+    "throughput_fps": 7.08496864591024,
+    "ram_after_load_mb": 1786.890625,
+    "ram_peak_mb": 1786.890625,
+    "ram_delta_mb": 0.0,
+    "gpu_after_load_mb": 173.8046875,
+    "gpu_peak_mb": 744.89501953125,
+    "accuracy_metrics": {
+      "iou_threshold": 0.5,
+      "precision": 0.9659630606860158,
+      "recall": 0.7376586741889986,
+      "f1": 0.8365131954758368,
+      "mean_matched_iou": 0.8424544200772526,
+      "true_positives": 3661,
+      "false_positives": 129,
+      "false_negatives": 1302,
+      "evaluated_images": 100,
+      "f1@0.5": 0.8365131954758368,
+      "f1@0.5:0.95": 0.6150576945047412,
+      "f1_by_iou": {
+        "0.50": 0.8365131954758368,
+        "0.55": 0.8246315548954642,
+        "0.60": 0.8061236147606535,
+        "0.65": 0.7844167713926655,
+        "0.70": 0.7574545869987432,
+        "0.75": 0.719296241288701,
+        "0.80": 0.6505198217753912,
+        "0.85": 0.48234890894550436,
+        "0.90": 0.251342396892494,
+        "0.95": 0.03792985262195818
+      }
+    },
+    "polygon_iou_metrics": {
+      "iou_threshold": 0.5,
+      "precision": 0.6018469656992085,
+      "recall": 0.45960104775337496,
+      "hmean": 0.5211927339197989,
+      "dice_f1": 0.8273950002054312,
+      "mean_matched_iou": 0.5718989844790601,
+      "true_positives": 2281,
+      "false_positives": 1509,
+      "false_negatives": 2682,
+      "evaluated_images": 100
+    }
+  }
+}

@@ -20,6 +20,7 @@ JOBS = {
     "party": (".venv-party", "scripts.recognition.benchmark_party"),
     "party-base": (".venv-party-base", "scripts.recognition.benchmark_party_base"),
     "tesseract": (".venv", "scripts.recognition.benchmark_tesseract"),
+    "nemotron": (".venv", "scripts.nemotron.run_docker"),
 }
 
 

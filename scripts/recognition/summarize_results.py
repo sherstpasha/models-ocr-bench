@@ -141,10 +141,11 @@ def format_cell(values, best=None, precision=6, ranges=None):
 
 def best_by_dataset(raw, table_key):
     best = {}
+    models = {model for model, _dataset in raw}
     for dataset in DATASETS:
         available = [
             raw[model, dataset][table_key]
-            for model in BENCHMARKS
+            for model in models
             if raw[model, dataset] is not None
         ]
         best[dataset] = (
@@ -162,10 +163,11 @@ def best_by_dataset(raw, table_key):
 
 def ranges_by_dataset(raw, table_key):
     ranges = {}
+    models = {model for model, _dataset in raw}
     for dataset in DATASETS:
         available = [
             raw[model, dataset][table_key]
-            for model in BENCHMARKS
+            for model in models
             if raw[model, dataset] is not None
         ]
         ranges[dataset] = (
@@ -212,7 +214,6 @@ def write_csv(path, raw, models, table_key, mean_metrics, mean_rank, mean_speed)
                 "mean_exact_match",
                 "mean_cer",
                 "mean_wer",
-                "mean_metric_rank",
                 *DATASETS,
                 speed_name,
             ]
@@ -226,9 +227,6 @@ def write_csv(path, raw, models, table_key, mean_metrics, mean_rank, mean_speed)
                         f"{metric[model]:.6f}" if metric[model] is not None else "-"
                         for metric in mean_metrics
                     ),
-                    f"{mean_rank[model]:.6f}"
-                    if mean_rank[model] is not None
-                    else "-",
                     *(
                         format_cell(
                             raw[model, dataset][table_key]
@@ -251,26 +249,23 @@ def markdown_table(raw, models, table_key, mean_metrics, mean_rank, mean_speed):
         best_means.append(
             (max(available) if index < 2 else min(available)) if available else None
         )
-    available_rank = [value for value in mean_rank.values() if value is not None]
     available_speed = [value for value in mean_speed.values() if value is not None]
-    best_rank = min(available_rank) if available_rank else None
     best_speed = max(available_speed) if available_speed else None
     mean_ranges = [
         (min(available), max(available))
         for metric in mean_metrics
         for available in [[value for value in metric.values() if value is not None]]
     ]
-    rank_range = (min(available_rank), max(available_rank)) if available_rank else None
     speed_range = (min(available_speed), max(available_speed)) if available_speed else None
     speed_title = "Mean lines/s" if RECOGNITION_LEVEL == "line" else "Mean words/s"
     dataset_headers = [
         markdown_dataset_header(name, DATASETS[name]) for name in DATASETS
     ]
     lines = [
-        "| Model | Origin | Mean Character Similarity | Mean Exact Match | Mean CER | Mean WER | Mean Metric Rank | "
+        "| Model | Origin | Mean Character Similarity | Mean Exact Match | Mean CER | Mean WER | "
         + " | ".join(dataset_headers)
         + f" | {speed_title} |",
-        "| --- | --- | --- | --- | --- | --- | --- | "
+        "| --- | --- | --- | --- | --- | --- | "
         + " | ".join("---" for _ in DATASETS)
         + " | --- |",
     ]
@@ -304,13 +299,7 @@ def markdown_table(raw, models, table_key, mean_metrics, mean_rank, mean_speed):
                     value == best_mean,
                 )
             mean_cells.append(cell)
-        rank = mean_rank[model]
-        rank_cell = "-" if rank is None else f"{rank:.2f}"
         speed_cell = "-" if speed is None else f"{speed:.2f}"
-        if rank is not None:
-            rank_cell = heat_span(
-                rank_cell, rank, rank_range, False, rank == best_rank
-            )
         if speed is not None:
             speed_cell = heat_span(
                 speed_cell, speed, speed_range, True, speed == best_speed
@@ -322,7 +311,6 @@ def markdown_table(raw, models, table_key, mean_metrics, mean_rank, mean_speed):
                     model,
                     f"[source]({BENCHMARKS[model]['origin']})",
                     *mean_cells,
-                    rank_cell,
                     *cells,
                     speed_cell,
                 ]
@@ -334,15 +322,20 @@ def markdown_table(raw, models, table_key, mean_metrics, mean_rank, mean_speed):
 
 def write_summary():
     RESULTS_ROOT.mkdir(parents=True, exist_ok=True)
+    model_names = [
+        model
+        for model, config in BENCHMARKS.items()
+        if RECOGNITION_LEVEL in config.get("levels", {"word", "line"})
+    ]
     raw = {
         (model, dataset): read_metrics(model, dataset)
-        for model in BENCHMARKS
+        for model in model_names
         for dataset in DATASETS
     }
     mean_metrics = [
         {
             model: mean_across_datasets(raw, model, "mean", index)
-            for model in BENCHMARKS
+            for model in model_names
         }
         for index in range(4)
     ]
@@ -353,7 +346,7 @@ def write_summary():
     )
     mean_speed = {
         model: mean_across_datasets(raw, model, "throughput")
-        for model in BENCHMARKS
+        for model in model_names
     }
     mean_models = sorted_models(mean_rank, mean_similarity)
 
@@ -380,7 +373,7 @@ def write_summary():
         "Character Similarity is `1 - edit_distance / max(reference_length, prediction_length)` averaged across samples.",
         "Exact Match is the share of fully correct samples. Character Similarity and Exact Match range from 0 to 1; higher is better.",
         "CER and WER are normalized edit errors; lower is better and values can exceed 1 when predictions contain many insertions.",
-        "Mean Metric Rank averages the ranks of all four mean metrics. Rank 1 is best; rows are sorted by this rank in ascending order.",
+        "Rows are sorted by the mean rank across all four aggregate metrics.",
         "Heatmap: <span style=\"color:#4f8a5b\">better</span> / <span style=\"color:#8a7a52\">middle</span> / <span style=\"color:#b35c5c\">worse</span> within each metric column.",
         "",
         *markdown_table(

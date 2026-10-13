@@ -11,6 +11,7 @@ PROJECT_ROOT = Path(__file__).resolve().parents[1]
 VERSION = "v2"
 
 MODEL_LICENSES = {
+    "nemotron_ocr_v2_multilingual_line": "NVIDIA Open Model License / Apache-2.0",
     "ndlocr_lite_deimv2_line": "CC-BY-4.0 / DINOv3",
     "east_50_g1": "MIT",
     "east_50_yenisei_gov_reports_g1": "MIT",
@@ -292,7 +293,6 @@ def build():
     for title, relative, description in RESULTS:
         lines.extend([
             "", f"## {title}", "", description,
-            "", "`Mean Metric Rank`: 1 — лучший средний ранг; меньше — лучше.",
             "", *markdown_table(PROJECT_ROOT / relative),
         ])
         comparison = PREDICTION_COMPARISONS.get(relative)

@@ -1,0 +1,26 @@
+{
+  "task": "recognition",
+  "dataset": "school_notebooks_ru",
+  "model": "nemotron_ocr_v2_multilingual_line",
+  "cpu": null,
+  "gpu": {
+    "device": "cuda",
+    "num_words": 6453,
+    "batch_size": 8,
+    "total_time_s": 248.14612293499886,
+    "mean_time_ms": 38.45438136293179,
+    "throughput_words_s": 26.00483909913976,
+    "ram_after_load_mb": 1887.46484375,
+    "ram_peak_mb": 1892.5,
+    "gpu_after_load_mb": 323.48095703125,
+    "gpu_peak_mb": 4273.8662109375,
+    "mean_confidence": 0.5650685593717167,
+    "accuracy_metrics": {
+      "cer": 0.9360658893741953,
+      "wer": 1.0387440323172972,
+      "exact_match": 0.0009298000929800093,
+      "character_similarity": 0.08564806908954294,
+      "evaluated_words": 6453
+    }
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "task": "recognition",
+  "dataset": "handwritten_essay",
+  "model": "nemotron_ocr_v2_multilingual_line",
+  "cpu": null,
+  "gpu": {
+    "device": "cuda",
+    "num_words": 676,
+    "batch_size": 8,
+    "total_time_s": 26.169806960999267,
+    "mean_time_ms": 38.71273219082732,
+    "throughput_words_s": 25.831294858515367,
+    "ram_after_load_mb": 1892.83203125,
+    "ram_peak_mb": 1896.390625,
+    "gpu_after_load_mb": 323.48095703125,
+    "gpu_peak_mb": 4273.8662109375,
+    "mean_confidence": 0.448710555264831,
+    "accuracy_metrics": {
+      "cer": 0.901706231454006,
+      "wer": 1.0261710601175802,
+      "exact_match": 0.0,
+      "character_similarity": 0.11514601827079468,
+      "evaluated_words": 676
+    }
+  }
+}

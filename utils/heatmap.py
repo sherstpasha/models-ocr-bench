@@ -22,9 +22,8 @@ def heat_color(value, low, high, higher_is_better=True):
 
 def heat_span(text, value, value_range, higher_is_better=True, is_best=False):
     low, high = value_range
-    color = heat_color(value, low, high, higher_is_better)
-    red, green, blue = (int(color[index:index + 2], 16) for index in (1, 3, 5))
-    content = f"\\mathbf{{{text}}}" if is_best else text
-    # GitHub strips inline CSS from Markdown, but officially renders inline
-    # LaTeX with MathJax. RGB avoids relying on browser-only HTML hex parsing.
-    return f"${{\\color[RGB]{{{red},{green},{blue}}}{content}}}$"
+    content = f"<b>{text}</b>" if is_best else text
+    return (
+        f'<span style="color:{heat_color(value, low, high, higher_is_better)}">'
+        f"{content}</span>"
+    )

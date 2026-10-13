@@ -3,6 +3,7 @@ from __future__ import annotations
 import argparse
 import csv
 import difflib
+import html
 import os
 import random
 from pathlib import Path
@@ -152,50 +153,31 @@ def markdown_text(text: str) -> str:
     return " ".join((text or "∅").split()).replace("|", "\\|")
 
 
-def math_text(text: str) -> str:
-    """Escape arbitrary OCR text for MathJax text mode and Markdown tables."""
-    replacements = {
-        "\\": r"\textbackslash{}",
-        "{": r"\{",
-        "}": r"\}",
-        "$": r"\$",
-        "%": r"\%",
-        "#": r"\#",
-        "_": r"\_",
-        "&": r"\&",
-        "|": r"\|",
-        "^": r"\textasciicircum{}",
-        "~": r"\textasciitilde{}",
-    }
-    return r"\text{" + "".join(replacements.get(char, char) for char in text) + "}"
-
-
-def colored_math(text: str, rgb: tuple[int, int, int]) -> str:
-    red, green, blue = rgb
-    return f"${{\\color[RGB]{{{red},{green},{blue}}}{math_text(text)}}}$"
+def html_text(text: str) -> str:
+    return html.escape(text).replace("|", "&#124;")
 
 
 def colored_prediction(prediction: str, reference: str) -> str:
-    """Highlight OCR edits with GitHub-compatible MathJax colors."""
+    """Highlight OCR edits relative to GT while keeping table-safe HTML."""
     prediction = " ".join((prediction or "").split())
     reference = " ".join((reference or "").split())
     if not prediction:
-        return colored_math("∅", (179, 92, 92))
+        return '<span style="color:#b35c5c"><b>∅</b></span>'
 
     parts = []
     matcher = difflib.SequenceMatcher(None, reference, prediction, autojunk=False)
     for operation, ref_start, ref_end, pred_start, pred_end in matcher.get_opcodes():
-        predicted = prediction[pred_start:pred_end]
-        expected = reference[ref_start:ref_end]
+        predicted = html_text(prediction[pred_start:pred_end])
+        expected = html_text(reference[ref_start:ref_end])
         if operation == "equal":
-            parts.append(colored_math(predicted, (79, 138, 91)))
+            parts.append(f'<span style="color:#4f8a5b">{predicted}</span>')
         elif operation in {"replace", "insert"}:
-            parts.append(colored_math(predicted, (179, 92, 92)))
+            parts.append(f'<span style="color:#b35c5c"><b>{predicted}</b></span>')
         elif operation == "delete":
-            parts.append(f"<s>{colored_math(expected, (179, 92, 92))}</s>")
-    # Keep adjacent inline-math fragments from becoming an accidental `$$`
-    # display-math delimiter without adding visible spaces to OCR output.
-    return "<!-- -->".join(parts)
+            parts.append(
+                f'<span style="color:#b35c5c"><s><b>{expected}</b></s></span>'
+            )
+    return "".join(parts)
 
 
 def render(level: str, examples_per_dataset: int, seed: int) -> Path:
@@ -205,9 +187,9 @@ def render(level: str, examples_per_dataset: int, seed: int) -> Path:
     lines = [
         "### Примеры предсказаний",
         "",
-        f'{colored_math("Зелёным", (79, 138, 91))} отмечены правильные символы; '
-        f'{colored_math("красным", (179, 92, 92))} — ошибочные и лишние; '
-        f'<s>{colored_math("зачёркнутым", (179, 92, 92))}</s> — пропущенные.',
+        '<span style="color:#4f8a5b"><b>Зелёным</b></span> отмечены правильные символы; '
+        '<span style="color:#b35c5c"><b>красным</b></span> — ошибочные и лишние; '
+        '<span style="color:#b35c5c"><s><b>зачёркнутым</b></s></span> — пропущенные.',
         "",
     ]
     headers = ["Модель"]

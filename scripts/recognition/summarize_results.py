@@ -16,7 +16,6 @@ from utils.metrics import (
 from utils.ranking import mean_metric_ranks
 from utils.dataset_sources import markdown_dataset_header
 from utils.training_overlaps import mark_training_overlap
-from utils.heatmap import heat_span
 
 
 csv.field_size_limit(2**31 - 1)
@@ -81,6 +80,37 @@ def read_metrics(model_name, dataset_name):
         ),
         "throughput": float(throughput),
     }
+
+
+def heat_color(value, low, high, higher_is_better=True):
+    if high == low:
+        score = 1.0
+    else:
+        score = (value - low) / (high - low)
+    if not higher_is_better:
+        score = 1.0 - score
+    # Text-only heatmap: keep the red identical to the character-error
+    # highlighting used in prediction examples and use similarly muted tones.
+    bad = (179, 92, 92)
+    middle = (138, 122, 82)
+    good = (79, 138, 91)
+    start, end, mix = (
+        (bad, middle, score * 2)
+        if score <= 0.5
+        else (middle, good, (score - 0.5) * 2)
+    )
+    red, green, blue = (
+        round(start[index] + (end[index] - start[index]) * mix)
+        for index in range(3)
+    )
+    return f"#{red:02x}{green:02x}{blue:02x}"
+
+
+def heat_span(text, value, value_range, higher_is_better, is_best=False):
+    low, high = value_range
+    content = f"<b>{text}</b>" if is_best else text
+    color = heat_color(value, low, high, higher_is_better)
+    return f'<span style="color:{color}">{content}</span>'
 
 
 def format_cell(values, best=None, precision=6, ranges=None):
@@ -161,7 +191,7 @@ def mean_across_datasets(raw, model, key, index=None):
 
 def sorted_models(mean_rank, mean_similarity):
     return sorted(
-        mean_rank,
+        BENCHMARKS,
         key=lambda model: (
             mean_rank[model] is None,
             mean_rank[model] if mean_rank[model] is not None else float("inf"),
@@ -344,7 +374,7 @@ def write_summary():
         "Exact Match is the share of fully correct samples. Character Similarity and Exact Match range from 0 to 1; higher is better.",
         "CER and WER are normalized edit errors; lower is better and values can exceed 1 when predictions contain many insertions.",
         "Rows are sorted by the mean rank across all four aggregate metrics.",
-        r"Heatmap: ${\color[RGB]{79,138,91}\mathrm{better}}$ / ${\color[RGB]{138,122,82}\mathrm{middle}}$ / ${\color[RGB]{179,92,92}\mathrm{worse}}$ within each metric column.",
+        "Heatmap: <span style=\"color:#4f8a5b\">better</span> / <span style=\"color:#8a7a52\">middle</span> / <span style=\"color:#b35c5c\">worse</span> within each metric column.",
         "",
         *markdown_table(
             raw,

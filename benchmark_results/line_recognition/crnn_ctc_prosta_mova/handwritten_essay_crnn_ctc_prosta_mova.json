@@ -1,0 +1,25 @@
+{
+  "task": "recognition",
+  "dataset": "handwritten_essay",
+  "model": "crnn_ctc_prosta_mova",
+  "repository": "achimrabus/crnn-ctc-prosta-mova",
+  "cpu": null,
+  "gpu": {
+    "device": "cuda",
+    "num_words": 676,
+    "batch_size": 32,
+    "total_time_s": 4.628596499998821,
+    "mean_time_ms": 6.847036242601806,
+    "throughput_words_s": 146.04859161954866,
+    "ram_after_load_mb": 1026.02734375,
+    "ram_peak_mb": 1087.78125,
+    "gpu_peak_mb": 1868.39794921875,
+    "accuracy_metrics": {
+      "cer": 0.9080689340333257,
+      "wer": 1.0009482268158543,
+      "exact_match": 0.0,
+      "character_similarity": 0.08198846710093352,
+      "evaluated_words": 676
+    }
+  }
+}

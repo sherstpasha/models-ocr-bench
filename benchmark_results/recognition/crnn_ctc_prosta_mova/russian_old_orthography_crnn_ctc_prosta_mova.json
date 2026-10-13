@@ -1,0 +1,25 @@
+{
+  "task": "recognition",
+  "dataset": "russian_old_orthography",
+  "model": "crnn_ctc_prosta_mova",
+  "repository": "achimrabus/crnn-ctc-prosta-mova",
+  "cpu": null,
+  "gpu": {
+    "device": "cuda",
+    "num_words": 8489,
+    "batch_size": 32,
+    "total_time_s": 16.5663601999986,
+    "mean_time_ms": 1.951509035221887,
+    "throughput_words_s": 512.423966249431,
+    "ram_after_load_mb": 923.421875,
+    "ram_peak_mb": 989.8046875,
+    "gpu_peak_mb": 712.7763671875,
+    "accuracy_metrics": {
+      "cer": 0.445519126814821,
+      "wer": 0.9156555542466721,
+      "exact_match": 0.09164801507833667,
+      "character_similarity": 0.5459799064193658,
+      "evaluated_words": 8489
+    }
+  }
+}

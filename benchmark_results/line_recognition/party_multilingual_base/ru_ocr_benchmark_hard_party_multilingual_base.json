@@ -1,0 +1,27 @@
+{
+  "task": "recognition",
+  "dataset": "ru_ocr_benchmark_hard",
+  "model": "party_multilingual_base",
+  "repository": "Zenodo 20642057",
+  "evaluation_input": "ground-truth line crops",
+  "cpu": null,
+  "gpu": {
+    "device": "cuda:0",
+    "num_words": 3182,
+    "batch_size": 8,
+    "total_time_s": 1840.9512730999995,
+    "mean_time_ms": 578.5516257385291,
+    "throughput_words_s": 1.7284542217360228,
+    "ram_after_load_mb": 1492.55078125,
+    "ram_peak_mb": 1492.65625,
+    "gpu_peak_mb": 3538.31494140625,
+    "mean_confidence": 0.8329946659621646,
+    "accuracy_metrics": {
+      "cer": 0.5485961380394773,
+      "wer": 0.7688220387476498,
+      "exact_match": 0.17096165933375235,
+      "character_similarity": 0.5532530426652676,
+      "evaluated_words": 3182
+    }
+  }
+}

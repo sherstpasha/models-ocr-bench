@@ -1,0 +1,28 @@
+{
+  "task": "recognition",
+  "dataset": "rus_xviii_printed_geography",
+  "model": "paddleocr_v6_tiny_ru",
+  "cpu": null,
+  "gpu": {
+    "device": "gpu:0",
+    "model_name": "PP-OCRv6_tiny_rec",
+    "num_words": 3214,
+    "batch_size": 128,
+    "total_time_s": 6.459909200028051,
+    "mean_time_ms": 2.0099281891810987,
+    "throughput_words_s": 497.5302129612045,
+    "ram_after_load_mb": 1676.3203125,
+    "ram_peak_mb": 1577.2109375,
+    "gpu_after_load_mb": 204.203125,
+    "gpu_peak_mb": 1011.82421875,
+    "gpu_delta_mb": 807.62109375,
+    "mean_confidence": 0.8590410808431634,
+    "accuracy_metrics": {
+      "cer": 0.17865713188711846,
+      "wer": 0.6852599697122665,
+      "exact_match": 0.023646546359676415,
+      "character_similarity": 0.7748252867663921,
+      "evaluated_words": 3214
+    }
+  }
+}

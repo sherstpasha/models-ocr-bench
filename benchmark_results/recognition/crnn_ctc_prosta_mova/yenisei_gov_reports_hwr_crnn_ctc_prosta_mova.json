@@ -1,0 +1,25 @@
+{
+  "task": "recognition",
+  "dataset": "yenisei_gov_reports_hwr",
+  "model": "crnn_ctc_prosta_mova",
+  "repository": "achimrabus/crnn-ctc-prosta-mova",
+  "cpu": null,
+  "gpu": {
+    "device": "cuda",
+    "num_words": 22400,
+    "batch_size": 32,
+    "total_time_s": 57.55564469999808,
+    "mean_time_ms": 2.5694484241070574,
+    "throughput_words_s": 389.1885863976908,
+    "ram_after_load_mb": 1039.76953125,
+    "ram_peak_mb": 1115.4375,
+    "gpu_peak_mb": 1594.64208984375,
+    "accuracy_metrics": {
+      "cer": 0.9999047535895991,
+      "wer": 1.011176398077002,
+      "exact_match": 4.464285714285714e-05,
+      "character_similarity": 0.0048524911440255315,
+      "evaluated_words": 22400
+    }
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "task": "recognition",
+  "dataset": "russian_old_orthography",
+  "model": "doctr_crnn_vgg16_bn_russian_onnx",
+  "repository": "graycat660/doctr-crnn-vgg16-bn-russian-onnx",
+  "cpu": {
+    "device": "cpu",
+    "providers": [
+      "CPUExecutionProvider"
+    ],
+    "num_words": 8489,
+    "batch_size": 256,
+    "total_time_s": 26.492041200006497,
+    "mean_time_ms": 3.120749346213511,
+    "throughput_words_s": 320.43585980826265,
+    "ram_after_load_mb": 730.0625,
+    "ram_peak_mb": 1264.58984375,
+    "accuracy_metrics": {
+      "cer": 0.12685624339829754,
+      "wer": 0.4375073624690776,
+      "exact_match": 0.5624926375309224,
+      "character_similarity": 0.8717683637045563,
+      "evaluated_words": 8489
+    }
+  },
+  "gpu": null
+}

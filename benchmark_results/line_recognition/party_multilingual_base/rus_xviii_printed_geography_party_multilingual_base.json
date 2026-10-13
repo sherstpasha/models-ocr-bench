@@ -1,0 +1,27 @@
+{
+  "task": "recognition",
+  "dataset": "rus_xviii_printed_geography",
+  "model": "party_multilingual_base",
+  "repository": "Zenodo 20642057",
+  "evaluation_input": "ground-truth line crops",
+  "cpu": null,
+  "gpu": {
+    "device": "cuda:0",
+    "num_words": 3214,
+    "batch_size": 8,
+    "total_time_s": 1834.684802600008,
+    "mean_time_ms": 570.8415689483535,
+    "throughput_words_s": 1.7517995436847285,
+    "ram_after_load_mb": 1492.66796875,
+    "ram_peak_mb": 1492.67578125,
+    "gpu_peak_mb": 3538.28369140625,
+    "mean_confidence": 0.8537573687450274,
+    "accuracy_metrics": {
+      "cer": 0.31114417354578616,
+      "wer": 0.6115093387178193,
+      "exact_match": 0.11138767890479154,
+      "character_similarity": 0.7382923334526743,
+      "evaluated_words": 3214
+    }
+  }
+}

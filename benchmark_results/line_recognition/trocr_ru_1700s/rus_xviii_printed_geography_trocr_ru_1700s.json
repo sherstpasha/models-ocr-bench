@@ -1,0 +1,25 @@
+{
+  "task": "recognition",
+  "dataset": "rus_xviii_printed_geography",
+  "model": "trocr_ru_1700s",
+  "repository": "taiga75/ru-trocr-1700s",
+  "cpu": null,
+  "gpu": {
+    "device": "cuda",
+    "num_words": 3214,
+    "batch_size": 8,
+    "total_time_s": 355.0125556999992,
+    "mean_time_ms": 110.45816916614785,
+    "throughput_words_s": 9.053200931619916,
+    "ram_after_load_mb": 2270.1328125,
+    "ram_peak_mb": 2288.38671875,
+    "gpu_peak_mb": 3366.0791015625,
+    "accuracy_metrics": {
+      "cer": 0.07603826710181097,
+      "wer": 0.2524482584553256,
+      "exact_match": 0.27660236465463595,
+      "character_similarity": 0.8780599472372047,
+      "evaluated_words": 3214
+    }
+  }
+}

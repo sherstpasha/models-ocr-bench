@@ -1,0 +1,25 @@
+{
+  "task": "recognition",
+  "dataset": "school_notebooks_ru",
+  "model": "crnn_ctc_prosta_mova",
+  "repository": "achimrabus/crnn-ctc-prosta-mova",
+  "cpu": null,
+  "gpu": {
+    "device": "cuda",
+    "num_words": 6453,
+    "batch_size": 32,
+    "total_time_s": 33.414840500001446,
+    "mean_time_ms": 5.1781869673022545,
+    "throughput_words_s": 193.11778549413458,
+    "ram_after_load_mb": 937.51171875,
+    "ram_peak_mb": 1041.83203125,
+    "gpu_peak_mb": 1690.91748046875,
+    "accuracy_metrics": {
+      "cer": 0.9510522326101867,
+      "wer": 0.9993389643775248,
+      "exact_match": 0.0,
+      "character_similarity": 0.03501652175347626,
+      "evaluated_words": 6453
+    }
+  }
+}

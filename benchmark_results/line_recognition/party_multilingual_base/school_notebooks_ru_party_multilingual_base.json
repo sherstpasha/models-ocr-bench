@@ -1,0 +1,27 @@
+{
+  "task": "recognition",
+  "dataset": "school_notebooks_ru",
+  "model": "party_multilingual_base",
+  "repository": "Zenodo 20642057",
+  "evaluation_input": "ground-truth line crops",
+  "cpu": null,
+  "gpu": {
+    "device": "cuda:0",
+    "num_words": 6453,
+    "batch_size": 8,
+    "total_time_s": 2024.069760000013,
+    "mean_time_ms": 313.66337517433954,
+    "throughput_words_s": 3.1881312233032713,
+    "ram_after_load_mb": 1474.203125,
+    "ram_peak_mb": 1494.3125,
+    "gpu_peak_mb": 3537.75244140625,
+    "mean_confidence": 0.8622033598271248,
+    "accuracy_metrics": {
+      "cer": 0.2830920838898314,
+      "wer": 0.5571428571428572,
+      "exact_match": 0.1306369130636913,
+      "character_similarity": 0.6815408278963835,
+      "evaluated_words": 6453
+    }
+  }
+}

@@ -25,6 +25,9 @@ from utils.metrics import (
 )
 
 
+csv.field_size_limit(2**31 - 1)
+
+
 MODELS = {
     name: config
     for name, config in BENCHMARKS.items()

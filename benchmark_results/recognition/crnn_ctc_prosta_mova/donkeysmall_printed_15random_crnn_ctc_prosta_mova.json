@@ -1,0 +1,25 @@
+{
+  "task": "recognition",
+  "dataset": "donkeysmall_printed_15random",
+  "model": "crnn_ctc_prosta_mova",
+  "repository": "achimrabus/crnn-ctc-prosta-mova",
+  "cpu": null,
+  "gpu": {
+    "device": "cuda",
+    "num_words": 1500,
+    "batch_size": 32,
+    "total_time_s": 3.7683821999962674,
+    "mean_time_ms": 2.512254799997512,
+    "throughput_words_s": 398.0487966431552,
+    "ram_after_load_mb": 1172.48828125,
+    "ram_peak_mb": 1167.20703125,
+    "gpu_peak_mb": 850.2763671875,
+    "accuracy_metrics": {
+      "cer": 0.9190537170587046,
+      "wer": 1.0613333333333332,
+      "exact_match": 0.0026666666666666666,
+      "character_similarity": 0.08801538859317498,
+      "evaluated_words": 1500
+    }
+  }
+}

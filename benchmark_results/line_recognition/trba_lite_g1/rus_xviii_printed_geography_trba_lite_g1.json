@@ -1,0 +1,28 @@
+{
+  "task": "recognition",
+  "dataset": "rus_xviii_printed_geography",
+  "model": "trba_lite_g1",
+  "cpu": null,
+  "gpu": {
+    "device": "cuda",
+    "active_providers": [
+      "CUDAExecutionProvider",
+      "CPUExecutionProvider"
+    ],
+    "num_words": 3214,
+    "batch_size": 128,
+    "total_time_s": 3.760334000005969,
+    "mean_time_ms": 1.1699856876185342,
+    "throughput_words_s": 854.7113102173632,
+    "ram_after_load_mb": 1750.140625,
+    "ram_peak_mb": 1735.5078125,
+    "mean_confidence": 0.8800555141486214,
+    "accuracy_metrics": {
+      "cer": 0.4788747040378831,
+      "wer": 0.8661786976274609,
+      "exact_match": 0.0687616677037959,
+      "character_similarity": 0.575768758862846,
+      "evaluated_words": 3214
+    }
+  }
+}

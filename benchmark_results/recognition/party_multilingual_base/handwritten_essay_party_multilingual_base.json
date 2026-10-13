@@ -1,0 +1,27 @@
+{
+  "task": "recognition",
+  "dataset": "handwritten_essay",
+  "model": "party_multilingual_base",
+  "repository": "Zenodo 20642057",
+  "evaluation_input": "word crops treated as single text lines",
+  "cpu": null,
+  "gpu": {
+    "device": "cuda:0",
+    "num_words": 5146,
+    "batch_size": 8,
+    "total_time_s": 530.6427437000093,
+    "mean_time_ms": 103.1175172366905,
+    "throughput_words_s": 9.6976733614004,
+    "ram_after_load_mb": 1488.45703125,
+    "ram_peak_mb": 1488.0078125,
+    "gpu_peak_mb": 3538.52001953125,
+    "mean_confidence": 0.6235362524769513,
+    "accuracy_metrics": {
+      "cer": 0.9297207142389954,
+      "wer": 1.1280106201403375,
+      "exact_match": 0.06548775748153907,
+      "character_similarity": 0.23792577382680838,
+      "evaluated_words": 5146
+    }
+  }
+}

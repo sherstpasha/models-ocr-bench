@@ -23,6 +23,7 @@ DONKEYSMALL_PRINTED_ROOT = DATA_ROOT / "DonkeySmallOCR-Numbers-Printed-15random"
 SCHOOL_NOTEBOOKS_ROOT = DATA_ROOT / "school_notebooks_RU"
 OLD_ORTHOGRAPHY_ROOT = DATA_ROOT / "russian_old_orthography_ocr"
 RU_OCR_BENCHMARK_HARD_ROOT = DATA_ROOT / "ru-ocr-benchmark-hard"
+RUS_XVIII_PRINTED_GEOGRAPHY_ROOT = DATA_ROOT / "rus_xviii_printed_geography"
 YENISEI_HWR_DATA = (
     YENISEI_HWR_ROOT / "YeniseiGovReports-HWR" / "YeniseiGovReports-HWR"
 )
@@ -329,6 +330,44 @@ BENCHMARKS = {
         "warmup_size": 32,
         "output_dir": RESULTS_ROOT / "crnn_ctc_church_slavonic",
     },
+    "crnn_ctc_prosta_mova": {
+        "origin": "https://huggingface.co/achimrabus/crnn-ctc-prosta-mova",
+        "run": True,
+        "backend": "crnn_ctc",
+        "repository": "achimrabus/crnn-ctc-prosta-mova",
+        "model_dir": PROJECT_ROOT / "models" / "crnn-ctc-prosta-mova",
+        "checkpoint_filename": "best_model.pt",
+        "config_filename": "model_config.json",
+        "symbols_filename": "symbols.txt",
+        "device": "cuda",
+        "batch_size": 32,
+        "warmup_size": 32,
+        "output_dir": RESULTS_ROOT / "crnn_ctc_prosta_mova",
+    },
+    "doctr_parseq_russian_onnx": {
+        "origin": "https://huggingface.co/graycat660/doctr-parseq-russian-onnx",
+        "run": True,
+        "backend": "doctr_recognition_onnx",
+        "repository": "graycat660/doctr-parseq-russian-onnx",
+        "model_dir": PROJECT_ROOT / "models" / "doctr-parseq-russian-onnx",
+        "architecture": "parseq",
+        "device": "cpu",
+        "batch_size": 128,
+        "warmup_size": 128,
+        "output_dir": RESULTS_ROOT / "doctr_parseq_russian_onnx",
+    },
+    "doctr_crnn_vgg16_bn_russian_onnx": {
+        "origin": "https://huggingface.co/graycat660/doctr-crnn-vgg16-bn-russian-onnx",
+        "run": True,
+        "backend": "doctr_recognition_onnx",
+        "repository": "graycat660/doctr-crnn-vgg16-bn-russian-onnx",
+        "model_dir": PROJECT_ROOT / "models" / "doctr-crnn-vgg16-bn-russian-onnx",
+        "architecture": "crnn_vgg16_bn",
+        "device": "cpu",
+        "batch_size": 256,
+        "warmup_size": 256,
+        "output_dir": RESULTS_ROOT / "doctr_crnn_vgg16_bn_russian_onnx",
+    },
     "party_european_languages": {
         "origin": "https://zenodo.org/records/15764161",
         "repository": "Zenodo 15764161",
@@ -344,6 +383,19 @@ BENCHMARKS = {
         "page_size": 32,
         "warmup_size": 8,
         "output_dir": RESULTS_ROOT / "party_european_languages",
+    },
+    "party_multilingual_base": {
+        "origin": "https://zenodo.org/records/20642057",
+        "repository": "Zenodo 20642057",
+        "run": True,
+        "backend": "party_base",
+        "download_url": "https://zenodo.org/api/records/20642057/files/model.safetensors/content",
+        "model_path": PROJECT_ROOT / "models" / "party" / "party_multilingual_base.safetensors",
+        "device": "cuda:0",
+        "batch_size": 8,
+        "page_size": 32,
+        "warmup_size": 8,
+        "output_dir": RESULTS_ROOT / "party_multilingual_base",
     },
     "turkicocr_svtrv2_b": {
         "run": False,
@@ -372,6 +424,19 @@ BENCHMARKS = {
         "batch_size": 32,
         "warmup_size": 16,
         "output_dir": RESULTS_ROOT / "kraken_ppocrv6_medium",
+    },
+    "kraken_old_cyrillic_uncial": {
+        "run": True,
+        "backend": "kraken",
+        "origin": "https://zenodo.org/records/7755483",
+        "repository": "Zenodo 7755483",
+        "filename": "Cyr02full_best.mlmodel",
+        "download_url": "https://zenodo.org/api/records/7755483/files/Cyr02full_best.mlmodel/content",
+        "model_path": PROJECT_ROOT / "models" / "kraken-old-cyrillic-uncial" / "Cyr02full_best.mlmodel",
+        "device": "cuda:0",
+        "batch_size": 16,
+        "warmup_size": 16,
+        "output_dir": RESULTS_ROOT / "kraken_old_cyrillic_uncial",
     },
     "kraken_ppocrv6_small": {
         "run": False,
@@ -578,6 +643,19 @@ LINE_DATASETS = {
         "huggingface_snapshot": True,
         "snapshot_allow_patterns": ["crops/**"],
         "download_dir": RU_OCR_BENCHMARK_HARD_ROOT,
+    },
+    "rus_xviii_printed_geography": {
+        "format": "imagefolder",
+        "folder": RUS_XVIII_PRINTED_GEOGRAPHY_ROOT,
+        "source_labels": RUS_XVIII_PRINTED_GEOGRAPHY_ROOT / "annotations.csv",
+        "source_image_column": "image",
+        "prepared_dir": RUS_XVIII_PRINTED_GEOGRAPHY_ROOT / "line_recognition_test",
+        "images_dir": RUS_XVIII_PRINTED_GEOGRAPHY_ROOT / "line_recognition_test" / "images",
+        "labels": RUS_XVIII_PRINTED_GEOGRAPHY_ROOT / "line_recognition_test" / "labels.csv",
+        "repository": "dsmchr/rus_xviii_printed_geography",
+        "huggingface_snapshot": True,
+        "snapshot_allow_patterns": ["annotations.csv", "images/**"],
+        "download_dir": RUS_XVIII_PRINTED_GEOGRAPHY_ROOT,
     },
 }
 

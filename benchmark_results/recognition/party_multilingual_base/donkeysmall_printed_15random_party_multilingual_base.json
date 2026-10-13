@@ -1,0 +1,27 @@
+{
+  "task": "recognition",
+  "dataset": "donkeysmall_printed_15random",
+  "model": "party_multilingual_base",
+  "repository": "Zenodo 20642057",
+  "evaluation_input": "word crops treated as single text lines",
+  "cpu": null,
+  "gpu": {
+    "device": "cuda:0",
+    "num_words": 1500,
+    "batch_size": 8,
+    "total_time_s": 348.81058889999986,
+    "mean_time_ms": 232.5403925999999,
+    "throughput_words_s": 4.300328165868937,
+    "ram_after_load_mb": 1493.390625,
+    "ram_peak_mb": 1492.390625,
+    "gpu_peak_mb": 3537.03955078125,
+    "mean_confidence": 0.7569886646343386,
+    "accuracy_metrics": {
+      "cer": 0.5397991507717194,
+      "wer": 1.2146666666666666,
+      "exact_match": 0.326,
+      "character_similarity": 0.5693681823480081,
+      "evaluated_words": 1500
+    }
+  }
+}

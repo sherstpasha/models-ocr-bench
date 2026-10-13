@@ -1,0 +1,25 @@
+{
+  "task": "recognition",
+  "dataset": "rus_xviii_printed_geography",
+  "model": "trocr_church_slavonic_handwritten",
+  "repository": "cyrillic-trocr/trocr-church-slavonic-handwritten",
+  "cpu": null,
+  "gpu": {
+    "device": "cuda",
+    "num_words": 3214,
+    "batch_size": 1,
+    "total_time_s": 1035.4452709000034,
+    "mean_time_ms": 322.16716580585046,
+    "throughput_words_s": 3.1039786363661777,
+    "ram_after_load_mb": 1280.08984375,
+    "ram_peak_mb": 1287.86328125,
+    "gpu_peak_mb": 1321.138671875,
+    "accuracy_metrics": {
+      "cer": 0.5233890062072055,
+      "wer": 1.0657748611812217,
+      "exact_match": 0.01462352209085252,
+      "character_similarity": 0.47542580219567143,
+      "evaluated_words": 3214
+    }
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "task": "recognition",
+  "dataset": "school_notebooks_ru",
+  "model": "doctr_parseq_russian_onnx",
+  "repository": "graycat660/doctr-parseq-russian-onnx",
+  "cpu": {
+    "device": "cpu",
+    "providers": [
+      "CPUExecutionProvider"
+    ],
+    "num_words": 6453,
+    "batch_size": 128,
+    "total_time_s": 76.74147479998646,
+    "mean_time_ms": 11.892371734075075,
+    "throughput_words_s": 84.08751612890737,
+    "ram_after_load_mb": 3011.42578125,
+    "ram_peak_mb": 3071.51171875,
+    "accuracy_metrics": {
+      "cer": 0.8492461706915015,
+      "wer": 0.9968049944913698,
+      "exact_match": 0.011932434526576786,
+      "character_similarity": 0.18543562245282658,
+      "evaluated_words": 6453
+    }
+  },
+  "gpu": null
+}

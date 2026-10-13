@@ -1,0 +1,27 @@
+{
+  "task": "recognition",
+  "dataset": "rus_xviii_printed_geography",
+  "model": "kraken_old_cyrillic_uncial",
+  "repository": "Zenodo 7755483",
+  "evaluation_input": "ground-truth line crops",
+  "cpu": null,
+  "gpu": {
+    "device": "cuda:0",
+    "num_words": 3214,
+    "batch_size": 16,
+    "total_time_s": 53.620188399989274,
+    "mean_time_ms": 16.683319352828025,
+    "throughput_words_s": 59.94011016941229,
+    "ram_after_load_mb": 2212.9140625,
+    "ram_peak_mb": 1735.484375,
+    "gpu_peak_mb": 1803.0126953125,
+    "mean_confidence": 0.24306869420375773,
+    "accuracy_metrics": {
+      "cer": 0.9341524284891534,
+      "wer": 0.9975769813225643,
+      "exact_match": 0.0,
+      "character_similarity": 0.06487811882169862,
+      "evaluated_words": 3214
+    }
+  }
+}

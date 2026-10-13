@@ -15,7 +15,3 @@
 | **dbnet_khmer_word** | <img src="assets/word_detection/dbnet_khmer_word_russian_old_orthography_page_007.jpg" width="300"> | <img src="assets/word_detection/dbnet_khmer_word_handwritten_essay_test_10_0.jpg" width="300"> | <img src="assets/word_detection/dbnet_khmer_word_TotalText_img632.jpg" width="300"> |
 | **openocr_repvit_db** | <img src="assets/word_detection/openocr_repvit_db_russian_old_orthography_page_007.jpg" width="300"> | <img src="assets/word_detection/openocr_repvit_db_handwritten_essay_test_10_0.jpg" width="300"> | <img src="assets/word_detection/openocr_repvit_db_TotalText_img632.jpg" width="300"> |
 | **paddleocr_v6_medium_word** | <img src="assets/word_detection/paddleocr_v6_medium_word_russian_old_orthography_page_007.jpg" width="300"> | <img src="assets/word_detection/paddleocr_v6_medium_word_handwritten_essay_test_10_0.jpg" width="300"> | <img src="assets/word_detection/paddleocr_v6_medium_word_TotalText_img632.jpg" width="300"> |
-| **paddleocr_v6_small_word** | — | — | — |
-| **paddleocr_v6_tiny_word** | — | — | — |
-| **paddleocr_v5_mobile_word** | — | — | — |
-| **paddleocr_v5_server_word** | — | — | — |

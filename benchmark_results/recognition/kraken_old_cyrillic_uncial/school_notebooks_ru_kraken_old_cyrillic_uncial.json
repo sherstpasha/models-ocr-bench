@@ -1,0 +1,27 @@
+{
+  "task": "recognition",
+  "dataset": "school_notebooks_ru",
+  "model": "kraken_old_cyrillic_uncial",
+  "repository": "Zenodo 7755483",
+  "evaluation_input": "word crops treated as single text lines",
+  "cpu": null,
+  "gpu": {
+    "device": "cuda:0",
+    "num_words": 27893,
+    "batch_size": 16,
+    "total_time_s": 183.7830271999992,
+    "mean_time_ms": 6.5888583945792565,
+    "throughput_words_s": 151.77136009216918,
+    "ram_after_load_mb": 1366.98828125,
+    "ram_peak_mb": 1408.84765625,
+    "gpu_peak_mb": 770.50732421875,
+    "mean_confidence": 0.26613524494981766,
+    "accuracy_metrics": {
+      "cer": 0.9502340694304648,
+      "wer": 1.0426693128256015,
+      "exact_match": 0.0016133079984225432,
+      "character_similarity": 0.042846062187568645,
+      "evaluated_words": 27893
+    }
+  }
+}

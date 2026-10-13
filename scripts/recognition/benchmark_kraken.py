@@ -5,6 +5,7 @@ import csv
 import gc
 import json
 import time
+import urllib.request
 
 import numpy as np
 import psutil
@@ -61,11 +62,14 @@ def ensure_model(config):
     path = config["model_path"]
     if not path.is_file():
         path.parent.mkdir(parents=True, exist_ok=True)
-        hf_hub_download(
-            repo_id=config["repository"],
-            filename=config["filename"],
-            local_dir=path.parent,
-        )
+        if config.get("download_url"):
+            urllib.request.urlretrieve(config["download_url"], path)
+        else:
+            hf_hub_download(
+                repo_id=config["repository"],
+                filename=config["filename"],
+                local_dir=path.parent,
+            )
     return path
 
 

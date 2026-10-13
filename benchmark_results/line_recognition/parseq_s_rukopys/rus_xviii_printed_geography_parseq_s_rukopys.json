@@ -1,0 +1,25 @@
+{
+  "task": "recognition",
+  "dataset": "rus_xviii_printed_geography",
+  "model": "parseq_s_rukopys",
+  "repository": "Hukyl/parseq-s-rukopys",
+  "cpu": null,
+  "gpu": {
+    "device": "cuda",
+    "num_words": 3214,
+    "batch_size": 8,
+    "total_time_s": 60.07836129999487,
+    "mean_time_ms": 18.69270731175945,
+    "throughput_words_s": 53.49679868848678,
+    "ram_after_load_mb": 1783.4609375,
+    "ram_peak_mb": 1765.11328125,
+    "gpu_peak_mb": 393.80419921875,
+    "accuracy_metrics": {
+      "cer": 0.2719571894797466,
+      "wer": 0.7741039878849066,
+      "exact_match": 0.013378967019290604,
+      "character_similarity": 0.7076399346703017,
+      "evaluated_words": 3214
+    }
+  }
+}

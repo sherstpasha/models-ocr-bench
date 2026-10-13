@@ -1,0 +1,29 @@
+{
+  "task": "recognition",
+  "dataset": "rus_xviii_printed_geography",
+  "model": "turkicocr_svtrv2_b",
+  "repository": "alenisaw/turkicocr-svtrv2-b-onnx",
+  "cpu": null,
+  "gpu": {
+    "device": "cuda",
+    "active_providers": [
+      "CUDAExecutionProvider",
+      "CPUExecutionProvider"
+    ],
+    "num_words": 3214,
+    "batch_size": 128,
+    "total_time_s": 239.97061069999472,
+    "mean_time_ms": 74.66416014312219,
+    "throughput_words_s": 13.39330674962553,
+    "ram_after_load_mb": 1218.95703125,
+    "ram_peak_mb": 15539.0078125,
+    "mean_confidence": 0.850389430059715,
+    "accuracy_metrics": {
+      "cer": 0.2510798617776925,
+      "wer": 0.8408379606259465,
+      "exact_match": 0.03546981953951462,
+      "character_similarity": 0.7379506250109277,
+      "evaluated_words": 3214
+    }
+  }
+}

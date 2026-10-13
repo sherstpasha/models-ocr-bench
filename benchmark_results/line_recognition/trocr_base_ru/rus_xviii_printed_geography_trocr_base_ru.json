@@ -1,0 +1,25 @@
+{
+  "task": "recognition",
+  "dataset": "rus_xviii_printed_geography",
+  "model": "trocr_base_ru",
+  "repository": "raxtemur/trocr-base-ru",
+  "cpu": null,
+  "gpu": {
+    "device": "cuda",
+    "num_words": 3214,
+    "batch_size": 8,
+    "total_time_s": 429.72131880000234,
+    "mean_time_ms": 133.70296166770453,
+    "throughput_words_s": 7.4792658855630005,
+    "ram_after_load_mb": 1343.7265625,
+    "ram_peak_mb": 1342.12890625,
+    "gpu_peak_mb": 1499.8056640625,
+    "accuracy_metrics": {
+      "cer": 0.4469347923465796,
+      "wer": 0.9519434628975265,
+      "exact_match": 0.021779713752333542,
+      "character_similarity": 0.5575375684314833,
+      "evaluated_words": 3214
+    }
+  }
+}

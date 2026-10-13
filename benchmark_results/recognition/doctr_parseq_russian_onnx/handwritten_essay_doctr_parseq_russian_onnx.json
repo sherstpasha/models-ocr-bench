@@ -1,0 +1,27 @@
+{
+  "task": "recognition",
+  "dataset": "handwritten_essay",
+  "model": "doctr_parseq_russian_onnx",
+  "repository": "graycat660/doctr-parseq-russian-onnx",
+  "cpu": {
+    "device": "cpu",
+    "providers": [
+      "CPUExecutionProvider"
+    ],
+    "num_words": 5146,
+    "batch_size": 128,
+    "total_time_s": 60.824410399989574,
+    "mean_time_ms": 11.819745511074538,
+    "throughput_words_s": 84.60419042550853,
+    "ram_after_load_mb": 659.36328125,
+    "ram_peak_mb": 701.56640625,
+    "accuracy_metrics": {
+      "cer": 0.8278500882987769,
+      "wer": 0.9721221316138821,
+      "exact_match": 0.02856587640886125,
+      "character_similarity": 0.2501421760465418,
+      "evaluated_words": 5146
+    }
+  },
+  "gpu": null
+}

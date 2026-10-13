@@ -1,0 +1,27 @@
+{
+  "task": "recognition",
+  "dataset": "yenisei_gov_reports_prt",
+  "model": "party_multilingual_base",
+  "repository": "Zenodo 20642057",
+  "evaluation_input": "word crops treated as single text lines",
+  "cpu": null,
+  "gpu": {
+    "device": "cuda:0",
+    "num_words": 15394,
+    "batch_size": 8,
+    "total_time_s": 2766.4427790000045,
+    "mean_time_ms": 179.70915804859067,
+    "throughput_words_s": 5.56454668676159,
+    "ram_after_load_mb": 1493.671875,
+    "ram_peak_mb": 1493.78515625,
+    "gpu_peak_mb": 3536.92041015625,
+    "mean_confidence": 0.6611265646492398,
+    "accuracy_metrics": {
+      "cer": 1.515268907269745,
+      "wer": 2.0332613939316997,
+      "exact_match": 0.1290113031051059,
+      "character_similarity": 0.21155721784495313,
+      "evaluated_words": 15394
+    }
+  }
+}

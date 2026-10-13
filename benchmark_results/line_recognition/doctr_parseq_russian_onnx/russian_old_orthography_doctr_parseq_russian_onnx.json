@@ -1,0 +1,27 @@
+{
+  "task": "recognition",
+  "dataset": "russian_old_orthography",
+  "model": "doctr_parseq_russian_onnx",
+  "repository": "graycat660/doctr-parseq-russian-onnx",
+  "cpu": {
+    "device": "cpu",
+    "providers": [
+      "CPUExecutionProvider"
+    ],
+    "num_words": 1406,
+    "batch_size": 128,
+    "total_time_s": 15.746241000015289,
+    "mean_time_ms": 11.199317923197219,
+    "throughput_words_s": 89.29115209138708,
+    "ram_after_load_mb": 2994.1328125,
+    "ram_peak_mb": 3048.43359375,
+    "accuracy_metrics": {
+      "cer": 0.8287188107716141,
+      "wer": 0.998089577584377,
+      "exact_match": 0.010668563300142247,
+      "character_similarity": 0.21047415417984205,
+      "evaluated_words": 1406
+    }
+  },
+  "gpu": null
+}

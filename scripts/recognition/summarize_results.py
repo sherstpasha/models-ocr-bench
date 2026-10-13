@@ -18,6 +18,9 @@ from utils.dataset_sources import markdown_dataset_header
 from utils.training_overlaps import mark_training_overlap
 
 
+csv.field_size_limit(2**31 - 1)
+
+
 SUMMARY_CSV = RESULTS_ROOT / "summary.csv"
 SUMMARY_MARKDOWN = RESULTS_ROOT / "summary.md"
 
@@ -79,11 +82,56 @@ def read_metrics(model_name, dataset_name):
     }
 
 
-def format_cell(values, best=None, precision=6):
+def heat_color(value, low, high, higher_is_better=True):
+    if high == low:
+        score = 1.0
+    else:
+        score = (value - low) / (high - low)
+    if not higher_is_better:
+        score = 1.0 - score
+    # Text-only heatmap: keep the red identical to the character-error
+    # highlighting used in prediction examples and use similarly muted tones.
+    bad = (179, 92, 92)
+    middle = (138, 122, 82)
+    good = (79, 138, 91)
+    start, end, mix = (
+        (bad, middle, score * 2)
+        if score <= 0.5
+        else (middle, good, (score - 0.5) * 2)
+    )
+    red, green, blue = (
+        round(start[index] + (end[index] - start[index]) * mix)
+        for index in range(3)
+    )
+    return f"#{red:02x}{green:02x}{blue:02x}"
+
+
+def heat_span(text, value, value_range, higher_is_better, is_best=False):
+    low, high = value_range
+    content = f"<b>{text}</b>" if is_best else text
+    color = heat_color(value, low, high, higher_is_better)
+    return f'<span style="color:{color}">{content}</span>'
+
+
+def format_cell(values, best=None, precision=6, ranges=None):
     if values is None:
         return "-"
     formatted = [f"{value:.{precision}f}" for value in values]
-    if best is not None:
+    if ranges is not None:
+        directions = (True, True, False, False)
+        formatted = [
+            heat_span(
+                text,
+                value,
+                value_range,
+                direction,
+                best is not None and value == target,
+            )
+            for text, value, value_range, direction, target in zip(
+                formatted, values, ranges, directions, best or values
+            )
+        ]
+    elif best is not None:
         formatted = [
             f"**{text}**" if value == target else text
             for text, value, target in zip(formatted, values, best)
@@ -110,6 +158,22 @@ def best_by_dataset(raw, table_key):
             else None
         )
     return best
+
+
+def ranges_by_dataset(raw, table_key):
+    ranges = {}
+    for dataset in DATASETS:
+        available = [
+            raw[model, dataset][table_key]
+            for model in BENCHMARKS
+            if raw[model, dataset] is not None
+        ]
+        ranges[dataset] = (
+            tuple((min(values), max(values)) for values in zip(*available))
+            if available
+            else None
+        )
+    return ranges
 
 
 def mean_across_datasets(raw, model, key, index=None):
@@ -180,6 +244,7 @@ def write_csv(path, raw, models, table_key, mean_metrics, mean_rank, mean_speed)
 
 def markdown_table(raw, models, table_key, mean_metrics, mean_rank, mean_speed):
     best = best_by_dataset(raw, table_key)
+    ranges = ranges_by_dataset(raw, table_key)
     best_means = []
     for index, metric in enumerate(mean_metrics):
         available = [value for value in metric.values() if value is not None]
@@ -190,6 +255,13 @@ def markdown_table(raw, models, table_key, mean_metrics, mean_rank, mean_speed):
     available_speed = [value for value in mean_speed.values() if value is not None]
     best_rank = min(available_rank) if available_rank else None
     best_speed = max(available_speed) if available_speed else None
+    mean_ranges = [
+        (min(available), max(available))
+        for metric in mean_metrics
+        for available in [[value for value in metric.values() if value is not None]]
+    ]
+    rank_range = (min(available_rank), max(available_rank)) if available_rank else None
+    speed_range = (min(available_speed), max(available_speed)) if available_speed else None
     speed_title = "Mean lines/s" if RECOGNITION_LEVEL == "line" else "Mean words/s"
     dataset_headers = [
         markdown_dataset_header(name, DATASETS[name]) for name in DATASETS
@@ -211,6 +283,7 @@ def markdown_table(raw, models, table_key, mean_metrics, mean_rank, mean_speed):
                     else None,
                     best[dataset],
                     precision=2,
+                    ranges=ranges[dataset],
                 ),
                 model,
                 dataset,
@@ -219,19 +292,29 @@ def markdown_table(raw, models, table_key, mean_metrics, mean_rank, mean_speed):
         ]
         speed = mean_speed[model]
         mean_cells = []
-        for metric, best_mean in zip(mean_metrics, best_means):
+        for index, (metric, best_mean) in enumerate(zip(mean_metrics, best_means)):
             value = metric[model]
             cell = "-" if value is None else f"{value:.2f}"
-            if value is not None and value == best_mean:
-                cell = f"**{cell}**"
+            if value is not None:
+                cell = heat_span(
+                    cell,
+                    value,
+                    mean_ranges[index],
+                    index < 2,
+                    value == best_mean,
+                )
             mean_cells.append(cell)
         rank = mean_rank[model]
         rank_cell = "-" if rank is None else f"{rank:.2f}"
         speed_cell = "-" if speed is None else f"{speed:.2f}"
-        if rank is not None and rank == best_rank:
-            rank_cell = f"**{rank_cell}**"
-        if speed is not None and speed == best_speed:
-            speed_cell = f"**{speed_cell}**"
+        if rank is not None:
+            rank_cell = heat_span(
+                rank_cell, rank, rank_range, False, rank == best_rank
+            )
+        if speed is not None:
+            speed_cell = heat_span(
+                speed_cell, speed, speed_range, True, speed == best_speed
+            )
         lines.append(
             "| "
             + " | ".join(
@@ -298,6 +381,7 @@ def write_summary():
         "Exact Match is the share of fully correct samples. Character Similarity and Exact Match range from 0 to 1; higher is better.",
         "CER and WER are normalized edit errors; lower is better and values can exceed 1 when predictions contain many insertions.",
         "Mean Metric Rank averages the ranks of all four mean metrics. Rank 1 is best; rows are sorted by this rank in ascending order.",
+        "Heatmap: <span style=\"color:#4f8a5b\">better</span> / <span style=\"color:#8a7a52\">middle</span> / <span style=\"color:#b35c5c\">worse</span> within each metric column.",
         "",
         *markdown_table(
             raw,

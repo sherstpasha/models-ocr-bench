@@ -13,6 +13,7 @@ JOBS = {
     "turkicocr": (".venv", "scripts.recognition.benchmark_turkicocr"),
     "kraken": (".venv-kraken", "scripts.recognition.benchmark_kraken"),
     "party": (".venv-party", "scripts.recognition.benchmark_party"),
+    "party-base": (".venv-party-base", "scripts.recognition.benchmark_party_base"),
     "tesseract": (".venv", "scripts.recognition.benchmark_tesseract"),
     "crnn-ctc": (".venv", "scripts.recognition.benchmark_crnn_ctc"),
 }

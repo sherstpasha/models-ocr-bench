@@ -26,6 +26,7 @@ TRAINING_DATASET_OVERLAPS = {
     "parseq_s_rukopys": {"school_notebooks_ru", "cyrillic_handwriting"},
     "parseq_b_rukopys": {"school_notebooks_ru", "cyrillic_handwriting"},
     "trocr_large_rukopys_hw": {"cyrillic_handwriting"},
+    "trocr_russian_18th_century_printed": {"rus_xviii_printed_geography"},
 }
 
 

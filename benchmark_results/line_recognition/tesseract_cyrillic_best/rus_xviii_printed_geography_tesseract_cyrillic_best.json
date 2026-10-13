@@ -1,0 +1,26 @@
+{
+  "benchmark_version": 2,
+  "task": "recognition",
+  "dataset": "rus_xviii_printed_geography",
+  "model": "tesseract_cyrillic_best",
+  "origin": "https://github.com/tesseract-ocr/tessdata_best/blob/main/script/Cyrillic.traineddata",
+  "engine": "tesseract v5.5.3.20260724",
+  "cpu": {
+    "device": "cpu",
+    "num_words": 3214,
+    "batch_size": 512,
+    "total_time_s": 69.19625760000781,
+    "mean_time_ms": 21.529638332298635,
+    "throughput_words_s": 46.447598634288525,
+    "ram_peak_mb": 60.640625,
+    "mean_confidence": 0.2863258113218717,
+    "accuracy_metrics": {
+      "cer": 4.994176745376592,
+      "wer": 8.898283695103483,
+      "exact_match": 0.019601742377100186,
+      "character_similarity": 0.3587284820289437,
+      "evaluated_words": 3214
+    }
+  },
+  "gpu": null
+}

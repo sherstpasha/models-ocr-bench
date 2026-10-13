@@ -1,0 +1,27 @@
+{
+  "task": "recognition",
+  "dataset": "yenisei_gov_reports_prt",
+  "model": "kraken_old_cyrillic_uncial",
+  "repository": "Zenodo 7755483",
+  "evaluation_input": "word crops treated as single text lines",
+  "cpu": null,
+  "gpu": {
+    "device": "cuda:0",
+    "num_words": 15394,
+    "batch_size": 16,
+    "total_time_s": 55.86639220001234,
+    "mean_time_ms": 3.6291017409388298,
+    "throughput_words_s": 275.55027976187444,
+    "ram_after_load_mb": 1423.8203125,
+    "ram_peak_mb": 1430.37890625,
+    "gpu_peak_mb": 2120.2197265625,
+    "mean_confidence": 0.3473161827254151,
+    "accuracy_metrics": {
+      "cer": 0.7932270035714701,
+      "wer": 1.0918496889678813,
+      "exact_match": 0.01675977653631285,
+      "character_similarity": 0.1578292690962038,
+      "evaluated_words": 15394
+    }
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "task": "recognition",
+  "dataset": "russian_old_orthography",
+  "model": "kraken_old_cyrillic_uncial",
+  "repository": "Zenodo 7755483",
+  "evaluation_input": "word crops treated as single text lines",
+  "cpu": null,
+  "gpu": {
+    "device": "cuda:0",
+    "num_words": 8489,
+    "batch_size": 16,
+    "total_time_s": 26.830626199996914,
+    "mean_time_ms": 3.1606344916947715,
+    "throughput_words_s": 316.3921682901675,
+    "ram_after_load_mb": 1301.140625,
+    "ram_peak_mb": 1341.29296875,
+    "gpu_peak_mb": 834.7958984375,
+    "mean_confidence": 0.5117434201557172,
+    "accuracy_metrics": {
+      "cer": 0.6224343971998426,
+      "wer": 1.09353280716221,
+      "exact_match": 0.021675108964542347,
+      "character_similarity": 0.3068989410848778,
+      "evaluated_words": 8489
+    }
+  }
+}

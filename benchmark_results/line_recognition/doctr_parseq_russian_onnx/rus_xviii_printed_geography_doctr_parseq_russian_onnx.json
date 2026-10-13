@@ -1,0 +1,27 @@
+{
+  "task": "recognition",
+  "dataset": "rus_xviii_printed_geography",
+  "model": "doctr_parseq_russian_onnx",
+  "repository": "graycat660/doctr-parseq-russian-onnx",
+  "cpu": {
+    "device": "cpu",
+    "providers": [
+      "CPUExecutionProvider"
+    ],
+    "num_words": 3214,
+    "batch_size": 128,
+    "total_time_s": 36.48295110001345,
+    "mean_time_ms": 11.351260454266786,
+    "throughput_words_s": 88.09594353234256,
+    "ram_after_load_mb": 3022.20703125,
+    "ram_peak_mb": 3077.9765625,
+    "accuracy_metrics": {
+      "cer": 0.8266461892877711,
+      "wer": 0.9899040888440181,
+      "exact_match": 0.040136901057871814,
+      "character_similarity": 0.2664250983879444,
+      "evaluated_words": 3214
+    }
+  },
+  "gpu": null
+}

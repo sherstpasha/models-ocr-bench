@@ -1,0 +1,25 @@
+{
+  "task": "recognition",
+  "dataset": "rus_xviii_printed_geography",
+  "model": "trocr_prereform_orthography",
+  "repository": "Serovvans/trocr-prereform-orthography",
+  "cpu": null,
+  "gpu": {
+    "device": "cuda",
+    "num_words": 3214,
+    "batch_size": 4,
+    "total_time_s": 482.07230689999415,
+    "mean_time_ms": 149.9913836029851,
+    "throughput_words_s": 6.6670496396440875,
+    "ram_after_load_mb": 2381.0078125,
+    "ram_peak_mb": 21276.9296875,
+    "gpu_peak_mb": 788.88330078125,
+    "accuracy_metrics": {
+      "cer": 0.27006943111281756,
+      "wer": 0.7712771327612317,
+      "exact_match": 0.010578718108276292,
+      "character_similarity": 0.6764335046553236,
+      "evaluated_words": 3214
+    }
+  }
+}

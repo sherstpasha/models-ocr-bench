@@ -1,0 +1,27 @@
+{
+  "task": "recognition",
+  "dataset": "ru_ocr_benchmark_hard",
+  "model": "doctr_parseq_russian_onnx",
+  "repository": "graycat660/doctr-parseq-russian-onnx",
+  "cpu": {
+    "device": "cpu",
+    "providers": [
+      "CPUExecutionProvider"
+    ],
+    "num_words": 3182,
+    "batch_size": 128,
+    "total_time_s": 35.76978649999364,
+    "mean_time_ms": 11.241290540538543,
+    "throughput_words_s": 88.9577576874988,
+    "ram_after_load_mb": 3019.1640625,
+    "ram_peak_mb": 3087.23046875,
+    "accuracy_metrics": {
+      "cer": 0.6386886964394201,
+      "wer": 0.9732690264039892,
+      "exact_match": 0.0901948460087995,
+      "character_similarity": 0.5402194219008001,
+      "evaluated_words": 3182
+    }
+  },
+  "gpu": null
+}

@@ -1,0 +1,26 @@
+{
+  "benchmark_version": 2,
+  "task": "recognition",
+  "dataset": "rus_xviii_printed_geography",
+  "model": "tesseract_rus_best",
+  "origin": "https://github.com/tesseract-ocr/tessdata_best/blob/main/rus.traineddata",
+  "engine": "tesseract v5.5.3.20260724",
+  "cpu": {
+    "device": "cpu",
+    "num_words": 3214,
+    "batch_size": 512,
+    "total_time_s": 86.53889419999905,
+    "mean_time_ms": 26.92560491599224,
+    "throughput_words_s": 37.13936987191171,
+    "ram_peak_mb": 59.484375,
+    "mean_confidence": 0.2698491500621124,
+    "accuracy_metrics": {
+      "cer": 4.4974243296858,
+      "wer": 8.146390711761736,
+      "exact_match": 0.019601742377100186,
+      "character_similarity": 0.38675231850868685,
+      "evaluated_words": 3214
+    }
+  },
+  "gpu": null
+}

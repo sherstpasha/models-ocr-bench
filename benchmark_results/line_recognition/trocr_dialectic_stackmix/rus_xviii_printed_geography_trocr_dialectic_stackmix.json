@@ -1,0 +1,25 @@
+{
+  "task": "recognition",
+  "dataset": "rus_xviii_printed_geography",
+  "model": "trocr_dialectic_stackmix",
+  "repository": "Daniil-Domino/trocr-base-ru-dialectic-stackmix",
+  "cpu": null,
+  "gpu": {
+    "device": "cuda",
+    "num_words": 3214,
+    "batch_size": 8,
+    "total_time_s": 435.4304417000094,
+    "mean_time_ms": 135.47929113254804,
+    "throughput_words_s": 7.381201891746216,
+    "ram_after_load_mb": 1318.7265625,
+    "ram_peak_mb": 1332.421875,
+    "gpu_peak_mb": 1499.8291015625,
+    "accuracy_metrics": {
+      "cer": 0.47927465284443593,
+      "wer": 0.9992932862190813,
+      "exact_match": 0.017423771001866834,
+      "character_similarity": 0.5371471759382267,
+      "evaluated_words": 3214
+    }
+  }
+}

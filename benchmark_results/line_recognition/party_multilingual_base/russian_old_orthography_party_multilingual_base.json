@@ -1,0 +1,27 @@
+{
+  "task": "recognition",
+  "dataset": "russian_old_orthography",
+  "model": "party_multilingual_base",
+  "repository": "Zenodo 20642057",
+  "evaluation_input": "ground-truth line crops",
+  "cpu": null,
+  "gpu": {
+    "device": "cuda:0",
+    "num_words": 1406,
+    "batch_size": 8,
+    "total_time_s": 578.3524227000016,
+    "mean_time_ms": 411.34596209103955,
+    "throughput_words_s": 2.431043676511595,
+    "ram_after_load_mb": 3093.53515625,
+    "ram_peak_mb": 1469.53125,
+    "gpu_peak_mb": 3536.87744140625,
+    "mean_confidence": 0.935459118701032,
+    "accuracy_metrics": {
+      "cer": 0.05440192491512574,
+      "wer": 0.18350668647845467,
+      "exact_match": 0.3399715504978663,
+      "character_similarity": 0.943344182389145,
+      "evaluated_words": 1406
+    }
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "task": "recognition",
+  "dataset": "rus_xviii_printed_geography",
+  "model": "cyrillic_g2",
+  "cpu": null,
+  "gpu": {
+    "device": "cuda",
+    "num_words": 3214,
+    "total_time_s": 79.0212443999917,
+    "mean_time_ms": 24.586572619785844,
+    "throughput_words_s": 40.67260677054508,
+    "ram_after_load_mb": 1907.31640625,
+    "ram_peak_mb": 1901.37109375,
+    "gpu_peak_mb": 53.7177734375,
+    "mean_confidence": 0.37838478884008236,
+    "accuracy_metrics": {
+      "cer": 0.39330165738785433,
+      "wer": 0.9635537607269056,
+      "exact_match": 0.03204729309271935,
+      "character_similarity": 0.6438527042067421,
+      "evaluated_words": 3214
+    }
+  }
+}

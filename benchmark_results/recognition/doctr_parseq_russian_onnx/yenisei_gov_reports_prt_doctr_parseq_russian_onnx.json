@@ -1,0 +1,27 @@
+{
+  "task": "recognition",
+  "dataset": "yenisei_gov_reports_prt",
+  "model": "doctr_parseq_russian_onnx",
+  "repository": "graycat660/doctr-parseq-russian-onnx",
+  "cpu": {
+    "device": "cpu",
+    "providers": [
+      "CPUExecutionProvider"
+    ],
+    "num_words": 15394,
+    "batch_size": 128,
+    "total_time_s": 183.0984826000058,
+    "mean_time_ms": 11.894145939976992,
+    "throughput_words_s": 84.07497310411632,
+    "ram_after_load_mb": 678.53125,
+    "ram_peak_mb": 719.60546875,
+    "accuracy_metrics": {
+      "cer": 0.09524308100373434,
+      "wer": 0.2792941475180906,
+      "exact_match": 0.7350915941275822,
+      "character_similarity": 0.8915068336187246,
+      "evaluated_words": 15394
+    }
+  },
+  "gpu": null
+}

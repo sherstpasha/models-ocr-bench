@@ -1,0 +1,27 @@
+{
+  "task": "recognition",
+  "dataset": "cyrillic_handwriting",
+  "model": "party_multilingual_base",
+  "repository": "Zenodo 20642057",
+  "evaluation_input": "word crops treated as single text lines",
+  "cpu": null,
+  "gpu": {
+    "device": "cuda:0",
+    "num_words": 1544,
+    "batch_size": 8,
+    "total_time_s": 212.97919079998974,
+    "mean_time_ms": 137.93989041450112,
+    "throughput_words_s": 7.24953453997288,
+    "ram_after_load_mb": 1493.37890625,
+    "ram_peak_mb": 1493.3828125,
+    "gpu_peak_mb": 3537.03955078125,
+    "mean_confidence": 0.7959713731398269,
+    "accuracy_metrics": {
+      "cer": 0.474988154064848,
+      "wer": 0.8605947955390335,
+      "exact_match": 0.13924870466321243,
+      "character_similarity": 0.5510926657615027,
+      "evaluated_words": 1544
+    }
+  }
+}

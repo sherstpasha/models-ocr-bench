@@ -1,0 +1,25 @@
+{
+  "task": "recognition",
+  "dataset": "rus_xviii_printed_geography",
+  "model": "cyrillic_large_handwritten",
+  "repository": "Kansallisarkisto/cyrillic-large-handwritten",
+  "cpu": null,
+  "gpu": {
+    "device": "cuda",
+    "num_words": 3214,
+    "batch_size": 1,
+    "total_time_s": 838.3622933000152,
+    "mean_time_ms": 260.84701098320323,
+    "throughput_words_s": 3.833664783931119,
+    "ram_after_load_mb": 1754.5234375,
+    "ram_peak_mb": 1569.11328125,
+    "gpu_peak_mb": 2456.35888671875,
+    "accuracy_metrics": {
+      "cer": 0.09037243232866193,
+      "wer": 0.38379606259464916,
+      "exact_match": 0.11854387056627255,
+      "character_similarity": 0.8807758420992271,
+      "evaluated_words": 3214
+    }
+  }
+}

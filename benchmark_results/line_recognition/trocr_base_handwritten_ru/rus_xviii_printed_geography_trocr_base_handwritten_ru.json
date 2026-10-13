@@ -1,0 +1,25 @@
+{
+  "task": "recognition",
+  "dataset": "rus_xviii_printed_geography",
+  "model": "trocr_base_handwritten_ru",
+  "repository": "kazars24/trocr-base-handwritten-ru",
+  "cpu": null,
+  "gpu": {
+    "device": "cuda",
+    "num_words": 3214,
+    "batch_size": 8,
+    "total_time_s": 1125.0664457000094,
+    "mean_time_ms": 350.0517877100216,
+    "throughput_words_s": 2.856720162870264,
+    "ram_after_load_mb": 1529.9609375,
+    "ram_peak_mb": 1548.07421875,
+    "gpu_peak_mb": 1768.63818359375,
+    "accuracy_metrics": {
+      "cer": 0.6056584757151084,
+      "wer": 0.9718828874305906,
+      "exact_match": 0.016801493466085875,
+      "character_similarity": 0.4343741933557163,
+      "evaluated_words": 3214
+    }
+  }
+}

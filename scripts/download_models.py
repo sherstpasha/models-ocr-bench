@@ -51,6 +51,13 @@ def download_main():
                     repo_id=config["repository"], filename=config[key],
                     local_dir=config["model_dir"],
                 )
+        elif backend == "doctr_recognition_onnx":
+            announce(name)
+            for filename in ("model.onnx", "config.json"):
+                hf_hub_download(
+                    repo_id=config["repository"], filename=filename,
+                    local_dir=config["model_dir"],
+                )
 
     announce("EasyOCR CRAFT and Cyrillic recognizers")
     import easyocr
@@ -194,18 +201,13 @@ def download_kraken():
     # Kraken BLLA is bundled in the installed package.
 
 
-def download_orli():
-    announce("ORLI base line detector")
-    from configs.line_detection.benchmark_config import BENCHMARKS
-    from scripts.line_detection.benchmark_orli import ensure_model
-    ensure_model(BENCHMARKS["orli_base"])
-
-
 def download_party():
-    announce("Party European-languages recognizer")
+    announce("Party recognizers")
     from configs.recognition.benchmark_config import BENCHMARKS
     from scripts.recognition.benchmark_party import ensure_model
-    ensure_model(BENCHMARKS["party_european_languages"])
+    for config in BENCHMARKS.values():
+        if config.get("backend") in {"party", "party_base"}:
+            ensure_model(config)
 
 
 def download_pero():
@@ -234,7 +236,6 @@ DOWNLOADERS = {
     "doc-ufcn": download_doc_ufcn,
     "surya": download_surya,
     "kraken": download_kraken,
-    "orli": download_orli,
     "party": download_party,
     "pero": download_pero,
     "rtmdet": download_rtmdet,

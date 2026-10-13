@@ -1,0 +1,27 @@
+{
+  "task": "recognition",
+  "dataset": "ru_ocr_benchmark_hard",
+  "model": "doctr_crnn_vgg16_bn_russian_onnx",
+  "repository": "graycat660/doctr-crnn-vgg16-bn-russian-onnx",
+  "cpu": {
+    "device": "cpu",
+    "providers": [
+      "CPUExecutionProvider"
+    ],
+    "num_words": 3182,
+    "batch_size": 256,
+    "total_time_s": 10.991252499981783,
+    "mean_time_ms": 3.454196260207977,
+    "throughput_words_s": 289.502947912922,
+    "ram_after_load_mb": 3154.12890625,
+    "ram_peak_mb": 3690.85546875,
+    "accuracy_metrics": {
+      "cer": 0.66593207619093,
+      "wer": 0.9844682416414616,
+      "exact_match": 0.059710873664362035,
+      "character_similarity": 0.49189269988328144,
+      "evaluated_words": 3182
+    }
+  },
+  "gpu": null
+}

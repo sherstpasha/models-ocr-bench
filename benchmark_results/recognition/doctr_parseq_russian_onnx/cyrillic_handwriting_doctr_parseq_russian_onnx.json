@@ -1,0 +1,27 @@
+{
+  "task": "recognition",
+  "dataset": "cyrillic_handwriting",
+  "model": "doctr_parseq_russian_onnx",
+  "repository": "graycat660/doctr-parseq-russian-onnx",
+  "cpu": {
+    "device": "cpu",
+    "providers": [
+      "CPUExecutionProvider"
+    ],
+    "num_words": 1544,
+    "batch_size": 128,
+    "total_time_s": 18.19056350000028,
+    "mean_time_ms": 11.781453044041632,
+    "throughput_words_s": 84.87917375401682,
+    "ram_after_load_mb": 682.609375,
+    "ram_peak_mb": 710.703125,
+    "accuracy_metrics": {
+      "cer": 0.6855073444797942,
+      "wer": 0.962360594795539,
+      "exact_match": 0.036917098445595854,
+      "character_similarity": 0.38146379671380515,
+      "evaluated_words": 1544
+    }
+  },
+  "gpu": null
+}

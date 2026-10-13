@@ -1,0 +1,25 @@
+{
+  "task": "recognition",
+  "dataset": "rus_xviii_printed_geography",
+  "model": "trocr_handwritten_cyrillic",
+  "repository": "cyrillic-trocr/trocr-handwritten-cyrillic",
+  "cpu": null,
+  "gpu": {
+    "device": "cuda",
+    "num_words": 3214,
+    "batch_size": 1,
+    "total_time_s": 1919.4631650000083,
+    "mean_time_ms": 597.2194041692621,
+    "throughput_words_s": 1.6744265056005834,
+    "ram_after_load_mb": 2214.1484375,
+    "ram_peak_mb": 2213.01171875,
+    "gpu_peak_mb": 1374.83203125,
+    "accuracy_metrics": {
+      "cer": 0.16091540282843797,
+      "wer": 0.5639575971731449,
+      "exact_match": 0.06191661481020535,
+      "character_similarity": 0.7882694610524251,
+      "evaluated_words": 3214
+    }
+  }
+}

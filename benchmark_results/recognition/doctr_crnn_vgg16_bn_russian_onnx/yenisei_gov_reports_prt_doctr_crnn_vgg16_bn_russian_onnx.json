@@ -1,0 +1,27 @@
+{
+  "task": "recognition",
+  "dataset": "yenisei_gov_reports_prt",
+  "model": "doctr_crnn_vgg16_bn_russian_onnx",
+  "repository": "graycat660/doctr-crnn-vgg16-bn-russian-onnx",
+  "cpu": {
+    "device": "cpu",
+    "providers": [
+      "CPUExecutionProvider"
+    ],
+    "num_words": 15394,
+    "batch_size": 256,
+    "total_time_s": 49.703937099999166,
+    "mean_time_ms": 3.2287863518253324,
+    "throughput_words_s": 309.7138958837178,
+    "ram_after_load_mb": 757.65625,
+    "ram_peak_mb": 1293.38671875,
+    "accuracy_metrics": {
+      "cer": 0.12497818727532893,
+      "wer": 0.33775549066903643,
+      "exact_match": 0.6772119007405483,
+      "character_similarity": 0.8665129560573662,
+      "evaluated_words": 15394
+    }
+  },
+  "gpu": null
+}

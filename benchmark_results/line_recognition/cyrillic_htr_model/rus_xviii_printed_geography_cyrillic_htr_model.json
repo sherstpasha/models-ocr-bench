@@ -1,0 +1,25 @@
+{
+  "task": "recognition",
+  "dataset": "rus_xviii_printed_geography",
+  "model": "cyrillic_htr_model",
+  "repository": "Kansallisarkisto/cyrillic-htr-model",
+  "cpu": null,
+  "gpu": {
+    "device": "cuda",
+    "num_words": 3214,
+    "batch_size": 8,
+    "total_time_s": 3458.071498300007,
+    "mean_time_ms": 1075.9401052582473,
+    "throughput_words_s": 0.9294197652015024,
+    "ram_after_load_mb": 1559.03515625,
+    "ram_peak_mb": 6927.9453125,
+    "gpu_peak_mb": 2721.15087890625,
+    "accuracy_metrics": {
+      "cer": 0.18648013054329046,
+      "wer": 0.6454316002019183,
+      "exact_match": 0.07654013690105788,
+      "character_similarity": 0.8085837799327935,
+      "evaluated_words": 3214
+    }
+  }
+}

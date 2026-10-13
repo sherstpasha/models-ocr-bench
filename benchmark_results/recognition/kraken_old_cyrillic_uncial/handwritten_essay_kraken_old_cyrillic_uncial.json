@@ -1,0 +1,27 @@
+{
+  "task": "recognition",
+  "dataset": "handwritten_essay",
+  "model": "kraken_old_cyrillic_uncial",
+  "repository": "Zenodo 7755483",
+  "evaluation_input": "word crops treated as single text lines",
+  "cpu": null,
+  "gpu": {
+    "device": "cuda:0",
+    "num_words": 5146,
+    "batch_size": 16,
+    "total_time_s": 22.788469399994938,
+    "mean_time_ms": 4.428385036920897,
+    "throughput_words_s": 225.81595585358372,
+    "ram_after_load_mb": 1388.94921875,
+    "ram_peak_mb": 1388.765625,
+    "gpu_peak_mb": 896.93798828125,
+    "mean_confidence": 0.12867538458950445,
+    "accuracy_metrics": {
+      "cer": 0.9763882529923474,
+      "wer": 1.0866679309690879,
+      "exact_match": 0.000194325689856199,
+      "character_similarity": 0.01840413386760068,
+      "evaluated_words": 5146
+    }
+  }
+}

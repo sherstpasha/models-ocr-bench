@@ -1,0 +1,27 @@
+{
+  "task": "recognition",
+  "dataset": "school_notebooks_ru",
+  "model": "doctr_crnn_vgg16_bn_russian_onnx",
+  "repository": "graycat660/doctr-crnn-vgg16-bn-russian-onnx",
+  "cpu": {
+    "device": "cpu",
+    "providers": [
+      "CPUExecutionProvider"
+    ],
+    "num_words": 6453,
+    "batch_size": 256,
+    "total_time_s": 26.27255380002316,
+    "mean_time_ms": 4.071370494347305,
+    "throughput_words_s": 245.61753871046642,
+    "ram_after_load_mb": 3151.19140625,
+    "ram_peak_mb": 3689.91015625,
+    "accuracy_metrics": {
+      "cer": 0.85909468288633,
+      "wer": 0.9979067205288285,
+      "exact_match": 0.008833100883310088,
+      "character_similarity": 0.17707286267569114,
+      "evaluated_words": 6453
+    }
+  },
+  "gpu": null
+}

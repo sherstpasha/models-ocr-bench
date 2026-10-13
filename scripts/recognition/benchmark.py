@@ -3,6 +3,7 @@ from scripts.recognition.benchmark_trba import main as run_trba
 from scripts.recognition.benchmark_trocr import main as run_trocr
 from scripts.recognition.benchmark_parseq import main as run_parseq
 from scripts.recognition.benchmark_crnn_ctc import main as run_crnn_ctc
+from scripts.recognition.benchmark_doctr_onnx import main as run_doctr_onnx
 from scripts.recognition.summarize_results import write_summary
 
 
@@ -12,6 +13,7 @@ def main():
     run_trocr()
     run_parseq()
     run_crnn_ctc()
+    run_doctr_onnx()
     write_summary()
     print("\nAll enabled recognition benchmarks completed.")
 

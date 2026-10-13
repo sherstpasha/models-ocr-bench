@@ -1,0 +1,27 @@
+{
+  "task": "recognition",
+  "dataset": "rus_xviii_printed_geography",
+  "model": "kraken_ppocrv6_tiny",
+  "repository": "small-models-for-glam/kraken-ppocrv6-tiny",
+  "evaluation_input": "ground-truth line crops",
+  "cpu": null,
+  "gpu": {
+    "device": "cuda:0",
+    "num_words": 3214,
+    "batch_size": 16,
+    "total_time_s": 39.332747599997674,
+    "mean_time_ms": 12.237942626010478,
+    "throughput_words_s": 81.71308123921122,
+    "ram_after_load_mb": 1785.6171875,
+    "ram_peak_mb": 1813.48828125,
+    "gpu_peak_mb": 473.35205078125,
+    "mean_confidence": 0.8639678281200265,
+    "accuracy_metrics": {
+      "cer": 0.15327638062328022,
+      "wer": 0.5783442705704189,
+      "exact_match": 0.05164903546981954,
+      "character_similarity": 0.7961896611683267,
+      "evaluated_words": 3214
+    }
+  }
+}

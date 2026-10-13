@@ -1,0 +1,27 @@
+{
+  "task": "recognition",
+  "dataset": "donkeysmall_printed_15random",
+  "model": "doctr_crnn_vgg16_bn_russian_onnx",
+  "repository": "graycat660/doctr-crnn-vgg16-bn-russian-onnx",
+  "cpu": {
+    "device": "cpu",
+    "providers": [
+      "CPUExecutionProvider"
+    ],
+    "num_words": 1500,
+    "batch_size": 256,
+    "total_time_s": 4.8936677999881795,
+    "mean_time_ms": 3.26244519999212,
+    "throughput_words_s": 306.5185585346891,
+    "ram_after_load_mb": 758.296875,
+    "ram_peak_mb": 1293.96875,
+    "accuracy_metrics": {
+      "cer": 0.06659028105412146,
+      "wer": 0.21933333333333332,
+      "exact_match": 0.7806666666666666,
+      "character_similarity": 0.9396182263499603,
+      "evaluated_words": 1500
+    }
+  },
+  "gpu": null
+}

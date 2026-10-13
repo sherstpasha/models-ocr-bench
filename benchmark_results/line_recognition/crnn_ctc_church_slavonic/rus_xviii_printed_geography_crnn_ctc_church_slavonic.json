@@ -1,0 +1,25 @@
+{
+  "task": "recognition",
+  "dataset": "rus_xviii_printed_geography",
+  "model": "crnn_ctc_church_slavonic",
+  "repository": "achimrabus/crnn-ctc-church-slavonic",
+  "cpu": null,
+  "gpu": {
+    "device": "cuda",
+    "num_words": 3214,
+    "batch_size": 32,
+    "total_time_s": 18.354566199996043,
+    "mean_time_ms": 5.710817112631003,
+    "throughput_words_s": 175.1062904445376,
+    "ram_after_load_mb": 2358.484375,
+    "ram_peak_mb": 2466.0390625,
+    "gpu_peak_mb": 1541.92138671875,
+    "accuracy_metrics": {
+      "cer": 0.4788027132527036,
+      "wer": 0.9340737001514386,
+      "exact_match": 0.008400746733042938,
+      "character_similarity": 0.47863009470283796,
+      "evaluated_words": 3214
+    }
+  }
+}

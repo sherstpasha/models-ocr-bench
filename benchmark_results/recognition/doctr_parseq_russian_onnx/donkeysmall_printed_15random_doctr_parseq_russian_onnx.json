@@ -1,0 +1,27 @@
+{
+  "task": "recognition",
+  "dataset": "donkeysmall_printed_15random",
+  "model": "doctr_parseq_russian_onnx",
+  "repository": "graycat660/doctr-parseq-russian-onnx",
+  "cpu": {
+    "device": "cpu",
+    "providers": [
+      "CPUExecutionProvider"
+    ],
+    "num_words": 1500,
+    "batch_size": 128,
+    "total_time_s": 17.488927300000796,
+    "mean_time_ms": 11.659284866667198,
+    "throughput_words_s": 85.76855368367457,
+    "ram_after_load_mb": 684.84375,
+    "ram_peak_mb": 742.49609375,
+    "accuracy_metrics": {
+      "cer": 0.06402911639819371,
+      "wer": 0.19333333333333333,
+      "exact_match": 0.8066666666666666,
+      "character_similarity": 0.9430466903638726,
+      "evaluated_words": 1500
+    }
+  },
+  "gpu": null
+}

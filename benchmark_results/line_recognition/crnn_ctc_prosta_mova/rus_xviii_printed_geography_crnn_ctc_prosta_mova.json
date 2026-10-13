@@ -1,0 +1,25 @@
+{
+  "task": "recognition",
+  "dataset": "rus_xviii_printed_geography",
+  "model": "crnn_ctc_prosta_mova",
+  "repository": "achimrabus/crnn-ctc-prosta-mova",
+  "cpu": null,
+  "gpu": {
+    "device": "cuda",
+    "num_words": 3214,
+    "batch_size": 32,
+    "total_time_s": 16.8006175999908,
+    "mean_time_ms": 5.227323459860237,
+    "throughput_words_s": 191.30249116566762,
+    "ram_after_load_mb": 1013.453125,
+    "ram_peak_mb": 1115.77734375,
+    "gpu_peak_mb": 1542.83544921875,
+    "accuracy_metrics": {
+      "cer": 0.34214020605362516,
+      "wer": 0.8950530035335689,
+      "exact_match": 0.0015556938394523958,
+      "character_similarity": 0.610488073900482,
+      "evaluated_words": 3214
+    }
+  }
+}

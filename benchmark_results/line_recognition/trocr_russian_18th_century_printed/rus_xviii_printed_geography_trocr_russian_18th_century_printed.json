@@ -1,0 +1,25 @@
+{
+  "task": "recognition",
+  "dataset": "rus_xviii_printed_geography",
+  "model": "trocr_russian_18th_century_printed",
+  "repository": "dsmchr/trocr_russian_18th_century_printed",
+  "cpu": null,
+  "gpu": {
+    "device": "cuda",
+    "num_words": 3214,
+    "batch_size": 1,
+    "total_time_s": 1756.3260971000127,
+    "mean_time_ms": 546.461137865592,
+    "throughput_words_s": 1.8299562964456602,
+    "ram_after_load_mb": 2458.65234375,
+    "ram_peak_mb": 2393.9375,
+    "gpu_peak_mb": 1352.12451171875,
+    "accuracy_metrics": {
+      "cer": 0.11612913547065976,
+      "wer": 0.42781423523472994,
+      "exact_match": 0.1568139390168015,
+      "character_similarity": 0.8795899322122525,
+      "evaluated_words": 3214
+    }
+  }
+}

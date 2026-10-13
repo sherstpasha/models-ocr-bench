@@ -169,29 +169,6 @@ BENCHMARKS = {
         "warmup": 1,
         "device": "cuda:0",
     },
-    "rfdetr_leibniz_text_regions": {
-        "origin": "https://huggingface.co/DenisaBumba/rfdetr-instance-segmentation-leibniz-manuscripts",
-        # This checkpoint predicts page zones, not text lines. Keep it out of
-        # the line leaderboard; run it only when explicitly selected.
-        "run": False,
-        "backend": "rfdetr",
-        "output_dir": RESULTS_ROOT / "rfdetr_leibniz_text_regions",
-        "model_dir": PROJECT_ROOT / "models" / "rfdetr-instance-segmentation-leibniz-manuscripts",
-        "repository": "DenisaBumba/rfdetr-instance-segmentation-leibniz-manuscripts",
-        "filename": "checkpoint_best_regular.pth",
-        "architecture": "RF-DETR Seg Nano",
-        "variant": "seg_nano",
-        "num_classes": 10,
-        # COCO category IDs from training_config.json:
-        # 7=MainZone, 8=MarginTextZone.
-        "class_ids": [7, 8],
-        "class_names": ["MainZone", "MarginTextZone"],
-        "detection_level": "region",
-        "resolution": 720,
-        "threshold": 0.4,
-        "warmup": 1,
-        "device": "cuda:0",
-    },
     "court_records_textline_yolov8x_seg": {
         "origin": "https://huggingface.co/Kansallisarkisto/court-records-textline-detection",
         "run": True,
@@ -302,22 +279,6 @@ BENCHMARKS = {
         "output_dir": RESULTS_ROOT / "kraken_blla_default",
         "device": "cuda:0",
         "warmup": 1,
-    },
-    "orli_base": {
-        "origin": "https://github.com/mittagessen/orli",
-        "run": True,
-        "backend": "orli",
-        "output_dir": RESULTS_ROOT / "orli_base",
-        "model_dir": PROJECT_ROOT / "models" / "orli",
-        "model_path": PROJECT_ROOT / "models" / "orli" / "orli_base.safetensors",
-        "doi": "10.5281/zenodo.20558179",
-        "download_url": "https://zenodo.org/records/20558179/files/orli_base.safetensors?download=1",
-        "expected_size": 594442756,
-        # The published base model requires bfloat16 inference.
-        "precision": "bf16-mixed",
-        "device": [0],
-        "warmup": 1,
-        "max_predicted_lines": 768,
     },
     "pero_layout_general": {
         "origin": "https://github.com/DCGM/pero-ocr",

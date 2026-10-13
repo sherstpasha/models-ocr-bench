@@ -1,0 +1,25 @@
+{
+  "task": "recognition",
+  "dataset": "rus_xviii_printed_geography",
+  "model": "trocr_rukopys",
+  "repository": "Hukyl/trocr-rukopys",
+  "cpu": null,
+  "gpu": {
+    "device": "cuda",
+    "num_words": 3214,
+    "batch_size": 1,
+    "total_time_s": 1906.98942730001,
+    "mean_time_ms": 593.3383407902955,
+    "throughput_words_s": 1.6853790346129536,
+    "ram_after_load_mb": 1550.72265625,
+    "ram_peak_mb": 1550.0078125,
+    "gpu_peak_mb": 1383.98486328125,
+    "accuracy_metrics": {
+      "cer": 0.3957653420362194,
+      "wer": 0.8849570923775871,
+      "exact_match": 0.03546981953951462,
+      "character_similarity": 0.6237839258670619,
+      "evaluated_words": 3214
+    }
+  }
+}

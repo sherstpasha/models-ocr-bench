@@ -224,6 +224,7 @@ benchmark_results/detection/**/visualizations/
 benchmark_results/line_detection/**/*_predictions.json
 benchmark_results/line_detection/**/visualizations/
 benchmark_results/line_detection/ground_truth_examples/
+benchmark_results/dataset_audits/*/source/
 
 # PyPI configuration file
 .pypirc

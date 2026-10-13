@@ -100,7 +100,7 @@ def write_summary():
         "Each dataset cell: `F1@0.5 / F1@0.5:0.95 / Dice F1 / Polygon H-mean@0.5`.",
         "`*` marks a dataset known to have been used to train or tune that model.",
         "Rows are sorted by the mean rank across the four aggregate metrics.",
-        'Heatmap: <span style="color:#4f8a5b">better</span> / <span style="color:#8a7a52">middle</span> / <span style="color:#b35c5c">worse</span> within each metric column.',
+        r'Heatmap: ${\color[RGB]{79,138,91}\mathrm{better}}$ / ${\color[RGB]{138,122,82}\mathrm{middle}}$ / ${\color[RGB]{179,92,92}\mathrm{worse}}$ within each metric column.',
         "",
         "| " + " | ".join(headers) + " |",
         "| " + " | ".join(["---"] * len(headers)) + " |",

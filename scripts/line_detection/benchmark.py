@@ -11,6 +11,7 @@ from scripts.line_detection.prepare_datasets import prepare_dataset
 
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
 BACKEND_ENVIRONMENTS = {
+    "monkeyocrv2": ".venv",
     "ndlocr_deimv2": ".venv",
     "arjuna": ".venv",
     "manga_onnx": ".venv",
@@ -26,7 +27,7 @@ BACKEND_ENVIRONMENTS = {
     "ultralytics": ".venv",
 }
 BACKEND_ORDER = [
-    "doc_ufcn", "rfdetr", "paddleocr", "arjuna", "manga_onnx", "ndlocr_deimv2", "regnetx_polyline", "surya", "mask2former",
+    "monkeyocrv2", "doc_ufcn", "rfdetr", "paddleocr", "arjuna", "manga_onnx", "ndlocr_deimv2", "regnetx_polyline", "surya", "mask2former",
     "kraken", "pero", "rtmdet", "ultralytics",
 ]
 

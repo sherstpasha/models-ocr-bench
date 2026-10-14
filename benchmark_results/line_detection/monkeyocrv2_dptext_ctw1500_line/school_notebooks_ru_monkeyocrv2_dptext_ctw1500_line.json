@@ -1,0 +1,56 @@
+{
+  "dataset": "school_notebooks_ru",
+  "level": "line",
+  "cpu": null,
+  "gpu": {
+    "device": "cuda:0",
+    "architecture": "MonkeyOCRv2 DPText-DETR",
+    "repository": "https://huggingface.co/HB16888/MonkeyOCRv2_det_dptext",
+    "num_images": 150,
+    "mean_time_ms": 303.1494169933164,
+    "median_time_ms": 224.9024239999926,
+    "throughput_fps": 3.298703358621492,
+    "gpu_after_load_mb": 118.9892578125,
+    "gpu_peak_mb": 528.17822265625,
+    "gpu_delta_mb": 409.18896484375,
+    "accuracy_metrics": {
+      "iou_threshold": 0.5,
+      "precision": 0.9696709585121602,
+      "recall": 0.5251820858515419,
+      "f1": 0.6813429835142742,
+      "mean_matched_iou": 0.8192692769828314,
+      "true_positives": 3389,
+      "false_positives": 106,
+      "false_negatives": 3064,
+      "evaluated_images": 150,
+      "f1@0.5": 0.6813429835142742,
+      "f1@0.5:0.95": 0.46865701648572583,
+      "f1_by_iou": {
+        "0.50": 0.6813429835142742,
+        "0.55": 0.6773220747889024,
+        "0.60": 0.6708886208283072,
+        "0.65": 0.6558102131081625,
+        "0.70": 0.6194209891435465,
+        "0.75": 0.5478488138319259,
+        "0.80": 0.42159227985524733,
+        "0.85": 0.265178930438279,
+        "0.90": 0.12384398874145555,
+        "0.95": 0.02332127060715722
+      }
+    },
+    "polygon_iou_metrics": {
+      "iou_threshold": 0.5,
+      "precision": 0.9645207439198855,
+      "recall": 0.5223926855726019,
+      "hmean": 0.6777241656614394,
+      "dice_f1": 0.7171342967274934,
+      "mean_matched_iou": 0.7477141536702695,
+      "true_positives": 3371,
+      "false_positives": 124,
+      "false_negatives": 3082,
+      "evaluated_images": 150
+    },
+    "detection_level": "line",
+    "ground_truth_version": 4
+  }
+}

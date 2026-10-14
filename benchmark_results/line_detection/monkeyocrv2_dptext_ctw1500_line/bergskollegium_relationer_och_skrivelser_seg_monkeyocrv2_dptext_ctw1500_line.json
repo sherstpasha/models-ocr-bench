@@ -1,0 +1,56 @@
+{
+  "dataset": "bergskollegium_relationer_och_skrivelser_seg",
+  "level": "line",
+  "cpu": null,
+  "gpu": {
+    "device": "cuda:0",
+    "architecture": "MonkeyOCRv2 DPText-DETR",
+    "repository": "https://huggingface.co/HB16888/MonkeyOCRv2_det_dptext",
+    "num_images": 100,
+    "mean_time_ms": 445.36786968999877,
+    "median_time_ms": 291.11613000031866,
+    "throughput_fps": 2.24533485250307,
+    "gpu_after_load_mb": 118.9892578125,
+    "gpu_peak_mb": 554.93603515625,
+    "gpu_delta_mb": 435.94677734375,
+    "accuracy_metrics": {
+      "iou_threshold": 0.5,
+      "precision": 0.9230769230769231,
+      "recall": 0.012089462018940157,
+      "f1": 0.02386634844868735,
+      "mean_matched_iou": 0.7094463329348223,
+      "true_positives": 60,
+      "false_positives": 5,
+      "false_negatives": 4903,
+      "evaluated_images": 100,
+      "f1@0.5": 0.02386634844868735,
+      "f1@0.5:0.95": 0.011177406523468575,
+      "f1_by_iou": {
+        "0.50": 0.02386634844868735,
+        "0.55": 0.02386634844868735,
+        "0.60": 0.022275258552108195,
+        "0.65": 0.017501988862370726,
+        "0.70": 0.013126491646778041,
+        "0.75": 0.007955449482895784,
+        "0.80": 0.0027844073190135244,
+        "0.85": 0.0003977724741447892,
+        "0.90": 0.0,
+        "0.95": 0.0
+      }
+    },
+    "polygon_iou_metrics": {
+      "iou_threshold": 0.5,
+      "precision": 0.9230769230769231,
+      "recall": 0.012089462018940157,
+      "hmean": 0.02386634844868735,
+      "dice_f1": 0.0037442648864538784,
+      "mean_matched_iou": 0.6980853213809047,
+      "true_positives": 60,
+      "false_positives": 5,
+      "false_negatives": 4903,
+      "evaluated_images": 100
+    },
+    "detection_level": "line",
+    "ground_truth_version": 4
+  }
+}

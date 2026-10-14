@@ -2,6 +2,7 @@
 
 
 TRAINING_DATASET_OVERLAPS = {
+    "monkeyocrv2_dptext_totaltext_word": {"TotalText"},
     "yolo26x_obb_text_g1": {"YeniseiGovReports-TD", "school_notebooks_RU"},
     "yolo26s_obb_text_g1": {"YeniseiGovReports-TD", "school_notebooks_RU"},
     "east_50_g1": {"YeniseiGovReports-TD", "ICDAR2015"},

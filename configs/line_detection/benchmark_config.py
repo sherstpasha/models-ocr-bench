@@ -13,6 +13,17 @@ DATA_ROOT = Path(os.environ.get(
 OLD_ORTHOGRAPHY_ROOT = DATA_ROOT / "russian_old_orthography_ocr"
 
 BENCHMARKS = {
+    "monkeyocrv2_dptext_ctw1500_line": {
+        "origin": "https://huggingface.co/HB16888/MonkeyOCRv2_det_dptext",
+        "run": True,
+        "backend": "monkeyocrv2",
+        "output_dir": RESULTS_ROOT / "monkeyocrv2_dptext_ctw1500_line",
+        "docker_config": "configs/DPText_DETR/CTW_Rotate/mkv2vitae_align.yaml",
+        "docker_weights": "/models/dptext_mkv2vitae_ctw1500.pth",
+        "score_threshold": 0.375,
+        "warmup": 1,
+        "device": "cuda:0",
+    },
     "nemotron_ocr_v2_multilingual_line": {
         "origin": "https://huggingface.co/nvidia/nemotron-ocr-v2",
         "run": True,

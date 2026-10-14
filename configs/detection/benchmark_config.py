@@ -13,6 +13,19 @@ DATA_ROOT = Path(os.environ.get(
 OLD_ORTHOGRAPHY_ROOT = DATA_ROOT / "russian_old_orthography_ocr"
 
 BENCHMARKS = {
+    "monkeyocrv2_dptext_totaltext_word": {
+        "origin": "https://huggingface.co/HB16888/MonkeyOCRv2_det_dptext",
+        "run": True,
+        "backend": "monkeyocrv2",
+        "script": PROJECT_ROOT / "scripts" / "detection" / "benchmark_monkeyocrv2.py",
+        "output_dir": RESULTS_ROOT / "monkeyocrv2_dptext_totaltext_word",
+        "docker_config": "configs/DPText_DETR/TotalText_Direct_Rotate/mkv2vitae_align.yaml",
+        "docker_weights": "/models/dptext_mkv2vitae_totaltext.pth",
+        "score_threshold": 0.405,
+        "warmup": 1,
+        "cpu_only": False,
+        "gpu_only": True,
+    },
     "dbnet_khmer_word": {
         "origin": "https://huggingface.co/Darayut/dbnet-khmer",
         "run": True,

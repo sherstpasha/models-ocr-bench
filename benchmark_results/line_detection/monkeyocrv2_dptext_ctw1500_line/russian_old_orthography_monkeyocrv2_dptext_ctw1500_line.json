@@ -1,0 +1,56 @@
+{
+  "dataset": "russian_old_orthography",
+  "level": "line",
+  "cpu": null,
+  "gpu": {
+    "device": "cuda:0",
+    "architecture": "MonkeyOCRv2 DPText-DETR",
+    "repository": "https://huggingface.co/HB16888/MonkeyOCRv2_det_dptext",
+    "num_images": 39,
+    "mean_time_ms": 96.91692948721399,
+    "median_time_ms": 96.26857900002506,
+    "throughput_fps": 10.318114753438692,
+    "gpu_after_load_mb": 118.9892578125,
+    "gpu_peak_mb": 461.59521484375,
+    "gpu_delta_mb": 342.60595703125,
+    "accuracy_metrics": {
+      "iou_threshold": 0.5,
+      "precision": 0.8220125786163522,
+      "recall": 0.9295874822190612,
+      "f1": 0.8724966622162884,
+      "mean_matched_iou": 0.7659323413882039,
+      "true_positives": 1307,
+      "false_positives": 283,
+      "false_negatives": 99,
+      "evaluated_images": 39,
+      "f1@0.5": 0.8724966622162884,
+      "f1@0.5:0.95": 0.5089452603471296,
+      "f1_by_iou": {
+        "0.50": 0.8724966622162884,
+        "0.55": 0.8638184245660881,
+        "0.60": 0.8424566088117491,
+        "0.65": 0.8010680907877169,
+        "0.70": 0.725634178905207,
+        "0.75": 0.5901201602136181,
+        "0.80": 0.32242990654205606,
+        "0.85": 0.06742323097463285,
+        "0.90": 0.004005340453938586,
+        "0.95": 0.0
+      }
+    },
+    "polygon_iou_metrics": {
+      "iou_threshold": 0.5,
+      "precision": 0.829559748427673,
+      "recall": 0.938122332859175,
+      "hmean": 0.8805073431241656,
+      "dice_f1": 0.8974553255310469,
+      "mean_matched_iou": 0.8600251174816779,
+      "true_positives": 1319,
+      "false_positives": 271,
+      "false_negatives": 87,
+      "evaluated_images": 39
+    },
+    "detection_level": "line",
+    "ground_truth_version": 4
+  }
+}

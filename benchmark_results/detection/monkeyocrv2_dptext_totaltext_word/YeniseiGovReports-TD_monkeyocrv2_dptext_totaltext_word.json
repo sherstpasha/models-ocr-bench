@@ -1,0 +1,55 @@
+{
+  "dataset": "YeniseiGovReports-TD",
+  "level": "word",
+  "cpu": null,
+  "gpu": {
+    "device": "cuda:0",
+    "architecture": "MonkeyOCRv2 DPText-DETR",
+    "repository": "https://huggingface.co/HB16888/MonkeyOCRv2_det_dptext",
+    "num_images": 270,
+    "mean_time_ms": 380.6067475555614,
+    "median_time_ms": 287.74699999985387,
+    "throughput_fps": 2.6273837929108677,
+    "gpu_after_load_mb": 118.9892578125,
+    "gpu_peak_mb": 738.03759765625,
+    "gpu_delta_mb": 619.04833984375,
+    "accuracy_metrics": {
+      "iou_threshold": 0.5,
+      "precision": 0.854587967644085,
+      "recall": 0.279158581396309,
+      "f1": 0.4208446145706906,
+      "mean_matched_iou": 0.7215720664003847,
+      "true_positives": 13523,
+      "false_positives": 2301,
+      "false_negatives": 34919,
+      "evaluated_images": 270,
+      "f1@0.5": 0.4208446145706906,
+      "f1@0.5:0.95": 0.2077241465160427,
+      "f1_by_iou": {
+        "0.50": 0.4208446145706906,
+        "0.55": 0.39342731771076456,
+        "0.60": 0.35362400024896523,
+        "0.65": 0.3031774188528927,
+        "0.70": 0.2406249027479538,
+        "0.75": 0.17477359723648583,
+        "0.80": 0.1123766844054399,
+        "0.85": 0.057044160209130806,
+        "0.90": 0.019108082034045994,
+        "0.95": 0.002240687144057511
+      }
+    },
+    "polygon_iou_metrics": {
+      "iou_threshold": 0.5,
+      "precision": 0.8628033367037411,
+      "recall": 0.28184220304694274,
+      "hmean": 0.42489029969190556,
+      "dice_f1": 0.6094049099739137,
+      "mean_matched_iou": 0.7032248518349151,
+      "true_positives": 13653,
+      "false_positives": 2171,
+      "false_negatives": 34789,
+      "evaluated_images": 270
+    },
+    "word_level_target": true
+  }
+}

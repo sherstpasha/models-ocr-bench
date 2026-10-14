@@ -16,3 +16,4 @@
 - `trocr_church_slavonic_handwritten` нативно падает на длинных CUDA-прогонах, поэтому использует batch size 1, высоту 128, `generation_max_length=128` и checkpoint.
 - `party_european_languages` потребовала исправления совместимости с Python 3.10 и завершила полный бенчмарк только после снижения batch size до 8 и размера синтетической страницы до 32.
 - `yolov8m_historical_line_segmenter` перенесена из детекции слов в детекцию строк, а её bbox преобразуются в полигоны из-за отсутствия instance masks.
+- `monkeyocrv2_dptext_totaltext_word` ограничена 100 предсказаниями на изображение, поэтому на плотных документных страницах часть слов неизбежно пропускается.

@@ -11,6 +11,8 @@ PROJECT_ROOT = Path(__file__).resolve().parents[1]
 VERSION = "v2"
 
 MODEL_LICENSES = {
+    "monkeyocrv2_dptext_totaltext_word": "AdelaideT Non-Commercial",
+    "monkeyocrv2_dptext_ctw1500_line": "AdelaideT Non-Commercial",
     "nemotron_ocr_v2_multilingual_line": "NVIDIA Open Model License / Apache-2.0",
     "ndlocr_lite_deimv2_line": "CC-BY-4.0 / DINOv3",
     "east_50_g1": "MIT",
